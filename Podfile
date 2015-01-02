@@ -1,0 +1,7 @@
+pod 'NYSegmentedControl'
+pod 'PNChart', '~> 0.5'
+pod 'ACPButton'
+pod 'AFTextView'
+pod 'LTHPasscodeViewController', '~> 3.1'
+pod 'SWRevealViewController', '~> 2.3'
+pod 'JTSImageViewController', '~> 1.4'

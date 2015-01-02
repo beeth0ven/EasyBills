@@ -1,0 +1,31 @@
+PODS:
+  - ACPButton (1.0.0)
+  - AFTextView (0.0.1)
+  - JTSImageViewController (1.4)
+  - LTHPasscodeViewController (3.1.9)
+  - NYSegmentedControl (1.0.3)
+  - PNChart (0.5):
+    - UICountingLabel (~> 1.0.0)
+  - SWRevealViewController (2.3.0)
+  - UICountingLabel (1.0.0)
+
+DEPENDENCIES:
+  - ACPButton
+  - AFTextView
+  - JTSImageViewController (~> 1.4)
+  - LTHPasscodeViewController (~> 3.1)
+  - NYSegmentedControl
+  - PNChart (~> 0.5)
+  - SWRevealViewController (~> 2.3)
+
+SPEC CHECKSUMS:
+  ACPButton: 1df0abd6b87fd48dbb8c44b6271d9afa44806bdc
+  AFTextView: c650834b4dba10272aaa4894d25098a22f2e76f9
+  JTSImageViewController: 9fe6402194b7679f0e28d0c1002d6164301fc34a
+  LTHPasscodeViewController: 2d7f017c56985bd663e4e1625a126f7e81d6fdaf
+  NYSegmentedControl: 74094b886a80bfc4e9f6d415601e9b11797b22b7
+  PNChart: 0d0cf4531de3aa7f2b12434a54845d70d9c9cfe3
+  SWRevealViewController: f6d80638b8e12323e87ac79562345403a799cb77
+  UICountingLabel: 0a0e9e34bf4690dbd127aaec552d19ed938087a9
+
+COCOAPODS: 0.35.0

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F0B3811DD8B4AD6A1A72E3F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A5F4B0F58449C59A21A605 /* libPods.a */; };
 		BD1BF7D919DB901E00B1379A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF7D819DB901E00B1379A /* Foundation.framework */; };
 		BD1BF7DB19DB901E00B1379A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF7DA19DB901E00B1379A /* CoreGraphics.framework */; };
 		BD1BF7DD19DB901E00B1379A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF7DC19DB901E00B1379A /* UIKit.framework */; };
@@ -21,6 +22,56 @@
 		BD1BF7FA19DB901E00B1379A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF7DC19DB901E00B1379A /* UIKit.framework */; };
 		BD1BF80219DB901E00B1379A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD1BF80019DB901E00B1379A /* InfoPlist.strings */; };
 		BD1BF80419DB901E00B1379A /* EasyBillsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF80319DB901E00B1379A /* EasyBillsTests.m */; };
+		BD1BF83119DB927300B1379A /* Bill+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF81119DB927300B1379A /* Bill+Create.m */; };
+		BD1BF83219DB927300B1379A /* BillCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF81319DB927300B1379A /* BillCoreDataTableViewController.m */; };
+		BD1BF83319DB927300B1379A /* BillTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF81519DB927300B1379A /* BillTableViewCell.m */; };
+		BD1BF83419DB927300B1379A /* ChartDate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF81719DB927300B1379A /* ChartDate.m */; };
+		BD1BF83519DB927300B1379A /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF81919DB927300B1379A /* CoreDataTableViewController.m */; };
+		BD1BF83619DB927300B1379A /* DateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF81B19DB927300B1379A /* DateTableViewCell.m */; };
+		BD1BF83719DB927300B1379A /* EqualTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF81D19DB927300B1379A /* EqualTableViewController.m */; };
+		BD1BF83919DB927300B1379A /* GetMoneyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82119DB927300B1379A /* GetMoneyTableViewController.m */; };
+		BD1BF83B19DB927300B1379A /* Kind+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82519DB927300B1379A /* Kind+Create.m */; };
+		BD1BF83C19DB927300B1379A /* KindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82719DB927300B1379A /* KindTableViewCell.m */; };
+		BD1BF83D19DB927300B1379A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82819DB927300B1379A /* Model.xcdatamodeld */; };
+		BD1BF83E19DB927300B1379A /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82B19DB927300B1379A /* NoteTableViewCell.m */; };
+		BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82D19DB927300B1379A /* PubicVariable.m */; };
+		BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82F19DB927300B1379A /* PubicVariable+FetchRequest.m */; };
+		BD1BF84319DB928900B1379A /* MoneyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF84219DB928900B1379A /* MoneyTableViewCell.m */; };
+		BD1BF84519DB961800B1379A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF84419DB961800B1379A /* CoreData.framework */; };
+		BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3342A11A4DB07F00BC163C /* ColorPickerCollectionViewController.m */; };
+		BD6B1E611A4F007A00035AC9 /* ColorPickerCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6B1E601A4F007A00035AC9 /* ColorPickerCVCell.m */; };
+		BD9B7CDC1A35E32800CEA268 /* Account details.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9B7CDB1A35E32800CEA268 /* Account details.png */; };
+		BDA19D2B1A18EBD200E1CFC7 /* MyCollectionViewController+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA19D2A1A18EBD200E1CFC7 /* MyCollectionViewController+CollectionView.m */; };
+		BDA397841A3BE9E400E1D9F7 /* DefaultStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */; };
+		BDA397861A3BF0D000E1D9F7 /* Account details BG.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA397851A3BF0D000E1D9F7 /* Account details BG.png */; };
+		BDA5A34C19FA787A006D2E69 /* MapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA5A34B19FA787A006D2E69 /* MapCDTVC.m */; };
+		BDA7938C1A39BC5B0093E591 /* KindDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA7938B1A39BC5B0093E591 /* KindDetailTableViewController.m */; };
+		BDA7938F1A39BC940093E591 /* KindNameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA7938E1A39BC940093E591 /* KindNameTableViewCell.m */; };
+		BDA8A8221A13B42600C7B1CB /* MoneyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8211A13B42600C7B1CB /* MoneyCollectionViewCell.m */; };
+		BDA8A8261A13B45600C7B1CB /* KindCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8251A13B45600C7B1CB /* KindCollectionViewCell.m */; };
+		BDA8A8291A13B46500C7B1CB /* DateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8281A13B46500C7B1CB /* DateCollectionViewCell.m */; };
+		BDA8A82C1A13B48C00C7B1CB /* LocationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A82B1A13B48C00C7B1CB /* LocationCollectionViewCell.m */; };
+		BDA8A82F1A13B49600C7B1CB /* MapCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A82E1A13B49600C7B1CB /* MapCollectionViewCell.m */; };
+		BDA8A8321A13B4B500C7B1CB /* NoteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8311A13B4B500C7B1CB /* NoteCollectionViewCell.m */; };
+		BDA8A83B1A13B50500C7B1CB /* NotbodyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A83A1A13B50500C7B1CB /* NotbodyCollectionViewCell.m */; };
+		BDA8A83E1A13B58400C7B1CB /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A83D1A13B58400C7B1CB /* PhotoCollectionViewCell.m */; };
+		BDA8A8411A13B5A900C7B1CB /* DeleteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8401A13B5A900C7B1CB /* DeleteCollectionViewCell.m */; };
+		BDA956391A10F13F00E55A9D /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA956381A10F13F00E55A9D /* MyCollectionViewController.m */; };
+		BDA956941A2A149C006E163D /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA956931A2A149C006E163D /* ImageCollectionViewCell.m */; };
+		BDAA601F1A2B6CF5003DBD74 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAA601E1A2B6CF5003DBD74 /* Bill.m */; };
+		BDAB37EF19E7BAFB00EB36DF /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAB37EE19E7BAFB00EB36DF /* Kind.m */; };
+		BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABBCC81A03C4EE0029D7D1 /* CoreDataMapViewController.m */; };
+		BDB02A421A0E735300B9391C /* CoreDataCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB02A411A0E735300B9391C /* CoreDataCollectionViewController.m */; };
+		BDB02A461A0E7C2C00B9391C /* KindCDCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB02A451A0E7C2C00B9391C /* KindCDCVC.m */; };
+		BDB055951A15E46500751913 /* DatePickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB055941A15E46500751913 /* DatePickerCollectionViewCell.m */; };
+		BDB055981A163C3000751913 /* KindePickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB055971A163C3000751913 /* KindePickerCollectionViewCell.m */; };
+		BDB0559B1A17153500751913 /* MyCollectionViewController+ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB0559A1A17153500751913 /* MyCollectionViewController+ActionSheet.m */; };
+		BDB056BA19E3A1D000494080 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB056B919E3A1D000494080 /* SettingTableViewController.m */; };
+		BDB073DC19FBD9780062462F /* Bill+MKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB073DB19FBD9780062462F /* Bill+MKAnnotation.m */; };
+		BDB073DE19FBDFA60062462F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB073DD19FBDFA60062462F /* CoreLocation.framework */; };
+		BDB32C9C1A22421C00EA822E /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB32C9B1A22421C00EA822E /* SidebarViewController.m */; };
+		BDB39FD919E814BF0022E5C4 /* KindCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB39FD819E814BF0022E5C4 /* KindCoreDataTableViewController.m */; };
+		BDC43D701A3735C5006EFB5C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = BDC43D6F1A3735C5006EFB5C /* back.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +85,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CA564406E4C247DAE42E147 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		50A5F4B0F58449C59A21A605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1BF7D519DB901E00B1379A /* EasyBills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyBills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1BF7D819DB901E00B1379A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BD1BF7DA19DB901E00B1379A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +106,102 @@
 		BD1BF7FF19DB901E00B1379A /* EasyBillsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyBillsTests-Info.plist"; sourceTree = "<group>"; };
 		BD1BF80119DB901E00B1379A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD1BF80319DB901E00B1379A /* EasyBillsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyBillsTests.m; sourceTree = "<group>"; };
+		BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EasyBills.entitlements; sourceTree = "<group>"; };
+		BD1BF81019DB927300B1379A /* Bill+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bill+Create.h"; sourceTree = "<group>"; };
+		BD1BF81119DB927300B1379A /* Bill+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bill+Create.m"; sourceTree = "<group>"; };
+		BD1BF81219DB927300B1379A /* BillCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillCoreDataTableViewController.h; sourceTree = "<group>"; };
+		BD1BF81319DB927300B1379A /* BillCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillCoreDataTableViewController.m; sourceTree = "<group>"; };
+		BD1BF81419DB927300B1379A /* BillTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillTableViewCell.h; sourceTree = "<group>"; };
+		BD1BF81519DB927300B1379A /* BillTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillTableViewCell.m; sourceTree = "<group>"; };
+		BD1BF81619DB927300B1379A /* ChartDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartDate.h; sourceTree = "<group>"; };
+		BD1BF81719DB927300B1379A /* ChartDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartDate.m; sourceTree = "<group>"; };
+		BD1BF81819DB927300B1379A /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		BD1BF81919DB927300B1379A /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		BD1BF81A19DB927300B1379A /* DateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTableViewCell.h; sourceTree = "<group>"; };
+		BD1BF81B19DB927300B1379A /* DateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTableViewCell.m; sourceTree = "<group>"; };
+		BD1BF81C19DB927300B1379A /* EqualTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqualTableViewController.h; sourceTree = "<group>"; };
+		BD1BF81D19DB927300B1379A /* EqualTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqualTableViewController.m; sourceTree = "<group>"; };
+		BD1BF82019DB927300B1379A /* GetMoneyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMoneyTableViewController.h; sourceTree = "<group>"; };
+		BD1BF82119DB927300B1379A /* GetMoneyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMoneyTableViewController.m; sourceTree = "<group>"; };
+		BD1BF82419DB927300B1379A /* Kind+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Kind+Create.h"; sourceTree = "<group>"; };
+		BD1BF82519DB927300B1379A /* Kind+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Kind+Create.m"; sourceTree = "<group>"; };
+		BD1BF82619DB927300B1379A /* KindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindTableViewCell.h; sourceTree = "<group>"; };
+		BD1BF82719DB927300B1379A /* KindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindTableViewCell.m; sourceTree = "<group>"; };
+		BD1BF82919DB927300B1379A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		BD1BF82A19DB927300B1379A /* NoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
+		BD1BF82B19DB927300B1379A /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
+		BD1BF82C19DB927300B1379A /* PubicVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PubicVariable.h; sourceTree = "<group>"; };
+		BD1BF82D19DB927300B1379A /* PubicVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PubicVariable.m; sourceTree = "<group>"; };
+		BD1BF82E19DB927300B1379A /* PubicVariable+FetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PubicVariable+FetchRequest.h"; sourceTree = "<group>"; };
+		BD1BF82F19DB927300B1379A /* PubicVariable+FetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PubicVariable+FetchRequest.m"; sourceTree = "<group>"; };
+		BD1BF84119DB928900B1379A /* MoneyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyTableViewCell.h; sourceTree = "<group>"; };
+		BD1BF84219DB928900B1379A /* MoneyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyTableViewCell.m; sourceTree = "<group>"; };
+		BD1BF84419DB961800B1379A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BD3342A01A4DB07F00BC163C /* ColorPickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewController.h; sourceTree = "<group>"; };
+		BD3342A11A4DB07F00BC163C /* ColorPickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewController.m; sourceTree = "<group>"; };
+		BD6B1E5F1A4F007A00035AC9 /* ColorPickerCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCVCell.h; sourceTree = "<group>"; };
+		BD6B1E601A4F007A00035AC9 /* ColorPickerCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCVCell.m; sourceTree = "<group>"; };
+		BD9B7CDB1A35E32800CEA268 /* Account details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Account details.png"; sourceTree = "<group>"; };
+		BDA19D291A18EBD200E1CFC7 /* MyCollectionViewController+CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyCollectionViewController+CollectionView.h"; sourceTree = "<group>"; };
+		BDA19D2A1A18EBD200E1CFC7 /* MyCollectionViewController+CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyCollectionViewController+CollectionView.m"; sourceTree = "<group>"; };
+		BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultStyleController.h; sourceTree = "<group>"; };
+		BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultStyleController.m; sourceTree = "<group>"; };
+		BDA397851A3BF0D000E1D9F7 /* Account details BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Account details BG.png"; sourceTree = "<group>"; };
+		BDA5A34A19FA787A006D2E69 /* MapCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCDTVC.h; sourceTree = "<group>"; };
+		BDA5A34B19FA787A006D2E69 /* MapCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCDTVC.m; sourceTree = "<group>"; };
+		BDA7938A1A39BC5B0093E591 /* KindDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindDetailTableViewController.h; sourceTree = "<group>"; };
+		BDA7938B1A39BC5B0093E591 /* KindDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindDetailTableViewController.m; sourceTree = "<group>"; };
+		BDA7938D1A39BC940093E591 /* KindNameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindNameTableViewCell.h; sourceTree = "<group>"; };
+		BDA7938E1A39BC940093E591 /* KindNameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindNameTableViewCell.m; sourceTree = "<group>"; };
+		BDA8A8201A13B42600C7B1CB /* MoneyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCollectionViewCell.h; sourceTree = "<group>"; };
+		BDA8A8211A13B42600C7B1CB /* MoneyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCollectionViewCell.m; sourceTree = "<group>"; };
+		BDA8A8241A13B45600C7B1CB /* KindCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindCollectionViewCell.h; sourceTree = "<group>"; };
+		BDA8A8251A13B45600C7B1CB /* KindCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindCollectionViewCell.m; sourceTree = "<group>"; };
+		BDA8A8271A13B46500C7B1CB /* DateCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCollectionViewCell.h; sourceTree = "<group>"; };
+		BDA8A8281A13B46500C7B1CB /* DateCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCollectionViewCell.m; sourceTree = "<group>"; };
+		BDA8A82A1A13B48C00C7B1CB /* LocationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCollectionViewCell.h; sourceTree = "<group>"; };
+		BDA8A82B1A13B48C00C7B1CB /* LocationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCollectionViewCell.m; sourceTree = "<group>"; };
+		BDA8A82D1A13B49600C7B1CB /* MapCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCollectionViewCell.h; sourceTree = "<group>"; };
+		BDA8A82E1A13B49600C7B1CB /* MapCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCollectionViewCell.m; sourceTree = "<group>"; };
+		BDA8A8301A13B4B500C7B1CB /* NoteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCollectionViewCell.h; sourceTree = "<group>"; };
+		BDA8A8311A13B4B500C7B1CB /* NoteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCollectionViewCell.m; sourceTree = "<group>"; };
+		BDA8A8391A13B50500C7B1CB /* NotbodyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotbodyCollectionViewCell.h; sourceTree = "<group>"; };
+		BDA8A83A1A13B50500C7B1CB /* NotbodyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotbodyCollectionViewCell.m; sourceTree = "<group>"; };
+		BDA8A83C1A13B58400C7B1CB /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		BDA8A83D1A13B58400C7B1CB /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		BDA8A83F1A13B5A900C7B1CB /* DeleteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteCollectionViewCell.h; sourceTree = "<group>"; };
+		BDA8A8401A13B5A900C7B1CB /* DeleteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteCollectionViewCell.m; sourceTree = "<group>"; };
+		BDA956371A10F13F00E55A9D /* MyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewController.h; sourceTree = "<group>"; };
+		BDA956381A10F13F00E55A9D /* MyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewController.m; sourceTree = "<group>"; };
+		BDA956921A2A149C006E163D /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
+		BDA956931A2A149C006E163D /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
+		BDAA601D1A2B6CF5003DBD74 /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
+		BDAA601E1A2B6CF5003DBD74 /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
+		BDAB37ED19E7BAFB00EB36DF /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
+		BDAB37EE19E7BAFB00EB36DF /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
+		BDABBCC71A03C4EE0029D7D1 /* CoreDataMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataMapViewController.h; sourceTree = "<group>"; };
+		BDABBCC81A03C4EE0029D7D1 /* CoreDataMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataMapViewController.m; sourceTree = "<group>"; };
+		BDB02A401A0E735300B9391C /* CoreDataCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataCollectionViewController.h; sourceTree = "<group>"; };
+		BDB02A411A0E735300B9391C /* CoreDataCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCollectionViewController.m; sourceTree = "<group>"; };
+		BDB02A441A0E7C2C00B9391C /* KindCDCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindCDCVC.h; sourceTree = "<group>"; };
+		BDB02A451A0E7C2C00B9391C /* KindCDCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindCDCVC.m; sourceTree = "<group>"; };
+		BDB055931A15E46500751913 /* DatePickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerCollectionViewCell.h; sourceTree = "<group>"; };
+		BDB055941A15E46500751913 /* DatePickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerCollectionViewCell.m; sourceTree = "<group>"; };
+		BDB055961A163C3000751913 /* KindePickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindePickerCollectionViewCell.h; sourceTree = "<group>"; };
+		BDB055971A163C3000751913 /* KindePickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindePickerCollectionViewCell.m; sourceTree = "<group>"; };
+		BDB055991A17153500751913 /* MyCollectionViewController+ActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyCollectionViewController+ActionSheet.h"; sourceTree = "<group>"; };
+		BDB0559A1A17153500751913 /* MyCollectionViewController+ActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyCollectionViewController+ActionSheet.m"; sourceTree = "<group>"; };
+		BDB056B819E3A1D000494080 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		BDB056B919E3A1D000494080 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
+		BDB073DA19FBD9780062462F /* Bill+MKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bill+MKAnnotation.h"; sourceTree = "<group>"; };
+		BDB073DB19FBD9780062462F /* Bill+MKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bill+MKAnnotation.m"; sourceTree = "<group>"; };
+		BDB073DD19FBDFA60062462F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BDB32C9A1A22421C00EA822E /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
+		BDB32C9B1A22421C00EA822E /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		BDB39FD719E814BF0022E5C4 /* KindCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindCoreDataTableViewController.h; sourceTree = "<group>"; };
+		BDB39FD819E814BF0022E5C4 /* KindCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindCoreDataTableViewController.m; sourceTree = "<group>"; };
+		BDC43D6F1A3735C5006EFB5C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		E98E799CB54E5AE173A1F075 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +209,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB073DE19FBDFA60062462F /* CoreLocation.framework in Frameworks */,
+				BD1BF84519DB961800B1379A /* CoreData.framework in Frameworks */,
 				BD1BF7DB19DB901E00B1379A /* CoreGraphics.framework in Frameworks */,
 				BD1BF7DD19DB901E00B1379A /* UIKit.framework in Frameworks */,
 				BD1BF7D919DB901E00B1379A /* Foundation.framework in Frameworks */,
+				8F0B3811DD8B4AD6A1A72E3F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +231,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05F9B664C80F658388E5B564 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CA564406E4C247DAE42E147 /* Pods.debug.xcconfig */,
+				E98E799CB54E5AE173A1F075 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BD1BF7CC19DB901E00B1379A = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +247,7 @@
 				BD1BF7FD19DB901E00B1379A /* EasyBillsTests */,
 				BD1BF7D719DB901E00B1379A /* Frameworks */,
 				BD1BF7D619DB901E00B1379A /* Products */,
+				05F9B664C80F658388E5B564 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +263,13 @@
 		BD1BF7D719DB901E00B1379A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDB073DD19FBDFA60062462F /* CoreLocation.framework */,
+				BD1BF84419DB961800B1379A /* CoreData.framework */,
 				BD1BF7D819DB901E00B1379A /* Foundation.framework */,
 				BD1BF7DA19DB901E00B1379A /* CoreGraphics.framework */,
 				BD1BF7DC19DB901E00B1379A /* UIKit.framework */,
 				BD1BF7F719DB901E00B1379A /* XCTest.framework */,
+				50A5F4B0F58449C59A21A605 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,12 +277,13 @@
 		BD1BF7DE19DB901E00B1379A /* EasyBills */ = {
 			isa = PBXGroup;
 			children = (
-				BD1BF7E719DB901E00B1379A /* AppDelegate.h */,
-				BD1BF7E819DB901E00B1379A /* AppDelegate.m */,
-				BD1BF7EA19DB901E00B1379A /* Main.storyboard */,
-				BD1BF7ED19DB901E00B1379A /* ViewController.h */,
-				BD1BF7EE19DB901E00B1379A /* ViewController.m */,
+				BDB32C9A1A22421C00EA822E /* SidebarViewController.h */,
+				BDB32C9B1A22421C00EA822E /* SidebarViewController.m */,
+				BD1BF84A19DB9C8B00B1379A /* Model */,
+				BD1BF84C19DB9CFB00B1379A /* View */,
+				BD1BF84B19DB9CB000B1379A /* Controller */,
 				BD1BF7F019DB901E00B1379A /* Images.xcassets */,
+				BD9B7CDB1A35E32800CEA268 /* Account details.png */,
 				BD1BF7DF19DB901E00B1379A /* Supporting Files */,
 			);
 			path = EasyBills;
@@ -126,6 +292,9 @@
 		BD1BF7DF19DB901E00B1379A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */,
+				BD1BF7E719DB901E00B1379A /* AppDelegate.h */,
+				BD1BF7E819DB901E00B1379A /* AppDelegate.m */,
 				BD1BF7E019DB901E00B1379A /* EasyBills-Info.plist */,
 				BD1BF7E119DB901E00B1379A /* InfoPlist.strings */,
 				BD1BF7E419DB901E00B1379A /* main.m */,
@@ -152,6 +321,191 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BD1BF84719DB9C0100B1379A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BD1BF81019DB927300B1379A /* Bill+Create.h */,
+				BD1BF81119DB927300B1379A /* Bill+Create.m */,
+				BD1BF82419DB927300B1379A /* Kind+Create.h */,
+				BD1BF82519DB927300B1379A /* Kind+Create.m */,
+				BDAA601D1A2B6CF5003DBD74 /* Bill.h */,
+				BDAA601E1A2B6CF5003DBD74 /* Bill.m */,
+				BD1BF82819DB927300B1379A /* Model.xcdatamodeld */,
+				BDB073DA19FBD9780062462F /* Bill+MKAnnotation.h */,
+				BDB073DB19FBD9780062462F /* Bill+MKAnnotation.m */,
+				BDAB37ED19E7BAFB00EB36DF /* Kind.h */,
+				BDAB37EE19E7BAFB00EB36DF /* Kind.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		BD1BF84819DB9C5500B1379A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BDA8A8231A13B43000C7B1CB /* CollectionViewCell */,
+				BDA8A81F1A13B40400C7B1CB /* TableViewCell */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		BD1BF84919DB9C7800B1379A /* GetMoneyTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD1BF82019DB927300B1379A /* GetMoneyTableViewController.h */,
+				BD1BF82119DB927300B1379A /* GetMoneyTableViewController.m */,
+				BDB0559C1A17162B00751913 /* MyCollectionViewController */,
+			);
+			name = GetMoneyTableViewController;
+			sourceTree = "<group>";
+		};
+		BD1BF84A19DB9C8B00B1379A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD1BF82C19DB927300B1379A /* PubicVariable.h */,
+				BD1BF82D19DB927300B1379A /* PubicVariable.m */,
+				BD1BF82E19DB927300B1379A /* PubicVariable+FetchRequest.h */,
+				BD1BF82F19DB927300B1379A /* PubicVariable+FetchRequest.m */,
+				BD1BF81619DB927300B1379A /* ChartDate.h */,
+				BD1BF81719DB927300B1379A /* ChartDate.m */,
+				BD1BF84719DB9C0100B1379A /* CoreData */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BD1BF84B19DB9CB000B1379A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BD1BF7ED19DB901E00B1379A /* ViewController.h */,
+				BD1BF7EE19DB901E00B1379A /* ViewController.m */,
+				BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */,
+				BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */,
+				BDB02A431A0E737D00B9391C /* CoreDataCollectionViewController */,
+				BD1BF84D19DB9DB900B1379A /* CoreDataTableViewController */,
+				BD1BF84919DB9C7800B1379A /* GetMoneyTableViewController */,
+				BDB056BB19E3EC1100494080 /* SettingTableViewController */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		BD1BF84C19DB9CFB00B1379A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDC43D6F1A3735C5006EFB5C /* back.png */,
+				BD1BF7EA19DB901E00B1379A /* Main.storyboard */,
+				BDA397851A3BF0D000E1D9F7 /* Account details BG.png */,
+				BD1BF84819DB9C5500B1379A /* Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BD1BF84D19DB9DB900B1379A /* CoreDataTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BDA7938A1A39BC5B0093E591 /* KindDetailTableViewController.h */,
+				BDA7938B1A39BC5B0093E591 /* KindDetailTableViewController.m */,
+				BDA5A34A19FA787A006D2E69 /* MapCDTVC.h */,
+				BDA5A34B19FA787A006D2E69 /* MapCDTVC.m */,
+				BDABBCC71A03C4EE0029D7D1 /* CoreDataMapViewController.h */,
+				BDABBCC81A03C4EE0029D7D1 /* CoreDataMapViewController.m */,
+				BD1BF81819DB927300B1379A /* CoreDataTableViewController.h */,
+				BD1BF81919DB927300B1379A /* CoreDataTableViewController.m */,
+				BD1BF81219DB927300B1379A /* BillCoreDataTableViewController.h */,
+				BD1BF81319DB927300B1379A /* BillCoreDataTableViewController.m */,
+				BDB39FD719E814BF0022E5C4 /* KindCoreDataTableViewController.h */,
+				BDB39FD819E814BF0022E5C4 /* KindCoreDataTableViewController.m */,
+			);
+			name = CoreDataTableViewController;
+			sourceTree = "<group>";
+		};
+		BDA8A81F1A13B40400C7B1CB /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BDA7938D1A39BC940093E591 /* KindNameTableViewCell.h */,
+				BDA7938E1A39BC940093E591 /* KindNameTableViewCell.m */,
+				BD1BF81419DB927300B1379A /* BillTableViewCell.h */,
+				BD1BF81519DB927300B1379A /* BillTableViewCell.m */,
+				BD1BF81A19DB927300B1379A /* DateTableViewCell.h */,
+				BD1BF81B19DB927300B1379A /* DateTableViewCell.m */,
+				BD1BF84119DB928900B1379A /* MoneyTableViewCell.h */,
+				BD1BF84219DB928900B1379A /* MoneyTableViewCell.m */,
+				BD1BF82619DB927300B1379A /* KindTableViewCell.h */,
+				BD1BF82719DB927300B1379A /* KindTableViewCell.m */,
+				BD1BF82A19DB927300B1379A /* NoteTableViewCell.h */,
+				BD1BF82B19DB927300B1379A /* NoteTableViewCell.m */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		BDA8A8231A13B43000C7B1CB /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BDA8A8201A13B42600C7B1CB /* MoneyCollectionViewCell.h */,
+				BDA8A8211A13B42600C7B1CB /* MoneyCollectionViewCell.m */,
+				BDA8A8241A13B45600C7B1CB /* KindCollectionViewCell.h */,
+				BDA8A8251A13B45600C7B1CB /* KindCollectionViewCell.m */,
+				BDB055961A163C3000751913 /* KindePickerCollectionViewCell.h */,
+				BDB055971A163C3000751913 /* KindePickerCollectionViewCell.m */,
+				BDA8A8271A13B46500C7B1CB /* DateCollectionViewCell.h */,
+				BDA8A8281A13B46500C7B1CB /* DateCollectionViewCell.m */,
+				BDB055931A15E46500751913 /* DatePickerCollectionViewCell.h */,
+				BDB055941A15E46500751913 /* DatePickerCollectionViewCell.m */,
+				BDA8A82A1A13B48C00C7B1CB /* LocationCollectionViewCell.h */,
+				BDA8A82B1A13B48C00C7B1CB /* LocationCollectionViewCell.m */,
+				BDA8A82D1A13B49600C7B1CB /* MapCollectionViewCell.h */,
+				BDA8A82E1A13B49600C7B1CB /* MapCollectionViewCell.m */,
+				BDA8A8301A13B4B500C7B1CB /* NoteCollectionViewCell.h */,
+				BDA8A8311A13B4B500C7B1CB /* NoteCollectionViewCell.m */,
+				BDA8A8391A13B50500C7B1CB /* NotbodyCollectionViewCell.h */,
+				BDA8A83A1A13B50500C7B1CB /* NotbodyCollectionViewCell.m */,
+				BDA8A83C1A13B58400C7B1CB /* PhotoCollectionViewCell.h */,
+				BDA8A83D1A13B58400C7B1CB /* PhotoCollectionViewCell.m */,
+				BDA956921A2A149C006E163D /* ImageCollectionViewCell.h */,
+				BDA956931A2A149C006E163D /* ImageCollectionViewCell.m */,
+				BDA8A83F1A13B5A900C7B1CB /* DeleteCollectionViewCell.h */,
+				BDA8A8401A13B5A900C7B1CB /* DeleteCollectionViewCell.m */,
+				BD3342A01A4DB07F00BC163C /* ColorPickerCollectionViewController.h */,
+				BD3342A11A4DB07F00BC163C /* ColorPickerCollectionViewController.m */,
+				BD6B1E5F1A4F007A00035AC9 /* ColorPickerCVCell.h */,
+				BD6B1E601A4F007A00035AC9 /* ColorPickerCVCell.m */,
+			);
+			name = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		BDB02A431A0E737D00B9391C /* CoreDataCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BDB02A441A0E7C2C00B9391C /* KindCDCVC.h */,
+				BDB02A451A0E7C2C00B9391C /* KindCDCVC.m */,
+				BDB02A401A0E735300B9391C /* CoreDataCollectionViewController.h */,
+				BDB02A411A0E735300B9391C /* CoreDataCollectionViewController.m */,
+			);
+			name = CoreDataCollectionViewController;
+			sourceTree = "<group>";
+		};
+		BDB0559C1A17162B00751913 /* MyCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BDA956371A10F13F00E55A9D /* MyCollectionViewController.h */,
+				BDA956381A10F13F00E55A9D /* MyCollectionViewController.m */,
+				BDA19D291A18EBD200E1CFC7 /* MyCollectionViewController+CollectionView.h */,
+				BDA19D2A1A18EBD200E1CFC7 /* MyCollectionViewController+CollectionView.m */,
+				BDB055991A17153500751913 /* MyCollectionViewController+ActionSheet.h */,
+				BDB0559A1A17153500751913 /* MyCollectionViewController+ActionSheet.m */,
+			);
+			name = MyCollectionViewController;
+			sourceTree = "<group>";
+		};
+		BDB056BB19E3EC1100494080 /* SettingTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD1BF81C19DB927300B1379A /* EqualTableViewController.h */,
+				BD1BF81D19DB927300B1379A /* EqualTableViewController.m */,
+				BDB056B819E3A1D000494080 /* SettingTableViewController.h */,
+				BDB056B919E3A1D000494080 /* SettingTableViewController.m */,
+			);
+			name = SettingTableViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +513,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD1BF80719DB901E00B1379A /* Build configuration list for PBXNativeTarget "EasyBills" */;
 			buildPhases = (
+				77741D26F7A74AE9919607D8 /* Check Pods Manifest.lock */,
 				BD1BF7D119DB901E00B1379A /* Sources */,
 				BD1BF7D219DB901E00B1379A /* Frameworks */,
 				BD1BF7D319DB901E00B1379A /* Resources */,
+				1969632761F945A1BD448A46 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +555,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = beeth0ven;
 				TargetAttributes = {
+					BD1BF7D419DB901E00B1379A = {
+						DevelopmentTeam = 6BDKUNMM63;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					BD1BF7F519DB901E00B1379A = {
 						TestTargetID = BD1BF7D419DB901E00B1379A;
 					};
@@ -229,8 +593,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD1BF7F119DB901E00B1379A /* Images.xcassets in Resources */,
+				BDC43D701A3735C5006EFB5C /* back.png in Resources */,
+				BD9B7CDC1A35E32800CEA268 /* Account details.png in Resources */,
 				BD1BF7E319DB901E00B1379A /* InfoPlist.strings in Resources */,
 				BD1BF7EC19DB901E00B1379A /* Main.storyboard in Resources */,
+				BDA397861A3BF0D000E1D9F7 /* Account details BG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +611,92 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1969632761F945A1BD448A46 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77741D26F7A74AE9919607D8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BD1BF7D119DB901E00B1379A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDA956391A10F13F00E55A9D /* MyCollectionViewController.m in Sources */,
+				BDA8A83E1A13B58400C7B1CB /* PhotoCollectionViewCell.m in Sources */,
+				BDA7938F1A39BC940093E591 /* KindNameTableViewCell.m in Sources */,
+				BD1BF83319DB927300B1379A /* BillTableViewCell.m in Sources */,
+				BDB32C9C1A22421C00EA822E /* SidebarViewController.m in Sources */,
+				BDA8A8221A13B42600C7B1CB /* MoneyCollectionViewCell.m in Sources */,
+				BDB055951A15E46500751913 /* DatePickerCollectionViewCell.m in Sources */,
+				BDAA601F1A2B6CF5003DBD74 /* Bill.m in Sources */,
+				BD1BF83619DB927300B1379A /* DateTableViewCell.m in Sources */,
+				BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */,
+				BDA8A82F1A13B49600C7B1CB /* MapCollectionViewCell.m in Sources */,
+				BDA397841A3BE9E400E1D9F7 /* DefaultStyleController.m in Sources */,
+				BD1BF83719DB927300B1379A /* EqualTableViewController.m in Sources */,
+				BD1BF83919DB927300B1379A /* GetMoneyTableViewController.m in Sources */,
+				BD1BF84319DB928900B1379A /* MoneyTableViewCell.m in Sources */,
+				BD1BF83119DB927300B1379A /* Bill+Create.m in Sources */,
+				BD1BF83519DB927300B1379A /* CoreDataTableViewController.m in Sources */,
+				BDB0559B1A17153500751913 /* MyCollectionViewController+ActionSheet.m in Sources */,
+				BD1BF83219DB927300B1379A /* BillCoreDataTableViewController.m in Sources */,
+				BDA8A8291A13B46500C7B1CB /* DateCollectionViewCell.m in Sources */,
+				BDA7938C1A39BC5B0093E591 /* KindDetailTableViewController.m in Sources */,
+				BD1BF83C19DB927300B1379A /* KindTableViewCell.m in Sources */,
+				BDB02A421A0E735300B9391C /* CoreDataCollectionViewController.m in Sources */,
+				BDA8A8261A13B45600C7B1CB /* KindCollectionViewCell.m in Sources */,
+				BD1BF83D19DB927300B1379A /* Model.xcdatamodeld in Sources */,
 				BD1BF7EF19DB901E00B1379A /* ViewController.m in Sources */,
+				BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */,
+				BDB055981A163C3000751913 /* KindePickerCollectionViewCell.m in Sources */,
 				BD1BF7E919DB901E00B1379A /* AppDelegate.m in Sources */,
+				BDA8A83B1A13B50500C7B1CB /* NotbodyCollectionViewCell.m in Sources */,
+				BDB056BA19E3A1D000494080 /* SettingTableViewController.m in Sources */,
+				BDA8A8411A13B5A900C7B1CB /* DeleteCollectionViewCell.m in Sources */,
+				BDAB37EF19E7BAFB00EB36DF /* Kind.m in Sources */,
+				BDA19D2B1A18EBD200E1CFC7 /* MyCollectionViewController+CollectionView.m in Sources */,
+				BDB02A461A0E7C2C00B9391C /* KindCDCVC.m in Sources */,
+				BDA8A82C1A13B48C00C7B1CB /* LocationCollectionViewCell.m in Sources */,
+				BD6B1E611A4F007A00035AC9 /* ColorPickerCVCell.m in Sources */,
+				BDA5A34C19FA787A006D2E69 /* MapCDTVC.m in Sources */,
+				BDA8A8321A13B4B500C7B1CB /* NoteCollectionViewCell.m in Sources */,
+				BDA956941A2A149C006E163D /* ImageCollectionViewCell.m in Sources */,
+				BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */,
+				BD1BF83B19DB927300B1379A /* Kind+Create.m in Sources */,
+				BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */,
+				BDB39FD919E814BF0022E5C4 /* KindCoreDataTableViewController.m in Sources */,
+				BD1BF83E19DB927300B1379A /* NoteTableViewCell.m in Sources */,
+				BD1BF83419DB927300B1379A /* ChartDate.m in Sources */,
 				BD1BF7E519DB901E00B1379A /* main.m in Sources */,
+				BDB073DC19FBD9780062462F /* Bill+MKAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,26 +818,34 @@
 		};
 		BD1BF80819DB901E00B1379A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CA564406E4C247DAE42E147 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = EasyBills/EasyBills.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EasyBills/EasyBills-Prefix.pch";
 				INFOPLIST_FILE = "EasyBills/EasyBills-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		BD1BF80919DB901E00B1379A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E98E799CB54E5AE173A1F075 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = EasyBills/EasyBills.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EasyBills/EasyBills-Prefix.pch";
 				INFOPLIST_FILE = "EasyBills/EasyBills-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -456,6 +909,7 @@
 				BD1BF80919DB901E00B1379A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BD1BF80A19DB901E00B1379A /* Build configuration list for PBXNativeTarget "EasyBillsTests" */ = {
 			isa = XCConfigurationList;
@@ -464,8 +918,22 @@
 				BD1BF80C19DB901E00B1379A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BD1BF82819DB927300B1379A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BD1BF82919DB927300B1379A /* Model.xcdatamodel */,
+			);
+			currentVersion = BD1BF82919DB927300B1379A /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BD1BF7CD19DB901E00B1379A /* Project object */;
 }

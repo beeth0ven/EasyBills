@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Bill" representedClassName="Bill" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="432446400" indexed="YES" syncable="YES"/>
+        <attribute name="dayID" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Transformable" valueTransformerName="NSUnarchiveFromDataTransformerName" syncable="YES"/>
+        <attribute name="isIncome" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationIsOn" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="money" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="month" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="monthID" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weekday" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="weekID" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="weekOfMonth" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="kind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kind" inverseName="bills" inverseEntity="Kind" syncable="YES"/>
+    </entity>
+    <entity name="Kind" representedClassName="Kind" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="Date" minDateTimeInterval="0" syncable="YES"/>
+        <attribute name="isIncome" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="visiteTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="bills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="kind" inverseEntity="Bill" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Bill" positionX="-4023" positionY="-1665" width="128" height="285"/>
+        <element name="Kind" positionX="-3681" positionY="-1746" width="128" height="118"/>
+    </elements>
+</model>
