@@ -48,7 +48,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    //[self setupSegmentedControl];
+    [self setupSegmentedControl];
     //[self setupButtons];
     [self updateUI];
     UIImage *image = [UIImage imageNamed:@"Account details BG.png"];
@@ -105,9 +105,13 @@
     self.segmentedControl = [[NYSegmentedControl alloc] initWithItems:@[@"本周", @"本月", @"总体"]];
     
     // Add desired targets/actions
-    [self.segmentedControl addTarget:self action:@selector(segmentSelected) forControlEvents:UIControlEventValueChanged];
+    [self.segmentedControl
+     addTarget:self
+     action:@selector(segmentSelected)
+     forControlEvents:UIControlEventValueChanged];
     
     // Customize and size the control
+
     self.segmentedControl.borderWidth = 1.0f;
     self.segmentedControl.borderColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
     
@@ -126,7 +130,7 @@
     self.segmentedControl.segmentIndicatorAnimationDuration = 0.3f;
     [self.segmentedControl sizeToFit];
     self.segmentedControl.selectedSegmentIndex = [PubicVariable dateMode];
-    
+     
     // Add the control to your view
     self.navigationItem.titleView = self.segmentedControl;
 }

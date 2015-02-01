@@ -9,7 +9,7 @@
 #import "PNChartDelegate.h"
 #import "PNChart.h"
 #import "PubicVariable+FetchRequest.h"
-
+#import "DefaultStyleController.h"
 
 @interface ViewController : UIViewController<PNChartDelegate>
 
