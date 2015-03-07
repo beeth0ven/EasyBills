@@ -33,23 +33,23 @@
 {
     //initialize when first create the cell with dequeue method.
     
-    if ([self isFirstCreate]) {
+    BOOL isFirstCreate = [self isFirstCreate];
+    
+    if (isFirstCreate) {
         [self initialize];
+    }else {
+        //if selected property is not change ,do nothing here.
+        if (self.isSelected == selected) {
+            return;
+        }
     }
-    
-    //if selected property is not change ,do nothing here.
-    
-    if (self.isSelected == selected) {
-        return;
-    }
-    
     
     [super setSelected:selected];
     
     // change the cell select state with animation or not.
     
     [self setSelected:selected
-        isFirstCreate:[self isFirstCreate]];
+        isFirstCreate:isFirstCreate];
     
     
 }
@@ -63,7 +63,7 @@
     [self addSubview:self.circleView];
     [self.circleView addSubview:self.selectedCircleView];
     //by defualt the select state is no,so the select circle should not show.
-    [self showSelectedCircleView:NO];
+//    [self showSelectedCircleView:NO];
     NSLog(@"Successfully create the circle view.");
 
 }
@@ -75,7 +75,7 @@
         NSLog(@"Cell is selected.");
         if (firstCreate) {
             //get the cell defualt select state ,show the circle without animation.
-            [self showSelectedCircleView:YES];
+//            [self showSelectedCircleView:YES];
             NSLog(@"Successfully add the selected circle.");
             
         }else{
