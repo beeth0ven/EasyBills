@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-DZNSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-JTSImageViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2BE02613E74D14B7743F6661</key>
+		<key>12E97E8C4118D87EAE8ED932</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>329170CAEAF66931CDC08B27</key>
+		<key>2D4D4D618CDB078F1295C5D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>34690B04EBA45E0FA97ED892</key>
+		<key>3C101EB17721E9631BCB9D59</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D37644004AD5C0316201D61</key>
+		<key>432631169F8E776DEF38B874</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BCB3D7966CF6E533D31501E6</key>
+		<key>44784DE26CFD85E3EDB63A62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2FEA72FD3A146E92F4D0478</key>
+		<key>8857DD117DD8FEA0DF44665A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D3D64D6879C4022C51761F4C</key>
+		<key>C15830FB1673FBA33124E205</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E52A7060F86F83063AF5A90C</key>
+		<key>C57A2317CAC293A23BF6E274</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3CCC24C2A9CDA3FAFB493FE</key>
+		<key>E6EF2126868902C058A1A3E6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EAE5E3B639813789A5DFE74E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

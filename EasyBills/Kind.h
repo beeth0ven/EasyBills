@@ -2,8 +2,8 @@
 //  Kind.h
 //  EasyBills
 //
-//  Created by 罗 杰 on 10/10/14.
-//  Copyright (c) 2014 beeth0ven. All rights reserved.
+//  Created by Beeth0ven on 3/6/15.
+//  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,6 +13,7 @@
 
 @interface Kind : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * colorID;
 @property (nonatomic, retain) NSDate * createDate;
 @property (nonatomic, retain) NSNumber * isIncome;
 @property (nonatomic, retain) NSString * name;

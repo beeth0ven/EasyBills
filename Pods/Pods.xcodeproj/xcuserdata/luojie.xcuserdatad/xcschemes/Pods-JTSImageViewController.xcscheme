@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D37644004AD5C0316201D61"
+               BlueprintIdentifier = "3C101EB17721E9631BCB9D59"
                BuildableName = "libPods-JTSImageViewController.a"
                BlueprintName = "Pods-JTSImageViewController"
                ReferencedContainer = "container:Pods.xcodeproj">

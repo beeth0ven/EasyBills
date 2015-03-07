@@ -8,6 +8,7 @@
 
 #import "Kind+Create.h"
 #import "PubicVariable.h"
+#import "ColorCenter.h"
 
 @implementation Kind (Create)
 
@@ -32,12 +33,19 @@
             kind.name  = name;
             kind.createDate = [NSDate date];
             kind.isIncome = [NSNumber numberWithBool: isIncome];
+            kind.colorID = [ColorCenter assingColorIDIsIncome:isIncome];
             [PubicVariable saveContext];
         }else if ([matches count] == 1){
             kind = [matches lastObject];
         }
     }
     return kind;
+}
+
+- (UIColor *)color{
+    
+    return [ColorCenter colorWithID:self.colorID];
+    
 }
 
 + (void) kindWithNames:(NSArray *)names isIncome:(BOOL) isIncome

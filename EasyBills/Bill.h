@@ -2,8 +2,8 @@
 //  Bill.h
 //  EasyBills
 //
-//  Created by 罗 杰 on 11/30/14.
-//  Copyright (c) 2014 beeth0ven. All rights reserved.
+//  Created by Beeth0ven on 3/6/15.
+//  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -27,7 +27,6 @@
 @property (nonatomic, retain) NSNumber * weekday;
 @property (nonatomic, retain) NSNumber * weekID;
 @property (nonatomic, retain) NSNumber * weekOfMonth;
-@property (nonatomic, retain) id image;
 @property (nonatomic, retain) Kind *kind;
 
 @end

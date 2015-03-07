@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E52A7060F86F83063AF5A90C"
+               BlueprintIdentifier = "C57A2317CAC293A23BF6E274"
                BuildableName = "libPods-AFTextView.a"
                BlueprintName = "Pods-AFTextView"
                ReferencedContainer = "container:Pods.xcodeproj">

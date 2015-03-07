@@ -156,7 +156,8 @@
         
         [Kind kindWithNames:[PubicVariable incomeKinds] isIncome:YES];
         [Kind kindWithNames:[PubicVariable expenseKinds] isIncome:NO];
-        
+        [PubicVariable setLastAssignIncomeColorIndex:-1];
+        [PubicVariable setLastAssignExpenseColorIndex:-1];
 		[self saveContext];
 	}
     return _persistentStoreCoordinator;
@@ -186,15 +187,14 @@
 #define DATEMODE @"DateMode"
 #define KINDISINCOME @"kindIsIncome"
 
-
-+(void)setDateMode:(NSInteger)dateMode
++ (void)setDateMode:(NSInteger)dateMode
 {
-    NSNumber *number = [NSNumber numberWithInt:dateMode];
+    NSNumber *number = [NSNumber numberWithInteger:dateMode];
     [[NSUserDefaults standardUserDefaults] setObject:number forKey:DATEMODE];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+(NSInteger)dateMode
++ (NSInteger)dateMode
 {
     NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:DATEMODE];
     return  number.intValue;
@@ -213,5 +213,37 @@
     return  number.boolValue;
 }
 
+
+
+#define LASTASSIGNINCOMECOLORINDEX @"lastAssignIncomeColorIndex"
+#define LASTASSIGNEXPENSECOLORINDEX @"lastAssignExpenseColorIndex"
+
+
+
++ (void)setLastAssignIncomeColorIndex:(NSInteger)lastAssignIncomeColorIndex
+{
+    NSNumber *number = [NSNumber numberWithInteger:lastAssignIncomeColorIndex];
+    [[NSUserDefaults standardUserDefaults] setObject:number forKey:LASTASSIGNINCOMECOLORINDEX];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (NSInteger)lastAssignIncomeColorIndex
+{
+    NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:LASTASSIGNINCOMECOLORINDEX];
+    return  number.integerValue;
+}
+
++ (void)setLastAssignExpenseColorIndex:(NSInteger)lastAssignExpenseColorIndex
+{
+    NSNumber *number = [NSNumber numberWithInteger:lastAssignExpenseColorIndex];
+    [[NSUserDefaults standardUserDefaults] setObject:number forKey:LASTASSIGNEXPENSECOLORINDEX];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (NSInteger)lastAssignExpenseColorIndex
+{
+    NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:LASTASSIGNEXPENSECOLORINDEX];
+    return  number.integerValue;
+}
 
 @end

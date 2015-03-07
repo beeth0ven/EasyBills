@@ -2,8 +2,8 @@
 //  Bill.m
 //  EasyBills
 //
-//  Created by 罗 杰 on 11/30/14.
-//  Copyright (c) 2014 beeth0ven. All rights reserved.
+//  Created by Beeth0ven on 3/6/15.
+//  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
 #import "Bill.h"
@@ -26,7 +26,6 @@
 @dynamic weekday;
 @dynamic weekID;
 @dynamic weekOfMonth;
-@dynamic image;
 @dynamic kind;
 
 @end

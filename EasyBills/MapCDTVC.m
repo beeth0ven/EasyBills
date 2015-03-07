@@ -8,14 +8,15 @@
 
 #import "MapCDTVC.h"
 #import "Bill+MKAnnotation.h"
-#import "GetMoneyTableViewController.h"
 #import "SWRevealViewController.h"
+#import "UIViewController+Extension.h"
+#import "UINavigationController+Style.h"
+#import "BillDetailCVC.h"
 
 @interface MapCDTVC ()
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
 
 @end
 
@@ -34,7 +35,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self customSetup];
+    [self setupMenuButton];
 
     self.mapView.delegate = self;
     [self performSelector:@selector(setupFetchedResultsController) withObject:nil afterDelay:0.5];
@@ -42,16 +43,14 @@
 
 }
 
-- (void)customSetup
-{
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if ( revealViewController )
-    {
-        [self.revealButtonItem setTarget: self.revealViewController];
-        [self.revealButtonItem setAction: @selector( revealToggle: )];
-        [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
-    }
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [self.navigationController applyDefualtStyle:YES];
+
 }
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -161,9 +160,9 @@
         if ([segueIdentifier isEqualToString:@"mapShowBill"]) {
             if ([viewController isKindOfClass:[UINavigationController class]]) {
                 UINavigationController *navigationController = (UINavigationController *)viewController;
-                if ([navigationController.topViewController isKindOfClass:[GetMoneyTableViewController class]]) {
-                    GetMoneyTableViewController *getMoneyTableViewController = (GetMoneyTableViewController *)navigationController.topViewController;
-                    getMoneyTableViewController.bill = bill;
+                if ([navigationController.topViewController isKindOfClass:[BillDetailCVC class]]) {
+                    BillDetailCVC *myCollectionViewController = (BillDetailCVC *)navigationController.topViewController;
+                    myCollectionViewController.bill = bill;
                 }
                 
             }

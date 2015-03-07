@@ -9,10 +9,10 @@
 #import "SidebarViewController.h"
 #import "SWRevealViewController.h"
 #import "DefaultStyleController.h"
+#import "AppDelegate.h"
 
 @interface SidebarViewController ()
 
-@property (strong ,nonatomic) NSIndexPath *selectedCellIndexpath;
 
 @end
 
@@ -32,15 +32,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    menuItems = @[@"title", @"news", @"comments", @"map", @"calendar", @"wishlist", @"bookmark"];
     
-    
-    UIImage *image = [UIImage imageNamed:@"Account details BG.png"];
+    UIImage *image = [UIImage imageNamed:@"Account details BG"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     self.tableView.backgroundView = imageView;
     
-    self.selectedCellIndexpath = [NSIndexPath indexPathForRow:1 inSection:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,34 +56,118 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 7;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    UILabel *label = (UILabel *)[cell viewWithTag:1];
-    label.textColor = (indexPath.row == self.selectedCellIndexpath.row)? EBBlue : EBBackGround;
+    
+    //title cell can't be selected
+    if (indexPath.row == 0) cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    //row 1 is the defualt selected
+    BOOL selected =
+    (indexPath.row == 1)?
+    YES :
+    NO;
+    
+    [self setCell:cell selected:selected];
+
     return cell;
 }
 
 #pragma mark - Table view data delegate
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)selectedRowIndexPath
 {
-    self.selectedCellIndexpath = indexPath;
+    if (selectedRowIndexPath.row > 0) {
+        //update the all cell selected state
+        for (UITableViewCell *cell in self.tableView.visibleCells) {
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            
+            BOOL selected =
+            (indexPath.row == selectedRowIndexPath.row)?
+            YES :
+            NO;
+            
+            [self setCell:cell selected:selected];
+        }
+        
+        //choose the center controller
+        NSInteger index = selectedRowIndexPath.row - 1;
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        UINavigationController *frontViewController = [appDelegate.viewControllers objectAtIndex:index];
+        
+        [self.revealViewController
+         setFrontViewController:frontViewController];
+        
+        [self.revealViewController
+         setFrontViewPosition:FrontViewPositionLeft
+         animated:YES];
+
+
+    }
     
 }
 
--(void) setSelectedCellIndexpath:(NSIndexPath *)selectedCellIndexpath
-{
-    _selectedCellIndexpath = selectedCellIndexpath;
-    for (UITableViewCell *cell in self.tableView.visibleCells) {
-        NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
-        UILabel *label = (UILabel *)[cell viewWithTag:1];
-        label.textColor = (indexpath.row == selectedCellIndexpath.row)? EBBlue : EBBackGround;
+
+
+- (void)showFrontViewController:(UIViewController *)frontViewController{
+    
+    [self.revealViewController
+     setFrontViewController:frontViewController];
+    
+    [self.revealViewController
+     setFrontViewPosition:FrontViewPositionLeft
+     animated:YES];
+    
+}
+
+- (void)setCell:(UITableViewCell *)cell
+       selected:(BOOL)selected{
+    
+    UIImageView *cellImageView  = (UIImageView *)   [cell viewWithTag:0];
+    UILabel     *label          = (UILabel *)       [cell viewWithTag:1];
+//    UIView      *tagView        = (UIView *)        [cell viewWithTag:2];
+    
+    BOOL canConfigureImageView = NO;
+//    BOOL canConfigureTagView = NO;
+//    
+    if (cellImageView != nil) {
+        canConfigureImageView = YES;
+    }
+////
+//    if (tagView != nil) {
+//        canConfigureTagView = YES;
+//    }
+//    
+    if (selected == YES) {
+        if (canConfigureImageView)
+            cellImageView.tintColor =[UIColor whiteColor];
+        label.textColor = [UIColor whiteColor];
+        cell.backgroundColor = EBBlue;
+
+
+        
+//        if (tagView)
+//            tagView.alpha = 1.0;
+        
+    }else{
+        if (canConfigureImageView)
+            cellImageView.tintColor = EBBackGround;
+        label.textColor = EBBackGround;
+        cell.backgroundColor = [UIColor clearColor];
+        
+
+        
+//
+//        if (tagView)
+//            tagView.alpha = 0;
+        
     }
 }
+
 
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
 {

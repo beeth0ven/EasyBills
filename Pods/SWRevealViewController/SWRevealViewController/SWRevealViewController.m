@@ -816,14 +816,23 @@ const int FrontViewPositionNone = 0xff;
     [self _dispatchTransitionOperation:SWRevealControllerOperationReplaceRightController withViewController:rightViewController animated:animated];
 }
 
+#pragma mark - custom state bar style here
+
 
 - (void)revealToggleAnimated:(BOOL)animated
 {
+    
     FrontViewPosition toggledFrontViewPosition = FrontViewPositionLeft;
-    if (_frontViewPosition <= FrontViewPositionLeft)
+    UIStatusBarStyle style = UIStatusBarStyleLightContent;
+    if (_frontViewPosition <= FrontViewPositionLeft){
         toggledFrontViewPosition = FrontViewPositionRight;
+        style = UIStatusBarStyleDefault;
+
+    }
     
     [self setFrontViewPosition:toggledFrontViewPosition animated:animated];
+    [[UIApplication sharedApplication]
+     setStatusBarStyle:style animated:YES];
 }
 
 

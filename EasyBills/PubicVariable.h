@@ -51,11 +51,16 @@ enum :NSInteger{
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-+(void)setDateMode:(NSInteger)dateMode;
-+(NSInteger)dateMode;
++ (void)setDateMode:(NSInteger)dateMode;
++ (NSInteger)dateMode;
 
-+(void)setKindIsIncome:(BOOL)isIncome;
-+(BOOL)kindIsIncome;
++ (void)setKindIsIncome:(BOOL)isIncome;
++ (BOOL)kindIsIncome;
 
++ (void)setLastAssignIncomeColorIndex:(NSInteger)lastAssignIncomeColorIndex;
++ (NSInteger)lastAssignIncomeColorIndex;
+
++ (void)setLastAssignExpenseColorIndex:(NSInteger)lastAssignExpenseColorIndex;
++ (NSInteger)lastAssignExpenseColorIndex;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ColorPickerCollectionViewController.h"
+#import "UINavigationController+Style.h"
 
 @interface ColorPickerCollectionViewController ()
 
@@ -34,7 +35,16 @@
                     @"carnation",@"salmon",@"banana",@"tangerine",@"orchid",
                     @"iron",@"magnesium",@"mocha",@"ocean",@"eggplant",
                     @"maroon",@"asparagus",@"clover",@"teal",@"plum"];
+
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [self.navigationController applyDefualtStyle:NO];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -56,6 +66,7 @@
 {
     NSString *reuseID = [self.colors objectAtIndex:indexPath.item];
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
+    cell.layer.cornerRadius = cell.frame.size.width / 2;
     return cell;
 }
 

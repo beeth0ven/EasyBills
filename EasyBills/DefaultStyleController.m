@@ -10,29 +10,42 @@
 
 #import "DefaultStyleController.h"
 
+
 @implementation DefaultStyleController
 
 +(void) applyStyle
 {
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    //UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
-    //navigationBarAppearance.barTintColor = EBBlue;
-    //navigationBarAppearance.tintColor = [UIColor whiteColor];
+    [self configBackButtonImageOnNavigationBar];
+    [self configSwichAppearance];
+    
+}
+
+
++ (void)configBackButtonImageOnNavigationBar{
     
     UIBarButtonItem *barButtonItemAppearance = [UIBarButtonItem appearance];
-    barButtonItemAppearance.tintColor = [UIColor whiteColor];
+    UIImage *backButtonImage = [UIImage imageNamed:@"LeftNavigationBarBackIcon"];
+    UIEdgeInsets insets = UIEdgeInsetsMake(0,
+                                           backButtonImage.size.width - 1,
+                                           0,
+                                           0);
+    backButtonImage = [backButtonImage
+                       resizableImageWithCapInsets:insets];
+    
+    
+    [barButtonItemAppearance setBackButtonBackgroundImage:backButtonImage
+                                                 forState:UIControlStateNormal
+                                               barMetrics:UIBarMetricsDefault];
+    
+    
+}
+
++ (void)configSwichAppearance{
     
     UISwitch *switchAppearance = [UISwitch appearance];
     switchAppearance.onTintColor = EBBackGround;
     switchAppearance.thumbTintColor = EBBlue;
-    /*
-    UITableView *tableViewAppearance = [UITableView appearance];
-    UIImage *image = [UIImage imageNamed:@"Account details BG.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    tableViewAppearance.backgroundView = imageView;
-    */
+    
 }
-
-
 @end

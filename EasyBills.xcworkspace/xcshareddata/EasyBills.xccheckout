@@ -10,33 +10,33 @@
 	<string>EasyBills</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1353E5E5-FF93-4872-A00C-AEF9E362F4EC</key>
+		<key>52AD61ACBC335442175A97D3A384DC64437013D3</key>
 		<string>https://github.com/beeth0ven/EasyBills.git</string>
-		<key>B3A9A86D-2082-43B2-86D7-9EEC7E0E889E</key>
+		<key>8EDB11023AD5391F1B18760F9DFCA5D104F425BD</key>
 		<string>https://github.com/beeth0ven/EasyBills.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>EasyBills.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1353E5E5-FF93-4872-A00C-AEF9E362F4EC</key>
+		<key>52AD61ACBC335442175A97D3A384DC64437013D3</key>
 		<string>../EasyBills</string>
-		<key>B3A9A86D-2082-43B2-86D7-9EEC7E0E889E</key>
+		<key>8EDB11023AD5391F1B18760F9DFCA5D104F425BD</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/beeth0ven/EasyBills.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B3A9A86D-2082-43B2-86D7-9EEC7E0E889E</string>
+	<string>8EDB11023AD5391F1B18760F9DFCA5D104F425BD</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B3A9A86D-2082-43B2-86D7-9EEC7E0E889E</string>
+			<string>8EDB11023AD5391F1B18760F9DFCA5D104F425BD</string>
 			<key>IDESourceControlWCCName</key>
 			<string>EasyBills</string>
 		</dict>
@@ -44,7 +44,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1353E5E5-FF93-4872-A00C-AEF9E362F4EC</string>
+			<string>52AD61ACBC335442175A97D3A384DC64437013D3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>EasyBills</string>
 		</dict>

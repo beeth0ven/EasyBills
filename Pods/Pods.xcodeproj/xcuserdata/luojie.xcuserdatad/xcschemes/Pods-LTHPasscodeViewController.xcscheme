@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2BE02613E74D14B7743F6661"
+               BlueprintIdentifier = "C15830FB1673FBA33124E205"
                BuildableName = "libPods-LTHPasscodeViewController.a"
                BlueprintName = "Pods-LTHPasscodeViewController"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -19,6 +19,6 @@
 
 +(NSFetchedResultsController *)fetchedResultsControllerIsincome:(BOOL) isIncome;
 
-
+- (UIColor *)color;
 
 @end
