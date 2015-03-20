@@ -21,6 +21,7 @@
 #import "UIViewController+Extension.h"
 #import "UINavigationController+Style.h"
 #import "KindDetailCVC.h"
+#import "ColorCenter.h"
 
 @interface KindCDTVC ()
 
@@ -170,7 +171,8 @@
     NSNumber *current =[NSNumber numberWithFloat: [PubicVariable sumMoneyWithKind:kind]];
     
     cell.textLabel.text = [NSString stringWithFormat:@"  %@  ",[kind.name description]];
-
+    cell.textLabel.backgroundColor = kind.color;
+    
     PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 0, 30, 30) andTotal:self.total andCurrent:current andClockwise:(BOOL)YES andShadow:YES];
     circleChart.backgroundColor = [UIColor clearColor];
     circleChart.lineWidth = [NSNumber numberWithInt:4.0];

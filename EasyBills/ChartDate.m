@@ -100,9 +100,9 @@
 
 -(NSArray *)weekModeDataArryIsincomeMode:(NSInteger)isIncomeMode
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSMutableArray *mutableArray =[[NSMutableArray alloc]init];
-    NSDateComponents *components = [gregorian components: NSWeekdayCalendarUnit
+    NSDateComponents *components = [gregorian components: NSCalendarUnitWeekday
                                                 fromDate:[NSDate date]];
     NSInteger weekday = [components weekday];
     for (NSInteger day = -weekday+1; day <= -weekday + 7; day++) {
@@ -120,9 +120,9 @@
 
 -(NSArray *)monthModeDataArryIsincomeMode:(NSInteger)isIncomeMode
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSMutableArray *mutableArray =[[NSMutableArray alloc]init];
-    NSDateComponents *components = [gregorian components:   NSWeekOfMonthCalendarUnit
+    NSDateComponents *components = [gregorian components:   NSCalendarUnitWeekOfMonth
                                                 fromDate:[NSDate date]];
     
     NSInteger weekCountOfMonth = [self weekCountOfMonth];
@@ -148,7 +148,7 @@
 
 -(NSArray *)allModeDataArryIsincomeMode:(NSInteger)isIncomeMode
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSMutableArray *mutableArray =[[NSMutableArray alloc]init];
 
     
@@ -166,14 +166,14 @@
 
 -(NSInteger)weekCountOfMonth
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setMonth:1];
     
     NSDate *date = [gregorian dateByAddingComponents:comps toDate:[NSDate date]  options:0];
 
-    NSDateComponents *components = [gregorian components: NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
+    NSDateComponents *components = [gregorian components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
                                                 fromDate:date];
     NSInteger year = [components year];
     NSInteger month = [components month];
@@ -195,7 +195,7 @@
     lastcomps.day = -1;
     NSDate *lastDate = [gregorian dateByAddingComponents:lastcomps toDate:firstDate  options:0];
     
-    NSDateComponents *resultComponents = [gregorian components: NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekOfMonthCalendarUnit
+    NSDateComponents *resultComponents = [gregorian components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekOfMonth
                                                 fromDate:lastDate];
     
     NSInteger result = [resultComponents weekOfMonth];
@@ -221,8 +221,8 @@
 
 -(NSInteger)thisMonth
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [gregorian components:NSMonthCalendarUnit
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [gregorian components:NSCalendarUnitMonth
                                                 fromDate:[NSDate date]];
     NSInteger month = [components month];
     return month;

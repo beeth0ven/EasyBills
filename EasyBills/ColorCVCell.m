@@ -81,21 +81,21 @@
         }else{
             //when user tap the cell, show the circle with animation.
 
-            [UIView
-             animateWithDuration:0.5
-             delay:0
-             options:UIViewAnimationOptionCurveLinear
-             animations:^{
-                 
-                 [self showSelectedCircleView:YES];
-                 
-             }
-             completion:^(BOOL finished) {
-                 if (finished) {
-                     NSLog(@"Successfully add the selected circle with animation.");
-                 }
-             }];
+//            [UIView
+//             animateWithDuration:0.5
+//             delay:0
+//             options:UIViewAnimationOptionCurveLinear
+//             animations:^{
             
+                 [self showSelectedCircleView:YES];
+//                 
+//             }
+//             completion:^(BOOL finished) {
+//                 if (finished) {
+//                     NSLog(@"Successfully add the selected circle with animation.");
+//                 }
+//             }];
+//            
         }
     }else{
         
@@ -108,19 +108,19 @@
             
         }else{
             //when user tap the another cell, hide the circle with animation.
-            [UIView
-             animateWithDuration:0.5
-             delay:0
-             options:UIViewAnimationOptionCurveLinear
-             animations:^{
+//            [UIView
+//             animateWithDuration:0.5
+//             delay:0
+//             options:UIViewAnimationOptionCurveLinear
+//             animations:^{
                  [self showSelectedCircleView:NO];
-                 
-             }
-             completion:^(BOOL finished) {
-                 if (finished) {
-                     NSLog(@"Successfully remove the selected circle with animation.");
-                 }
-             }];
+//                 
+//             }
+//             completion:^(BOOL finished) {
+//                 if (finished) {
+//                     NSLog(@"Successfully remove the selected circle with animation.");
+//                 }
+//             }];
         }
         
     }

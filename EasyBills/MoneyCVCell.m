@@ -53,8 +53,12 @@ NSString *const kTextFieldDidBeginEditingNotification = @"TextFieldDidBeginEditi
         _keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 35)];
         
         _keyboardToolBar.barStyle = UIBarStyleDefault;
-                UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-        UIBarButtonItem *doneBarButton =[[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleBordered target:self action:@selector(resignKeyboard)];
+        UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+        UIBarButtonItem *doneBarButton =
+        [[UIBarButtonItem alloc] initWithTitle:@"完成"
+                                         style:UIBarButtonItemStylePlain
+                                        target:self action:@selector(resignKeyboard)];
+        
         [doneBarButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}
                                      forState:UIControlStateNormal];
 

@@ -68,7 +68,11 @@
         
         _keyboardToolBar.barStyle = UIBarStyleDefault;
         UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-        UIBarButtonItem *doneBarButton =[[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleBordered target:self action:@selector(resignKeyboard)];
+        UIBarButtonItem *doneBarButton =
+        [[UIBarButtonItem alloc] initWithTitle:@"完成"
+                                         style:UIBarButtonItemStylePlain
+                                        target:self action:@selector(resignKeyboard)];
+        
         [doneBarButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}
                                      forState:UIControlStateNormal];
         

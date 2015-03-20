@@ -53,9 +53,17 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController applyDefualtStyle:NO];
+    [self registerAsObserver];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
     
+    [self unregisterForChangeNotification];
     
 }
+
+
+
 
 - (UICollectionView *)colorPickerCollectionView{
     
@@ -76,6 +84,38 @@
 
 #pragma mark - Notifications
 
+- (void)registerAsObserver {
+    /*
+     Register 'inspector' to receive change notifications for the "openingBalance" property of
+     the 'account' object and specify that both the old and new values of "openingBalance"
+     should be provided in the observe… method.
+     */
+    [self.kind addObserver:self
+                forKeyPath:@"colorID"
+                   options:(NSKeyValueObservingOptionNew |
+                            NSKeyValueObservingOptionOld)
+                   context:NULL];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    
+    if ([keyPath isEqual:@"colorID"]) {
+        
+        NSInteger item = [self.cellIdentifiers indexOfObject:@"colorCell"];
+        NSIndexPath *indexPath =[NSIndexPath indexPathForItem:item inSection:0];
+        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        
+    }
+    
+}
+
+- (void)unregisterForChangeNotification {
+    [self.kind removeObserver:self
+                   forKeyPath:@"colorID"];
+}
 
 -(void)registerNotifications
 {
@@ -179,7 +219,7 @@
         
     }else{
         //color pick collection view case here
-        cellIdentifier = @"cell";
+        cellIdentifier = @"colorUnitCell";
         
     }
     
@@ -196,10 +236,20 @@
 
 - (void)configCell:(UICollectionViewCell *)cell
        atIndexPath:(NSIndexPath *)indexPath{
-    
-    if ([cell isKindOfClass:[ColorCVCell class]]) {
-        //color pick collection view case here
 
+    
+    if ([cell.reuseIdentifier isEqualToString:@"colorCell"]){
+        
+        id view = [cell viewWithTag:1];
+        if ([view isKindOfClass:[UIView class]]) {
+            UIView *colorView = view;
+            colorView.backgroundColor = self.kind.color;
+        }
+        
+    }
+    else if ([cell.reuseIdentifier isEqualToString:@"colorUnitCell"]) {
+        //color pick collection view case here
+        
         UIColor *color = (UIColor *)
         [[ColorCenter colors] objectAtIndex:indexPath.row];
         
@@ -210,6 +260,8 @@
         cell.selected = (colorIDIntValue == indexPath.item);
         
     }
+    
+    
 }
 
 - (CGSize)          collectionView:(UICollectionView *)collectionView
