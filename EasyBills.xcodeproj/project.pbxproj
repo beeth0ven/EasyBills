@@ -43,7 +43,6 @@
 		BD7348951A9995B700692EE4 /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7348941A9995B700692EE4 /* UIViewController+Extension.m */; };
 		BD81A3E51A99D5DA00C2CBE6 /* NotbodyCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD81A3E41A99D5DA00C2CBE6 /* NotbodyCVCell.m */; };
 		BD81A3ED1A99D78500C2CBE6 /* BillTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD81A3EC1A99D78500C2CBE6 /* BillTVCell.m */; };
-		BDA19D2B1A18EBD200E1CFC7 /* BillDetailCVC+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA19D2A1A18EBD200E1CFC7 /* BillDetailCVC+CollectionView.m */; };
 		BDA397841A3BE9E400E1D9F7 /* DefaultStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */; };
 		BDA5A34C19FA787A006D2E69 /* MapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA5A34B19FA787A006D2E69 /* MapCDTVC.m */; };
 		BDA8A8221A13B42600C7B1CB /* MoneyCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8211A13B42600C7B1CB /* MoneyCVCell.m */; };
@@ -56,7 +55,6 @@
 		BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABBCC81A03C4EE0029D7D1 /* CoreDataMapViewController.m */; };
 		BDB055951A15E46500751913 /* DatePickerCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB055941A15E46500751913 /* DatePickerCVCell.m */; };
 		BDB055981A163C3000751913 /* KindePickerCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB055971A163C3000751913 /* KindePickerCVCell.m */; };
-		BDB0559B1A17153500751913 /* BillDetailCVC+ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB0559A1A17153500751913 /* BillDetailCVC+ActionSheet.m */; };
 		BDB056BA19E3A1D000494080 /* SettingTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB056B919E3A1D000494080 /* SettingTVC.m */; };
 		BDB073DC19FBD9780062462F /* Bill+MKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB073DB19FBD9780062462F /* Bill+MKAnnotation.m */; };
 		BDB073DE19FBDFA60062462F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB073DD19FBDFA60062462F /* CoreLocation.framework */; };
@@ -137,8 +135,6 @@
 		BD81A3E41A99D5DA00C2CBE6 /* NotbodyCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotbodyCVCell.m; sourceTree = "<group>"; };
 		BD81A3EB1A99D78500C2CBE6 /* BillTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillTVCell.h; sourceTree = "<group>"; };
 		BD81A3EC1A99D78500C2CBE6 /* BillTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillTVCell.m; sourceTree = "<group>"; };
-		BDA19D291A18EBD200E1CFC7 /* BillDetailCVC+CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+CollectionView.h"; sourceTree = "<group>"; };
-		BDA19D2A1A18EBD200E1CFC7 /* BillDetailCVC+CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+CollectionView.m"; sourceTree = "<group>"; };
 		BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultStyleController.h; sourceTree = "<group>"; };
 		BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultStyleController.m; sourceTree = "<group>"; };
 		BDA5A34A19FA787A006D2E69 /* MapCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCDTVC.h; sourceTree = "<group>"; };
@@ -163,8 +159,6 @@
 		BDB055941A15E46500751913 /* DatePickerCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerCVCell.m; sourceTree = "<group>"; };
 		BDB055961A163C3000751913 /* KindePickerCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindePickerCVCell.h; sourceTree = "<group>"; };
 		BDB055971A163C3000751913 /* KindePickerCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindePickerCVCell.m; sourceTree = "<group>"; };
-		BDB055991A17153500751913 /* BillDetailCVC+ActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+ActionSheet.h"; sourceTree = "<group>"; };
-		BDB0559A1A17153500751913 /* BillDetailCVC+ActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+ActionSheet.m"; sourceTree = "<group>"; };
 		BDB056B819E3A1D000494080 /* SettingTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTVC.h; sourceTree = "<group>"; };
 		BDB056B919E3A1D000494080 /* SettingTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTVC.m; sourceTree = "<group>"; };
 		BDB073DA19FBD9780062462F /* Bill+MKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bill+MKAnnotation.h"; sourceTree = "<group>"; };
@@ -310,10 +304,6 @@
 			children = (
 				BDA956371A10F13F00E55A9D /* BillDetailCVC.h */,
 				BDA956381A10F13F00E55A9D /* BillDetailCVC.m */,
-				BDA19D291A18EBD200E1CFC7 /* BillDetailCVC+CollectionView.h */,
-				BDA19D2A1A18EBD200E1CFC7 /* BillDetailCVC+CollectionView.m */,
-				BDB055991A17153500751913 /* BillDetailCVC+ActionSheet.h */,
-				BDB0559A1A17153500751913 /* BillDetailCVC+ActionSheet.m */,
 				BD81A3E81A99D69200C2CBE6 /* ColorPickerCollectionViewController */,
 			);
 			name = PushSegue;
@@ -698,6 +688,9 @@
 					BD1BF7D419DB901E00B1379A = {
 						DevelopmentTeam = 6BDKUNMM63;
 						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -798,7 +791,6 @@
 				BD1BF83119DB927300B1379A /* Bill+Create.m in Sources */,
 				BD7348841A99842B00692EE4 /* UINavigationController+Style.m in Sources */,
 				BD1BF83519DB927300B1379A /* CoreDataTableViewController.m in Sources */,
-				BDB0559B1A17153500751913 /* BillDetailCVC+ActionSheet.m in Sources */,
 				BD1BF83219DB927300B1379A /* BillCDTVC.m in Sources */,
 				BDA8A8291A13B46500C7B1CB /* DateCVCell.m in Sources */,
 				BDA8A8261A13B45600C7B1CB /* KindCVCell.m in Sources */,
@@ -812,7 +804,6 @@
 				BD571E181A82633A0040CCF4 /* ColorCVCell.m in Sources */,
 				BDB056BA19E3A1D000494080 /* SettingTVC.m in Sources */,
 				BDA8A8411A13B5A900C7B1CB /* DeleteCVCell.m in Sources */,
-				BDA19D2B1A18EBD200E1CFC7 /* BillDetailCVC+CollectionView.m in Sources */,
 				BDA8A82C1A13B48C00C7B1CB /* LocationCVCell.m in Sources */,
 				BD2349391AA9D329004E48C8 /* Kind.m in Sources */,
 				BD23493C1AA9D32A004E48C8 /* Bill.m in Sources */,

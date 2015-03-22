@@ -15,8 +15,8 @@
 
 @property (strong ,nonatomic) Bill *bill;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
 @end

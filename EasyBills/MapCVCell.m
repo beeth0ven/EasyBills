@@ -88,7 +88,9 @@
             CLPlacemark *placemark = [placemarks lastObject];
             [self.activity stopAnimating];
             self.label.text = [NSString stringWithFormat:@"%@,%@,%@",
-                               placemark.administrativeArea,    placemark.locality,    placemark.thoroughfare];
+                               placemark.administrativeArea,
+                               placemark.locality,
+                               placemark.thoroughfare];
         }else{
             NSLog(@"%@",error.debugDescription);
         }

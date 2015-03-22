@@ -26,8 +26,5 @@
 @property (strong ,nonatomic) Bill *bill;
 @property (nonatomic) BOOL isIncome;
 
-@property (strong ,nonatomic) NSMutableArray *cellIdentifiers;
-@property (strong ,nonatomic) NSIndexPath *inputCellIndexPath;
-
 
 @end
