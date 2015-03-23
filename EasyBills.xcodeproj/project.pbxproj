@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */; };
 		8F0B3811DD8B4AD6A1A72E3F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A5F4B0F58449C59A21A605 /* libPods.a */; };
 		BD0749671A86660300467648 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0749661A86660300467648 /* UIButton+Extension.m */; };
 		BD0FDC781A90DFF200679961 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0FDC771A90DFF200679961 /* Media.xcassets */; };
@@ -74,6 +75,8 @@
 
 /* Begin PBXFileReference section */
 		0CA564406E4C247DAE42E147 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4568DB841ABFFA3D0064BBE2 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		50A5F4B0F58449C59A21A605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0749651A86660300467648 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		BD0749661A86660300467648 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
@@ -382,6 +385,8 @@
 			children = (
 				BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */,
 				BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */,
+				4568DB841ABFFA3D0064BBE2 /* UIImage+Extension.h */,
+				4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */,
 				BD0749651A86660300467648 /* UIButton+Extension.h */,
 				BD0749661A86660300467648 /* UIButton+Extension.m */,
 				BD7348821A99842B00692EE4 /* UINavigationController+Style.h */,
@@ -803,6 +808,7 @@
 				BD1BF7E919DB901E00B1379A /* AppDelegate.m in Sources */,
 				BD571E181A82633A0040CCF4 /* ColorCVCell.m in Sources */,
 				BDB056BA19E3A1D000494080 /* SettingTVC.m in Sources */,
+				4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */,
 				BDA8A8411A13B5A900C7B1CB /* DeleteCVCell.m in Sources */,
 				BDA8A82C1A13B48C00C7B1CB /* LocationCVCell.m in Sources */,
 				BD2349391AA9D329004E48C8 /* Kind.m in Sources */,

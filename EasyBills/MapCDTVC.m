@@ -12,6 +12,8 @@
 #import "UIViewController+Extension.h"
 #import "UINavigationController+Style.h"
 #import "BillDetailCVC.h"
+#import "DefaultStyleController.h"
+#import "UIImage+Extension.h"
 
 @interface MapCDTVC ()
 
@@ -38,7 +40,9 @@
     [self setupMenuButton];
 
     self.mapView.delegate = self;
-    [self performSelector:@selector(setupFetchedResultsController) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(setupFetchedResultsController)
+               withObject:nil
+               afterDelay:0.5];
 
 
 }
@@ -88,29 +92,44 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    MKPinAnnotationView *view = nil;
+    MKAnnotationView *view = nil;
     
-    if (!(annotation == mapView.userLocation)) {
+    if (annotation != mapView.userLocation) {
         static NSString *reuseId = @"billAnnotation";
-        view = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseId];
+        view = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseId];
         if (!view) {
-            view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseId];
-            view.canShowCallout = YES;
-            view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            view = [self viewInitForAnnotation:annotation withIdentifier:reuseId];
         }
         view.annotation = annotation;
         if ([annotation isKindOfClass:[Bill class]]) {
             Bill *bill = annotation;
-            view.pinColor = bill.isIncome.boolValue ? MKPinAnnotationColorGreen : MKPinAnnotationColorRed;
-            
+            [self configAnnotationView:view useBill:bill];
         }
     }
-    
     
     
     return view;
 }
 
+- (MKAnnotationView *)viewInitForAnnotation:(id<MKAnnotation>)annotation
+                         withIdentifier:(NSString *)identifier{
+    
+    MKAnnotationView *result = nil;
+    result = [[MKAnnotationView alloc]
+              initWithAnnotation:annotation
+              reuseIdentifier:identifier];
+    
+    result.canShowCallout = YES;
+    result.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    return result;
+}
+
+- (void)configAnnotationView:(MKAnnotationView *)annotationView
+                     useBill:(Bill *)bill{
+    
+    UIColor *color = bill.isIncome.boolValue ? EBBlue : EBBackGround;
+    annotationView.image = [UIImage pointerImageWithColor:color];
+}
 
 
 

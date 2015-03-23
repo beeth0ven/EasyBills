@@ -21,7 +21,7 @@
 #import "UINavigationController+Style.h"
 #import "DefaultStyleController.h"
 #import <MapKit/MapKit.h>
-
+#import "UIImage+Extension.h"
 
 @interface BillDetailCVC ()<
 UINavigationControllerDelegate,
@@ -36,6 +36,12 @@ MKMapViewDelegate>
 @property (strong ,nonatomic) NSIndexPath *inputCellIndexPath;
 // The Core Location Manager
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
+// For Debug
+@property (weak, nonatomic) UICollectionViewCell *mapCell;
+
+@property (nonatomic) BOOL shouldShowMapCell;
+
 @end
 
 @implementation BillDetailCVC
@@ -66,6 +72,7 @@ MKMapViewDelegate>
 
 
 - (void) dealloc{
+    if (self.bill != nil) [self.bill removeObserver:self forKeyPath:@"locationIsOn"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -142,10 +149,13 @@ MKMapViewDelegate>
                        context:(void *)context{
     if ([keyPath isEqualToString:@"locationIsOn"]) {
         NSNumber *newValue = [change objectForKey:NSKeyValueChangeNewKey];
-        BOOL isOn = newValue.boolValue;
-        if (isOn == NO) {
-            [self updateMapViewCellWithoutLocation];
+        if ([newValue respondsToSelector:@selector(boolValue)]) {
+            BOOL isOn = newValue.boolValue;
+            if (isOn == NO) {
+                [self updateMapViewCellWithoutLocation];
+            }
         }
+ 
         
     }
     
@@ -234,6 +244,7 @@ MKMapViewDelegate>
 - (IBAction)locationStateChanged:(UISwitch *)sender {
     
     if (sender.isOn) {
+        self.shouldShowMapCell = YES;
         [self requestGetCurentLocation];
     }else{
         self.bill.locationIsOn = [NSNumber numberWithBool:NO];
@@ -357,13 +368,18 @@ MKMapViewDelegate>
 -(MKAnnotationView *)   mapView:(MKMapView *)mapView
               viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    MKPinAnnotationView *view = nil;
+    MKAnnotationView *view = nil;
     static NSString *reuseId = @"billAnnotation";
-    view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseId];
+    view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseId];
+    UIColor *color = self.bill.isIncome.boolValue ? EBBlue : EBBackGround;
+    view.image = [UIImage pointerImageWithColor:color];
     view.canShowCallout = NO;
-    view.pinColor = self.bill.isIncome.boolValue ? MKPinAnnotationColorGreen : MKPinAnnotationColorRed;
+//    view.pinColor = self.bill.isIncome.boolValue ? MKPinAnnotationColorGreen : MKPinAnnotationColorRed;
     return view;
 }
+
+
+
 
 - (void)reloadDataInMapView:(MKMapView *)mapView{
     [mapView removeAnnotations:mapView.annotations];
@@ -392,7 +408,7 @@ MKMapViewDelegate>
                                          placemark.thoroughfare];
                        }else{
                            [activity stopAnimating];
-                           label.text = @"NULL";
+                           label.text = @"无法识别您的位置";
                        }
                    }];
 }
@@ -445,8 +461,12 @@ MKMapViewDelegate>
         MKMapView               *mapView    = (MKMapView *)[cell viewWithTag:3];
         
         mapView.delegate = self;
-        [self reloadDataInMapView:mapView];
+        [self performSelector:@selector(reloadDataInMapView:)
+                   withObject:mapView
+                   afterDelay:0.3];
+//        [self reloadDataInMapView:mapView];
         [self updateMapCellLabel:label activity:activity];
+        self.mapCell = cell;
     }
 }
 
@@ -463,23 +483,28 @@ MKMapViewDelegate>
 
 
 - (void)updateMapViewCellWithoutLocation{
+//    
+//    NSString *cellIdentifier = @"inputlocationCell";
+//    if ([self.cellIdentifiers containsObject:cellIdentifier]) {
+//        NSInteger row = [self.cellIdentifiers indexOfObject:cellIdentifier];
+//        NSIndexPath *indexPath =
+//        [NSIndexPath indexPathForRow:row inSection:0];
+//        UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
     
-    NSString *cellIdentifier = @"inputlocationCell";
-    if ([self.cellIdentifiers containsObject:cellIdentifier]) {
-        NSInteger row = [self.cellIdentifiers indexOfObject:cellIdentifier];
-        NSIndexPath *indexPath =
-        [NSIndexPath indexPathForRow:row inSection:0];
-        UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
-        UIActivityIndicatorView *activity   = (UIActivityIndicatorView *)[cell viewWithTag:1];
-        UILabel                 *label      = (UILabel *)[cell viewWithTag:2];
-        MKMapView               *mapView    = (MKMapView *)[cell viewWithTag:3];
+    if (self.mapCell != nil) {
+        UIActivityIndicatorView *activity   = (UIActivityIndicatorView *)[self.mapCell viewWithTag:1];
+        UILabel                 *label      = (UILabel *)[self.mapCell viewWithTag:2];
+        MKMapView               *mapView    = (MKMapView *)[self.mapCell viewWithTag:3];
         
         [mapView removeAnnotations:mapView.annotations];
         [mapView showAnnotations:mapView.annotations animated:NO];
+        mapView = nil;
         label.text = @"";
         [activity startAnimating];
-        
     }
+
+        
+//    }
 
 }
 
@@ -564,7 +589,7 @@ MKMapViewDelegate>
 
 
 - (void)showMapCell{
-    [self showInputCellWithBaseCellIdentifier:@"locationCell"];
+    if (self.shouldShowMapCell) [self showInputCellWithBaseCellIdentifier:@"locationCell"];
 }
 
 -(void)showInputCellWithBaseCellIdentifier:(NSString *)identifier
@@ -657,7 +682,6 @@ MKMapViewDelegate>
 
 - (void)deleteBill
 {
-    //[self.view endEditing:YES];
     [[PubicVariable managedObjectContext] deleteObject:self.bill];
     [self dismissViewControllerAnimated:YES completion:^(){}];
     
@@ -668,13 +692,28 @@ MKMapViewDelegate>
 - (void)setUp {
     
     [[self undoManager] beginUndoGrouping];
-    if (!self.bill)self.bill = [Bill billIsIncome:self.isIncome];
+    if (!self.bill){
+//         The bill is created, not passed.
+        self.bill = [Bill billIsIncome:self.isIncome];
+        
+//         The location state is inherit from last bill.
+//         If this is the unique bill(last bill don't exist), Then the state is On, by defult.
+        if ([self isBillCreateUnique] || [self lastBillLocationStateIsOn]) [self requestGetCurentLocation];
+    }
     self.isIncome = self.bill.isIncome.boolValue;
     [self registerNotifications];
     [self setUpBackgroundView];
-    
 }
 
+- (BOOL)isBillCreateUnique{
+    return [Bill lastCreateBill] == nil;
+}
+
+- (BOOL)lastBillLocationStateIsOn
+{
+    Bill *lastCreateBill = [Bill lastCreateBill];
+    return lastCreateBill.locationIsOn.boolValue;
+}
 
 - (void)setUpBackgroundView {
     UIImage *image = [UIImage imageNamed:@"Account details BG"];

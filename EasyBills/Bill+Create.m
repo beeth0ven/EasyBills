@@ -19,7 +19,6 @@
     bill.createDate = [NSDate date];
     [bill setDateAttributes:[NSDate date]];
     bill.isIncome = [NSNumber numberWithBool:isIncome];
-    bill.locationIsOn = [NSNumber numberWithBool:[self checkLocationState]];
     [PubicVariable saveContext];
     return bill;
 }
@@ -73,21 +72,6 @@
     return bill;
 }
 
-+(BOOL)checkLocationState
-{
-    BOOL checkLocationState = NO;
-    //last bill location state is on And location service enable, then bill location is on;
-    Bill *lastCreateBill = [self lastCreateBill];
-    NSLog(@"lastCreateBill.locationIsOn.boolValue: %i   %f" ,lastCreateBill.locationIsOn.boolValue ,lastCreateBill.money.floatValue);
 
-    if (lastCreateBill.locationIsOn.boolValue) {
-        if ([CLLocationManager locationServicesEnabled]) {
-            checkLocationState = YES;
-        }
-    }
-    
-    
-    return checkLocationState;
-}
 
 @end
