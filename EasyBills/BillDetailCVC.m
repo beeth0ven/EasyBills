@@ -22,6 +22,7 @@
 #import "DefaultStyleController.h"
 #import <MapKit/MapKit.h>
 #import "UIImage+Extension.h"
+#import "Bill+MKAnnotation.h"
 
 @interface BillDetailCVC ()<
 UINavigationControllerDelegate,
@@ -319,8 +320,9 @@ MKMapViewDelegate>
 {
     CLLocation *curentLocation = locations.lastObject;
     self.bill.locationIsOn = [NSNumber numberWithBool:YES];
-    self.bill.latitude = [NSString stringWithFormat:@"%.8f" ,curentLocation.coordinate.latitude];
-    self.bill.longitude = [NSString stringWithFormat:@"%.8f" ,curentLocation.coordinate.longitude];
+    [self.bill setCoordinate:curentLocation.coordinate];
+//    self.bill.latitude = [NSString stringWithFormat:@"%.8f" ,curentLocation.coordinate.latitude];
+//    self.bill.longitude = [NSString stringWithFormat:@"%.8f" ,curentLocation.coordinate.longitude];
     [self.locationManager stopUpdatingLocation];
     [self updateLocationCell];
     [self showMapCell];
@@ -398,7 +400,7 @@ MKMapViewDelegate>
     
     [geocoder reverseGeocodeLocation:location
                    completionHandler:^(NSArray *placemarks, NSError *error){
-                       NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+//                       NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
                        if (!error && [placemarks count] > 0) {
                            CLPlacemark *placemark = [placemarks lastObject];
                            [activity stopAnimating];

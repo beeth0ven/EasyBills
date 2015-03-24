@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */; };
+		45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */; };
+		45895D851AC127D20009E749 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D841AC127D20009E749 /* Bill.m */; };
+		45895D881AC127D20009E749 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D871AC127D20009E749 /* Kind.m */; };
 		8F0B3811DD8B4AD6A1A72E3F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A5F4B0F58449C59A21A605 /* libPods.a */; };
 		BD0749671A86660300467648 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0749661A86660300467648 /* UIButton+Extension.m */; };
 		BD0FDC781A90DFF200679961 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0FDC771A90DFF200679961 /* Media.xcassets */; };
@@ -33,8 +36,6 @@
 		BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82D19DB927300B1379A /* PubicVariable.m */; };
 		BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82F19DB927300B1379A /* PubicVariable+FetchRequest.m */; };
 		BD1BF84519DB961800B1379A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF84419DB961800B1379A /* CoreData.framework */; };
-		BD2349391AA9D329004E48C8 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2349381AA9D329004E48C8 /* Kind.m */; };
-		BD23493C1AA9D32A004E48C8 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = BD23493B1AA9D32A004E48C8 /* Bill.m */; };
 		BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3342A11A4DB07F00BC163C /* ColorPickerCollectionViewController.m */; };
 		BD571E181A82633A0040CCF4 /* ColorCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD571E171A82633A0040CCF4 /* ColorCVCell.m */; };
 		BD58BDA01AA8984300CE2D08 /* ColorTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD58BD9F1AA8984300CE2D08 /* ColorTransformer.m */; };
@@ -77,6 +78,12 @@
 		0CA564406E4C247DAE42E147 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4568DB841ABFFA3D0064BBE2 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		45895D801AC1217C0009E749 /* ClusterMapCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterMapCDTVC.h; sourceTree = "<group>"; };
+		45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterMapCDTVC.m; sourceTree = "<group>"; };
+		45895D831AC127D20009E749 /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
+		45895D841AC127D20009E749 /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
+		45895D861AC127D20009E749 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
+		45895D871AC127D20009E749 /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
 		50A5F4B0F58449C59A21A605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0749651A86660300467648 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		BD0749661A86660300467648 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
@@ -116,10 +123,6 @@
 		BD1BF82E19DB927300B1379A /* PubicVariable+FetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PubicVariable+FetchRequest.h"; sourceTree = "<group>"; };
 		BD1BF82F19DB927300B1379A /* PubicVariable+FetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PubicVariable+FetchRequest.m"; sourceTree = "<group>"; };
 		BD1BF84419DB961800B1379A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		BD2349371AA9D329004E48C8 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
-		BD2349381AA9D329004E48C8 /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
-		BD23493A1AA9D32A004E48C8 /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
-		BD23493B1AA9D32A004E48C8 /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
 		BD3342A01A4DB07F00BC163C /* ColorPickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewController.h; sourceTree = "<group>"; };
 		BD3342A11A4DB07F00BC163C /* ColorPickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewController.m; sourceTree = "<group>"; };
 		BD571E161A82633A0040CCF4 /* ColorCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCVCell.h; sourceTree = "<group>"; };
@@ -292,10 +295,10 @@
 			isa = PBXGroup;
 			children = (
 				BD1BF82819DB927300B1379A /* Model.xcdatamodeld */,
-				BD23493A1AA9D32A004E48C8 /* Bill.h */,
-				BD23493B1AA9D32A004E48C8 /* Bill.m */,
-				BD2349371AA9D329004E48C8 /* Kind.h */,
-				BD2349381AA9D329004E48C8 /* Kind.m */,
+				45895D861AC127D20009E749 /* Kind.h */,
+				45895D871AC127D20009E749 /* Kind.m */,
+				45895D831AC127D20009E749 /* Bill.h */,
+				45895D841AC127D20009E749 /* Bill.m */,
 				BD81A3DA1A99D3BA00C2CBE6 /* Kind+ */,
 				BD81A3D91A99D38400C2CBE6 /* Bill+ */,
 			);
@@ -432,6 +435,8 @@
 			children = (
 				BDA5A34A19FA787A006D2E69 /* MapCDTVC.h */,
 				BDA5A34B19FA787A006D2E69 /* MapCDTVC.m */,
+				45895D801AC1217C0009E749 /* ClusterMapCDTVC.h */,
+				45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */,
 				BD81A3D61A99D06300C2CBE6 /* CoreDataMapViewController */,
 			);
 			name = MapCDTVC;
@@ -804,6 +809,7 @@
 				BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */,
 				BD1BF7EF19DB901E00B1379A /* HomeViewController.m in Sources */,
 				BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */,
+				45895D851AC127D20009E749 /* Bill.m in Sources */,
 				BDB055981A163C3000751913 /* KindePickerCVCell.m in Sources */,
 				BD1BF7E919DB901E00B1379A /* AppDelegate.m in Sources */,
 				BD571E181A82633A0040CCF4 /* ColorCVCell.m in Sources */,
@@ -811,13 +817,13 @@
 				4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */,
 				BDA8A8411A13B5A900C7B1CB /* DeleteCVCell.m in Sources */,
 				BDA8A82C1A13B48C00C7B1CB /* LocationCVCell.m in Sources */,
-				BD2349391AA9D329004E48C8 /* Kind.m in Sources */,
-				BD23493C1AA9D32A004E48C8 /* Bill.m in Sources */,
 				BDA5A34C19FA787A006D2E69 /* MapCDTVC.m in Sources */,
+				45895D881AC127D20009E749 /* Kind.m in Sources */,
 				BD7348951A9995B700692EE4 /* UIViewController+Extension.m in Sources */,
 				BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */,
 				BD1BF83B19DB927300B1379A /* Kind+Create.m in Sources */,
 				BD58BDA01AA8984300CE2D08 /* ColorTransformer.m in Sources */,
+				45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */,
 				BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */,
 				BDB39FD919E814BF0022E5C4 /* KindCDTVC.m in Sources */,
 				BD81A3ED1A99D78500C2CBE6 /* BillTVCell.m in Sources */,

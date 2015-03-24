@@ -2,14 +2,14 @@
 //  Bill.h
 //  EasyBills
 //
-//  Created by Beeth0ven on 3/6/15.
+//  Created by luojie on 3/24/15.
 //  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Kind;
+@class Bill, Kind;
 
 @interface Bill : NSManagedObject
 
@@ -28,5 +28,15 @@
 @property (nonatomic, retain) NSNumber * weekID;
 @property (nonatomic, retain) NSNumber * weekOfMonth;
 @property (nonatomic, retain) Kind *kind;
+@property (nonatomic, retain) NSSet *containedAnnotations;
+@property (nonatomic, retain) Bill *clusterAnnotation;
+@end
+
+@interface Bill (CoreDataGeneratedAccessors)
+
+- (void)addContainedAnnotationsObject:(Bill *)value;
+- (void)removeContainedAnnotationsObject:(Bill *)value;
+- (void)addContainedAnnotations:(NSSet *)values;
+- (void)removeContainedAnnotations:(NSSet *)values;
 
 @end

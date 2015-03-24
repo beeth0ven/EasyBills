@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C109" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Bill" representedClassName="Bill" syncable="YES">
         <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="432446400" indexed="YES" syncable="YES"/>
@@ -15,6 +15,8 @@
         <attribute name="weekday" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="weekID" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="weekOfMonth" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="clusterAnnotation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bill" inverseName="containedAnnotations" inverseEntity="Bill" syncable="YES"/>
+        <relationship name="containedAnnotations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="clusterAnnotation" inverseEntity="Bill" syncable="YES"/>
         <relationship name="kind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kind" inverseName="bills" inverseEntity="Kind" syncable="YES"/>
     </entity>
     <entity name="Kind" representedClassName="Kind" syncable="YES">
@@ -26,7 +28,7 @@
         <relationship name="bills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="kind" inverseEntity="Bill" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bill" positionX="-4043" positionY="-1872" width="128" height="268"/>
-        <element name="Kind" positionX="-3818" positionY="-1737" width="128" height="133"/>
+        <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="298"/>
+        <element name="Kind" positionX="-3791" positionY="-1744" width="128" height="133"/>
     </elements>
 </model>
