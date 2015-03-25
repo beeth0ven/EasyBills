@@ -63,6 +63,11 @@ MKMapViewDelegate>
 {
     [super viewWillAppear:animated];
     [self.navigationController applyDefualtStyle:NO];
+    
+    UIColor *color = self.isIncome ? EBBlue: EBBackGround;
+    self.navigationController.navigationBar.titleTextAttributes =
+    @{NSForegroundColorAttributeName : color,
+      NSFontAttributeName : [UIFont boldSystemFontOfSize:20]};
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -463,10 +468,10 @@ MKMapViewDelegate>
         MKMapView               *mapView    = (MKMapView *)[cell viewWithTag:3];
         
         mapView.delegate = self;
-        [self performSelector:@selector(reloadDataInMapView:)
-                   withObject:mapView
-                   afterDelay:0.3];
-//        [self reloadDataInMapView:mapView];
+//        [self performSelector:@selector(reloadDataInMapView:)
+//                   withObject:mapView
+//                   afterDelay:0.3];
+        [self reloadDataInMapView:mapView];
         [self updateMapCellLabel:label activity:activity];
         self.mapCell = cell;
     }

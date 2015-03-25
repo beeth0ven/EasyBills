@@ -48,11 +48,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.isIncome = [PubicVariable kindIsIncome];
-    UIImage *image = [UIImage imageNamed:@"Account details BG"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    self.tableView.backgroundView = imageView;
+//    UIImage *image = [UIImage imageNamed:@"Account details BG"];
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+//    self.tableView.backgroundView = imageView;
     
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self setupMenuButton];
     

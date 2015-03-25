@@ -2,7 +2,7 @@
 //  Bill.h
 //  EasyBills
 //
-//  Created by luojie on 3/24/15.
+//  Created by luojie on 3/25/15.
 //  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
@@ -27,9 +27,12 @@
 @property (nonatomic, retain) NSNumber * weekday;
 @property (nonatomic, retain) NSNumber * weekID;
 @property (nonatomic, retain) NSNumber * weekOfMonth;
-@property (nonatomic, retain) Kind *kind;
-@property (nonatomic, retain) NSSet *containedAnnotations;
+@property (nonatomic, retain) NSNumber * hasClusterAnnotation;
+@property (nonatomic, retain) NSString * clusterAnnotationLatitude;
+@property (nonatomic, retain) NSString * clusterAnnotationLongitude;
 @property (nonatomic, retain) Bill *clusterAnnotation;
+@property (nonatomic, retain) NSSet *containedAnnotations;
+@property (nonatomic, retain) Kind *kind;
 @end
 
 @interface Bill (CoreDataGeneratedAccessors)

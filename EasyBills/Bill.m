@@ -2,7 +2,7 @@
 //  Bill.m
 //  EasyBills
 //
-//  Created by luojie on 3/24/15.
+//  Created by luojie on 3/25/15.
 //  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
@@ -27,8 +27,11 @@
 @dynamic weekday;
 @dynamic weekID;
 @dynamic weekOfMonth;
-@dynamic kind;
-@dynamic containedAnnotations;
+@dynamic hasClusterAnnotation;
+@dynamic clusterAnnotationLatitude;
+@dynamic clusterAnnotationLongitude;
 @dynamic clusterAnnotation;
+@dynamic containedAnnotations;
+@dynamic kind;
 
 @end

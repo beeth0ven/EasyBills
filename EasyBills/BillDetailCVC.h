@@ -12,7 +12,6 @@
 #import "Kind+Create.h"
 #import "Bill+Create.h"
 #import "MoneyCVCell.h"
-#import "LocationCVCell.h"
 #import "ImageCollectionViewCell.h"
 
 

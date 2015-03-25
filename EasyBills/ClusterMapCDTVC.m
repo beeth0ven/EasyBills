@@ -23,8 +23,6 @@
 - (void)populateWorldWithAllBillAnnotations {
     
     [_allAnnotationsMapView addAnnotations:self.fetchedResultsController.fetchedObjects];
-    NSLog(@"fetchedResultsController:      %i",self.fetchedResultsController.fetchedObjects.count);
-    NSLog(@"_allAnnotationsMapView:      %i",_allAnnotationsMapView.annotations.count);
     [self updateVisibleAnnotations];
     
 }
@@ -124,47 +122,22 @@
 
                 [filteredAnnotationsInBucket removeObject:annotationForGrid];
                 
-                [self enumFetchedObjects];
-                
-                
-                
-
-                [self enumFetchedObjects];
-                
                 [self.mapView addAnnotation:annotationForGrid];
 
                 
                 annotationForGrid.containedAnnotations = filteredAnnotationsInBucket;
                 
-                [self enumFetchedObjects];
                 
 
-//                NSLog(@"allAnnotationsInBucket:      %i",allAnnotationsInBucket.count);
-//                NSLog(@"visibleAnnotationsInBucket:  %i",visibleAnnotationsInBucket.count);
-//                NSLog(@"filteredAnnotationsInBucket: %i",filteredAnnotationsInBucket.count);
-//                NSLog(@" ");
-//                
-//                if (annotationForGrid.clusterAnnotation != nil) {
-//                    NSLog(@"clusterAnnotation exsit.");
-//                }else{
-//                    NSLog(@"clusterAnnotation dosn't exsit.");
-//                    
-//                }
-                
 
                 
                 
                 for (Bill *annotation in filteredAnnotationsInBucket) {
                     
-//                    [annotation setClusterAnnotation:annotationForGrid];
+                    annotation.hasClusterAnnotation = [NSNumber numberWithBool:YES];
+                    annotation.clusterAnnotationCoordinate = annotationForGrid.coordinate;
+                    
                     annotation.containedAnnotations = nil;
-//                    
-//                    if (annotation.clusterAnnotation != nil) {
-//                        NSLog(@"filtered clusterannotation exsit.");
-//                    }else{
-//                        NSLog(@"filtered clusterannotation dosn't exsit.");
-//                        
-//                    }
                     
                     if ([visibleAnnotationsInBucket containsObject:annotation]) {
                         CLLocationCoordinate2D actualCoordinate = annotation.coordinate;
@@ -191,23 +164,22 @@
     
     
     
-    [self enumFetchedObjects];
     
 }
 
-- (void)enumFetchedObjects{
-    
-    NSArray *bills = [self.fetchedResultsController fetchedObjects];
-    [bills enumerateObjectsUsingBlock:^(Bill *bill, NSUInteger idx, BOOL *stop) {
-        NSLog(@"Bill Index : %i",idx);
-        if (bill.clusterAnnotation != nil) {
-            NSLog(@"clusterannotation exsit.");
-        }else{
-            NSLog(@"clusterannotation dosn't exsit.");
-            
-        }
-    }];
-}
+//- (void)enumFetchedObjects{
+//    
+//    NSArray *bills = [self.fetchedResultsController fetchedObjects];
+//    [bills enumerateObjectsUsingBlock:^(Bill *bill, NSUInteger idx, BOOL *stop) {
+//        NSLog(@"Bill Index : %i",idx);
+//        if (bill.clusterAnnotation != nil) {
+//            NSLog(@"clusterannotation exsit.");
+//        }else{
+//            NSLog(@"clusterannotation dosn't exsit.");
+//            
+//        }
+//    }];
+//}
 
 #pragma mark - UIViewController
 
@@ -215,6 +187,11 @@
     [super viewDidLoad];
     
     _allAnnotationsMapView = [[MKMapView alloc] initWithFrame:CGRectZero];
+    [self populateWorldWithAllBillAnnotations];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self populateWorldWithAllBillAnnotations];
 }
 
@@ -232,20 +209,12 @@
         }
         
         Bill *annotation = annotationView.annotation;
-//        
-//        if (annotation.clusterAnnotation != nil) {
-//            NSLog(@"Added clusterannotation exsit.");
-//        }else{
-//            NSLog(@"Added clusterannotation dosn't exsit.");
-//            
-//        }
         
-        if (annotation.clusterAnnotation != nil) {
+        if (annotation.hasClusterAnnotation.boolValue == YES) {
             CLLocationCoordinate2D actualCoordinate = annotation.coordinate;
-            CLLocationCoordinate2D containerCoordinate = annotation.clusterAnnotation.coordinate;
+            CLLocationCoordinate2D containerCoordinate = annotation.clusterAnnotationCoordinate;
             
-            annotation.clusterAnnotation =  nil;
-            
+            annotation.hasClusterAnnotation = [NSNumber numberWithBool:NO];
             annotation.coordinate = containerCoordinate;
             
             [UIView animateWithDuration:0.3 animations:^{
@@ -255,7 +224,6 @@
         
         
     }
-    [self enumFetchedObjects];
     
     
 }

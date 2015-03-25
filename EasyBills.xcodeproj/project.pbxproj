@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4508D5FE1AC2735E007CA44A /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D5FD1AC2735E007CA44A /* Bill.m */; };
+		4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6001AC2961F007CA44A /* ToolBarCMCDTVC.m */; };
 		4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */; };
 		45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */; };
-		45895D851AC127D20009E749 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D841AC127D20009E749 /* Bill.m */; };
 		45895D881AC127D20009E749 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D871AC127D20009E749 /* Kind.m */; };
 		8F0B3811DD8B4AD6A1A72E3F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A5F4B0F58449C59A21A605 /* libPods.a */; };
 		BD0749671A86660300467648 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0749661A86660300467648 /* UIButton+Extension.m */; };
@@ -50,9 +51,6 @@
 		BDA8A8221A13B42600C7B1CB /* MoneyCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8211A13B42600C7B1CB /* MoneyCVCell.m */; };
 		BDA8A8261A13B45600C7B1CB /* KindCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8251A13B45600C7B1CB /* KindCVCell.m */; };
 		BDA8A8291A13B46500C7B1CB /* DateCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8281A13B46500C7B1CB /* DateCVCell.m */; };
-		BDA8A82C1A13B48C00C7B1CB /* LocationCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A82B1A13B48C00C7B1CB /* LocationCVCell.m */; };
-		BDA8A82F1A13B49600C7B1CB /* MapCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A82E1A13B49600C7B1CB /* MapCVCell.m */; };
-		BDA8A8411A13B5A900C7B1CB /* DeleteCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8401A13B5A900C7B1CB /* DeleteCVCell.m */; };
 		BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA956381A10F13F00E55A9D /* BillDetailCVC.m */; };
 		BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABBCC81A03C4EE0029D7D1 /* CoreDataMapViewController.m */; };
 		BDB055951A15E46500751913 /* DatePickerCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB055941A15E46500751913 /* DatePickerCVCell.m */; };
@@ -76,12 +74,14 @@
 
 /* Begin PBXFileReference section */
 		0CA564406E4C247DAE42E147 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4508D5FC1AC2735E007CA44A /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
+		4508D5FD1AC2735E007CA44A /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
+		4508D5FF1AC2961F007CA44A /* ToolBarCMCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBarCMCDTVC.h; sourceTree = "<group>"; };
+		4508D6001AC2961F007CA44A /* ToolBarCMCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBarCMCDTVC.m; sourceTree = "<group>"; };
 		4568DB841ABFFA3D0064BBE2 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		45895D801AC1217C0009E749 /* ClusterMapCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterMapCDTVC.h; sourceTree = "<group>"; };
 		45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterMapCDTVC.m; sourceTree = "<group>"; };
-		45895D831AC127D20009E749 /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
-		45895D841AC127D20009E749 /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
 		45895D861AC127D20009E749 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
 		45895D871AC127D20009E749 /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
 		50A5F4B0F58449C59A21A605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,12 +151,6 @@
 		BDA8A8251A13B45600C7B1CB /* KindCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindCVCell.m; sourceTree = "<group>"; };
 		BDA8A8271A13B46500C7B1CB /* DateCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCVCell.h; sourceTree = "<group>"; };
 		BDA8A8281A13B46500C7B1CB /* DateCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCVCell.m; sourceTree = "<group>"; };
-		BDA8A82A1A13B48C00C7B1CB /* LocationCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCVCell.h; sourceTree = "<group>"; };
-		BDA8A82B1A13B48C00C7B1CB /* LocationCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCVCell.m; sourceTree = "<group>"; };
-		BDA8A82D1A13B49600C7B1CB /* MapCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCVCell.h; sourceTree = "<group>"; };
-		BDA8A82E1A13B49600C7B1CB /* MapCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCVCell.m; sourceTree = "<group>"; };
-		BDA8A83F1A13B5A900C7B1CB /* DeleteCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteCVCell.h; sourceTree = "<group>"; };
-		BDA8A8401A13B5A900C7B1CB /* DeleteCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteCVCell.m; sourceTree = "<group>"; };
 		BDA956371A10F13F00E55A9D /* BillDetailCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDetailCVC.h; sourceTree = "<group>"; };
 		BDA956381A10F13F00E55A9D /* BillDetailCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDetailCVC.m; sourceTree = "<group>"; };
 		BDABBCC71A03C4EE0029D7D1 /* CoreDataMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataMapViewController.h; sourceTree = "<group>"; };
@@ -262,6 +256,7 @@
 		BD1BF7DF19DB901E00B1379A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BD81A3CE1A99CEB800C2CBE6 /* Extension */,
 				BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */,
 				BD1BF7E719DB901E00B1379A /* AppDelegate.h */,
 				BD1BF7E819DB901E00B1379A /* AppDelegate.m */,
@@ -295,10 +290,10 @@
 			isa = PBXGroup;
 			children = (
 				BD1BF82819DB927300B1379A /* Model.xcdatamodeld */,
+				4508D5FC1AC2735E007CA44A /* Bill.h */,
+				4508D5FD1AC2735E007CA44A /* Bill.m */,
 				45895D861AC127D20009E749 /* Kind.h */,
 				45895D871AC127D20009E749 /* Kind.m */,
-				45895D831AC127D20009E749 /* Bill.h */,
-				45895D841AC127D20009E749 /* Bill.m */,
 				BD81A3DA1A99D3BA00C2CBE6 /* Kind+ */,
 				BD81A3D91A99D38400C2CBE6 /* Bill+ */,
 			);
@@ -331,7 +326,6 @@
 			children = (
 				BD81A3CF1A99CF9600C2CBE6 /* SidebarViewController */,
 				BD81A3D01A99CF9F00C2CBE6 /* MainViewController */,
-				BD81A3CE1A99CEB800C2CBE6 /* Support */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -383,7 +377,7 @@
 			name = PushSegue;
 			sourceTree = "<group>";
 		};
-		BD81A3CE1A99CEB800C2CBE6 /* Support */ = {
+		BD81A3CE1A99CEB800C2CBE6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */,
@@ -397,7 +391,7 @@
 				BD7348931A9995B600692EE4 /* UIViewController+Extension.h */,
 				BD7348941A9995B700692EE4 /* UIViewController+Extension.m */,
 			);
-			name = Support;
+			name = Extension;
 			sourceTree = "<group>";
 		};
 		BD81A3CF1A99CF9600C2CBE6 /* SidebarViewController */ = {
@@ -413,8 +407,8 @@
 			isa = PBXGroup;
 			children = (
 				BD81A3D11A99CFCF00C2CBE6 /* HomeViewController */,
-				BD81A3D21A99CFD800C2CBE6 /* MapCDTVC */,
 				BD81A3D31A99CFE100C2CBE6 /* KindCDTVC */,
+				BD81A3D21A99CFD800C2CBE6 /* MapCDTVC */,
 				BD81A3D41A99CFEB00C2CBE6 /* SettingTVC */,
 			);
 			name = MainViewController;
@@ -433,8 +427,8 @@
 		BD81A3D21A99CFD800C2CBE6 /* MapCDTVC */ = {
 			isa = PBXGroup;
 			children = (
-				BDA5A34A19FA787A006D2E69 /* MapCDTVC.h */,
-				BDA5A34B19FA787A006D2E69 /* MapCDTVC.m */,
+				4508D5FF1AC2961F007CA44A /* ToolBarCMCDTVC.h */,
+				4508D6001AC2961F007CA44A /* ToolBarCMCDTVC.m */,
 				45895D801AC1217C0009E749 /* ClusterMapCDTVC.h */,
 				45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */,
 				BD81A3D61A99D06300C2CBE6 /* CoreDataMapViewController */,
@@ -475,6 +469,8 @@
 		BD81A3D61A99D06300C2CBE6 /* CoreDataMapViewController */ = {
 			isa = PBXGroup;
 			children = (
+				BDA5A34A19FA787A006D2E69 /* MapCDTVC.h */,
+				BDA5A34B19FA787A006D2E69 /* MapCDTVC.m */,
 				BDABBCC71A03C4EE0029D7D1 /* CoreDataMapViewController.h */,
 				BDABBCC81A03C4EE0029D7D1 /* CoreDataMapViewController.m */,
 			);
@@ -569,25 +565,6 @@
 			name = DatePickerCVCell;
 			sourceTree = "<group>";
 		};
-		BD81A3E11A99D58B00C2CBE6 /* LocationCVCell */ = {
-			isa = PBXGroup;
-			children = (
-				BDA8A82A1A13B48C00C7B1CB /* LocationCVCell.h */,
-				BDA8A82B1A13B48C00C7B1CB /* LocationCVCell.m */,
-				BD81A3E21A99D59400C2CBE6 /* MapCVCell */,
-			);
-			name = LocationCVCell;
-			sourceTree = "<group>";
-		};
-		BD81A3E21A99D59400C2CBE6 /* MapCVCell */ = {
-			isa = PBXGroup;
-			children = (
-				BDA8A82D1A13B49600C7B1CB /* MapCVCell.h */,
-				BDA8A82E1A13B49600C7B1CB /* MapCVCell.m */,
-			);
-			name = MapCVCell;
-			sourceTree = "<group>";
-		};
 		BD81A3E61A99D5F000C2CBE6 /* NotbodyCVCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,15 +572,6 @@
 				BD81A3E41A99D5DA00C2CBE6 /* NotbodyCVCell.m */,
 			);
 			name = NotbodyCVCell;
-			sourceTree = "<group>";
-		};
-		BD81A3E71A99D64C00C2CBE6 /* DeleteCVCell */ = {
-			isa = PBXGroup;
-			children = (
-				BDA8A83F1A13B5A900C7B1CB /* DeleteCVCell.h */,
-				BDA8A8401A13B5A900C7B1CB /* DeleteCVCell.m */,
-			);
-			name = DeleteCVCell;
 			sourceTree = "<group>";
 		};
 		BD81A3E81A99D69200C2CBE6 /* ColorPickerCollectionViewController */ = {
@@ -639,9 +607,7 @@
 				BD81A3DC1A99D53600C2CBE6 /* MoneyCVCell */,
 				BD81A3DD1A99D53D00C2CBE6 /* KindCVCell */,
 				BD81A3DF1A99D57700C2CBE6 /* DateCVCell */,
-				BD81A3E11A99D58B00C2CBE6 /* LocationCVCell */,
 				BD81A3E61A99D5F000C2CBE6 /* NotbodyCVCell */,
-				BD81A3E71A99D64C00C2CBE6 /* DeleteCVCell */,
 			);
 			name = BillDetailCVCells;
 			sourceTree = "<group>";
@@ -793,14 +759,15 @@
 				BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */,
 				BDB32C9C1A22421C00EA822E /* SidebarViewController.m in Sources */,
 				BDA8A8221A13B42600C7B1CB /* MoneyCVCell.m in Sources */,
+				4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */,
 				BDB055951A15E46500751913 /* DatePickerCVCell.m in Sources */,
 				BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */,
 				BD6FC8501AA0B7730059AC20 /* KindDetailCVC.m in Sources */,
-				BDA8A82F1A13B49600C7B1CB /* MapCVCell.m in Sources */,
 				BDA397841A3BE9E400E1D9F7 /* DefaultStyleController.m in Sources */,
 				BD1BF83119DB927300B1379A /* Bill+Create.m in Sources */,
 				BD7348841A99842B00692EE4 /* UINavigationController+Style.m in Sources */,
 				BD1BF83519DB927300B1379A /* CoreDataTableViewController.m in Sources */,
+				4508D5FE1AC2735E007CA44A /* Bill.m in Sources */,
 				BD1BF83219DB927300B1379A /* BillCDTVC.m in Sources */,
 				BDA8A8291A13B46500C7B1CB /* DateCVCell.m in Sources */,
 				BDA8A8261A13B45600C7B1CB /* KindCVCell.m in Sources */,
@@ -809,14 +776,11 @@
 				BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */,
 				BD1BF7EF19DB901E00B1379A /* HomeViewController.m in Sources */,
 				BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */,
-				45895D851AC127D20009E749 /* Bill.m in Sources */,
 				BDB055981A163C3000751913 /* KindePickerCVCell.m in Sources */,
 				BD1BF7E919DB901E00B1379A /* AppDelegate.m in Sources */,
 				BD571E181A82633A0040CCF4 /* ColorCVCell.m in Sources */,
 				BDB056BA19E3A1D000494080 /* SettingTVC.m in Sources */,
 				4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */,
-				BDA8A8411A13B5A900C7B1CB /* DeleteCVCell.m in Sources */,
-				BDA8A82C1A13B48C00C7B1CB /* LocationCVCell.m in Sources */,
 				BDA5A34C19FA787A006D2E69 /* MapCDTVC.m in Sources */,
 				45895D881AC127D20009E749 /* Kind.m in Sources */,
 				BD7348951A9995B700692EE4 /* UIViewController+Extension.m in Sources */,

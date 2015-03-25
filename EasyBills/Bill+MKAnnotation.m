@@ -27,6 +27,23 @@
     self.longitude = [NSString stringWithFormat:@"%.8f",coordinate.longitude];
 }
 
+-(CLLocationCoordinate2D) clusterAnnotationCoordinate{
+    
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = [self.clusterAnnotationLatitude doubleValue];
+    coordinate.longitude = [self.clusterAnnotationLongitude  doubleValue];
+    
+    return coordinate;
+}
+
+- (void)setClusterAnnotationCoordinate:(CLLocationCoordinate2D)coordinate {
+    self.clusterAnnotationLatitude = [NSString stringWithFormat:@"%.8f",coordinate.latitude];
+    self.clusterAnnotationLongitude = [NSString stringWithFormat:@"%.8f",coordinate.longitude];
+}
+
+
+
+
 -(NSString *)title
 {
     if (self.containedAnnotations.count > 0) {

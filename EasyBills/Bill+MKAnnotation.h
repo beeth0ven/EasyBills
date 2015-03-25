@@ -11,7 +11,9 @@
 
 @interface Bill (MKAnnotation)<MKAnnotation>
 
-- (void)setCoordinate:(CLLocationCoordinate2D)coordinate;
+-(CLLocationCoordinate2D) clusterAnnotationCoordinate;
 
+- (void)setCoordinate:(CLLocationCoordinate2D)coordinate;
+- (void)setClusterAnnotationCoordinate:(CLLocationCoordinate2D)coordinate;
 
 @end
