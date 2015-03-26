@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		4508D5FE1AC2735E007CA44A /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D5FD1AC2735E007CA44A /* Bill.m */; };
 		4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6001AC2961F007CA44A /* ToolBarCMCDTVC.m */; };
+		4508D6501AC3EDF5007CA44A /* CursorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D64D1AC3EDF5007CA44A /* CursorButton.m */; };
+		4508D6511AC3EDF5007CA44A /* Paths.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D64F1AC3EDF5007CA44A /* Paths.m */; };
+		4508D6551AC3EE10007CA44A /* CGPath+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6541AC3EE10007CA44A /* CGPath+Extension.m */; };
+		4508D6581AC3F283007CA44A /* EasyBillsCursorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6571AC3F283007CA44A /* EasyBillsCursorButton.m */; };
+		4508D65B1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D65A1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m */; };
+		4508D65E1AC41327007CA44A /* BillDetailCVC+MKMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D65D1AC41327007CA44A /* BillDetailCVC+MKMapView.m */; };
+		4508D6611AC41642007CA44A /* BillDetailCVC+UIActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6601AC41642007CA44A /* BillDetailCVC+UIActionSheet.m */; };
+		4508D66A1AC41909007CA44A /* BillDetailCVC+SetUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6691AC41909007CA44A /* BillDetailCVC+SetUp.m */; };
+		4508D66D1AC41E60007CA44A /* BillDetailCVC+Observer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D66C1AC41E60007CA44A /* BillDetailCVC+Observer.m */; };
 		4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */; };
 		45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */; };
 		45895D881AC127D20009E749 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D871AC127D20009E749 /* Kind.m */; };
@@ -78,6 +87,24 @@
 		4508D5FD1AC2735E007CA44A /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
 		4508D5FF1AC2961F007CA44A /* ToolBarCMCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBarCMCDTVC.h; sourceTree = "<group>"; };
 		4508D6001AC2961F007CA44A /* ToolBarCMCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBarCMCDTVC.m; sourceTree = "<group>"; };
+		4508D64C1AC3EDF5007CA44A /* CursorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CursorButton.h; sourceTree = "<group>"; };
+		4508D64D1AC3EDF5007CA44A /* CursorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CursorButton.m; sourceTree = "<group>"; };
+		4508D64E1AC3EDF5007CA44A /* Paths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paths.h; sourceTree = "<group>"; };
+		4508D64F1AC3EDF5007CA44A /* Paths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paths.m; sourceTree = "<group>"; };
+		4508D6531AC3EE10007CA44A /* CGPath+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGPath+Extension.h"; sourceTree = "<group>"; };
+		4508D6541AC3EE10007CA44A /* CGPath+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGPath+Extension.m"; sourceTree = "<group>"; };
+		4508D6561AC3F283007CA44A /* EasyBillsCursorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyBillsCursorButton.h; sourceTree = "<group>"; };
+		4508D6571AC3F283007CA44A /* EasyBillsCursorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyBillsCursorButton.m; sourceTree = "<group>"; };
+		4508D6591AC40CF8007CA44A /* BillDetailCVC+CLLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+CLLocation.h"; sourceTree = "<group>"; };
+		4508D65A1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+CLLocation.m"; sourceTree = "<group>"; };
+		4508D65C1AC41327007CA44A /* BillDetailCVC+MKMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+MKMapView.h"; sourceTree = "<group>"; };
+		4508D65D1AC41327007CA44A /* BillDetailCVC+MKMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+MKMapView.m"; sourceTree = "<group>"; };
+		4508D65F1AC41642007CA44A /* BillDetailCVC+UIActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIActionSheet.h"; sourceTree = "<group>"; };
+		4508D6601AC41642007CA44A /* BillDetailCVC+UIActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UIActionSheet.m"; sourceTree = "<group>"; };
+		4508D6681AC41909007CA44A /* BillDetailCVC+SetUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+SetUp.h"; sourceTree = "<group>"; };
+		4508D6691AC41909007CA44A /* BillDetailCVC+SetUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+SetUp.m"; sourceTree = "<group>"; };
+		4508D66B1AC41E60007CA44A /* BillDetailCVC+Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+Observer.h"; sourceTree = "<group>"; };
+		4508D66C1AC41E60007CA44A /* BillDetailCVC+Observer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+Observer.m"; sourceTree = "<group>"; };
 		4568DB841ABFFA3D0064BBE2 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		45895D801AC1217C0009E749 /* ClusterMapCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterMapCDTVC.h; sourceTree = "<group>"; };
@@ -207,6 +234,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4508D6521AC3EE05007CA44A /* CursorButton */ = {
+			isa = PBXGroup;
+			children = (
+				4508D6561AC3F283007CA44A /* EasyBillsCursorButton.h */,
+				4508D6571AC3F283007CA44A /* EasyBillsCursorButton.m */,
+				4508D64C1AC3EDF5007CA44A /* CursorButton.h */,
+				4508D64D1AC3EDF5007CA44A /* CursorButton.m */,
+				4508D64E1AC3EDF5007CA44A /* Paths.h */,
+				4508D64F1AC3EDF5007CA44A /* Paths.m */,
+				4508D6531AC3EE10007CA44A /* CGPath+Extension.h */,
+				4508D6541AC3EE10007CA44A /* CGPath+Extension.m */,
+			);
+			name = CursorButton;
+			sourceTree = "<group>";
+		};
 		BD1BF7CC19DB901E00B1379A = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +298,7 @@
 		BD1BF7DF19DB901E00B1379A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4508D6521AC3EE05007CA44A /* CursorButton */,
 				BD81A3CE1A99CEB800C2CBE6 /* Extension */,
 				BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */,
 				BD1BF7E719DB901E00B1379A /* AppDelegate.h */,
@@ -305,6 +348,16 @@
 			children = (
 				BDA956371A10F13F00E55A9D /* BillDetailCVC.h */,
 				BDA956381A10F13F00E55A9D /* BillDetailCVC.m */,
+				4508D66B1AC41E60007CA44A /* BillDetailCVC+Observer.h */,
+				4508D66C1AC41E60007CA44A /* BillDetailCVC+Observer.m */,
+				4508D6681AC41909007CA44A /* BillDetailCVC+SetUp.h */,
+				4508D6691AC41909007CA44A /* BillDetailCVC+SetUp.m */,
+				4508D65F1AC41642007CA44A /* BillDetailCVC+UIActionSheet.h */,
+				4508D6601AC41642007CA44A /* BillDetailCVC+UIActionSheet.m */,
+				4508D65C1AC41327007CA44A /* BillDetailCVC+MKMapView.h */,
+				4508D65D1AC41327007CA44A /* BillDetailCVC+MKMapView.m */,
+				4508D6591AC40CF8007CA44A /* BillDetailCVC+CLLocation.h */,
+				4508D65A1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m */,
 				BD81A3E81A99D69200C2CBE6 /* ColorPickerCollectionViewController */,
 			);
 			name = PushSegue;
@@ -757,6 +810,8 @@
 			files = (
 				BD81A3E51A99D5DA00C2CBE6 /* NotbodyCVCell.m in Sources */,
 				BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */,
+				4508D65E1AC41327007CA44A /* BillDetailCVC+MKMapView.m in Sources */,
+				4508D6511AC3EDF5007CA44A /* Paths.m in Sources */,
 				BDB32C9C1A22421C00EA822E /* SidebarViewController.m in Sources */,
 				BDA8A8221A13B42600C7B1CB /* MoneyCVCell.m in Sources */,
 				4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */,
@@ -766,14 +821,18 @@
 				BDA397841A3BE9E400E1D9F7 /* DefaultStyleController.m in Sources */,
 				BD1BF83119DB927300B1379A /* Bill+Create.m in Sources */,
 				BD7348841A99842B00692EE4 /* UINavigationController+Style.m in Sources */,
+				4508D66A1AC41909007CA44A /* BillDetailCVC+SetUp.m in Sources */,
 				BD1BF83519DB927300B1379A /* CoreDataTableViewController.m in Sources */,
 				4508D5FE1AC2735E007CA44A /* Bill.m in Sources */,
+				4508D65B1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m in Sources */,
 				BD1BF83219DB927300B1379A /* BillCDTVC.m in Sources */,
 				BDA8A8291A13B46500C7B1CB /* DateCVCell.m in Sources */,
 				BDA8A8261A13B45600C7B1CB /* KindCVCell.m in Sources */,
 				BD1BF83D19DB927300B1379A /* Model.xcdatamodeld in Sources */,
 				BD0749671A86660300467648 /* UIButton+Extension.m in Sources */,
 				BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */,
+				4508D6551AC3EE10007CA44A /* CGPath+Extension.m in Sources */,
+				4508D66D1AC41E60007CA44A /* BillDetailCVC+Observer.m in Sources */,
 				BD1BF7EF19DB901E00B1379A /* HomeViewController.m in Sources */,
 				BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */,
 				BDB055981A163C3000751913 /* KindePickerCVCell.m in Sources */,
@@ -790,7 +849,10 @@
 				45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */,
 				BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */,
 				BDB39FD919E814BF0022E5C4 /* KindCDTVC.m in Sources */,
+				4508D6581AC3F283007CA44A /* EasyBillsCursorButton.m in Sources */,
+				4508D6501AC3EDF5007CA44A /* CursorButton.m in Sources */,
 				BD81A3ED1A99D78500C2CBE6 /* BillTVCell.m in Sources */,
+				4508D6611AC41642007CA44A /* BillDetailCVC+UIActionSheet.m in Sources */,
 				BD1BF83419DB927300B1379A /* ChartDate.m in Sources */,
 				BD1BF7E519DB901E00B1379A /* main.m in Sources */,
 				BDB073DC19FBD9780062462F /* Bill+MKAnnotation.m in Sources */,

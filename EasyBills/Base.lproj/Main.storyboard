@@ -144,11 +144,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jf9-zN-XoW">
                                 <rect key="frame" x="0.0" y="460" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem image="CursorToolBarIcon" id="jb9-Bc-pPx">
-                                        <connections>
-                                            <action selector="changeShowLocationStates:" destination="xMU-ow-nne" id="7ts-I6-jp1"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem image="CursorToolBarIcon" id="jb9-Bc-pPx"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YMo-oj-vIf"/>
                                     <barButtonItem style="plain" id="B0t-l3-IjV">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="FHV-yT-NDE">
@@ -175,6 +171,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cursorBarButtonItem" destination="jb9-Bc-pPx" id="Gql-tv-TcW"/>
                         <outlet property="mapView" destination="4Oq-fE-aBg" id="lSh-vc-FQ0"/>
                         <segue destination="YWe-7I-IZY" kind="modal" identifier="mapShowBill" id="1iF-0M-vvk"/>
                         <segue destination="TxR-LA-GbL" kind="push" identifier="showBillByMap" id="2Y9-ck-bRC"/>
