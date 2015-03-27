@@ -872,7 +872,7 @@
                             <inset key="sectionInset" minX="0.0" minY="20" maxX="0.0" maxY="20"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moneyCell" id="Jkc-Sq-Cvw" customClass="MoneyCVCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moneyCell" id="Jkc-Sq-Cvw">
                                 <rect key="frame" x="12" y="20" width="297" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -900,11 +900,8 @@
                                 </view>
                                 <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <size key="customSize" width="297" height="64"/>
-                                <connections>
-                                    <outlet property="textField" destination="GTS-ae-aKa" id="pDG-Jz-306"/>
-                                </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="kindCell" id="WYe-d0-dwv" customClass="KindCVCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="kindCell" id="WYe-d0-dwv">
                                 <rect key="frame" x="12" y="84" width="297" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -934,11 +931,8 @@
                                 </view>
                                 <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <size key="customSize" width="297" height="64"/>
-                                <connections>
-                                    <outlet property="detailLabel" destination="djD-di-XlQ" id="q8A-59-C1b"/>
-                                </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="inputkindCell" id="IPP-Lh-eXd" customClass="KindePickerCVCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="inputkindCell" id="IPP-Lh-eXd">
                                 <rect key="frame" x="12" y="148" width="297" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -948,7 +942,7 @@
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7u-Ef-mUv">
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
-                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vV-AG-dGV">
+                                        <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vV-AG-dGV">
                                             <rect key="frame" x="0.0" y="19" width="297" height="162"/>
                                         </pickerView>
                                     </subviews>
@@ -961,11 +955,8 @@
                                     <constraint firstAttribute="centerY" secondItem="6vV-AG-dGV" secondAttribute="centerY" id="jPe-Gl-cud"/>
                                 </constraints>
                                 <size key="customSize" width="297" height="200"/>
-                                <connections>
-                                    <outlet property="kindPickerView" destination="6vV-AG-dGV" id="0je-OD-2EW"/>
-                                </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="dy8-1v-RIc" customClass="DateCVCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="dy8-1v-RIc">
                                 <rect key="frame" x="12" y="348" width="297" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -995,11 +986,8 @@
                                 </view>
                                 <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <size key="customSize" width="297" height="64"/>
-                                <connections>
-                                    <outlet property="detailLabel" destination="Xql-x8-Owq" id="rmD-uf-gtb"/>
-                                </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="inputdateCell" id="LkJ-P6-Mxp" customClass="DatePickerCVCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="inputdateCell" id="LkJ-P6-Mxp">
                                 <rect key="frame" x="12" y="412" width="297" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1009,14 +997,11 @@
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pyR-bn-eSK">
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
-                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-Fb-4fu">
+                                        <datePicker tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-Fb-4fu">
                                             <rect key="frame" x="-12" y="19" width="321" height="162"/>
                                             <date key="date" timeIntervalSinceReferenceDate="437641995.59414202">
                                                 <!--2014-11-14 07:13:15 +0000-->
                                             </date>
-                                            <connections>
-                                                <action selector="datePickerChanged:" destination="LkJ-P6-Mxp" eventType="valueChanged" id="iPK-cN-Q8f"/>
-                                            </connections>
                                         </datePicker>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1027,9 +1012,6 @@
                                     <constraint firstAttribute="centerX" secondItem="1DH-Fb-4fu" secondAttribute="centerX" id="UF2-3U-BFX"/>
                                 </constraints>
                                 <size key="customSize" width="297" height="200"/>
-                                <connections>
-                                    <outlet property="datePicker" destination="1DH-Fb-4fu" id="X4h-J8-hMX"/>
-                                </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="locationCell" id="EQl-3V-gZt">
                                 <rect key="frame" x="12" y="612" width="297" height="64"/>
@@ -1099,7 +1081,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <size key="customSize" width="297" height="200"/>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="notebodyCell" id="58L-xA-Ub3" customClass="NotbodyCVCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="notebodyCell" id="58L-xA-Ub3">
                                 <rect key="frame" x="12" y="876" width="297" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1110,7 +1092,7 @@
                                             <rect key="frame" x="14" y="63" width="270" height="1"/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="简单描述..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NKA-9K-91z">
+                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="简单描述..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NKA-9K-91z">
                                             <rect key="frame" x="20" y="17" width="264" height="30"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1121,9 +1103,6 @@
                                 </view>
                                 <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <size key="customSize" width="297" height="64"/>
-                                <connections>
-                                    <outlet property="textField" destination="NKA-9K-91z" id="5CU-OH-8uS"/>
-                                </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="W4A-Mm-pJT">
                                 <rect key="frame" x="12" y="1204" width="297" height="64"/>
@@ -1458,7 +1437,7 @@
                             <inset key="sectionInset" minX="0.0" minY="20" maxX="0.0" maxY="20"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nameCell" id="3Xd-9t-con" customClass="MoneyCVCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nameCell" id="3Xd-9t-con">
                                 <rect key="frame" x="12" y="20" width="297" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1791,8 +1770,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2Y9-ck-bRC"/>
         <segue reference="1iF-0M-vvk"/>
+        <segue reference="lPD-6K-1iA"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

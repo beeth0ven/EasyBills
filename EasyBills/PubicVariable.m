@@ -68,7 +68,7 @@
 +(NSString *)stringFromDate:(NSDate *)date
 {
     NSDateFormatter *dateFormtter=[[NSDateFormatter alloc] init];
-    [dateFormtter setDateFormat:@"yyyy年MM月dd日"];
+    [dateFormtter setDateFormat:@"yy年MM月dd日"];
     NSString *dateString=[dateFormtter stringFromDate:date];
     return dateString;
 }

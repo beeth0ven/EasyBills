@@ -11,7 +11,6 @@
 #import "PNChart.h"
 #import "Kind+Create.h"
 #import "Bill+Create.h"
-#import "MoneyCVCell.h"
 #import "ImageCollectionViewCell.h"
 #import "AFTextView.h"
 #import <CoreData/CoreData.h>
@@ -20,11 +19,8 @@
 #import "PubicVariable+FetchRequest.h"
 #import <CoreLocation/CoreLocation.h>
 #import "Kind+Create.h"
-#import "DatePickerCVCell.h"
-#import "MoneyCVCell.h"
 #import "DefaultStyleController.h"
 #import "UIImage+Extension.h"
-
 
 #define DELETE_BILL_ACTIONSHEET_TITLE "您确定要删除账此单吗?"
 #define DELETE_BILL_IMAGE_ACTIONSHEET_TITLE "您确定要删除此照片吗?"
@@ -36,15 +32,24 @@
 @property (strong ,nonatomic) Bill *bill;
 @property (nonatomic) BOOL isIncome;
 
+
+//For Inner Use
+
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) BOOL shouldShowMapCell;
 
 // The Current Input Cell IndexPath
 @property (strong ,nonatomic) NSIndexPath *inputCellIndexPath;
 
+@property (strong ,nonatomic) UITextField *activeField;
+@property (strong, nonatomic) UITextField *moneyTextField;
+@property (strong, nonatomic) UITextField *noteTextField;
 
 
-- (void)updateLocationCell;
+
+@property (strong, nonatomic) NSFetchedResultsController *kindFRC;
+
+- (void)updateCellWithIdentifier:(NSString *)identifier;
 - (void)updateMapViewCellWithoutLocation;
 - (void)showMapCell;
 

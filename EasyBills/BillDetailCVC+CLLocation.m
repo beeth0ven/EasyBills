@@ -38,7 +38,7 @@
             }
         }
         
-        [self updateLocationCell];
+        [self updateCellWithIdentifier:@"locationCell"];
         
     }
 }
@@ -80,7 +80,7 @@
     //    self.bill.latitude = [NSString stringWithFormat:@"%.8f" ,curentLocation.coordinate.latitude];
     //    self.bill.longitude = [NSString stringWithFormat:@"%.8f" ,curentLocation.coordinate.longitude];
     [self.locationManager stopUpdatingLocation];
-    [self updateLocationCell];
+    [self updateCellWithIdentifier:@"locationCell"];
     [self showMapCell];
     //    self.locationSwitch.on = YES;
     //    [self postNotificationWithLocationIsOn:YES];

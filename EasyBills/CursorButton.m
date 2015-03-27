@@ -90,7 +90,7 @@
                                                CGRectGetHeight(self.frame)/2);
         
         self.cursorShap.transform = CATransform3DIdentity;
-        self.cursorShap.opacity = 0.5;
+        self.cursorShap.opacity = 1;
         [self.layer addSublayer:self.cursorShap];
         
     }

@@ -17,6 +17,10 @@
 #import "BillDetailCVC+MKMapView.h"
 #import "BillDetailCVC+UIActionSheet.h"
 #import "BillDetailCVC+SetUp.h"
+#import "BillDetailCVC+UIDatePicker.h"
+#import "BillDetailCVC+UIPickerView.h"
+#import "BillDetailCVC+UITextField.h"
+#import "BillDetailCVC+Extension.h"
 
 
 @interface BillDetailCVC ()
@@ -60,13 +64,7 @@
 }
 
 
-- (void) dealloc{
-    
-    if (self.bill != nil)
-        [self.bill removeObserver:self forKeyPath:@"locationIsOn"];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+
 
 #pragma mark - UICollection View Data Source Method
 
@@ -78,28 +76,79 @@
 
 
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section
 {
     return [[self cellIdentifiers] count];
 }
 
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                 cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = nil;
     NSString *identifier = [self cellIdentifiers][indexPath.item];
-    cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    cell = [collectionView
+            dequeueReusableCellWithReuseIdentifier:identifier
+            forIndexPath:indexPath];
     [self configBillCell:cell];
     return cell;
 }
 
 -(void)configBillCell:(UICollectionViewCell *)cell
 {
-    if ([cell respondsToSelector:@selector(setBill:)]) {
-        [cell performSelector:@selector(setBill:) withObject:self.bill];
-    }
     
-    if ([cell.reuseIdentifier isEqualToString:@"locationCell"]) {
+    if ([cell.reuseIdentifier isEqualToString:@"moneyCell"]) {
+        UIView *view = [cell viewWithTag:1];
+        if ([view isKindOfClass:[UITextField class]]) {
+            UITextField *textField = (UITextField *)view;
+            textField.delegate = self;
+            textField.inputAccessoryView = [self keyboardToolBar];
+            
+            textField.text =
+            self.bill.money.floatValue != 0 ?
+            [NSString stringWithFormat:@"%d",abs(self.bill.money.floatValue)] :
+            nil;
+        }
+        
+        
+    }else if ([cell.reuseIdentifier isEqualToString:@"kindCell"]) {
+        UIView *view = [cell viewWithTag:1];
+        if ([view isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)view;
+            label.text = self.bill.kind.name;
+        }
+        
+    }else if ([cell.reuseIdentifier isEqualToString:@"inputkindCell"]) {
+        UIView *view = [cell viewWithTag:1];
+        if ([view isKindOfClass:[UIPickerView class]]) {
+            UIPickerView *picker = (UIPickerView *)view;
+            picker.dataSource = self;
+            picker.delegate = self;
+            picker.showsSelectionIndicator = YES;
+            NSIndexPath *selectIndexPath =
+            [self.kindFRC indexPathForObject:self.bill.kind];
+            [picker selectRow:selectIndexPath.row
+                  inComponent:selectIndexPath.section
+                     animated:NO];
+        }
+
+    }else if ([cell.reuseIdentifier isEqualToString:@"dateCell"]) {
+        UIView *view = [cell viewWithTag:1];
+        if ([view isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)view;
+            label.text = [PubicVariable stringFromDate:self.bill.date];
+        }
+    }else if ([cell.reuseIdentifier isEqualToString:@"inputdateCell"]) {
+        UIView *view = [cell viewWithTag:1];
+        if ([view isKindOfClass:[UIDatePicker class]]) {
+            UIDatePicker *datePicker = (UIDatePicker *)view;
+            datePicker.date = self.bill.date;
+            [datePicker addTarget:self
+                           action:@selector(datePickerChanged:)
+                 forControlEvents:UIControlEventValueChanged];
+        }
+    }else if ([cell.reuseIdentifier isEqualToString:@"locationCell"]) {
         // Configure Location Cell
         UIView *view = [cell viewWithTag:1];
         if ([view isKindOfClass:[UISwitch class]]) {
@@ -118,16 +167,37 @@
         [self reloadDataInMapView:mapView];
         [self updateMapCellLabel:label activity:activity];
         self.mapCell = cell;
+    }if ([cell.reuseIdentifier isEqualToString:@"notebodyCell"]) {
+        UIView *view = [cell viewWithTag:1];
+        if ([view isKindOfClass:[UITextField class]]) {
+            UITextField *textField = (UITextField *)view;
+            textField.delegate = self;
+            textField.inputAccessoryView = [self keyboardToolBar];
+            
+            textField.text = self.bill.note;
+        }
+        
+        
     }
 }
 
-- (void)updateLocationCell{
+- (UICollectionViewCell *)cellWithIdentifier:(NSString *)identifier {
     
-    NSString *cellIdentifier = @"locationCell";
-    if ([self.cellIdentifiers containsObject:cellIdentifier]) {
-        NSInteger row = [self.cellIdentifiers indexOfObject:cellIdentifier];
+    UICollectionViewCell *cell = nil;
+    if ([self.cellIdentifiers containsObject:identifier]) {
+        NSInteger row = [self.cellIdentifiers indexOfObject:identifier];
         NSIndexPath *indexPath =
         [NSIndexPath indexPathForRow:row inSection:0];
+        cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+    }
+    return cell;
+}
+
+- (void)updateCellWithIdentifier:(NSString *)identifier {
+    
+    UICollectionViewCell *cell = [self cellWithIdentifier:identifier];
+    if (cell != nil) {
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
         [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
     }
 }
@@ -377,10 +447,38 @@
     return _locationManager;
 }
 
+- (NSFetchedResultsController *)kindFRC {
+    if (_kindFRC == nil) {
+        _kindFRC =
+        [Kind fetchedResultsControllerIsincome:self.bill.isIncome.boolValue];
+    }
+    return _kindFRC;
+}
 
 
+- (UITextField *)moneyTextField {
+    
+    if (_moneyTextField == nil) {
+        UICollectionViewCell *cell = [self cellWithIdentifier:@"moneyCell"];
+        UIView *view = [cell viewWithTag:1];
+        if ([view isKindOfClass:[UITextField class]]) {
+            _moneyTextField = (UITextField *)view;
+        }
+    }
+    return _moneyTextField;
+}
 
-
+- (UITextField *)noteTextField {
+    
+    if (_noteTextField == nil) {
+        UICollectionViewCell *cell = [self cellWithIdentifier:@"notebodyCell"];
+        UIView *view = [cell viewWithTag:1];
+        if ([view isKindOfClass:[UITextField class]]) {
+            _noteTextField = (UITextField *)view;
+        }
+    }
+    return _noteTextField;
+}
 
 
 @end

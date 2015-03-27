@@ -46,7 +46,6 @@ enum :NSInteger{
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic) BOOL managedObjectContextHasChanges;
-@property (weak ,nonatomic) UITextField *activeField;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

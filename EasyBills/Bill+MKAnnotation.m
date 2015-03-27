@@ -74,7 +74,7 @@
         
     } else {
         // This is the son bill.
-        reslut = [NSString stringWithFormat:@"￥  %.2f",fabs(self.money.floatValue)];
+//        reslut = [NSString stringWithFormat:@"￥  %.2f",fabs(self.money.floatValue)];
     }
     return reslut;
 }

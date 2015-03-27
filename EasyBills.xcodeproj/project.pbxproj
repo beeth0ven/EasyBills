@@ -21,6 +21,10 @@
 		4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */; };
 		45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */; };
 		45895D881AC127D20009E749 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D871AC127D20009E749 /* Kind.m */; };
+		45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */; };
+		45ECF3981AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3971AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m */; };
+		45ECF3A11AC5358400D0CACB /* BillDetailCVC+UITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */; };
+		45ECF3A71AC537F400D0CACB /* BillDetailCVC+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3A61AC537F400D0CACB /* BillDetailCVC+Extension.m */; };
 		8F0B3811DD8B4AD6A1A72E3F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A5F4B0F58449C59A21A605 /* libPods.a */; };
 		BD0749671A86660300467648 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0749661A86660300467648 /* UIButton+Extension.m */; };
 		BD0FDC781A90DFF200679961 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0FDC771A90DFF200679961 /* Media.xcassets */; };
@@ -53,17 +57,11 @@
 		BD6FC8501AA0B7730059AC20 /* KindDetailCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6FC84F1AA0B7730059AC20 /* KindDetailCVC.m */; };
 		BD7348841A99842B00692EE4 /* UINavigationController+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7348831A99842B00692EE4 /* UINavigationController+Style.m */; };
 		BD7348951A9995B700692EE4 /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7348941A9995B700692EE4 /* UIViewController+Extension.m */; };
-		BD81A3E51A99D5DA00C2CBE6 /* NotbodyCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD81A3E41A99D5DA00C2CBE6 /* NotbodyCVCell.m */; };
 		BD81A3ED1A99D78500C2CBE6 /* BillTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD81A3EC1A99D78500C2CBE6 /* BillTVCell.m */; };
 		BDA397841A3BE9E400E1D9F7 /* DefaultStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */; };
 		BDA5A34C19FA787A006D2E69 /* MapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA5A34B19FA787A006D2E69 /* MapCDTVC.m */; };
-		BDA8A8221A13B42600C7B1CB /* MoneyCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8211A13B42600C7B1CB /* MoneyCVCell.m */; };
-		BDA8A8261A13B45600C7B1CB /* KindCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8251A13B45600C7B1CB /* KindCVCell.m */; };
-		BDA8A8291A13B46500C7B1CB /* DateCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA8A8281A13B46500C7B1CB /* DateCVCell.m */; };
 		BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA956381A10F13F00E55A9D /* BillDetailCVC.m */; };
 		BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABBCC81A03C4EE0029D7D1 /* CoreDataMapViewController.m */; };
-		BDB055951A15E46500751913 /* DatePickerCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB055941A15E46500751913 /* DatePickerCVCell.m */; };
-		BDB055981A163C3000751913 /* KindePickerCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB055971A163C3000751913 /* KindePickerCVCell.m */; };
 		BDB056BA19E3A1D000494080 /* SettingTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB056B919E3A1D000494080 /* SettingTVC.m */; };
 		BDB073DC19FBD9780062462F /* Bill+MKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB073DB19FBD9780062462F /* Bill+MKAnnotation.m */; };
 		BDB073DE19FBDFA60062462F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB073DD19FBDFA60062462F /* CoreLocation.framework */; };
@@ -111,6 +109,14 @@
 		45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterMapCDTVC.m; sourceTree = "<group>"; };
 		45895D861AC127D20009E749 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
 		45895D871AC127D20009E749 /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
+		45ECF3931AC5227500D0CACB /* BillDetailCVC+UIDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIDatePicker.h"; sourceTree = "<group>"; };
+		45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UIDatePicker.m"; sourceTree = "<group>"; };
+		45ECF3961AC52FD200D0CACB /* BillDetailCVC+UIPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIPickerView.h"; sourceTree = "<group>"; };
+		45ECF3971AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UIPickerView.m"; sourceTree = "<group>"; };
+		45ECF39F1AC5358400D0CACB /* BillDetailCVC+UITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UITextField.h"; sourceTree = "<group>"; };
+		45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UITextField.m"; sourceTree = "<group>"; };
+		45ECF3A51AC537F400D0CACB /* BillDetailCVC+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+Extension.h"; sourceTree = "<group>"; };
+		45ECF3A61AC537F400D0CACB /* BillDetailCVC+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+Extension.m"; sourceTree = "<group>"; };
 		50A5F4B0F58449C59A21A605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0749651A86660300467648 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		BD0749661A86660300467648 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
@@ -164,28 +170,16 @@
 		BD7348831A99842B00692EE4 /* UINavigationController+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Style.m"; sourceTree = "<group>"; };
 		BD7348931A9995B600692EE4 /* UIViewController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extension.h"; sourceTree = "<group>"; };
 		BD7348941A9995B700692EE4 /* UIViewController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extension.m"; sourceTree = "<group>"; };
-		BD81A3E31A99D5DA00C2CBE6 /* NotbodyCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotbodyCVCell.h; sourceTree = "<group>"; };
-		BD81A3E41A99D5DA00C2CBE6 /* NotbodyCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotbodyCVCell.m; sourceTree = "<group>"; };
 		BD81A3EB1A99D78500C2CBE6 /* BillTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillTVCell.h; sourceTree = "<group>"; };
 		BD81A3EC1A99D78500C2CBE6 /* BillTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillTVCell.m; sourceTree = "<group>"; };
 		BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultStyleController.h; sourceTree = "<group>"; };
 		BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultStyleController.m; sourceTree = "<group>"; };
 		BDA5A34A19FA787A006D2E69 /* MapCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCDTVC.h; sourceTree = "<group>"; };
 		BDA5A34B19FA787A006D2E69 /* MapCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCDTVC.m; sourceTree = "<group>"; };
-		BDA8A8201A13B42600C7B1CB /* MoneyCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCVCell.h; sourceTree = "<group>"; };
-		BDA8A8211A13B42600C7B1CB /* MoneyCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCVCell.m; sourceTree = "<group>"; };
-		BDA8A8241A13B45600C7B1CB /* KindCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindCVCell.h; sourceTree = "<group>"; };
-		BDA8A8251A13B45600C7B1CB /* KindCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindCVCell.m; sourceTree = "<group>"; };
-		BDA8A8271A13B46500C7B1CB /* DateCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCVCell.h; sourceTree = "<group>"; };
-		BDA8A8281A13B46500C7B1CB /* DateCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCVCell.m; sourceTree = "<group>"; };
 		BDA956371A10F13F00E55A9D /* BillDetailCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDetailCVC.h; sourceTree = "<group>"; };
 		BDA956381A10F13F00E55A9D /* BillDetailCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDetailCVC.m; sourceTree = "<group>"; };
 		BDABBCC71A03C4EE0029D7D1 /* CoreDataMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataMapViewController.h; sourceTree = "<group>"; };
 		BDABBCC81A03C4EE0029D7D1 /* CoreDataMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataMapViewController.m; sourceTree = "<group>"; };
-		BDB055931A15E46500751913 /* DatePickerCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerCVCell.h; sourceTree = "<group>"; };
-		BDB055941A15E46500751913 /* DatePickerCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerCVCell.m; sourceTree = "<group>"; };
-		BDB055961A163C3000751913 /* KindePickerCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindePickerCVCell.h; sourceTree = "<group>"; };
-		BDB055971A163C3000751913 /* KindePickerCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindePickerCVCell.m; sourceTree = "<group>"; };
 		BDB056B819E3A1D000494080 /* SettingTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTVC.h; sourceTree = "<group>"; };
 		BDB056B919E3A1D000494080 /* SettingTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTVC.m; sourceTree = "<group>"; };
 		BDB073DA19FBD9780062462F /* Bill+MKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bill+MKAnnotation.h"; sourceTree = "<group>"; };
@@ -348,6 +342,14 @@
 			children = (
 				BDA956371A10F13F00E55A9D /* BillDetailCVC.h */,
 				BDA956381A10F13F00E55A9D /* BillDetailCVC.m */,
+				45ECF3A51AC537F400D0CACB /* BillDetailCVC+Extension.h */,
+				45ECF3A61AC537F400D0CACB /* BillDetailCVC+Extension.m */,
+				45ECF39F1AC5358400D0CACB /* BillDetailCVC+UITextField.h */,
+				45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */,
+				45ECF3961AC52FD200D0CACB /* BillDetailCVC+UIPickerView.h */,
+				45ECF3971AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m */,
+				45ECF3931AC5227500D0CACB /* BillDetailCVC+UIDatePicker.h */,
+				45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */,
 				4508D66B1AC41E60007CA44A /* BillDetailCVC+Observer.h */,
 				4508D66C1AC41E60007CA44A /* BillDetailCVC+Observer.m */,
 				4508D6681AC41909007CA44A /* BillDetailCVC+SetUp.h */,
@@ -388,7 +390,6 @@
 			children = (
 				BD1BF7EA19DB901E00B1379A /* Main.storyboard */,
 				BD81A3EE1A99D7A000C2CBE6 /* BillCDTVCCells */,
-				BDA8A8231A13B43000C7B1CB /* BillDetailCVCells */,
 				BD81A3E91A99D6C900C2CBE6 /* ColorCVCell */,
 			);
 			name = View;
@@ -571,62 +572,6 @@
 			name = "Kind+";
 			sourceTree = "<group>";
 		};
-		BD81A3DC1A99D53600C2CBE6 /* MoneyCVCell */ = {
-			isa = PBXGroup;
-			children = (
-				BDA8A8201A13B42600C7B1CB /* MoneyCVCell.h */,
-				BDA8A8211A13B42600C7B1CB /* MoneyCVCell.m */,
-			);
-			name = MoneyCVCell;
-			sourceTree = "<group>";
-		};
-		BD81A3DD1A99D53D00C2CBE6 /* KindCVCell */ = {
-			isa = PBXGroup;
-			children = (
-				BDA8A8241A13B45600C7B1CB /* KindCVCell.h */,
-				BDA8A8251A13B45600C7B1CB /* KindCVCell.m */,
-				BD81A3DE1A99D56500C2CBE6 /* KindePickerCVCell */,
-			);
-			name = KindCVCell;
-			sourceTree = "<group>";
-		};
-		BD81A3DE1A99D56500C2CBE6 /* KindePickerCVCell */ = {
-			isa = PBXGroup;
-			children = (
-				BDB055961A163C3000751913 /* KindePickerCVCell.h */,
-				BDB055971A163C3000751913 /* KindePickerCVCell.m */,
-			);
-			name = KindePickerCVCell;
-			sourceTree = "<group>";
-		};
-		BD81A3DF1A99D57700C2CBE6 /* DateCVCell */ = {
-			isa = PBXGroup;
-			children = (
-				BDA8A8271A13B46500C7B1CB /* DateCVCell.h */,
-				BDA8A8281A13B46500C7B1CB /* DateCVCell.m */,
-				BD81A3E01A99D57F00C2CBE6 /* DatePickerCVCell */,
-			);
-			name = DateCVCell;
-			sourceTree = "<group>";
-		};
-		BD81A3E01A99D57F00C2CBE6 /* DatePickerCVCell */ = {
-			isa = PBXGroup;
-			children = (
-				BDB055931A15E46500751913 /* DatePickerCVCell.h */,
-				BDB055941A15E46500751913 /* DatePickerCVCell.m */,
-			);
-			name = DatePickerCVCell;
-			sourceTree = "<group>";
-		};
-		BD81A3E61A99D5F000C2CBE6 /* NotbodyCVCell */ = {
-			isa = PBXGroup;
-			children = (
-				BD81A3E31A99D5DA00C2CBE6 /* NotbodyCVCell.h */,
-				BD81A3E41A99D5DA00C2CBE6 /* NotbodyCVCell.m */,
-			);
-			name = NotbodyCVCell;
-			sourceTree = "<group>";
-		};
 		BD81A3E81A99D69200C2CBE6 /* ColorPickerCollectionViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,17 +597,6 @@
 				BD81A3EC1A99D78500C2CBE6 /* BillTVCell.m */,
 			);
 			name = BillCDTVCCells;
-			sourceTree = "<group>";
-		};
-		BDA8A8231A13B43000C7B1CB /* BillDetailCVCells */ = {
-			isa = PBXGroup;
-			children = (
-				BD81A3DC1A99D53600C2CBE6 /* MoneyCVCell */,
-				BD81A3DD1A99D53D00C2CBE6 /* KindCVCell */,
-				BD81A3DF1A99D57700C2CBE6 /* DateCVCell */,
-				BD81A3E61A99D5F000C2CBE6 /* NotbodyCVCell */,
-			);
-			name = BillDetailCVCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -808,26 +742,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD81A3E51A99D5DA00C2CBE6 /* NotbodyCVCell.m in Sources */,
 				BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */,
 				4508D65E1AC41327007CA44A /* BillDetailCVC+MKMapView.m in Sources */,
 				4508D6511AC3EDF5007CA44A /* Paths.m in Sources */,
 				BDB32C9C1A22421C00EA822E /* SidebarViewController.m in Sources */,
-				BDA8A8221A13B42600C7B1CB /* MoneyCVCell.m in Sources */,
 				4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */,
-				BDB055951A15E46500751913 /* DatePickerCVCell.m in Sources */,
 				BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */,
 				BD6FC8501AA0B7730059AC20 /* KindDetailCVC.m in Sources */,
 				BDA397841A3BE9E400E1D9F7 /* DefaultStyleController.m in Sources */,
+				45ECF3981AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m in Sources */,
 				BD1BF83119DB927300B1379A /* Bill+Create.m in Sources */,
 				BD7348841A99842B00692EE4 /* UINavigationController+Style.m in Sources */,
 				4508D66A1AC41909007CA44A /* BillDetailCVC+SetUp.m in Sources */,
 				BD1BF83519DB927300B1379A /* CoreDataTableViewController.m in Sources */,
 				4508D5FE1AC2735E007CA44A /* Bill.m in Sources */,
 				4508D65B1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m in Sources */,
+				45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */,
 				BD1BF83219DB927300B1379A /* BillCDTVC.m in Sources */,
-				BDA8A8291A13B46500C7B1CB /* DateCVCell.m in Sources */,
-				BDA8A8261A13B45600C7B1CB /* KindCVCell.m in Sources */,
 				BD1BF83D19DB927300B1379A /* Model.xcdatamodeld in Sources */,
 				BD0749671A86660300467648 /* UIButton+Extension.m in Sources */,
 				BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */,
@@ -835,7 +766,6 @@
 				4508D66D1AC41E60007CA44A /* BillDetailCVC+Observer.m in Sources */,
 				BD1BF7EF19DB901E00B1379A /* HomeViewController.m in Sources */,
 				BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */,
-				BDB055981A163C3000751913 /* KindePickerCVCell.m in Sources */,
 				BD1BF7E919DB901E00B1379A /* AppDelegate.m in Sources */,
 				BD571E181A82633A0040CCF4 /* ColorCVCell.m in Sources */,
 				BDB056BA19E3A1D000494080 /* SettingTVC.m in Sources */,
@@ -844,6 +774,7 @@
 				45895D881AC127D20009E749 /* Kind.m in Sources */,
 				BD7348951A9995B700692EE4 /* UIViewController+Extension.m in Sources */,
 				BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */,
+				45ECF3A71AC537F400D0CACB /* BillDetailCVC+Extension.m in Sources */,
 				BD1BF83B19DB927300B1379A /* Kind+Create.m in Sources */,
 				BD58BDA01AA8984300CE2D08 /* ColorTransformer.m in Sources */,
 				45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */,
@@ -856,6 +787,7 @@
 				BD1BF83419DB927300B1379A /* ChartDate.m in Sources */,
 				BD1BF7E519DB901E00B1379A /* main.m in Sources */,
 				BDB073DC19FBD9780062462F /* Bill+MKAnnotation.m in Sources */,
+				45ECF3A11AC5358400D0CACB /* BillDetailCVC+UITextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

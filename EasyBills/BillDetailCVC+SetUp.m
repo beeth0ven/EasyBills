@@ -8,6 +8,7 @@
 
 #import "BillDetailCVC+SetUp.h"
 #import "BillDetailCVC+CLLocation.h"
+#import "BillDetailCVC+Observer.h"
 
 @implementation BillDetailCVC (SetUp)
 

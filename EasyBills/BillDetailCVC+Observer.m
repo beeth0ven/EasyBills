@@ -18,13 +18,6 @@
 {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
-    // others can't edite  when TextFieldDidBeginEditing.
-    
-    [center addObserver:self
-               selector:@selector(handleTextFieldDidBeginEditingNotification:)
-                   name:kTextFieldDidBeginEditingNotification
-                 object:nil];
-    
     //keyboard notification ,scoll textfield to visible.
     
     [center addObserver:self
@@ -37,12 +30,34 @@
                    name:UIKeyboardWillHideNotification
                  object:nil];
     
-    //Reset Map Cell State
+    //KVO
     [self.bill addObserver:self
                 forKeyPath:@"locationIsOn"
                    options:NSKeyValueObservingOptionNew
                    context:NULL];
+    
+    [self.bill addObserver:self
+                forKeyPath:@"date"
+                   options:NSKeyValueObservingOptionNew
+                   context:NULL];
+    
+    [self.bill addObserver:self
+                forKeyPath:@"kind"
+                   options:NSKeyValueObservingOptionNew
+                   context:NULL];
 }
+
+- (void) dealloc{
+    
+    if (self.bill != nil){
+        [self.bill removeObserver:self forKeyPath:@"locationIsOn"];
+        [self.bill removeObserver:self forKeyPath:@"date"];
+        [self.bill removeObserver:self forKeyPath:@"kind"];
+    }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -57,14 +72,22 @@
             }
         }
         
+    }else if ([keyPath isEqualToString:@"date"]){
+        
+        [self updateCellWithIdentifier:@"dateCell"];
+        
+    }else if ([keyPath isEqualToString:@"kind"]){
+        
+        [self updateCellWithIdentifier:@"kindCell"];
         
     }
     
 }
 
 
-- (void) handleTextFieldDidBeginEditingNotification:(NSNotification *)paramNotification{
-    
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    //Clear other input cell.
     if (self.inputCellIndexPath) {
         [self.collectionView performBatchUpdates:^{
             [self removeDataAndCellAtIndexPath:self.inputCellIndexPath];
@@ -74,10 +97,7 @@
                                       completion:nil];
     }
     
-}
-
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
+    //Scoll cell to visible
     NSDictionary *info = [aNotification userInfo];
     CGSize kbSize =[[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
@@ -90,9 +110,8 @@
     
     CGRect aRect = self.view.frame;
     aRect.size.height -= (kbSize.height);
-    PubicVariable *pubicVariable = [PubicVariable pubicVariable];
-    if (!CGRectContainsPoint(aRect, pubicVariable.activeField.frame.origin)) {
-        CGRect rect = pubicVariable.activeField.frame;
+    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin)) {
+        CGRect rect = self.activeField.frame;
         [self.collectionView scrollRectToVisible:rect animated:YES];
     }
 }
@@ -108,6 +127,7 @@
     self.collectionView.scrollIndicatorInsets = contentInsets;
     
 }
+
 
 
 

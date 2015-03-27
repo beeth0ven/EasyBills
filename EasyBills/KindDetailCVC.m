@@ -137,26 +137,25 @@
 }
 
 
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
-    NSDictionary *info = [aNotification userInfo];
-    CGSize kbSize =[[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    
-    UIEdgeInsets contentInsets = self.collectionView.contentInset;
-    contentInsets.bottom = kbSize.height;
-    
-    self.collectionView.contentInset = contentInsets;
-    self.collectionView.scrollIndicatorInsets = contentInsets;
-    
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= (kbSize.height);
-    PubicVariable *pubicVariable = [PubicVariable pubicVariable];
-    if (!CGRectContainsPoint(aRect, pubicVariable.activeField.frame.origin)) {
-        CGRect rect = pubicVariable.activeField.frame;
-        [self.collectionView scrollRectToVisible:rect animated:YES];
-    }
-}
+//- (void)keyboardWasShown:(NSNotification*)aNotification
+//{
+//    NSDictionary *info = [aNotification userInfo];
+//    CGSize kbSize =[[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+//    
+//    
+//    UIEdgeInsets contentInsets = self.collectionView.contentInset;
+//    contentInsets.bottom = kbSize.height;
+//    
+//    self.collectionView.contentInset = contentInsets;
+//    self.collectionView.scrollIndicatorInsets = contentInsets;
+//    
+//    CGRect aRect = self.view.frame;
+//    aRect.size.height -= (kbSize.height);
+//    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin)) {
+//        CGRect rect = self.activeField.frame;
+//        [self.collectionView scrollRectToVisible:rect animated:YES];
+//    }
+//}
 
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
