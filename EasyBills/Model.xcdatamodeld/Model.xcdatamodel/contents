@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1514" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Bill" representedClassName="Bill" syncable="YES">
         <attribute name="clusterAnnotationLatitude" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="clusterAnnotationLongitude" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
@@ -27,11 +27,12 @@
         <attribute name="createDate" optional="YES" attributeType="Date" minDateTimeInterval="0" syncable="YES"/>
         <attribute name="isIncome" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="sumMoney" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="visiteTime" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="bills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="kind" inverseEntity="Bill" syncable="YES"/>
     </entity>
     <elements>
         <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="343"/>
-        <element name="Kind" positionX="-3791" positionY="-1744" width="128" height="133"/>
+        <element name="Kind" positionX="-3791" positionY="-1744" width="128" height="148"/>
     </elements>
 </model>

@@ -48,6 +48,17 @@
 }
 
 
+
+- (void)setMoney:(NSNumber *)money
+{
+    [self willChangeValueForKey:@"money"];
+    [self setPrimitiveValue:money forKey:@"money"];
+    [self didChangeValueForKey:@"money"];
+    [self.kind calculatorSumMoney];
+}
+
+
+
 + (Bill *) lastCreateBill
 {
     Bill *bill = nil;

@@ -78,7 +78,9 @@
     /**/
     cell.textLabel.text = [NSString stringWithFormat:@"  %@  ",[bill.kind.name description]];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"  %.0f  ",fabs(bill.money.floatValue)];
-    cell.barColor = bill.isIncome.boolValue ? EBBlue : PNRed;
+    cell.textLabel.backgroundColor = bill.kind.color;
+    cell.barColor = bill.kind.color;
+//    bill.isIncome.boolValue ? EBBlue : PNRed;
     float maxBillMoney = [self maxBillMoney];
     float money = fabs(bill.money.floatValue);
     cell.grade = money/maxBillMoney;

@@ -12,6 +12,8 @@
 @interface PubicVariable (FetchRequest)
 
 +(float) sumMoneyWithKind:(Kind *) kind;
++(float) sumMoneyWithKind:(Kind *) kind
+                 dateMode:(NSInteger)dateMode;
 +(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode withDateMode:(NSInteger) dateMode;
 +(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode withStyle:(NSInteger) predicateStyle withDate:(NSDate *) date;
 +(float) performeFetchForFunction:(NSString *)name WithPredicate:(NSPredicate *)predicate;

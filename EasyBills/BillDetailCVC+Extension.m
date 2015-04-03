@@ -32,7 +32,7 @@
                                       target:self
                                       action:@selector(endEditing)];
     
-    NSDictionary *attributes = @{NSForegroundColorAttributeName : [UIColor blackColor]};
+    NSDictionary *attributes = @{NSForegroundColorAttributeName : EBBlue};
     [doneBarButton setTitleTextAttributes:attributes
                                  forState:UIControlStateNormal];
     

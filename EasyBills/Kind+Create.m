@@ -9,6 +9,7 @@
 #import "Kind+Create.h"
 #import "PubicVariable.h"
 #import "ColorCenter.h"
+#import "Bill+Create.h"
 
 @implementation Kind (Create)
 
@@ -47,6 +48,48 @@
     return [ColorCenter colorWithID:self.colorID];
     
 }
+
+- (void)addBillsObject:(Bill *)value {
+    NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
+    [self willChangeValueForKey:@"bills" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
+    [[self primitiveValueForKey:@"bills"] addObject:value];
+    [self didChangeValueForKey:@"bills" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
+    [self calculatorSumMoney];
+}
+
+- (void)removeBillsObject:(Bill *)value {
+    NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
+    [self willChangeValueForKey:@"bills" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
+    [[self primitiveValueForKey:@"bills"] removeObject:value];
+    [self didChangeValueForKey:@"bills" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
+    [self calculatorSumMoney];
+
+}
+
+- (void)addBills:(NSSet *)values {
+    [self willChangeValueForKey:@"bills" withSetMutation:NSKeyValueUnionSetMutation usingObjects:values];
+    [[self primitiveValueForKey:@"bills"] unionSet:values];
+    [self didChangeValueForKey:@"bills" withSetMutation:NSKeyValueUnionSetMutation usingObjects:values];
+    [self calculatorSumMoney];
+
+}
+
+- (void)removeBills:(NSSet *)values {
+    [self willChangeValueForKey:@"bills" withSetMutation:NSKeyValueMinusSetMutation usingObjects:values];
+    [[self primitiveValueForKey:@"bills"] minusSet:values];
+    [self didChangeValueForKey:@"bills" withSetMutation:NSKeyValueMinusSetMutation usingObjects:values];
+    [self calculatorSumMoney];
+
+}
+
+- (void)calculatorSumMoney {
+    __block float result = 0;
+    [self.bills enumerateObjectsUsingBlock:^(Bill *obj, BOOL *stop) {
+        result += obj.money.floatValue;
+    }];
+    self.sumMoney = [NSNumber numberWithFloat:result];
+}
+
 
 + (void) kindWithNames:(NSArray *)names isIncome:(BOOL) isIncome
 {

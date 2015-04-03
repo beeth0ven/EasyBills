@@ -119,20 +119,20 @@
 
 -(void)registerNotifications
 {
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+//    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 
 
     
     //keyboard notification ,scoll textfield to visible.
     
-    [center addObserver:self
-               selector:@selector(keyboardWasShown:)
-                   name:UIKeyboardDidShowNotification object:nil];
-    
-    [center addObserver:self
-               selector:@selector(keyboardWillBeHidden:)
-                   name:UIKeyboardWillHideNotification object:nil];
-    
+//    [center addObserver:self
+//               selector:@selector(keyboardWasShown:)
+//                   name:UIKeyboardDidShowNotification object:nil];
+//    
+//    [center addObserver:self
+//               selector:@selector(keyboardWillBeHidden:)
+//                   name:UIKeyboardWillHideNotification object:nil];
+//    
     
 }
 

@@ -12,10 +12,21 @@
 
 +(float) sumMoneyWithKind:(Kind *) kind
 {
-    float result = 0.0f;
+    return [self sumMoneyWithKind:kind dateMode:all];
+    
+}
 
++(float) sumMoneyWithKind:(Kind *) kind
+                 dateMode:(NSInteger)dateMode
+{
+    float result = 0.0f;
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Bill"];
-    request.predicate = [NSPredicate predicateWithFormat:@"kind = %@" , kind];
+    NSPredicate *kindPredicate = [NSPredicate predicateWithFormat:@"kind = %@" , kind];
+    NSPredicate *datePredicate = [self predicateWithbDateMode:dateMode];
+
+    
+    request.predicate = [self addPredicate:kindPredicate withPredicate:datePredicate];
     
     NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"money"];
     NSExpression *sumMoneyExpression = [NSExpression expressionForFunction:@"sum:"

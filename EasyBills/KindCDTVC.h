@@ -9,5 +9,7 @@
 #import "CoreDataTableViewController.h"
 
 @interface KindCDTVC : CoreDataTableViewController
+<UIPopoverPresentationControllerDelegate,
+UIAdaptivePresentationControllerDelegate>
 
 @end

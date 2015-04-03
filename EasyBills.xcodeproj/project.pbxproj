@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4508D5FE1AC2735E007CA44A /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D5FD1AC2735E007CA44A /* Bill.m */; };
 		4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6001AC2961F007CA44A /* ToolBarCMCDTVC.m */; };
 		4508D6501AC3EDF5007CA44A /* CursorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D64D1AC3EDF5007CA44A /* CursorButton.m */; };
 		4508D6511AC3EDF5007CA44A /* Paths.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D64F1AC3EDF5007CA44A /* Paths.m */; };
@@ -19,8 +18,11 @@
 		4508D66A1AC41909007CA44A /* BillDetailCVC+SetUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6691AC41909007CA44A /* BillDetailCVC+SetUp.m */; };
 		4508D66D1AC41E60007CA44A /* BillDetailCVC+Observer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D66C1AC41E60007CA44A /* BillDetailCVC+Observer.m */; };
 		4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */; };
+		458517A21AC95778003149C3 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4585179F1AC95778003149C3 /* Filter.m */; };
+		458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458517A11AC95778003149C3 /* FilterTableViewController.m */; };
 		45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */; };
-		45895D881AC127D20009E749 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D871AC127D20009E749 /* Kind.m */; };
+		459CDE1E1ACD5C2100A6B0E2 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDE1D1ACD5C2100A6B0E2 /* Kind.m */; };
+		459CDE211ACD5C2200A6B0E2 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDE201ACD5C2200A6B0E2 /* Bill.m */; };
 		45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */; };
 		45ECF3981AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3971AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m */; };
 		45ECF3A11AC5358400D0CACB /* BillDetailCVC+UITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */; };
@@ -81,8 +83,6 @@
 
 /* Begin PBXFileReference section */
 		0CA564406E4C247DAE42E147 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		4508D5FC1AC2735E007CA44A /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
-		4508D5FD1AC2735E007CA44A /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
 		4508D5FF1AC2961F007CA44A /* ToolBarCMCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBarCMCDTVC.h; sourceTree = "<group>"; };
 		4508D6001AC2961F007CA44A /* ToolBarCMCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBarCMCDTVC.m; sourceTree = "<group>"; };
 		4508D64C1AC3EDF5007CA44A /* CursorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CursorButton.h; sourceTree = "<group>"; };
@@ -105,10 +105,16 @@
 		4508D66C1AC41E60007CA44A /* BillDetailCVC+Observer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+Observer.m"; sourceTree = "<group>"; };
 		4568DB841ABFFA3D0064BBE2 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		4585179E1AC95778003149C3 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = ../Filter.h; sourceTree = "<group>"; };
+		4585179F1AC95778003149C3 /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filter.m; path = ../Filter.m; sourceTree = "<group>"; };
+		458517A01AC95778003149C3 /* FilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilterTableViewController.h; path = ../FilterTableViewController.h; sourceTree = "<group>"; };
+		458517A11AC95778003149C3 /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilterTableViewController.m; path = ../FilterTableViewController.m; sourceTree = "<group>"; };
 		45895D801AC1217C0009E749 /* ClusterMapCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterMapCDTVC.h; sourceTree = "<group>"; };
 		45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterMapCDTVC.m; sourceTree = "<group>"; };
-		45895D861AC127D20009E749 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
-		45895D871AC127D20009E749 /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
+		459CDE1C1ACD5C2100A6B0E2 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
+		459CDE1D1ACD5C2100A6B0E2 /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
+		459CDE1F1ACD5C2200A6B0E2 /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
+		459CDE201ACD5C2200A6B0E2 /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
 		45ECF3931AC5227500D0CACB /* BillDetailCVC+UIDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIDatePicker.h"; sourceTree = "<group>"; };
 		45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UIDatePicker.m"; sourceTree = "<group>"; };
 		45ECF3961AC52FD200D0CACB /* BillDetailCVC+UIPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIPickerView.h"; sourceTree = "<group>"; };
@@ -243,6 +249,24 @@
 			name = CursorButton;
 			sourceTree = "<group>";
 		};
+		458517A41AC95C7B003149C3 /* PopverSegue */ = {
+			isa = PBXGroup;
+			children = (
+				458517A01AC95778003149C3 /* FilterTableViewController.h */,
+				458517A11AC95778003149C3 /* FilterTableViewController.m */,
+			);
+			name = PopverSegue;
+			sourceTree = "<group>";
+		};
+		458517A51AC95CA0003149C3 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				4585179E1AC95778003149C3 /* Filter.h */,
+				4585179F1AC95778003149C3 /* Filter.m */,
+			);
+			name = Filter;
+			sourceTree = "<group>";
+		};
 		BD1BF7CC19DB901E00B1379A = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +278,7 @@
 				05F9B664C80F658388E5B564 /* Pods */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		BD1BF7D619DB901E00B1379A /* Products */ = {
 			isa = PBXGroup;
@@ -327,10 +352,10 @@
 			isa = PBXGroup;
 			children = (
 				BD1BF82819DB927300B1379A /* Model.xcdatamodeld */,
-				4508D5FC1AC2735E007CA44A /* Bill.h */,
-				4508D5FD1AC2735E007CA44A /* Bill.m */,
-				45895D861AC127D20009E749 /* Kind.h */,
-				45895D871AC127D20009E749 /* Kind.m */,
+				459CDE1F1ACD5C2200A6B0E2 /* Bill.h */,
+				459CDE201ACD5C2200A6B0E2 /* Bill.m */,
+				459CDE1C1ACD5C2100A6B0E2 /* Kind.h */,
+				459CDE1D1ACD5C2100A6B0E2 /* Kind.m */,
 				BD81A3DA1A99D3BA00C2CBE6 /* Kind+ */,
 				BD81A3D91A99D38400C2CBE6 /* Bill+ */,
 			);
@@ -369,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				BD81A3D81A99D36C00C2CBE6 /* PubicVariable */,
+				458517A51AC95CA0003149C3 /* Filter */,
 				BD81A3D71A99D36500C2CBE6 /* ChartDate */,
 				BD1BF84719DB9C0100B1379A /* CoreData */,
 				BD58BDB81AA8A5B800CE2D08 /* ColorCenter */,
@@ -495,6 +521,7 @@
 			children = (
 				BDB39FD719E814BF0022E5C4 /* KindCDTVC.h */,
 				BDB39FD819E814BF0022E5C4 /* KindCDTVC.m */,
+				458517A41AC95C7B003149C3 /* PopverSegue */,
 				BD6FC8511AA0B7900059AC20 /* PushSegue */,
 			);
 			name = KindCDTVC;
@@ -744,7 +771,9 @@
 			files = (
 				BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */,
 				4508D65E1AC41327007CA44A /* BillDetailCVC+MKMapView.m in Sources */,
+				459CDE1E1ACD5C2100A6B0E2 /* Kind.m in Sources */,
 				4508D6511AC3EDF5007CA44A /* Paths.m in Sources */,
+				458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */,
 				BDB32C9C1A22421C00EA822E /* SidebarViewController.m in Sources */,
 				4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */,
 				BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */,
@@ -755,11 +784,11 @@
 				BD7348841A99842B00692EE4 /* UINavigationController+Style.m in Sources */,
 				4508D66A1AC41909007CA44A /* BillDetailCVC+SetUp.m in Sources */,
 				BD1BF83519DB927300B1379A /* CoreDataTableViewController.m in Sources */,
-				4508D5FE1AC2735E007CA44A /* Bill.m in Sources */,
 				4508D65B1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m in Sources */,
 				45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */,
 				BD1BF83219DB927300B1379A /* BillCDTVC.m in Sources */,
 				BD1BF83D19DB927300B1379A /* Model.xcdatamodeld in Sources */,
+				458517A21AC95778003149C3 /* Filter.m in Sources */,
 				BD0749671A86660300467648 /* UIButton+Extension.m in Sources */,
 				BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */,
 				4508D6551AC3EE10007CA44A /* CGPath+Extension.m in Sources */,
@@ -771,12 +800,12 @@
 				BDB056BA19E3A1D000494080 /* SettingTVC.m in Sources */,
 				4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */,
 				BDA5A34C19FA787A006D2E69 /* MapCDTVC.m in Sources */,
-				45895D881AC127D20009E749 /* Kind.m in Sources */,
 				BD7348951A9995B700692EE4 /* UIViewController+Extension.m in Sources */,
 				BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */,
 				45ECF3A71AC537F400D0CACB /* BillDetailCVC+Extension.m in Sources */,
 				BD1BF83B19DB927300B1379A /* Kind+Create.m in Sources */,
 				BD58BDA01AA8984300CE2D08 /* ColorTransformer.m in Sources */,
+				459CDE211ACD5C2200A6B0E2 /* Bill.m in Sources */,
 				45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */,
 				BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */,
 				BDB39FD919E814BF0022E5C4 /* KindCDTVC.m in Sources */,

@@ -12,29 +12,29 @@
 
 
 
-
-
-
-@interface PubicVariable : NSObject
-
 enum :NSInteger{
     isIncomeNo,
     isIncomeYes,
     isIncomeNil
-};
+} IsIncomeType;
 
 enum :NSInteger{
     week,
     month,
     all
-};
+} DateMode;
 
 enum :NSInteger{
     predicateDayStyle,
     predicateWeekStyle,
     predicateWeekInMonthStyle,
     predicateMonthStyle
-};
+} PredicateTimeStyle;
+
+
+
+@interface PubicVariable : NSObject
+
 
 + (PubicVariable *)pubicVariable;
 + (NSManagedObjectContext *)managedObjectContext;

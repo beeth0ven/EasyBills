@@ -83,6 +83,9 @@
     UIWindow *window = [[UIWindow alloc]
                         initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    mainRevealController.rearViewRevealWidth = window.frame.size.width * 2 / 3;
+
+    
     self.window = window;
     self.window.rootViewController = mainRevealController;
     [self.window makeKeyAndVisible];

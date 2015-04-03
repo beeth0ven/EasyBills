@@ -20,5 +20,6 @@
 +(NSFetchedResultsController *)fetchedResultsControllerIsincome:(BOOL) isIncome;
 
 - (UIColor *)color;
+- (void)calculatorSumMoney;
 
 @end
