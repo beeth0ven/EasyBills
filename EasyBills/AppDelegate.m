@@ -84,6 +84,7 @@
                         initWithFrame:[[UIScreen mainScreen] bounds]];
     
     mainRevealController.rearViewRevealWidth = window.frame.size.width * 2 / 3;
+//    NSLog(@"RearViewRevealWidth Width: %.0f",mainRevealController.rearViewRevealWidth);
 
     
     self.window = window;

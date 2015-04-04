@@ -39,6 +39,16 @@
     
 }
 
+//- (void)viewDidAppear:(BOOL)animated {
+//    UITableViewCell *cell = [self tableView:self.tableView
+//                       cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//    UIImageView *imageView = (UIImageView *)[cell viewWithTag:5];
+//
+//    NSLog(@"TableView Width: %.0f",self.tableView.frame.size.width);
+//    NSLog(@"Cell Width: %.0f",cell.frame.size.width);
+//    NSLog(@"Center x: %.0f",imageView.center.x);
+//}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -64,7 +74,9 @@
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
     //title cell can't be selected
-    if (indexPath.row == 0) cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.row == 0) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     
     //row 1 is the defualt selected
     BOOL selected =
