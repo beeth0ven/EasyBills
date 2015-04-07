@@ -2041,8 +2041,8 @@
         <image name="UploadIcon" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4xq-Wo-5WR"/>
         <segue reference="lPD-6K-1iA"/>
+        <segue reference="C6f-3P-d6l"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.31372549020000001" green="0.74117647060000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

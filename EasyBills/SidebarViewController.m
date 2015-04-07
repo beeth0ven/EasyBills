@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 #import "DefaultStyleController.h"
 #import "AppDelegate.h"
+#import "Chameleon.h"
 
 @interface SidebarViewController ()
 
@@ -141,43 +142,27 @@
     
     UIImageView *cellImageView  = (UIImageView *)   [cell viewWithTag:0];
     UILabel     *label          = (UILabel *)       [cell viewWithTag:1];
-//    UIView      *tagView        = (UIView *)        [cell viewWithTag:2];
     
     BOOL canConfigureImageView = NO;
-//    BOOL canConfigureTagView = NO;
-//    
+
     if (cellImageView != nil) {
         canConfigureImageView = YES;
     }
-////
-//    if (tagView != nil) {
-//        canConfigureTagView = YES;
-//    }
-//    
+
+    
+    UIColor *textColor = EBBackGround;
+    UIColor *backgroundColor = [UIColor clearColor];
+
     if (selected == YES) {
-        if (canConfigureImageView)
-            cellImageView.tintColor =[UIColor whiteColor];
-        label.textColor = [UIColor whiteColor];
-        cell.backgroundColor = EBBlue;
-
-
-        
-//        if (tagView)
-//            tagView.alpha = 1.0;
-        
-    }else{
-        if (canConfigureImageView)
-            cellImageView.tintColor = EBBackGround;
-        label.textColor = EBBackGround;
-        cell.backgroundColor = [UIColor clearColor];
-        
-
-        
-//
-//        if (tagView)
-//            tagView.alpha = 0;
-        
+        textColor = [UIColor whiteColor];
+        backgroundColor = EBBackGround;
     }
+    
+    if (canConfigureImageView)
+        cellImageView.tintColor = textColor;
+    label.textColor = textColor;
+    cell.backgroundColor = backgroundColor;
+    
 }
 
 

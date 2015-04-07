@@ -56,10 +56,10 @@ enum :NSInteger{
 + (void)setKindIsIncome:(BOOL)isIncome;
 + (BOOL)kindIsIncome;
 
-+ (void)setLastAssignIncomeColorIndex:(NSInteger)lastAssignIncomeColorIndex;
-+ (NSInteger)lastAssignIncomeColorIndex;
++ (void)setNextAssignIncomeColorIndex:(NSInteger)nextAssignIncomeColorIndex;
++ (NSInteger)nextAssignIncomeColorIndex;
 
-+ (void)setLastAssignExpenseColorIndex:(NSInteger)lastAssignExpenseColorIndex;
-+ (NSInteger)lastAssignExpenseColorIndex;
++ (void)setNextAssignExpenseColorIndex:(NSInteger)nextAssignExpenseColorIndex;
++ (NSInteger)nextAssignExpenseColorIndex;
 
 @end

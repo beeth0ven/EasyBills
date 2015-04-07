@@ -127,7 +127,8 @@
 - (void)configAnnotationView:(MKAnnotationView *)annotationView
                      useBill:(Bill *)bill{
     
-    UIColor *color = bill.isIncome.boolValue ? EBBlue : EBBackGround;
+    UIColor *color = bill.kind.color;
+//    bill.isIncome.boolValue ? EBBlue : EBBackGround;
     annotationView.image = [UIImage pointerImageWithColor:color];
 } 
 

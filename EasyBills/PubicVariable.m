@@ -156,8 +156,8 @@
         
         [Kind kindWithNames:[PubicVariable incomeKinds] isIncome:YES];
         [Kind kindWithNames:[PubicVariable expenseKinds] isIncome:NO];
-        [PubicVariable setLastAssignIncomeColorIndex:-1];
-        [PubicVariable setLastAssignExpenseColorIndex:-1];
+        [PubicVariable setNextAssignIncomeColorIndex:-1];
+        [PubicVariable setNextAssignExpenseColorIndex:-1];
 		[self saveContext];
 	}
     return _persistentStoreCoordinator;
@@ -215,34 +215,34 @@
 
 
 
-#define LASTASSIGNINCOMECOLORINDEX @"lastAssignIncomeColorIndex"
-#define LASTASSIGNEXPENSECOLORINDEX @"lastAssignExpenseColorIndex"
+#define NEXTASSIGNINCOMECOLORINDEX @"nextAssignIncomeColorIndex"
+#define NEXTASSIGNEXPENSECOLORINDEX @"nextAssignExpenseColorIndex"
 
 
 
-+ (void)setLastAssignIncomeColorIndex:(NSInteger)lastAssignIncomeColorIndex
++ (void)setNextAssignIncomeColorIndex:(NSInteger)nextAssignIncomeColorIndex
 {
-    NSNumber *number = [NSNumber numberWithInteger:lastAssignIncomeColorIndex];
-    [[NSUserDefaults standardUserDefaults] setObject:number forKey:LASTASSIGNINCOMECOLORINDEX];
+    NSNumber *number = [NSNumber numberWithInteger:nextAssignIncomeColorIndex];
+    [[NSUserDefaults standardUserDefaults] setObject:number forKey:NEXTASSIGNINCOMECOLORINDEX];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (NSInteger)lastAssignIncomeColorIndex
++ (NSInteger)nextAssignIncomeColorIndex
 {
-    NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:LASTASSIGNINCOMECOLORINDEX];
+    NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:NEXTASSIGNINCOMECOLORINDEX];
     return  number.integerValue;
 }
 
-+ (void)setLastAssignExpenseColorIndex:(NSInteger)lastAssignExpenseColorIndex
++ (void)setNextAssignExpenseColorIndex:(NSInteger)nextAssignExpenseColorIndex
 {
-    NSNumber *number = [NSNumber numberWithInteger:lastAssignExpenseColorIndex];
-    [[NSUserDefaults standardUserDefaults] setObject:number forKey:LASTASSIGNEXPENSECOLORINDEX];
+    NSNumber *number = [NSNumber numberWithInteger:nextAssignExpenseColorIndex];
+    [[NSUserDefaults standardUserDefaults] setObject:number forKey:NEXTASSIGNEXPENSECOLORINDEX];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (NSInteger)lastAssignExpenseColorIndex
++ (NSInteger)nextAssignExpenseColorIndex
 {
-    NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:LASTASSIGNEXPENSECOLORINDEX];
+    NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:NEXTASSIGNEXPENSECOLORINDEX];
     return  number.integerValue;
 }
 

@@ -13,7 +13,8 @@
 + (UIImage *)pointerImageWithColor:(UIColor *)color{
     
     UIImage *result = nil;
-    UIImage *image  = [UIImage imageNamed:@"PointerIcon"];
+    UIImage *image  = [UIImage imageNamed:@"FillPointer"];
+//    PointerIcon
     if (image != nil) {
         image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         

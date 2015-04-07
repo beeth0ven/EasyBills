@@ -46,19 +46,19 @@
     
     
     if (isIncome) {
-        
-        NSInteger assignColorIndex = [PubicVariable lastAssignIncomeColorIndex];
-        colorIDIntergerValue = (assignColorIndex + 2) % [[self colors] count];
-        [PubicVariable setLastAssignIncomeColorIndex:assignColorIndex];
+        //income case,idx to be 0..2..4..6....
+        colorIDIntergerValue = [PubicVariable nextAssignIncomeColorIndex];
+        NSInteger nextAssignColorIndex  = (colorIDIntergerValue + 2) % [[self colors] count];
+        [PubicVariable setNextAssignIncomeColorIndex:nextAssignColorIndex];
 
     }
     else {
-        
-        NSInteger assignColorIndex = [PubicVariable lastAssignExpenseColorIndex];
-        if (assignColorIndex == 0)
-            assignColorIndex = -1;
-        colorIDIntergerValue = (assignColorIndex + 2) % [[self colors] count];
-        [PubicVariable setLastAssignExpenseColorIndex:assignColorIndex];
+        //expense case,idx to be 1..3..5..7....
+        colorIDIntergerValue = [PubicVariable nextAssignExpenseColorIndex];
+        if (colorIDIntergerValue == 0)
+            colorIDIntergerValue = 1;
+        NSInteger nextAssignColorIndex  = (colorIDIntergerValue + 2) % [[self colors] count];
+        [PubicVariable setNextAssignExpenseColorIndex:nextAssignColorIndex];
 
     }
     return [NSNumber numberWithInteger:colorIDIntergerValue] ;
