@@ -1,6 +1,7 @@
 PODS:
   - ACPButton (1.0.0)
   - AFTextView (0.0.1)
+  - ChameleonFramework (1.1.2)
   - DZNSegmentedControl (1.2.2)
   - JTSImageViewController (1.4)
   - LTHPasscodeViewController (3.1.9)
@@ -13,6 +14,7 @@ PODS:
 DEPENDENCIES:
   - ACPButton
   - AFTextView
+  - ChameleonFramework
   - DZNSegmentedControl (~> 1.2)
   - JTSImageViewController (~> 1.4)
   - LTHPasscodeViewController (~> 3.1)
@@ -23,6 +25,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ACPButton: 1df0abd6b87fd48dbb8c44b6271d9afa44806bdc
   AFTextView: c650834b4dba10272aaa4894d25098a22f2e76f9
+  ChameleonFramework: 5d34a29b6db60594a9998f6dfdffa8ac5f05979a
   DZNSegmentedControl: daa91d107904f7433e73852477f08450575be331
   JTSImageViewController: 9fe6402194b7679f0e28d0c1002d6164301fc34a
   LTHPasscodeViewController: 2d7f017c56985bd663e4e1625a126f7e81d6fdaf
@@ -31,4 +34,4 @@ SPEC CHECKSUMS:
   SWRevealViewController: f6d80638b8e12323e87ac79562345403a799cb77
   UICountingLabel: 0a0e9e34bf4690dbd127aaec552d19ed938087a9
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.0

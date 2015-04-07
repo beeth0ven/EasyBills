@@ -35,6 +35,11 @@
                                                                               sectionNameKeyPath:nil
                                                                                        cacheName:nil];
     }
+    //If there is no data, Display a label instead.
+    if (self.fetchedResultsController.fetchedObjects.count == 0){
+        self.tableView.backgroundView = [self emptyBackgroundView];
+
+    }
     
 //    UIBarButtonItem *backBarButton =
 //    [[UIBarButtonItem alloc] initWithTitle:@" "
@@ -45,6 +50,28 @@
 //    self.navigationItem.backBarButtonItem = backBarButton;
     
     // Do any additional setup after loading the view.
+}
+
+- (UIView *)emptyBackgroundView {
+    UIView *result = [[UIView alloc] initWithFrame:self.tableView.bounds];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.text = @"没有账单";
+    label.font = [UIFont boldSystemFontOfSize:18];
+    label.textColor = EBBackGround;
+    [label sizeToFit];
+    label.center = CGPointMake(self.tableView.bounds.size.width  / 2,
+                               self.tableView.bounds.size.height / 2 );
+    [result addSubview:label];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    imageView.image = [UIImage imageNamed:@"DrawerIcon"];
+    [imageView sizeToFit];
+    imageView.tintColor = EBBackGround;
+    imageView.center = CGPointMake(self.tableView.bounds.size.width  / 2,
+                                   self.tableView.bounds.size.height / 2 - 50);
+    [result addSubview:imageView];
+    return result;
 }
 
 -(void)viewWillAppear:(BOOL)animated

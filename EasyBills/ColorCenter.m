@@ -7,6 +7,7 @@
 //
 
 #import "ColorCenter.h"
+#import "ChameleonFramework/Chameleon.h"
 
 #define cantaloupeColor     [UIColor colorWithRed:255.0 / 255.0 green:204.0 / 255.0 blue:102.0 / 255.0 alpha:1.0f]
 #define honeydewColor       [UIColor colorWithRed:204.0 / 255.0 green:255.0 / 255.0 blue:102.0 / 255.0 alpha:1.0f]
@@ -47,16 +48,16 @@
     if (isIncome) {
         
         NSInteger assignColorIndex = [PubicVariable lastAssignIncomeColorIndex];
-        assignColorIndex = (assignColorIndex + 1) % [[self incomeColors] count];
-        colorIDIntergerValue = assignColorIndex;
+        colorIDIntergerValue = (assignColorIndex + 2) % [[self colors] count];
         [PubicVariable setLastAssignIncomeColorIndex:assignColorIndex];
 
     }
     else {
         
         NSInteger assignColorIndex = [PubicVariable lastAssignExpenseColorIndex];
-        assignColorIndex = (assignColorIndex + 1) % [[self expenseColors] count];
-        colorIDIntergerValue = assignColorIndex + [[self incomeColors] count];
+        if (assignColorIndex == 0)
+            assignColorIndex = -1;
+        colorIDIntergerValue = (assignColorIndex + 2) % [[self colors] count];
         [PubicVariable setLastAssignExpenseColorIndex:assignColorIndex];
 
     }
@@ -80,38 +81,81 @@
 
 + (NSArray *)colors{
 
-    return [[self incomeColors] arrayByAddingObjectsFromArray:
-            [self expenseColors]];
+//    return [[self incomeColors] arrayByAddingObjectsFromArray:
+//            [self expenseColors]];
+    return @[
+             FlatRed, FlatRedDark,
+             FlatOrange, FlatOrangeDark,
+             FlatYellow, FlatYellowDark,
+             FlatGreen, FlatGreenDark,
+             FlatPink, FlatPinkDark,
+             FlatBlue, FlatBlueDark,
+             FlatPurple, FlatPurpleDark,
+             
+             //             FlatBrown, FlatBrownDark,
+             FlatCoffee, FlatCoffeeDark,
+             FlatForestGreen, FlatForestGreenDark,
+             FlatGray, FlatGrayDark,
+             FlatLime, FlatLimeDark,
+             FlatMagenta, FlatMagentaDark,
+             FlatMaroon, FlatMaroonDark,
+             FlatMint, FlatMintDark,
+             //             FlatNavyBlue, FlatNavyBlueDark,
+             FlatPlum, FlatPlumDark,
+             FlatPowderBlue, FlatPowderBlueDark,
+             FlatSand, FlatSandDark,
+             FlatSkyBlue, FlatSkyBlueDark,
+             FlatTeal, FlatTealDark,
+             FlatWatermelon, FlatWatermelonDark,
+             //             FlatWhite, FlatWhiteDark,
+             //             FlatBlack, FlatBlackDark,
+             ];
 }
 
 
 + (NSArray *)incomeColors{
-    
-    return @[cantaloupeColor,
-             honeydewColor,
-             spindriftColor,
-             strawberryColor,
-             lavenderColor,
-             carnationColor,
-             salmonColor,
-             bananaColor,
-             tangerineColor,
-             orchidColor];
+    NSMutableArray *colors = [@[] mutableCopy];
+    [[self colors] enumerateObjectsUsingBlock:^(UIColor *obj, NSUInteger idx, BOOL *stop) {
+        if ((idx%2) == 0) {
+            [colors insertObject:obj atIndex:0];
+            NSLog(@"incomeColors idx: %i",idx);
+        }
+    }];
+    return colors;
+   //  @[cantaloupeColor,
+//             honeydewColor,
+//             spindriftColor,
+//             strawberryColor,
+//             lavenderColor,
+//             carnationColor,
+//             salmonColor,
+//             bananaColor,
+//             tangerineColor,
+//             orchidColor];
 
 }
 
 + (NSArray *)expenseColors{
     
-    return @[ironColor,
-             magnesiumColor,
-             mochaColor,
-             oceanColor,
-             eggplantColor,
-             maroonColor,
-             asparagusColor,
-             cloverColor,
-             tealColor,
-             plumColor];
+    
+    NSMutableArray *colors = [@[] mutableCopy];
+    [[self colors] enumerateObjectsUsingBlock:^(UIColor *obj, NSUInteger idx, BOOL *stop) {
+        if ((idx%2) == 1) {
+            [colors insertObject:obj atIndex:0];
+            NSLog(@"expenseColors idx: %i",idx);
+        }
+    }];
+    return colors;
+//    return @[ironColor,
+//             magnesiumColor,
+//             mochaColor,
+//             oceanColor,
+//             eggplantColor,
+//             maroonColor,
+//             asparagusColor,
+//             cloverColor,
+//             tealColor,
+//             plumColor];
 }
 
 

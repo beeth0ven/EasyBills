@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_AFTextView 0
 #define COCOAPODS_VERSION_PATCH_AFTextView 1
 
+// ChameleonFramework
+#define COCOAPODS_POD_AVAILABLE_ChameleonFramework
+#define COCOAPODS_VERSION_MAJOR_ChameleonFramework 1
+#define COCOAPODS_VERSION_MINOR_ChameleonFramework 1
+#define COCOAPODS_VERSION_PATCH_ChameleonFramework 2
+
 // DZNSegmentedControl
 #define COCOAPODS_POD_AVAILABLE_DZNSegmentedControl
 #define COCOAPODS_VERSION_MAJOR_DZNSegmentedControl 1
