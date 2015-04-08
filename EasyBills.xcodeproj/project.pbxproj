@@ -21,6 +21,8 @@
 		458517A21AC95778003149C3 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4585179F1AC95778003149C3 /* Filter.m */; };
 		458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458517A11AC95778003149C3 /* FilterTableViewController.m */; };
 		45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */; };
+		458C77541AD4E1670088BA86 /* CustomPresentAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458C77531AD4E1670088BA86 /* CustomPresentAnimationController.m */; };
+		458C77571AD4FD2B0088BA86 /* CustomDismissAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458C77561AD4FD2B0088BA86 /* CustomDismissAnimationController.m */; };
 		459CDE1E1ACD5C2100A6B0E2 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDE1D1ACD5C2100A6B0E2 /* Kind.m */; };
 		459CDE211ACD5C2200A6B0E2 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDE201ACD5C2200A6B0E2 /* Bill.m */; };
 		459CDE231ACE5E6900A6B0E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */; };
@@ -112,6 +114,10 @@
 		458517A11AC95778003149C3 /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilterTableViewController.m; path = ../FilterTableViewController.m; sourceTree = "<group>"; };
 		45895D801AC1217C0009E749 /* ClusterMapCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterMapCDTVC.h; sourceTree = "<group>"; };
 		45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterMapCDTVC.m; sourceTree = "<group>"; };
+		458C77521AD4E1670088BA86 /* CustomPresentAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPresentAnimationController.h; sourceTree = "<group>"; };
+		458C77531AD4E1670088BA86 /* CustomPresentAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPresentAnimationController.m; sourceTree = "<group>"; };
+		458C77551AD4FD2B0088BA86 /* CustomDismissAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDismissAnimationController.h; sourceTree = "<group>"; };
+		458C77561AD4FD2B0088BA86 /* CustomDismissAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDismissAnimationController.m; sourceTree = "<group>"; };
 		459CDE1C1ACD5C2100A6B0E2 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
 		459CDE1D1ACD5C2100A6B0E2 /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
 		459CDE1F1ACD5C2200A6B0E2 /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
@@ -273,6 +279,10 @@
 			isa = PBXGroup;
 			children = (
 				BD0FDC771A90DFF200679961 /* Media.xcassets */,
+				458C77521AD4E1670088BA86 /* CustomPresentAnimationController.h */,
+				458C77531AD4E1670088BA86 /* CustomPresentAnimationController.m */,
+				458C77551AD4FD2B0088BA86 /* CustomDismissAnimationController.h */,
+				458C77561AD4FD2B0088BA86 /* CustomDismissAnimationController.m */,
 				BD1BF7DE19DB901E00B1379A /* EasyBills */,
 				BD1BF7FD19DB901E00B1379A /* EasyBillsTests */,
 				BD1BF7D719DB901E00B1379A /* Frameworks */,
@@ -805,11 +815,13 @@
 				4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */,
 				BDA5A34C19FA787A006D2E69 /* MapCDTVC.m in Sources */,
 				BD7348951A9995B700692EE4 /* UIViewController+Extension.m in Sources */,
+				458C77571AD4FD2B0088BA86 /* CustomDismissAnimationController.m in Sources */,
 				BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */,
 				45ECF3A71AC537F400D0CACB /* BillDetailCVC+Extension.m in Sources */,
 				BD1BF83B19DB927300B1379A /* Kind+Create.m in Sources */,
 				BD58BDA01AA8984300CE2D08 /* ColorTransformer.m in Sources */,
 				459CDE211ACD5C2200A6B0E2 /* Bill.m in Sources */,
+				458C77541AD4E1670088BA86 /* CustomPresentAnimationController.m in Sources */,
 				45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */,
 				BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */,
 				BDB39FD919E814BF0022E5C4 /* KindCDTVC.m in Sources */,

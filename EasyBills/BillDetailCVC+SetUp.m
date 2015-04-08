@@ -9,6 +9,7 @@
 #import "BillDetailCVC+SetUp.h"
 #import "BillDetailCVC+CLLocation.h"
 #import "BillDetailCVC+Observer.h"
+#import "CustomDismissAnimationController.h"
 
 @implementation BillDetailCVC (SetUp)
 
@@ -78,6 +79,15 @@
     [self.view endEditing:YES];
     if (self.bill.money.floatValue != 0) {
         [self setIsUndo:NO];
+        
+        UINavigationController *navigationController = self.navigationController;
+        id<UIViewControllerTransitioningDelegate> transitioningDelegate = navigationController.transitioningDelegate;
+        id<UIViewControllerAnimatedTransitioning> animatedTransitioning = [transitioningDelegate animationControllerForDismissedController:nil];
+        if ([animatedTransitioning isKindOfClass:[CustomDismissAnimationController class]]) {
+            CustomDismissAnimationController *customDismissAnimationController = (CustomDismissAnimationController *)animatedTransitioning;
+            customDismissAnimationController.customDismissAnimationControllerEndPointType = CustomDismissAnimationControllerEndPointTypeSum;
+        }
+        
         [self dismissViewControllerAnimated:YES completion:^(){
             [PubicVariable saveContext];
         }];
@@ -94,10 +104,10 @@
 
 - (IBAction)cancel:(UIBarButtonItem *)sender
 {
-    
     [self.view endEditing:YES];
     [self setIsUndo:YES];
     [self dismissViewControllerAnimated:YES completion:^(){}];
+    
     
 }
 

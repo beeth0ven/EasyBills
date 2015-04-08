@@ -23,6 +23,9 @@
 #import "DZNSegmentedControl.h"
 #import "UINavigationController+Style.h"
 #import "UIViewController+Extension.h"
+#import "CustomPresentAnimationController.h"
+#import "CustomDismissAnimationController.h"
+
 
 @interface HomeViewController () <DZNSegmentedControlDelegate>
 
@@ -40,6 +43,10 @@
 
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
+
+@property (nonatomic, strong) CustomPresentAnimationController *customPresentAnimationController;
+@property (nonatomic, strong) CustomDismissAnimationController *customDismissAnimationController;
+
 
 @end
 
@@ -297,14 +304,16 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    
     if ([segue.identifier isEqualToString:@"incomeSegue"]) {
         
-        [self prepareForSegue:segue isIncome:YES];
+        [self prepareForSegue:segue isIncome:YES sender:sender];
         
     }else if([segue.identifier isEqualToString:@"expenseSegue"]) {
         
-        [self prepareForSegue:segue isIncome:NO];
-        
+        [self prepareForSegue:segue isIncome:NO sender:sender];
+
     }else if([segue.identifier isEqualToString:@"sumIncomeSegue"]) {
         
         [self prepareForSegue:segue withIncomeMode:isIncomeYes];
@@ -323,13 +332,30 @@
 
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue isIncome:(BOOL)isIncome
+-(void)prepareForSegue:(UIStoryboardSegue *)segue isIncome:(BOOL)isIncome sender:(id)sender
 {
+    
     if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navigationController = segue.destinationViewController;
         if ([navigationController.viewControllers.firstObject isKindOfClass:[BillDetailCVC class]]) {
             BillDetailCVC *myCollectionViewController = navigationController.viewControllers.firstObject;
             myCollectionViewController.isIncome = isIncome;
+            // Show Bill Detail. Configure transition.
+            if ([sender isKindOfClass:[UIButton class]]) {
+                UIButton *button = (UIButton *)sender;
+                CGPoint point = [button.superview
+                                      convertPoint:button.center
+                                      toView:nil];
+                self.customPresentAnimationController.startPoint = point;
+
+                UIButton *sumButton = [sender isEqual:self.addButton] ? self.sumAddedMoneyButton : self.sumReduceMoneyButton;
+                CGPoint sumButtonCenter = [sumButton.superview convertPoint:sumButton.center toView:nil];
+                self.customDismissAnimationController.operatorPoint = point;
+                self.customDismissAnimationController.sumPoint = sumButtonCenter;
+                self.customDismissAnimationController.customDismissAnimationControllerEndPointType = CustomDismissAnimationControllerEndPointTypeOperator;
+                navigationController.transitioningDelegate = self;
+
+            }
         }
     }
 }
@@ -374,7 +400,15 @@
                                                                 cacheName:nil];
 }
 
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    return self.customPresentAnimationController;
+}
 
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    return self.customDismissAnimationController;
+}
 
 -(ChartDate *)chartDate
 {
@@ -382,6 +416,20 @@
         _chartDate = [[ChartDate alloc]init];
     }
     return _chartDate;
+}
+
+- (CustomPresentAnimationController *)customPresentAnimationController {
+    if (!_customPresentAnimationController) {
+        _customPresentAnimationController = [[CustomPresentAnimationController alloc]init];
+    }
+    return _customPresentAnimationController;
+}
+
+- (CustomDismissAnimationController *)customDismissAnimationController {
+    if (!_customDismissAnimationController) {
+        _customDismissAnimationController = [[CustomDismissAnimationController alloc]init];
+    }
+    return _customDismissAnimationController;
 }
 
 

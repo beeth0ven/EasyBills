@@ -11,7 +11,7 @@
 #import "PubicVariable+FetchRequest.h"
 #import "DefaultStyleController.h"
 
-@interface HomeViewController : UIViewController<PNChartDelegate>
+@interface HomeViewController : UIViewController<PNChartDelegate, UIViewControllerTransitioningDelegate>
 
 
 
