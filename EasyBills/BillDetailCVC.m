@@ -21,6 +21,9 @@
 #import "BillDetailCVC+UIPickerView.h"
 #import "BillDetailCVC+UITextField.h"
 #import "BillDetailCVC+Extension.h"
+#import "NSString+Extension.h"
+#import "Plackmark+Create.h"
+#import "Plackmark.h"
 
 
 @interface BillDetailCVC ()
@@ -224,27 +227,36 @@
 - (void)updateMapCellLabel:(UILabel *)label
                   activity:(UIActivityIndicatorView *)activity{
     
-    CLLocation *location =
-    [[CLLocation alloc]initWithLatitude:self.bill.latitude.doubleValue
-                              longitude:self.bill.longitude.doubleValue];
+    if (self.bill.plackmark.name.length) {
+        label.text = self.bill.plackmark.name;
+        [activity stopAnimating];
+    }else{
+        [self.bill upadatePlacemark:^{
+            label.text = self.bill.plackmark.name;
+            [activity stopAnimating];
+        }];
+//        
+//        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//        CLLocation *location =[[CLLocation alloc]
+//                               initWithLatitude:self.bill.latitude.doubleValue
+//                               longitude:self.bill.longitude.doubleValue];
+//        
+//        [geocoder reverseGeocodeLocation:location
+//                       completionHandler:
+//         ^(NSArray *placemarks, NSError *error){
+//             if (!error && [placemarks count] > 0) {
+//                 CLPlacemark *placemark = [placemarks lastObject];
+//                 NSString *name = [NSString stringForPlacemark:placemark];
+//                 self.bill.plackmark = [Plackmark plackmarkWithName:name];
+//             }else{
+//                 self.bill.plackmark = [Plackmark plackmarkWithName:@"未知地点"];
+//             }
+//            
+//         }];
+        
+    }
     
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    
-    [geocoder reverseGeocodeLocation:location
-                   completionHandler:^(NSArray *placemarks, NSError *error){
-                       //                       NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
-                       if (!error && [placemarks count] > 0) {
-                           CLPlacemark *placemark = [placemarks lastObject];
-                           [activity stopAnimating];
-                           label.text = [NSString stringWithFormat:@"%@,%@,%@",
-                                         placemark.administrativeArea,
-                                         placemark.locality,
-                                         placemark.thoroughfare];
-                       }else{
-                           [activity stopAnimating];
-                           label.text = @"无法识别您的位置";
-                       }
-                   }];
+
 }
 
 

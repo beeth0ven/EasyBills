@@ -8,7 +8,8 @@
 
 #import "Bill+MKAnnotation.h"
 #import "Kind+Create.h"
-
+#import "NSString+Extension.h"
+#import "Plackmark+Create.h"
 
 @implementation Bill (MKAnnotation)
 
@@ -56,46 +57,59 @@
 
 -(NSString *)subtitle
 {
-    __block NSString *reslut = nil;
-    if (self.containedAnnotations.count > 0) {
-        // This is the father bill.
-        CLLocation *location = [[CLLocation alloc]
-                                initWithLatitude:self.coordinate.latitude
-                                longitude:self.coordinate.longitude];
-        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-        
-        [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-            if (placemarks.count > 0) {
-                CLPlacemark *placemark = placemarks.firstObject;
-                reslut = [NSString stringWithFormat:@"Near %@",
-                        [self stringForPlaceMark:placemark]];
-            }
-        }];
-        
-    } else {
-        // This is the son bill.
-//        reslut = [NSString stringWithFormat:@"￥  %.2f",fabs(self.money.floatValue)];
+    NSString *reslut = nil;
+    if (self.plackmark.name.length) {
+        reslut = self.plackmark.name;
     }
+//    if (self.containedAnnotations.count > 0) {
+//        // This is the father bill.
+//        CLLocation *location = [[CLLocation alloc]
+//                                initWithLatitude:self.coordinate.latitude
+//                                longitude:self.coordinate.longitude];
+//        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//        
+//        [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+//            if (placemarks.count > 0) {
+//                CLPlacemark *placemark = placemarks.firstObject;
+//                reslut = [NSString stringWithFormat:@"Near %@",
+//                          [NSString stringForPlacemark:placemark]];
+//            }
+//        }];
+//        
+//    } else {
+//        // This is the son bill.
+//        
+////        reslut = [NSString stringWithFormat:@"￥  %.2f",fabs(self.money.floatValue)];
+//    }
     return reslut;
 }
 
-- (NSString *)stringForPlaceMark:(CLPlacemark *)placemark{
-    
-    NSMutableString *string = [[NSMutableString alloc] init];
-    if (placemark.locality) {
-        [string appendString:placemark.locality];
+
+- (void)upadatePlacemark:(GeocodeCompletionHandler)completionHandler{
+    if (self.locationIsOn) {
+        
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        CLLocation *location =[[CLLocation alloc]
+                               initWithLatitude:self.latitude.doubleValue
+                               longitude:self.longitude.doubleValue];
+        
+        [geocoder reverseGeocodeLocation:location
+                       completionHandler:
+         ^(NSArray *placemarks, NSError *error){
+             if (!error && [placemarks count] > 0) {
+                 CLPlacemark *placemark = [placemarks lastObject];
+                 NSString *name = [NSString stringForPlacemark:placemark];
+                 self.plackmark = [Plackmark plackmarkWithName:name];
+             }else{
+                 self.plackmark = [Plackmark plackmarkWithName:@"未知地点"];
+             }
+             completionHandler();
+         }];
+     
+    }else{
+        self.plackmark = nil;
     }
     
-    if (placemark.administrativeArea) {
-        if (string.length > 0)
-            [string appendString:@", "];
-        [string appendString:placemark.administrativeArea];
-    }
-    
-    if (string.length == 0 && placemark.name)
-        [string appendString:placemark.name];
-    
-    return string;
 }
 
 

@@ -21,6 +21,7 @@
         <relationship name="clusterAnnotation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bill" inverseName="containedAnnotations" inverseEntity="Bill" syncable="YES"/>
         <relationship name="containedAnnotations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="clusterAnnotation" inverseEntity="Bill" syncable="YES"/>
         <relationship name="kind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kind" inverseName="bills" inverseEntity="Kind" syncable="YES"/>
+        <relationship name="plackmark" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plackmark" inverseName="bills" inverseEntity="Plackmark" syncable="YES"/>
     </entity>
     <entity name="Kind" representedClassName="Kind" syncable="YES">
         <attribute name="colorID" attributeType="Integer 16" valueTransformerName="ColorTransformer" defaultValueString="0" syncable="YES"/>
@@ -31,8 +32,13 @@
         <attribute name="visiteTime" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="bills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="kind" inverseEntity="Bill" syncable="YES"/>
     </entity>
+    <entity name="Plackmark" representedClassName="Plackmark" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="plackmark" inverseEntity="Bill" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="343"/>
-        <element name="Kind" positionX="-3791" positionY="-1744" width="128" height="148"/>
+        <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="358"/>
+        <element name="Kind" positionX="-3762" positionY="-1660" width="128" height="148"/>
+        <element name="Plackmark" positionX="-4230" positionY="-1495" width="128" height="73"/>
     </elements>
 </model>

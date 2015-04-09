@@ -77,14 +77,10 @@
     CLLocation *curentLocation = locations.lastObject;
     self.bill.locationIsOn = [NSNumber numberWithBool:YES];
     [self.bill setCoordinate:curentLocation.coordinate];
-    //    self.bill.latitude = [NSString stringWithFormat:@"%.8f" ,curentLocation.coordinate.latitude];
-    //    self.bill.longitude = [NSString stringWithFormat:@"%.8f" ,curentLocation.coordinate.longitude];
     [self.locationManager stopUpdatingLocation];
+    [self.bill upadatePlacemark:nil];
     [self updateCellWithIdentifier:@"locationCell"];
     [self showMapCell];
-    //    self.locationSwitch.on = YES;
-    //    [self postNotificationWithLocationIsOn:YES];
-    NSLog(@"latitude:%f longitude:%f",curentLocation.coordinate.latitude ,curentLocation.coordinate.longitude);
     
 }
 

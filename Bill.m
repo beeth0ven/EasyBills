@@ -2,7 +2,7 @@
 //  Bill.m
 //  EasyBills
 //
-//  Created by luojie on 4/2/15.
+//  Created by luojie on 4/9/15.
 //  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
@@ -33,5 +33,6 @@
 @dynamic clusterAnnotation;
 @dynamic containedAnnotations;
 @dynamic kind;
+@dynamic plackmark;
 
 @end

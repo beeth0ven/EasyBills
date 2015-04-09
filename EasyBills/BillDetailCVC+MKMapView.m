@@ -19,7 +19,7 @@
     MKAnnotationView *view = nil;
     static NSString *reuseId = @"billAnnotation";
     view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseId];
-    UIColor *color = self.bill.isIncome.boolValue ? EBBlue : EBBackGround;
+    UIColor *color = self.bill.kind.color;
     view.image = [UIImage pointerImageWithColor:color];
     view.canShowCallout = NO;
     //    view.pinColor = self.bill.isIncome.boolValue ? MKPinAnnotationColorGreen : MKPinAnnotationColorRed;

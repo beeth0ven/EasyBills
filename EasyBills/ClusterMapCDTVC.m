@@ -10,10 +10,16 @@
 #import "Bill+MKAnnotation.h"
 #import "BillDetailCVC.h"
 #import "BillCDTVC.h"
+#import "CustomPresentAnimationController.h"
+#import "CustomDismissAnimationController.h"
 
 @interface ClusterMapCDTVC ()
 
 @property (nonatomic, strong) MKMapView *allAnnotationsMapView;
+
+@property (nonatomic, strong) CustomPresentAnimationController *customPresentAnimationController;
+@property (nonatomic, strong) CustomDismissAnimationController *customDismissAnimationController;
+
 
 @end
 
@@ -238,6 +244,7 @@
             [self performSegueWithIdentifier:@"showBillByMap" sender:view];
         }else{
             [self performSegueWithIdentifier:@"mapShowBill" sender:view];
+            
         }
     }
     
@@ -259,9 +266,9 @@
     // Pass the selected object to the new view controller.
 }
 
--(void) prepareViewController:(UIViewController *)viewController
-                     forSegue:(NSString *)segueIdentifier
-             toShowAnnotation:(id <MKAnnotation>)annotation
+-(void)prepareViewController:(UIViewController *)viewController
+                    forSegue:(NSString *)segueIdentifier
+            toShowAnnotation:(id <MKAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[Bill class]]) {
         Bill *bill = annotation;
@@ -271,6 +278,18 @@
                 if ([navigationController.topViewController isKindOfClass:[BillDetailCVC class]]) {
                     BillDetailCVC *myCollectionViewController = (BillDetailCVC *)navigationController.topViewController;
                     myCollectionViewController.bill = bill;
+                    //Configure custom transition.
+                    if ([annotation isKindOfClass:[Bill class]]) {
+                        Bill *bill = (Bill *)annotation;
+                        CGPoint point = [self.mapView convertCoordinate:bill.coordinate toPointToView:nil];
+                        self.customPresentAnimationController.startPoint = point;
+                        self.customDismissAnimationController.operatorPoint = point;
+                        self.customDismissAnimationController.sumPoint = point;
+                        self.customDismissAnimationController.customDismissAnimationControllerEndPointType = CustomDismissAnimationControllerEndPointTypeOperator;
+                        navigationController.transitioningDelegate = self;
+                    }
+
+                    
                 }
                 
             }
@@ -304,5 +323,29 @@
     return fetchedResultsController;
 }
 
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    return self.customPresentAnimationController;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    return self.customDismissAnimationController;
+}
+
+    
+- (CustomPresentAnimationController *)customPresentAnimationController {
+    if (!_customPresentAnimationController) {
+        _customPresentAnimationController = [[CustomPresentAnimationController alloc]init];
+    }
+    return _customPresentAnimationController;
+}
+
+- (CustomDismissAnimationController *)customDismissAnimationController {
+    if (!_customDismissAnimationController) {
+        _customDismissAnimationController = [[CustomDismissAnimationController alloc]init];
+    }
+    return _customDismissAnimationController;
+}
 
 @end

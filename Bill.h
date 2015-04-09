@@ -2,14 +2,15 @@
 //  Bill.h
 //  EasyBills
 //
-//  Created by luojie on 4/2/15.
+//  Created by luojie on 4/9/15.
 //  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Bill, Kind;
+
+@class Bill, Kind ,Plackmark;
 
 @interface Bill : NSManagedObject
 
@@ -33,6 +34,7 @@
 @property (nonatomic, retain) Bill *clusterAnnotation;
 @property (nonatomic, retain) NSSet *containedAnnotations;
 @property (nonatomic, retain) Kind *kind;
+@property (nonatomic, retain) Plackmark *plackmark;
 @end
 
 @interface Bill (CoreDataGeneratedAccessors)

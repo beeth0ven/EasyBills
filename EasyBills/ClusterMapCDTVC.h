@@ -8,6 +8,6 @@
 
 #import "MapCDTVC.h"
 
-@interface ClusterMapCDTVC : MapCDTVC
+@interface ClusterMapCDTVC : MapCDTVC<UIViewControllerTransitioningDelegate>
 
 @end
