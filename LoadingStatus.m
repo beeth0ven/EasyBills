@@ -69,7 +69,7 @@
     if ((self = [super initWithFrame:frame])) {
         self.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.4f];
         
-        NSString *loadingString = @"Loading Bills…";
+        NSString *loadingString = @"读取中…";
 
         UIFont *loadingFont = [UIFont boldSystemFontOfSize:17.0f];
     

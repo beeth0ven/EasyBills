@@ -8,6 +8,9 @@
 
 #import "MapCDTVC.h"
 
-@interface ClusterMapCDTVC : MapCDTVC<UIViewControllerTransitioningDelegate>
+@interface ClusterMapCDTVC : MapCDTVC
+<UIViewControllerTransitioningDelegate,
+UIPopoverPresentationControllerDelegate,
+UIAdaptivePresentationControllerDelegate>
 
 @end

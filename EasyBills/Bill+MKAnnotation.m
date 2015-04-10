@@ -85,7 +85,7 @@
 }
 
 
-- (void)upadatePlacemark:(GeocodeCompletionHandler)completionHandler{
+- (void)upadatePlacemark{
     if (self.locationIsOn) {
         
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -103,7 +103,6 @@
              }else{
                  self.plackmark = [Plackmark plackmarkWithName:@"未知地点"];
              }
-             completionHandler();
          }];
      
     }else{

@@ -28,6 +28,7 @@
 		45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */; };
 		458C77541AD4E1670088BA86 /* CustomPresentAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458C77531AD4E1670088BA86 /* CustomPresentAnimationController.m */; };
 		458C77571AD4FD2B0088BA86 /* CustomDismissAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458C77561AD4FD2B0088BA86 /* CustomDismissAnimationController.m */; };
+		459A8FB71AD7943D00685124 /* PlacemarkCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A8FB61AD7943D00685124 /* PlacemarkCDTVC.m */; };
 		459CDE1E1ACD5C2100A6B0E2 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDE1D1ACD5C2100A6B0E2 /* Kind.m */; };
 		459CDE231ACE5E6900A6B0E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */; };
 		45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */; };
@@ -132,6 +133,8 @@
 		458C77531AD4E1670088BA86 /* CustomPresentAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPresentAnimationController.m; sourceTree = "<group>"; };
 		458C77551AD4FD2B0088BA86 /* CustomDismissAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDismissAnimationController.h; sourceTree = "<group>"; };
 		458C77561AD4FD2B0088BA86 /* CustomDismissAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDismissAnimationController.m; sourceTree = "<group>"; };
+		459A8FB51AD7943D00685124 /* PlacemarkCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacemarkCDTVC.h; sourceTree = "<group>"; };
+		459A8FB61AD7943D00685124 /* PlacemarkCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacemarkCDTVC.m; sourceTree = "<group>"; };
 		459CDE1C1ACD5C2100A6B0E2 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
 		459CDE1D1ACD5C2100A6B0E2 /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
 		459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -308,6 +311,15 @@
 			name = Filter;
 			sourceTree = "<group>";
 		};
+		459A8FB11AD792CB00685124 /* PopverSegue */ = {
+			isa = PBXGroup;
+			children = (
+				459A8FB51AD7943D00685124 /* PlacemarkCDTVC.h */,
+				459A8FB61AD7943D00685124 /* PlacemarkCDTVC.m */,
+			);
+			name = PopverSegue;
+			sourceTree = "<group>";
+		};
 		BD1BF7CC19DB901E00B1379A = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +375,7 @@
 				BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */,
 				BD1BF7E719DB901E00B1379A /* AppDelegate.h */,
 				BD1BF7E819DB901E00B1379A /* AppDelegate.m */,
+				459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */,
 				BD1BF7E019DB901E00B1379A /* EasyBills-Info.plist */,
 				BD1BF7E119DB901E00B1379A /* InfoPlist.strings */,
 				BD1BF7E419DB901E00B1379A /* main.m */,
@@ -459,7 +472,6 @@
 			isa = PBXGroup;
 			children = (
 				BD1BF7EA19DB901E00B1379A /* Main.storyboard */,
-				459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */,
 				BD81A3EE1A99D7A000C2CBE6 /* BillCDTVCCells */,
 				BD81A3E91A99D6C900C2CBE6 /* ColorCVCell */,
 			);
@@ -561,6 +573,7 @@
 				4508D6001AC2961F007CA44A /* ToolBarCMCDTVC.m */,
 				45895D801AC1217C0009E749 /* ClusterMapCDTVC.h */,
 				45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */,
+				459A8FB11AD792CB00685124 /* PopverSegue */,
 				BD81A3D61A99D06300C2CBE6 /* CoreDataMapViewController */,
 			);
 			name = MapCDTVC;
@@ -835,6 +848,7 @@
 				BD1BF83119DB927300B1379A /* Bill+Create.m in Sources */,
 				BD7348841A99842B00692EE4 /* UINavigationController+Style.m in Sources */,
 				4508D66A1AC41909007CA44A /* BillDetailCVC+SetUp.m in Sources */,
+				459A8FB71AD7943D00685124 /* PlacemarkCDTVC.m in Sources */,
 				BD1BF83519DB927300B1379A /* CoreDataTableViewController.m in Sources */,
 				4508D65B1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m in Sources */,
 				455C0D9F1AD64A080060C4DF /* LoadingStatus.m in Sources */,

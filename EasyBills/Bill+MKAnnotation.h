@@ -16,8 +16,7 @@
 - (void)setCoordinate:(CLLocationCoordinate2D)coordinate;
 - (void)setClusterAnnotationCoordinate:(CLLocationCoordinate2D)coordinate;
 
-typedef void (^GeocodeCompletionHandler)(UIActivity *activity, UILabel *label ,id  self);
 
-- (void)upadatePlacemark:(GeocodeCompletionHandler)completionHandler;
+- (void)upadatePlacemark;
 
 @end

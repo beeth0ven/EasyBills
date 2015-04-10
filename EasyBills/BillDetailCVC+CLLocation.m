@@ -78,7 +78,7 @@
     self.bill.locationIsOn = [NSNumber numberWithBool:YES];
     [self.bill setCoordinate:curentLocation.coordinate];
     [self.locationManager stopUpdatingLocation];
-    [self.bill upadatePlacemark:nil];
+    [self.bill upadatePlacemark];
     [self updateCellWithIdentifier:@"locationCell"];
     [self showMapCell];
     

@@ -12,6 +12,7 @@
 #import "BillCDTVC.h"
 #import "CustomPresentAnimationController.h"
 #import "CustomDismissAnimationController.h"
+#import "PlacemarkCDTVC.h"
 
 @interface ClusterMapCDTVC ()
 
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) CustomPresentAnimationController *customPresentAnimationController;
 @property (nonatomic, strong) CustomDismissAnimationController *customDismissAnimationController;
 
+@property (nonatomic, strong) PlacemarkCDTVC *pmcdtvc;
 
 @end
 
@@ -110,21 +112,31 @@
         gridMapRect.origin.x = startX;
         while (gridMapRect.origin.x <= endX) {
             NSSet *allAnnotationsInBucket = [self.allAnnotationsMapView annotationsInMapRect:gridMapRect];
+
             NSSet *visibleAnnotationsInBucket = [self.mapView annotationsInMapRect:gridMapRect];
-            
+
             NSMutableSet *filteredAnnotationsInBucket = [[allAnnotationsInBucket objectsPassingTest:
                                                           ^BOOL(id obj, BOOL *stop) {
                 return ([obj isKindOfClass:[Bill class]]);
                                                               
             }] mutableCopy];
             
-            
-
+//            if (allAnnotationsInBucket.count) {
+//                NSLog(@"visibleAnnotationsInBucket count: %i",visibleAnnotationsInBucket.count);
+//                
+//                NSLog(@"allAnnotationsInBucket count: %i",allAnnotationsInBucket.count);
+//                
+//                NSLog(@"filteredAnnotationsInBucket count: %i",filteredAnnotationsInBucket.count);
+//                
+//
+//            }
+           
             if (filteredAnnotationsInBucket.count > 0) {
                 
 
                 Bill *annotationForGrid = (Bill *)[self annotationInGrid:gridMapRect
                                                   usingAnnotations:filteredAnnotationsInBucket];
+//                NSLog(@"filteredAnnotationsInBucket count0: %i",filteredAnnotationsInBucket.count);
 
                 [filteredAnnotationsInBucket removeObject:annotationForGrid];
                 
@@ -134,7 +146,7 @@
                 annotationForGrid.containedAnnotations = filteredAnnotationsInBucket;
                 
                 
-
+//                NSLog(@"filteredAnnotationsInBucket count1: %i",filteredAnnotationsInBucket.count);
 
                 
                 
@@ -145,6 +157,8 @@
                     
                     annotation.containedAnnotations = nil;
                     
+//                    NSLog(@"filteredAnnotationsInBucket count2: %i",filteredAnnotationsInBucket.count);
+
                     if ([visibleAnnotationsInBucket containsObject:annotation]) {
                         CLLocationCoordinate2D actualCoordinate = annotation.coordinate;
                         [UIView animateWithDuration:0.3 animations:^{
@@ -191,9 +205,8 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
     _allAnnotationsMapView = [[MKMapView alloc] initWithFrame:CGRectZero];
-    [self populateWorldWithAllBillAnnotations];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -257,11 +270,22 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"prepareForSegue %@",segue.identifier);
     if ([sender isKindOfClass:[MKAnnotationView class]]) {
         [self prepareViewController:segue.destinationViewController
                            forSegue:segue.identifier
                    toShowAnnotation:((MKAnnotationView *)sender).annotation];
+    }else if ([sender isKindOfClass:[Plackmark class]]) {
+        [self prepareViewController:segue.destinationViewController
+                           forSegue:segue.identifier
+                   toShowPlacemark:(Plackmark *)sender];
+        
+    }else if ([sender isKindOfClass:[UIBarButtonItem class]]){
+        [self prepareViewController:segue.destinationViewController
+                           forSegue:segue.identifier];
     }
+    NSLog(@"prepareForSegue %@",segue.identifier);
+
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
@@ -297,7 +321,58 @@
             if ([viewController isKindOfClass:[BillCDTVC class]]) {
                 BillCDTVC *billCoreDataTableViewController = (BillCDTVC *)viewController;
                 billCoreDataTableViewController.fetchedResultsController = [self fetchedResultsControlleWithBill:bill];
-                billCoreDataTableViewController.title = @"地点";
+                billCoreDataTableViewController.title = bill.subtitle;
+            }
+        }
+        
+    }
+    
+    
+}
+
+- (void)prepareViewController:(UIViewController *)viewController
+                    forSegue:(NSString *)segueIdentifier
+            toShowPlacemark:(Plackmark *)plackmark {
+    if ([segueIdentifier isEqualToString:@"showBillByMap"]) {
+        if ([viewController isKindOfClass:[BillCDTVC class]]) {
+            BillCDTVC *billCoreDataTableViewController = (BillCDTVC *)viewController;
+            billCoreDataTableViewController.fetchedResultsController = [self fetchedResultsControlleWithPlackmark:plackmark];
+            billCoreDataTableViewController.title = plackmark.name;
+        }
+    }
+}
+
+-(void)prepareViewController:(UIViewController *)viewController
+                    forSegue:(NSString *)segueIdentifier {
+    if ([segueIdentifier isEqualToString:@"showLocation"]) {
+        if ([viewController isKindOfClass:[PlacemarkCDTVC class]]) {
+            self.pmcdtvc = (PlacemarkCDTVC *)viewController;
+            UIPopoverPresentationController *ppc = self.pmcdtvc.popoverPresentationController;
+            ppc.backgroundColor = self.pmcdtvc.tableView.backgroundColor;
+            ppc.delegate = self;
+            
+        }
+    }
+
+}
+
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context{
+    
+    if ([keyPath isEqualToString:@"selectedPlacemark"]){
+        id newValue = [change objectForKey:NSKeyValueChangeNewKey];
+        if ([newValue isKindOfClass:[Plackmark class]]) {
+            Plackmark *plackmark = (Plackmark *)newValue;
+            if (plackmark != nil) {
+//                [self.pmcdtvc removeObserver:self
+//                                  forKeyPath:@"selectedPlacemark"];
+                [self performSegueWithIdentifier:@"showBillByMap" sender:plackmark];
+//                [self updateCellWithIdentifier:@"inputlocationCell"];
+                
             }
         }
         
@@ -305,14 +380,47 @@
     
 }
 
+- (void)setPmcdtvc:(PlacemarkCDTVC *)pmcdtvc {
+    
+    [_pmcdtvc removeObserver:self
+                  forKeyPath:@"selectedPlacemark"];
+    
+    _pmcdtvc = pmcdtvc;
+    
+    [pmcdtvc addObserver:self
+               forKeyPath:@"selectedPlacemark"
+                  options:NSKeyValueObservingOptionNew
+                  context:&pmcdtvc];
+    
+}
+
+- (void)dealloc {
+    self.pmcdtvc = nil;
+}
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
+}
+
+
 - (NSFetchedResultsController *)fetchedResultsControlleWithBill:(Bill *)bill {
     
     NSMutableArray *billsToShow = [NSMutableArray arrayWithObject:bill];
     [billsToShow addObjectsFromArray:bill.containedAnnotations.allObjects];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF IN %@" , billsToShow];
+    return [self billFetchedResultsControlleWithPredicate:predicate];
+}
+
+- (NSFetchedResultsController *)fetchedResultsControlleWithPlackmark:(Plackmark *)plackmark {
     
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"plackmark = %@" , plackmark];
+    return [self billFetchedResultsControlleWithPredicate:predicate];
+}
+
+- (NSFetchedResultsController *)billFetchedResultsControlleWithPredicate:(NSPredicate *)predicate {
     
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Bill"];
-    request.predicate = [NSPredicate predicateWithFormat:@"SELF IN %@" , billsToShow];
+    request.predicate = predicate;
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]
@@ -320,8 +428,16 @@
                                                             managedObjectContext:[PubicVariable managedObjectContext]
                                                             sectionNameKeyPath:nil
                                                             cacheName:nil];
+    
     return fetchedResultsController;
+
 }
+
+- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController {
+    [super setFetchedResultsController:fetchedResultsController];
+    [self populateWorldWithAllBillAnnotations];
+}
+
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
                                                                   presentingController:(UIViewController *)presenting

@@ -18,6 +18,7 @@
 
 @interface MapCDTVC ()
 
+@property (nonatomic, strong) LoadingStatus *loadingStatus;
 
 @end
 
@@ -30,7 +31,7 @@
     [self setupMenuButton];
     self.mapView.delegate = self;
     [self setupFetchedResultsController];
-    
+    [self.view addSubview:self.loadingStatus];
 
 
 
@@ -55,8 +56,6 @@
 - (void)setupFetchedResultsController
 {
     // add a temporary loading view
-    LoadingStatus *loadingStatus = [LoadingStatus defaultLoadingStatusWithWidth:CGRectGetWidth(self.view.frame)];
-    [self.view addSubview:loadingStatus];
     
     if (!self.fetchedResultsController) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -72,13 +71,15 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.fetchedResultsController = fetchedResultsController;
                 [self mapViewReloadData];
-                [loadingStatus removeFromSuperviewWithFade];
 
             });
         });
 
     }
 }
+
+
+
 
 
 #pragma mark - MKMapViewDelegate
@@ -125,8 +126,21 @@
     annotationView.image = [UIImage pointerImageWithColor:color];
 } 
 
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+    if (self.loadingStatus.superview) {
+        [self.loadingStatus removeFromSuperviewWithFade];
+    }
+
+}
 
 
+
+- (LoadingStatus *)loadingStatus {
+    if (!_loadingStatus) {
+        _loadingStatus = [LoadingStatus defaultLoadingStatusWithWidth:CGRectGetWidth(self.view.frame)];
+    }
+    return _loadingStatus;
+}
 
 
 

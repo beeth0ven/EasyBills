@@ -7,6 +7,7 @@
 //
 
 #import "BillDetailCVC+Observer.h"
+#import "Plackmark+Create.h"
 
 @implementation BillDetailCVC (Observer)
 
@@ -45,6 +46,11 @@
                 forKeyPath:@"kind"
                    options:NSKeyValueObservingOptionNew
                    context:NULL];
+    
+    [self.bill addObserver:self
+                forKeyPath:@"plackmark"
+                   options:NSKeyValueObservingOptionNew
+                   context:NULL];
 }
 
 - (void) dealloc{
@@ -53,6 +59,8 @@
         [self.bill removeObserver:self forKeyPath:@"locationIsOn"];
         [self.bill removeObserver:self forKeyPath:@"date"];
         [self.bill removeObserver:self forKeyPath:@"kind"];
+        [self.bill removeObserver:self forKeyPath:@"plackmark"];
+
     }
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -68,6 +76,7 @@
         if ([newValue respondsToSelector:@selector(boolValue)]) {
             BOOL isOn = newValue.boolValue;
             if (isOn == NO) {
+                self.bill.plackmark = nil;
                 [self updateMapViewCellWithoutLocation];
             }
         }
@@ -79,6 +88,16 @@
     }else if ([keyPath isEqualToString:@"kind"]){
         
         [self updateCellWithIdentifier:@"kindCell"];
+        
+    }else if ([keyPath isEqualToString:@"plackmark"]){
+        id newValue = [change objectForKey:NSKeyValueChangeNewKey];
+        if ([newValue isKindOfClass:[Plackmark class]]) {
+            Plackmark *placemark = (Plackmark *)newValue;
+            if (placemark != nil) {
+                [self updateCellWithIdentifier:@"inputlocationCell"];
+                
+            }
+        }
         
     }
     

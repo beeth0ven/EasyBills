@@ -110,7 +110,7 @@
             
             textField.text =
             self.bill.money.floatValue != 0 ?
-            [NSString stringWithFormat:@"%d",abs(self.bill.money.floatValue)] :
+            [NSString stringWithFormat:@"%d",abs(self.bill.money.floatValue)]:
             nil;
         }
         
@@ -230,12 +230,10 @@
     if (self.bill.plackmark.name.length) {
         label.text = self.bill.plackmark.name;
         [activity stopAnimating];
-    }else{
-        [self.bill upadatePlacemark:^{
-            label.text = self.bill.plackmark.name;
-            [activity stopAnimating];
-        }];
-//        
+    }
+//    else{
+//        [self updateMapViewCellWithoutLocation];
+//
 //        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
 //        CLLocation *location =[[CLLocation alloc]
 //                               initWithLatitude:self.bill.latitude.doubleValue
@@ -254,7 +252,7 @@
 //            
 //         }];
         
-    }
+//    }
     
 
 }
