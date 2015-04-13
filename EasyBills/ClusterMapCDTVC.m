@@ -30,8 +30,9 @@
 
 - (void)populateWorldWithAllBillAnnotations {
     
+    _allAnnotationsMapView = [[MKMapView alloc] initWithFrame:CGRectZero];
     [_allAnnotationsMapView addAnnotations:self.fetchedResultsController.fetchedObjects];
-    [self updateVisibleAnnotations];
+//    [self updateVisibleAnnotations];
     
 }
 
@@ -205,18 +206,20 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    _allAnnotationsMapView = [[MKMapView alloc] initWithFrame:CGRectZero];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self populateWorldWithAllBillAnnotations];
+//    [self populateWorldWithAllBillAnnotations];
 }
 
 #pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    if (self.fetchedResultsController &&
+        !self.allAnnotationsMapView)
+        [self populateWorldWithAllBillAnnotations];
     [self updateVisibleAnnotations];
 }
 
@@ -431,11 +434,6 @@
     
     return fetchedResultsController;
 
-}
-
-- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController {
-    [super setFetchedResultsController:fetchedResultsController];
-    [self populateWorldWithAllBillAnnotations];
 }
 
 

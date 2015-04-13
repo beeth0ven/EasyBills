@@ -22,6 +22,8 @@
 		455C0DA61AD65BAF0060C4DF /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA51AD65BAF0060C4DF /* Bill.m */; };
 		455C0DA91AD65BB00060C4DF /* Plackmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA81AD65BB00060C4DF /* Plackmark.m */; };
 		455C0DAC1AD65BE20060C4DF /* Plackmark+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DAB1AD65BE20060C4DF /* Plackmark+Create.m */; };
+		456664A81ADA48F500808312 /* Naughty Cartoons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456664A71ADA48F500808312 /* Naughty Cartoons.ttf */; };
+		456664B01ADA604A00808312 /* WawaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 456664AF1ADA604A00808312 /* WawaSC-Regular.otf */; };
 		4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */; };
 		458517A21AC95778003149C3 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4585179F1AC95778003149C3 /* Filter.m */; };
 		458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458517A11AC95778003149C3 /* FilterTableViewController.m */; };
@@ -121,6 +123,8 @@
 		455C0DA81AD65BB00060C4DF /* Plackmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Plackmark.m; path = ../Plackmark.m; sourceTree = "<group>"; };
 		455C0DAA1AD65BE20060C4DF /* Plackmark+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plackmark+Create.h"; sourceTree = "<group>"; };
 		455C0DAB1AD65BE20060C4DF /* Plackmark+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plackmark+Create.m"; sourceTree = "<group>"; };
+		456664A71ADA48F500808312 /* Naughty Cartoons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Naughty Cartoons.ttf"; sourceTree = "<group>"; };
+		456664AF1ADA604A00808312 /* WawaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WawaSC-Regular.otf"; sourceTree = "<group>"; };
 		4568DB841ABFFA3D0064BBE2 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		4585179E1AC95778003149C3 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = ../Filter.h; sourceTree = "<group>"; };
@@ -293,6 +297,15 @@
 			name = "Plackmark+";
 			sourceTree = "<group>";
 		};
+		4566649E1ADA439D00808312 /* CustomFonts */ = {
+			isa = PBXGroup;
+			children = (
+				456664AF1ADA604A00808312 /* WawaSC-Regular.otf */,
+				456664A71ADA48F500808312 /* Naughty Cartoons.ttf */,
+			);
+			name = CustomFonts;
+			sourceTree = "<group>";
+		};
 		458517A41AC95C7B003149C3 /* PopverSegue */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +385,7 @@
 			children = (
 				4508D6521AC3EE05007CA44A /* CursorButton */,
 				BD81A3CE1A99CEB800C2CBE6 /* Extension */,
+				4566649E1ADA439D00808312 /* CustomFonts */,
 				BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */,
 				BD1BF7E719DB901E00B1379A /* AppDelegate.h */,
 				BD1BF7E819DB901E00B1379A /* AppDelegate.m */,
@@ -779,8 +793,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				459CDE231ACE5E6900A6B0E2 /* LaunchScreen.xib in Resources */,
+				456664A81ADA48F500808312 /* Naughty Cartoons.ttf in Resources */,
 				BD1BF7E319DB901E00B1379A /* InfoPlist.strings in Resources */,
 				BD1BF7EC19DB901E00B1379A /* Main.storyboard in Resources */,
+				456664B01ADA604A00808312 /* WawaSC-Regular.otf in Resources */,
 				BD0FDC781A90DFF200679961 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

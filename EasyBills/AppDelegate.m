@@ -88,11 +88,25 @@
     mainRevealController.rearViewRevealWidth = window.frame.size.width * 2 / 3;
 //    NSLog(@"RearViewRevealWidth Width: %.0f",mainRevealController.rearViewRevealWidth);
 
+    [self enumerateFonts];
     
     self.window = window;
     self.window.rootViewController = mainRevealController;
     [self.window makeKeyAndVisible];
     return YES;
+    
+}
+
+- (void) enumerateFonts{
+    
+    for (NSString *familyName in [UIFont familyNames]){
+        NSLog(@"%@", familyName);
+        for (NSString *fontName in
+             [UIFont fontNamesForFamilyName:familyName]){
+            NSLog(@"\t%@", fontName);
+            
+        }
+    }
     
 }
 

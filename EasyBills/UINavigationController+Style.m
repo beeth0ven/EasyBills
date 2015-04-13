@@ -65,7 +65,9 @@
         return nil;
     }
     
-    UIFont *font = [UIFont boldSystemFontOfSize:20.0f];
+    UIFont *font = [UIFont fontWithName:@"DFWaWaSC-W5" size:24.0];
+
+//    [UIFont boldSystemFontOfSize:20.0f];
     result =@{NSFontAttributeName : font,
               NSForegroundColorAttributeName : titleColor};
     
