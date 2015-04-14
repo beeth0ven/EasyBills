@@ -437,6 +437,46 @@
 }
 
 
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    [super controller:controller
+      didChangeObject:anObject
+          atIndexPath:indexPath
+        forChangeType:type
+         newIndexPath:newIndexPath];
+    
+    id<MKAnnotation> object = [self.fetchedResultsController objectAtIndexPath:newIndexPath];
+    
+    
+    switch(type)
+    {
+        case NSFetchedResultsChangeInsert:
+            [self.allAnnotationsMapView addAnnotation:object];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.allAnnotationsMapView removeAnnotation:object];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            //                [self.mapView removeAnnotation:object];
+            //                [self.mapView addAnnotation:object];
+            //
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            //[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            //[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+    
+}
+
+
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
                                                                   presentingController:(UIViewController *)presenting
                                                                       sourceController:(UIViewController *)source {

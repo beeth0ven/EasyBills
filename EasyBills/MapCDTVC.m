@@ -123,6 +123,7 @@
     
     UIColor *color = bill.kind.color;
 //    bill.isIncome.boolValue ? EBBlue : EBBackGround;
+    annotationView.tintColor = bill.isIncome.boolValue ? EBBlue : PNRed;
     annotationView.image = [UIImage pointerImageWithColor:color];
 } 
 

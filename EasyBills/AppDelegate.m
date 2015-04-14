@@ -103,17 +103,23 @@
 }
 
 - (void)showPasscodeIfNeeded {
+    LTHPasscodeViewController *sharedLTHPasscodeViewController = [LTHPasscodeViewController sharedUser];
+    sharedLTHPasscodeViewController.navigationBarTintColor = EBBlue;
+    sharedLTHPasscodeViewController.navigationTintColor = [UIColor whiteColor];
+    sharedLTHPasscodeViewController.labelFont = [UIFont wawaFontForLabel];
+    sharedLTHPasscodeViewController.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                             NSFontAttributeName : [UIFont wawaFontForNavigationTitle]};
+    sharedLTHPasscodeViewController.title = @"简单记账";
+    sharedLTHPasscodeViewController.enterPasscodeString = @"请输入密码";
+    sharedLTHPasscodeViewController.enterNewPasscodeString = @"请输入新密码";
+    sharedLTHPasscodeViewController.enablePasscodeString = @"设置密码";
+    sharedLTHPasscodeViewController.changePasscodeString = @"修改密码";
+    sharedLTHPasscodeViewController.turnOffPasscodeString = @"关闭密码";
+    sharedLTHPasscodeViewController.reenterPasscodeString = @"请再次输入密码";
+    sharedLTHPasscodeViewController.reenterNewPasscodeString = @"请再次输入新密码";
+
     if ([LTHPasscodeViewController doesPasscodeExist] &&
         [LTHPasscodeViewController didPasscodeTimerEnd]) {
-        LTHPasscodeViewController *sharedLTHPasscodeViewController = [LTHPasscodeViewController sharedUser];
-        sharedLTHPasscodeViewController.navigationBarTintColor = EBBlue;
-        sharedLTHPasscodeViewController.navigationTintColor = [UIColor whiteColor];
-        sharedLTHPasscodeViewController.labelFont = [UIFont wawaFontForLabel];
-        sharedLTHPasscodeViewController.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor],
-                                                                 NSFontAttributeName : [UIFont wawaFontForNavigationTitle]};
-        sharedLTHPasscodeViewController.title = @"Easy Bills";
-
-//        sharedLTHPasscodeViewController.na
         [sharedLTHPasscodeViewController showLockScreenWithAnimation:NO
                                                           withLogout:YES
                                                       andLogoutTitle:nil];

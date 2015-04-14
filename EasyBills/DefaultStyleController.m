@@ -20,11 +20,13 @@
     [self configSwichAppearance];
     
     NSDictionary *segmentedTitleAttributes = @{NSFontAttributeName : [UIFont wawaFontForSegmentedTitle]};
+    NSDictionary *barButtonItemTitleAttributes = @{NSFontAttributeName : [UIFont wawaFontForBarButtonItem]};
 
     [[UILabel appearance] setFont:[UIFont wawaFontForLabel]];
     [[UISegmentedControl appearance] setTitleTextAttributes:segmentedTitleAttributes
                                                    forState:UIControlStateNormal];
-    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonItemTitleAttributes
+                                          forState:UIControlStateNormal];
 //    [[UIButton appearance] setFont:[UIFont fontWithName:@"DFWaWaSC-W5" size:20.0]];
 
 }

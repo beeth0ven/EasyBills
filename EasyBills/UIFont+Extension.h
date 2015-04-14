@@ -15,8 +15,13 @@ extern NSString *const kWawaFontName;
 
 + (UIFont *)wawaFontForNavigationTitle;
 
++ (UIFont *)wawaFontForBarButtonItem;
+
 + (UIFont *)wawaFontForSegmentedTitle;
 
 + (UIFont *)wawaFontForLabel;
+
++ (UIFont *)wawaFontWithSize:(CGFloat)fontSize;
+
 
 @end

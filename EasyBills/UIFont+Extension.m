@@ -17,12 +17,20 @@ NSString *const kWawaFontName = @"DFWaWaSC-W5";
     return [UIFont fontWithName:kWawaFontName size:26.0];
 }
 
++ (UIFont *)wawaFontForBarButtonItem {
+    return [UIFont fontWithName:kWawaFontName size:20.0];
+}
+
 + (UIFont *)wawaFontForSegmentedTitle {
     return [UIFont fontWithName:kWawaFontName size:16.0];
 }
 
 + (UIFont *)wawaFontForLabel {
     return [UIFont fontWithName:kWawaFontName size:20.0];
+}
+
++ (UIFont *)wawaFontWithSize:(CGFloat)fontSize {
+    return [UIFont fontWithName:kWawaFontName size:fontSize];
 }
 
 @end

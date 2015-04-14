@@ -392,6 +392,10 @@ options:NSNumericSearch] != NSOrderedAscending)
         [self textFieldShouldEndEditing:_passcodeTextField];
     }
     
+    if ([self.navBar superview]) {
+        [self.navBar removeFromSuperview];
+    }
+    
     [[UIApplication sharedApplication]
      setStatusBarStyle:self.statusBarStyle
      animated:YES];
@@ -909,9 +913,8 @@ options:NSNumericSearch] != NSOrderedAscending)
 		if (hasLogout) {
 //            _isUsingNavbar = hasLogout;
 			// Navigation Bar with custom UI
-            if ([self.navBar superview]) {
-                [self.navBar removeFromSuperview];
-            }
+           
+            
             self.navBar =
             [[UINavigationBar alloc]
              initWithFrame:CGRectMake(0,
@@ -1409,7 +1412,7 @@ options:NSNumericSearch] != NSOrderedAscending)
             // instead of presented as a modal,
             // the app would be visible from the multitasking view.
             if (_isCurrentlyOnScreen && !_displayedAsModal) return;
-            
+            self.title = @"简单记账";
             [self showLockScreenWithAnimation:NO
                                    withLogout:YES
                                andLogoutTitle:nil];
