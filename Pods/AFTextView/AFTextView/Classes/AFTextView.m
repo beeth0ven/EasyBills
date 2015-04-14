@@ -43,7 +43,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChanged:) name:UITextViewTextDidChangeNotification object:nil];
     
     //在这儿修个圆边
-    /*
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = 5.0f;
     self.layer.borderWidth = 1.0f;
@@ -51,7 +50,6 @@
                                                green:170.0f/255.0f
                                                 blue:170.0f/255.0f
                                                alpha:1.0f] CGColor];
-     */
 }
 - (void)textChanged:(NSNotification *)notification
 {

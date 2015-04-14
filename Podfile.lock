@@ -4,9 +4,9 @@ PODS:
   - ChameleonFramework (1.1.2)
   - DZNSegmentedControl (1.2.2)
   - JTSImageViewController (1.4)
-  - LTHPasscodeViewController (3.1.9)
+  - LTHPasscodeViewController (3.6.4)
   - NYSegmentedControl (1.0.3)
-  - PNChart (0.5):
+  - PNChart (0.8.2):
     - UICountingLabel (~> 1.0.0)
   - SWRevealViewController (2.3.0)
   - UICountingLabel (1.0.0)
@@ -17,21 +17,21 @@ DEPENDENCIES:
   - ChameleonFramework
   - DZNSegmentedControl (~> 1.2)
   - JTSImageViewController (~> 1.4)
-  - LTHPasscodeViewController (~> 3.1)
+  - LTHPasscodeViewController (~> 3.6)
   - NYSegmentedControl
-  - PNChart (~> 0.5)
+  - PNChart (~> 0.8)
   - SWRevealViewController (~> 2.3)
 
 SPEC CHECKSUMS:
-  ACPButton: 1df0abd6b87fd48dbb8c44b6271d9afa44806bdc
-  AFTextView: c650834b4dba10272aaa4894d25098a22f2e76f9
-  ChameleonFramework: 5d34a29b6db60594a9998f6dfdffa8ac5f05979a
-  DZNSegmentedControl: daa91d107904f7433e73852477f08450575be331
-  JTSImageViewController: 9fe6402194b7679f0e28d0c1002d6164301fc34a
-  LTHPasscodeViewController: 2d7f017c56985bd663e4e1625a126f7e81d6fdaf
-  NYSegmentedControl: 74094b886a80bfc4e9f6d415601e9b11797b22b7
-  PNChart: 0d0cf4531de3aa7f2b12434a54845d70d9c9cfe3
-  SWRevealViewController: f6d80638b8e12323e87ac79562345403a799cb77
-  UICountingLabel: 0a0e9e34bf4690dbd127aaec552d19ed938087a9
+  ACPButton: ba5f231d6c7cd84ed0c192602b6261ef7de708cb
+  AFTextView: df47fbb7337d8ba20c2553121347a5f8ad6b4865
+  ChameleonFramework: 1b4588efcae564886e1a176fa02fb0f4c81a69b3
+  DZNSegmentedControl: 8a7fdd743672742c692106f4456aaede10d43131
+  JTSImageViewController: 6a367b144e257db02cdfacdba78d684377d3777b
+  LTHPasscodeViewController: 9116ca5f9058a35792df2e76843542633e3df4c1
+  NYSegmentedControl: c24774be62ed17442595d33f74e6eb23bcff3412
+  PNChart: 32b4ffa1ca525e255083204a3601447e85367321
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  UICountingLabel: 540feeca6bbb78be892c8ab75b6ad02313cb2b10
 
 COCOAPODS: 0.36.0

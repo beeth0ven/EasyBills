@@ -39,8 +39,8 @@
 // LTHPasscodeViewController
 #define COCOAPODS_POD_AVAILABLE_LTHPasscodeViewController
 #define COCOAPODS_VERSION_MAJOR_LTHPasscodeViewController 3
-#define COCOAPODS_VERSION_MINOR_LTHPasscodeViewController 1
-#define COCOAPODS_VERSION_PATCH_LTHPasscodeViewController 9
+#define COCOAPODS_VERSION_MINOR_LTHPasscodeViewController 6
+#define COCOAPODS_VERSION_PATCH_LTHPasscodeViewController 4
 
 // NYSegmentedControl
 #define COCOAPODS_POD_AVAILABLE_NYSegmentedControl
@@ -51,8 +51,8 @@
 // PNChart
 #define COCOAPODS_POD_AVAILABLE_PNChart
 #define COCOAPODS_VERSION_MAJOR_PNChart 0
-#define COCOAPODS_VERSION_MINOR_PNChart 5
-#define COCOAPODS_VERSION_PATCH_PNChart 0
+#define COCOAPODS_VERSION_MINOR_PNChart 8
+#define COCOAPODS_VERSION_PATCH_PNChart 2
 
 // SWRevealViewController
 #define COCOAPODS_POD_AVAILABLE_SWRevealViewController

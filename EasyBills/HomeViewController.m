@@ -25,7 +25,7 @@
 #import "UIViewController+Extension.h"
 #import "CustomPresentAnimationController.h"
 #import "CustomDismissAnimationController.h"
-
+#import "UIFont+Extension.h"
 
 @interface HomeViewController () <DZNSegmentedControlDelegate>
 
@@ -68,13 +68,7 @@
     [self setupMenuButton];
 
     
-    if ([LTHPasscodeViewController doesPasscodeExist] &&
-        [LTHPasscodeViewController didPasscodeTimerEnd]) {
-        [[LTHPasscodeViewController sharedUser] showLockScreenWithAnimation:NO
-                                                                 withLogout:NO
-                                                             andLogoutTitle:nil];
-        
-	}
+
 }
 
 - (void)customSetup
@@ -126,15 +120,16 @@
                                              100);
     
     self.segmentedControl.selectedSegmentIndex = [PubicVariable dateMode];
+    self.segmentedControl.height = 50;
     //self.segmentedControl.delegate = self;
     //self.segmentedControl.selectedSegmentIndex = 1;
+    self.segmentedControl.showsCount = NO;
+    self.segmentedControl.font = [UIFont wawaFontForLabel];
     self.segmentedControl.bouncySelectionIndicator = YES;
     self.segmentedControl.tintColor = EBBlue;
-    self.segmentedControl.hairlineColor =EBBlue;
-    self.segmentedControl.autoAdjustSelectionIndicatorWidth = NO;
+    self.segmentedControl.hairlineColor = EBBlue;
+    self.segmentedControl.autoAdjustSelectionIndicatorWidth = YES;
     self.segmentedControl.adjustsFontSizeToFitWidth = YES;
-    self.segmentedControl.inverseTitles = NO;
-    
             //        _control.height = 120.0f;
             //        _control.width = 300.0f;
             //        _control.showsGroupingSeparators = YES;
@@ -280,9 +275,9 @@
     float sumReduceMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNo withDateMode:[PubicVariable dateMode]];
     float sumMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNil withDateMode:[PubicVariable dateMode]];
     
-    [self.sumAddedMoneyButton setTitle:[NSString stringWithFormat:@"￥ %.2f",sumAddedMoney] forState:UIControlStateNormal];
-    [self.sumReduceMoneyButton setTitle:[NSString stringWithFormat:@"￥ %.2f",fabs(sumReduceMoney)] forState:UIControlStateNormal];
-    [self.sumMoneyButton setTitle:[NSString stringWithFormat:@"￥ %.2f",sumMoney] forState:UIControlStateNormal];
+    [self.sumAddedMoneyButton setTitle:[NSString stringWithFormat:@"￥ %.0f",sumAddedMoney] forState:UIControlStateNormal];
+    [self.sumReduceMoneyButton setTitle:[NSString stringWithFormat:@"￥ %.0f",fabs(sumReduceMoney)] forState:UIControlStateNormal];
+    [self.sumMoneyButton setTitle:[NSString stringWithFormat:@"￥ %.0f",sumMoney] forState:UIControlStateNormal];
     
 }
 

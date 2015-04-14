@@ -364,6 +364,7 @@ static CGFloat scaledValue( CGFloat v1, CGFloat min2, CGFloat max2, CGFloat min1
     return self.targetTransform;
 }
 
+
 - (id)initWithRevealController:(SWRevealViewController*)revealVC containerView:(UIView*)view fromVC:(UIViewController*)fromVC
     toVC:(UIViewController*)toVC completion:(void (^)(void))completion
 {
@@ -820,23 +821,14 @@ const int FrontViewPositionNone = 0xff;
     [self _dispatchTransitionOperation:SWRevealControllerOperationReplaceRightController withViewController:rightViewController animated:animated];
 }
 
-#pragma mark - custom state bar style here
-
 
 - (void)revealToggleAnimated:(BOOL)animated
 {
-    
     FrontViewPosition toggledFrontViewPosition = FrontViewPositionLeft;
-    UIStatusBarStyle style = UIStatusBarStyleLightContent;
-    if (_frontViewPosition <= FrontViewPositionLeft){
+    if (_frontViewPosition <= FrontViewPositionLeft)
         toggledFrontViewPosition = FrontViewPositionRight;
-        style = UIStatusBarStyleDefault;
-
-    }
     
     [self setFrontViewPosition:toggledFrontViewPosition animated:animated];
-    [[UIApplication sharedApplication]
-     setStatusBarStyle:style animated:YES];
 }
 
 

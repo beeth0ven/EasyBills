@@ -12,6 +12,7 @@
 @interface ToolBarCMCDTVC ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cursorBarButtonItem;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mapTypeSegmented;
 
 @end
 
@@ -20,8 +21,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpCursorBarButtonItem];
+    [self configMapTypeSegmented];
+
 
 }
+
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+////    NSLog(@"%@",[self.mapTypeSegmented titleForSegmentAtIndex:self.mapTypeSegmented.selectedSegmentIndex]);
+//
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+////    [self configMapTypeSegmented];
+////    [self.mapTypeSegmented setNeedsDisplay];
+//    
+//}
+
+
 
 - (void)setUpCursorBarButtonItem {
     EasyBillsCursorButton *cursorButton = [EasyBillsCursorButton
@@ -31,6 +49,12 @@
                      action:@selector(changeShowLocationStates:)
            forControlEvents:UIControlEventTouchUpInside];
     self.cursorBarButtonItem.customView = cursorButton;
+}
+
+- (void)configMapTypeSegmented {
+    [self.mapTypeSegmented setTitle:@"标准" forSegmentAtIndex:0];
+    [self.mapTypeSegmented setTitle:@"卫星" forSegmentAtIndex:1];
+    
 }
 
 - (IBAction)changeShowLocationStates:(EasyBillsCursorButton *)sender {

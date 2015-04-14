@@ -114,7 +114,9 @@
     
     [[self buttons] enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
         
-        CGRect rect = CGRectMake(roundf(self.bounds.size.width/self.numberOfSegments)*idx, 0.0f, roundf(self.bounds.size.width/self.numberOfSegments),
+        CGRect rect = CGRectMake(roundf(self.bounds.size.width/self.numberOfSegments)*idx,
+                                 0.0f,
+                                 roundf(self.bounds.size.width/self.numberOfSegments),
                                  self.bounds.size.height);
         [button setFrame:rect];
         
@@ -124,12 +126,25 @@
         if (idx == self.selectedSegmentIndex) {
             button.selected = YES;
         }
+        
+        //Custom 
+        UIView *separator = [[self separators] objectAtIndex:idx];
+        separator.frame = CGRectMake(rect.origin.x - 1,
+                                     rect.origin.y + rect.size.height / 5,
+                                     0.5,
+                                     rect.size.height * 3 / 5);
+        
+        separator.backgroundColor = self.hairlineColor;
+        
     }];
     
     self.selectionIndicator.frame = [self selectionIndicatorRect];
     _hairline.frame = [self hairlineRect];
     
     [self sendSubviewToBack:self.selectionIndicator];
+    [[self separators] enumerateObjectsUsingBlock:^(UILabel *label, NSUInteger idx, BOOL *stop) {
+        [self bringSubviewToFront:label];
+    }];
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
@@ -171,6 +186,19 @@
 - (NSUInteger)numberOfSegments
 {
     return self.items.count;
+}
+
+
+
+- (NSArray *)separators {
+    NSMutableArray *separators = [NSMutableArray arrayWithCapacity:self.items.count];
+    
+    for (UIView *view in self.subviews) {
+        if ([view isKindOfClass:[UILabel class]]) {
+            [separators addObject:view];
+        }
+    }
+    return separators;
 }
 
 - (NSArray *)buttons
@@ -475,17 +503,10 @@
             NSString *count = [components objectAtIndex:self.inverseTitles ? 1 : 0];
             NSString *title = [components objectAtIndex:self.inverseTitles ? 0 : 1];
             
-            //CGFloat fontSizeForTitle = [self appropriateFontSizeForTitle:title];
+            CGFloat fontSizeForTitle = [self appropriateFontSizeForTitle:title];
             
-            [attributedString addAttribute:NSFontAttributeName
-                                     value:[UIFont fontWithName:self.font.
-                                            fontName size:18.0f]
-                                     range:[string rangeOfString:title]];
-            
-            [attributedString addAttribute:NSFontAttributeName
-                                     value:[UIFont fontWithName:self.font.fontName
-                                                           size:10.0]
-                                     range:[string rangeOfString:count]];
+            [attributedString addAttribute:NSFontAttributeName value:[UIFont fontWithName:self.font.fontName size:19.0f] range:[string rangeOfString:count]];
+            [attributedString addAttribute:NSFontAttributeName value:[UIFont fontWithName:self.font.fontName size:fontSizeForTitle] range:[string rangeOfString:title]];
             
             if (state == UIControlStateNormal) {
                 
@@ -641,6 +662,7 @@
 - (void)addButtonForSegment:(NSUInteger)segment
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     
     [button addTarget:self action:@selector(willSelectedButton:) forControlEvents:UIControlEventTouchDown];
     [button addTarget:self action:@selector(didSelectButton:) forControlEvents:UIControlEventTouchDragOutside|UIControlEventTouchDragInside|UIControlEventTouchDragEnter|UIControlEventTouchDragExit|UIControlEventTouchCancel|UIControlEventTouchUpInside|UIControlEventTouchUpOutside];
@@ -654,6 +676,7 @@
     button.tag = segment;
 
     [self addSubview:button];
+    [self addSubview:label];
 }
 
 - (void)configureSegments

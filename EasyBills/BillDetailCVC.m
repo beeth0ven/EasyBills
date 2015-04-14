@@ -110,7 +110,7 @@
             
             textField.text =
             self.bill.money.floatValue != 0 ?
-            [NSString stringWithFormat:@"%d",abs(self.bill.money.floatValue)]:
+            [NSString stringWithFormat:@"%.0f",fabsf(self.bill.money.floatValue)]:
             nil;
         }
         

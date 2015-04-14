@@ -9,6 +9,7 @@
 #import "UINavigationController+Style.h"
 #import "DefaultStyleController.h"
 #import "SWRevealViewController.h"
+#import "UIFont+Extension.h"
 
 
 @implementation UINavigationController (Style)
@@ -65,10 +66,9 @@
         return nil;
     }
     
-    UIFont *font = [UIFont fontWithName:@"DFWaWaSC-W5" size:24.0];
 
 //    [UIFont boldSystemFontOfSize:20.0f];
-    result =@{NSFontAttributeName : font,
+    result =@{NSFontAttributeName : [UIFont wawaFontForNavigationTitle],
               NSForegroundColorAttributeName : titleColor};
     
     return result;

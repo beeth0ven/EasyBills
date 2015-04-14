@@ -9,7 +9,7 @@
 
 
 #import "DefaultStyleController.h"
-
+#import "UIFont+Extension.h"
 
 @implementation DefaultStyleController
 
@@ -19,7 +19,13 @@
     [self configBackButtonImageOnNavigationBar];
     [self configSwichAppearance];
     
-    [[UILabel appearance] setFont:[UIFont fontWithName:@"DFWaWaSC-W5" size:20.0]];
+    NSDictionary *segmentedTitleAttributes = @{NSFontAttributeName : [UIFont wawaFontForSegmentedTitle]};
+
+    [[UILabel appearance] setFont:[UIFont wawaFontForLabel]];
+    [[UISegmentedControl appearance] setTitleTextAttributes:segmentedTitleAttributes
+                                                   forState:UIControlStateNormal];
+    
+//    [[UIButton appearance] setFont:[UIFont fontWithName:@"DFWaWaSC-W5" size:20.0]];
 
 }
 

@@ -11,6 +11,7 @@
 #import "DefaultStyleController.h"
 #import "SWRevealViewController.h"
 #import "SidebarViewController.h"
+#import "UIFont+Extension.h"
 
 @interface AppDelegate ()
 
@@ -56,6 +57,7 @@
 {
     [DefaultStyleController applyStyle];
     
+
 //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 //    
@@ -88,13 +90,34 @@
     mainRevealController.rearViewRevealWidth = window.frame.size.width * 2 / 3;
 //    NSLog(@"RearViewRevealWidth Width: %.0f",mainRevealController.rearViewRevealWidth);
 
-    [self enumerateFonts];
+//    [self enumerateFonts];
     
     self.window = window;
     self.window.rootViewController = mainRevealController;
     [self.window makeKeyAndVisible];
+    
+    [self showPasscodeIfNeeded];
+    
     return YES;
     
+}
+
+- (void)showPasscodeIfNeeded {
+    if ([LTHPasscodeViewController doesPasscodeExist] &&
+        [LTHPasscodeViewController didPasscodeTimerEnd]) {
+        LTHPasscodeViewController *sharedLTHPasscodeViewController = [LTHPasscodeViewController sharedUser];
+        sharedLTHPasscodeViewController.navigationBarTintColor = EBBlue;
+        sharedLTHPasscodeViewController.navigationTintColor = [UIColor whiteColor];
+        sharedLTHPasscodeViewController.labelFont = [UIFont wawaFontForLabel];
+        sharedLTHPasscodeViewController.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                                 NSFontAttributeName : [UIFont wawaFontForNavigationTitle]};
+        sharedLTHPasscodeViewController.title = @"Easy Bills";
+
+//        sharedLTHPasscodeViewController.na
+        [sharedLTHPasscodeViewController showLockScreenWithAnimation:NO
+                                                          withLogout:YES
+                                                      andLogoutTitle:nil];
+    }
 }
 
 - (void) enumerateFonts{
@@ -203,14 +226,12 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [PubicVariable saveContext];
     
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    [PubicVariable saveContext];
     
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }

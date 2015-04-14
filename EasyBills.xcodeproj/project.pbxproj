@@ -24,6 +24,7 @@
 		455C0DAC1AD65BE20060C4DF /* Plackmark+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DAB1AD65BE20060C4DF /* Plackmark+Create.m */; };
 		456664A81ADA48F500808312 /* Naughty Cartoons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456664A71ADA48F500808312 /* Naughty Cartoons.ttf */; };
 		456664B01ADA604A00808312 /* WawaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 456664AF1ADA604A00808312 /* WawaSC-Regular.otf */; };
+		456664B31ADCD12600808312 /* UIFont+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 456664B21ADCD12600808312 /* UIFont+Extension.m */; };
 		4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */; };
 		458517A21AC95778003149C3 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4585179F1AC95778003149C3 /* Filter.m */; };
 		458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458517A11AC95778003149C3 /* FilterTableViewController.m */; };
@@ -125,6 +126,8 @@
 		455C0DAB1AD65BE20060C4DF /* Plackmark+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plackmark+Create.m"; sourceTree = "<group>"; };
 		456664A71ADA48F500808312 /* Naughty Cartoons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Naughty Cartoons.ttf"; sourceTree = "<group>"; };
 		456664AF1ADA604A00808312 /* WawaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WawaSC-Regular.otf"; sourceTree = "<group>"; };
+		456664B11ADCD12600808312 /* UIFont+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extension.h"; sourceTree = "<group>"; };
+		456664B21ADCD12600808312 /* UIFont+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extension.m"; sourceTree = "<group>"; };
 		4568DB841ABFFA3D0064BBE2 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		4585179E1AC95778003149C3 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = ../Filter.h; sourceTree = "<group>"; };
@@ -536,6 +539,8 @@
 				455C0D9E1AD64A080060C4DF /* LoadingStatus.m */,
 				BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */,
 				BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */,
+				456664B11ADCD12600808312 /* UIFont+Extension.h */,
+				456664B21ADCD12600808312 /* UIFont+Extension.m */,
 				455C0DA11AD650150060C4DF /* NSString+Extension.h */,
 				455C0DA21AD650150060C4DF /* NSString+Extension.m */,
 				4568DB841ABFFA3D0064BBE2 /* UIImage+Extension.h */,
@@ -875,6 +880,7 @@
 				458517A21AC95778003149C3 /* Filter.m in Sources */,
 				BD0749671A86660300467648 /* UIButton+Extension.m in Sources */,
 				BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */,
+				456664B31ADCD12600808312 /* UIFont+Extension.m in Sources */,
 				4508D6551AC3EE10007CA44A /* CGPath+Extension.m in Sources */,
 				4508D66D1AC41E60007CA44A /* BillDetailCVC+Observer.m in Sources */,
 				BD1BF7EF19DB901E00B1379A /* HomeViewController.m in Sources */,

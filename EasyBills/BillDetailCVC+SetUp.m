@@ -51,10 +51,10 @@
 }
 
 - (void)configTitleColor {
-    UIColor *color = self.isIncome ? EBBlue: EBBackGround;
-    self.navigationController.navigationBar.titleTextAttributes =
-    @{NSForegroundColorAttributeName : color,
-      NSFontAttributeName : [UIFont boldSystemFontOfSize:20]};
+    UIColor *color = self.isIncome ? EBBlue: PNRed;
+    NSMutableDictionary *titleTextAttributes = [self.navigationController.navigationBar.titleTextAttributes mutableCopy];
+    [titleTextAttributes setValue:color forKey:NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes  = titleTextAttributes;
 }
 
 -(void)setIsUndo:(BOOL)isUndo

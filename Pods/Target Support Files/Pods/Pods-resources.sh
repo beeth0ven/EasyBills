@@ -51,21 +51,29 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "LTHPasscodeViewController/Localizations/cs.lproj"
   install_resource "LTHPasscodeViewController/Localizations/de.lproj"
   install_resource "LTHPasscodeViewController/Localizations/en.lproj"
   install_resource "LTHPasscodeViewController/Localizations/es.lproj"
   install_resource "LTHPasscodeViewController/Localizations/fr.lproj"
   install_resource "LTHPasscodeViewController/Localizations/ja.lproj"
+  install_resource "LTHPasscodeViewController/Localizations/ko.lproj"
+  install_resource "LTHPasscodeViewController/Localizations/nl.lproj"
+  install_resource "LTHPasscodeViewController/Localizations/pt-PT.lproj"
   install_resource "LTHPasscodeViewController/Localizations/ro.lproj"
   install_resource "LTHPasscodeViewController/Localizations/ru.lproj"
   install_resource "LTHPasscodeViewController/Localizations/zh-Hans-CN.lproj"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "LTHPasscodeViewController/Localizations/cs.lproj"
   install_resource "LTHPasscodeViewController/Localizations/de.lproj"
   install_resource "LTHPasscodeViewController/Localizations/en.lproj"
   install_resource "LTHPasscodeViewController/Localizations/es.lproj"
   install_resource "LTHPasscodeViewController/Localizations/fr.lproj"
   install_resource "LTHPasscodeViewController/Localizations/ja.lproj"
+  install_resource "LTHPasscodeViewController/Localizations/ko.lproj"
+  install_resource "LTHPasscodeViewController/Localizations/nl.lproj"
+  install_resource "LTHPasscodeViewController/Localizations/pt-PT.lproj"
   install_resource "LTHPasscodeViewController/Localizations/ro.lproj"
   install_resource "LTHPasscodeViewController/Localizations/ru.lproj"
   install_resource "LTHPasscodeViewController/Localizations/zh-Hans-CN.lproj"

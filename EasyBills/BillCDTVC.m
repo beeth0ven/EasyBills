@@ -103,14 +103,18 @@
     //cell.textLabel.text = [NSString stringWithFormat:@"￥  %.2f",fabs(bill.money.floatValue)];
 
     /**/
+    cell.indentationLevel = 2;
     cell.textLabel.text = [NSString stringWithFormat:@"  %@  ",[bill.kind.name description]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"  %.0f  ",fabs(bill.money.floatValue)];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@" ¥  %.0f ",fabs(bill.money.floatValue)];
     cell.textLabel.backgroundColor = bill.kind.color;
-    cell.barColor = bill.kind.color;
-//    bill.isIncome.boolValue ? EBBlue : PNRed;
-    float maxBillMoney = [self maxBillMoney];
-    float money = fabs(bill.money.floatValue);
-    cell.grade = money/maxBillMoney;
+    [cell.textLabel setHighlightedTextColor: cell.textLabel.backgroundColor];
+    cell.detailTextLabel.backgroundColor = bill.isIncome.boolValue ? EBBlue : PNRed;
+    [cell.detailTextLabel setHighlightedTextColor:cell.detailTextLabel.backgroundColor];
+//    cell.barColor = bill.kind.color;
+////    bill.isIncome.boolValue ? EBBlue : PNRed;
+//    float maxBillMoney = [self maxBillMoney];
+//    float money = fabs(bill.money.floatValue);
+//    cell.grade = money/maxBillMoney;
     
 }
 
