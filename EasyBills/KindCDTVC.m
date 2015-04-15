@@ -307,6 +307,7 @@
     indexLabel.text = [NSString stringWithFormat:@"%i.",indexPath.row + 1];
     label.text = [NSString stringWithFormat:@"  %@  ",[kind.name description]];
     circleView.backgroundColor = kind.color;
+    circleView.layer.cornerRadius = circleView.bounds.size.width * 3 / 4;
 //    detailLabel.text = [NSString stringWithFormat:@"¥  %.2f",current.floatValue];
     
 //    [detailLabel setTextAlignment:NSTextAlignmentCenter];

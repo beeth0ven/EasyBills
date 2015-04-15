@@ -128,7 +128,7 @@
     self.segmentedControl.bouncySelectionIndicator = YES;
     self.segmentedControl.tintColor = EBBlue;
     self.segmentedControl.hairlineColor = EBBlue;
-    self.segmentedControl.autoAdjustSelectionIndicatorWidth = YES;
+    self.segmentedControl.autoAdjustSelectionIndicatorWidth = NO;
     self.segmentedControl.adjustsFontSizeToFitWidth = YES;
             //        _control.height = 120.0f;
             //        _control.width = 300.0f;
@@ -275,9 +275,9 @@
     float sumReduceMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNo withDateMode:[PubicVariable dateMode]];
     float sumMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNil withDateMode:[PubicVariable dateMode]];
     
-    [self.sumAddedMoneyButton setTitle:[NSString stringWithFormat:@"￥ %.0f",sumAddedMoney] forState:UIControlStateNormal];
-    [self.sumReduceMoneyButton setTitle:[NSString stringWithFormat:@"￥ %.0f",fabs(sumReduceMoney)] forState:UIControlStateNormal];
-    [self.sumMoneyButton setTitle:[NSString stringWithFormat:@"￥ %.0f",sumMoney] forState:UIControlStateNormal];
+    [self.sumAddedMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",sumAddedMoney] forState:UIControlStateNormal];
+    [self.sumReduceMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",fabs(sumReduceMoney)] forState:UIControlStateNormal];
+    [self.sumMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",sumMoney] forState:UIControlStateNormal];
     
 }
 

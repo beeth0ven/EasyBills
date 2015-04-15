@@ -8,7 +8,7 @@
 
 #import "PubicVariable.h"
 #import "Kind+Create.h"
-
+#import "NSDate+Extension.h"
 
 
 @implementation PubicVariable
@@ -67,12 +67,120 @@
 
 +(NSString *)stringFromDate:(NSDate *)date
 {
+//    NSString *dateString;
+    if (!date) {
+        return @"";
+    }
+    
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc]
+                                     initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    unsigned int unitFlags =
+    NSCalendarUnitDay |
+    NSCalendarUnitMonth |
+    NSCalendarUnitYear |
+    NSCalendarUnitWeekOfYear |
+    NSCalendarUnitWeekday |
+    NSCalendarUnitWeekdayOrdinal ;
+    
+    
+    NSDateComponents *dateComponents = [gregorianCalendar components:unitFlags fromDate:date];
+    NSDateComponents *todayComponents = [gregorianCalendar components:unitFlags fromDate:[NSDate date]];
+
+//    NSDateComponents *components = [gregorianCalendar
+//                                    components:unitFlags
+//                                    fromDate:date
+//                                    toDate:[NSDate date]
+//                                    options:0];
+//    
+////
+//    NSLog(@" ");
+//    NSLog(@"date: %@",  date);
+//    NSLog(@"today: %@",  [NSDate date]);
+//    NSLog(@"day: %i",  [components day]);
+//    NSLog(@"weekday: %i",  [components weekday]);
+//    NSLog(@"weekOfYear: %i",  [components weekOfYear]);
+//    NSLog(@"month: %i",  [components month]);
+    
+    
+//    NSInteger numberOfDays = [components day];
+//    NSInteger numberOfWeeks = [components weekOfYear];
+//    NSInteger numberOfMonths = [components month];
+//    NSInteger numberOfYears = [components year];
+    
+    NSInteger yearOfDate = [dateComponents year];
+    NSInteger weekOfYearOfDate = [dateComponents weekOfYear];
+    NSInteger weekdayOfDate = [dateComponents weekday];
+    
+    NSInteger yearOfToday = [todayComponents year];
+    NSInteger weekOfYearOfToday = [todayComponents weekOfYear];
+//    NSInteger weekdayOfToday = [todayComponents weekday];
+    
+    if ([NSDate isSameDay:date andDate:[NSDate date]]) {
+        return @"今天";
+
+    }else if([NSDate isSameDay:date andDate:[NSDate yesterday]]){
+        return @"昨天";
+
+    }else if([NSDate isSameDay:date andDate:[NSDate dayBeforeYesterday]]){
+        return @"前天";
+
+    }
+//    
+//    if (numberOfYears == 0 &&
+//        numberOfMonths == 0 &&
+//        numberOfWeeks == 0) {
+//        switch (numberOfDays) {
+//                // Case day
+//            case 0:{
+//                return @"今天";
+//                break;
+//            }
+//            case 1:{
+//                return @"昨天";
+//                break;
+//            }
+//            case 2:{
+//                return @"前天";
+//                break;
+//            }
+//            default:{
+//                break;
+//            }
+//                
+//        }
+//        
+//    }
+    
+    if (yearOfDate == yearOfToday &&
+        weekOfYearOfDate == weekOfYearOfToday) {
+        return [NSString stringWithFormat:@"本周%@", [self weekDayStrings] [weekdayOfDate]];
+    }else if (yearOfDate == yearOfToday &&
+              weekOfYearOfDate == weekOfYearOfToday - 1){
+        return [NSString stringWithFormat:@"上周%@",[self weekDayStrings] [weekdayOfDate]];
+    }
+    
     NSDateFormatter *dateFormtter=[[NSDateFormatter alloc] init];
-    [dateFormtter setDateFormat:@"yy年MM月dd日"];
-    NSString *dateString=[dateFormtter stringFromDate:date];
-    return dateString;
+    if (yearOfDate == yearOfToday) {
+        [dateFormtter setDateFormat:@"M月d日"];
+    }else {
+        [dateFormtter setDateFormat:@"Y年M月d日"];
+
+    }
+    return [dateFormtter stringFromDate:date];
 }
 
++ (NSArray *)weekDayStrings {
+    return @[@"?",
+             @"日",
+             @"一",
+             @"二",
+             @"三",
+             @"四",
+             @"五",
+             @"六",
+             ];
+}
 
 
 
@@ -245,5 +353,7 @@
     NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:NEXTASSIGNEXPENSECOLORINDEX];
     return  number.integerValue;
 }
+
+
 
 @end

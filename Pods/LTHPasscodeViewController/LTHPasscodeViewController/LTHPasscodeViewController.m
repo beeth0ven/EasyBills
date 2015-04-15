@@ -422,7 +422,7 @@ options:NSNumericSearch] != NSOrderedAscending)
 //	[[NSNotificationCenter defaultCenter] postNotificationName: @"passcodeViewControllerWillClose"
 //														object: self
 //													  userInfo: nil];
-	if (_displayedAsModal) [self dismissViewControllerAnimated:NO completion:nil];
+	if (_displayedAsModal) [self dismissViewControllerAnimated:YES completion:nil];
 	else if (!_displayedAsLockScreen) [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -435,7 +435,8 @@ options:NSNumericSearch] != NSOrderedAscending)
 	[UIView animateWithDuration: _lockAnimationDuration animations: ^{
 		if (_displayedAsLockScreen) {
             if (LTHiOS8) {
-                self.view.center = CGPointMake(self.view.center.x, self.view.center.y * 2.f);
+                self.view.center = CGPointMake(self.view.center.x, self.view.center.y * 3.f);
+//                self.view.alpha = 0;
             }
             else {
                 if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft) {
@@ -482,7 +483,7 @@ options:NSNumericSearch] != NSOrderedAscending)
 			[self removeFromParentViewController];
 		}
         else if (_displayedAsModal) {
-            [self dismissViewControllerAnimated:NO
+            [self dismissViewControllerAnimated:YES
                                      completion:nil];
         }
         else if (!_displayedAsLockScreen) {

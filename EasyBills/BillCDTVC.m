@@ -101,15 +101,28 @@
 -(void)configCell:(BillTVCell *)cell WithBill:(Bill *)bill
 {
     //cell.textLabel.text = [NSString stringWithFormat:@"￥  %.2f",fabs(bill.money.floatValue)];
+    UILabel *kindLabel =  (UILabel *)[cell viewWithTag:1];
+    UILabel *moneyLabel =  (UILabel *)[cell viewWithTag:2];
+    UILabel *dateLabel =  (UILabel *)[cell viewWithTag:3];
+
+    kindLabel.text = [NSString stringWithFormat:@"%@  ",[bill.kind.name description]];
+    moneyLabel.text = [NSString stringWithFormat:@" ¥ %.0f  ",fabs(bill.money.floatValue)];
+    dateLabel.text = [NSString stringWithFormat:@"%@ ", [PubicVariable stringFromDate:bill.date]];
+
+    kindLabel.backgroundColor = bill.kind.color;
+    [kindLabel setHighlightedTextColor: kindLabel.backgroundColor];
+    moneyLabel.backgroundColor = bill.isIncome.boolValue ? EBBlue : PNRed;
+    [moneyLabel setHighlightedTextColor:moneyLabel.backgroundColor];
+    [dateLabel setHighlightedTextColor:dateLabel.backgroundColor];
 
     /**/
-    cell.indentationLevel = 2;
-    cell.textLabel.text = [NSString stringWithFormat:@"  %@  ",[bill.kind.name description]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@" ¥  %.0f ",fabs(bill.money.floatValue)];
-    cell.textLabel.backgroundColor = bill.kind.color;
-    [cell.textLabel setHighlightedTextColor: cell.textLabel.backgroundColor];
-    cell.detailTextLabel.backgroundColor = bill.isIncome.boolValue ? EBBlue : PNRed;
-    [cell.detailTextLabel setHighlightedTextColor:cell.detailTextLabel.backgroundColor];
+//    cell.indentationLevel = 2;
+//    cell.textLabel.text = [NSString stringWithFormat:@"  %@  ",[bill.kind.name description]];
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@" ¥  %.0f ",fabs(bill.money.floatValue)];
+//    cell.textLabel.backgroundColor = bill.kind.color;
+//    [cell.textLabel setHighlightedTextColor: cell.textLabel.backgroundColor];
+//    cell.detailTextLabel.backgroundColor = bill.isIncome.boolValue ? EBBlue : PNRed;
+//    [cell.detailTextLabel setHighlightedTextColor:cell.detailTextLabel.backgroundColor];
 //    cell.barColor = bill.kind.color;
 ////    bill.isIncome.boolValue ? EBBlue : PNRed;
 //    float maxBillMoney = [self maxBillMoney];
