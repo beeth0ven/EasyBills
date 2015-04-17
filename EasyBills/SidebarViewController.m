@@ -160,7 +160,7 @@
     
     if (canConfigureImageView)
         cellImageView.tintColor = textColor;
-    label.font = [label.font fontWithSize:28.0];
+    label.font = [label.font fontWithSize:26.0];
     label.textColor = textColor;
     cell.backgroundColor = backgroundColor;
     
