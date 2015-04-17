@@ -8,11 +8,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Naughty Cartoons.ttf">
-            <string>NaughtyCartoons</string>
-            <string>NaughtyCartoons</string>
-        </mutableArray>
         <mutableArray key="WawaSC-Regular.otf">
+            <string>DFWaWaSC-W5</string>
+            <string>DFWaWaSC-W5</string>
+            <string>DFWaWaSC-W5</string>
             <string>DFWaWaSC-W5</string>
             <string>DFWaWaSC-W5</string>
             <string>DFWaWaSC-W5</string>
@@ -49,62 +48,11 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nWU-X9-Isj">
-                                <rect key="frame" x="0.0" y="184" width="320" height="320"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWU-X9-Isj">
+                                <rect key="frame" x="0.0" y="214" width="600" height="322"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiT-E6-BOM">
-                                        <rect key="frame" x="20" y="87" width="80" height="60"/>
-                                        <color key="backgroundColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="64"/>
-                                        <state key="normal" title="+">
-                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="YWe-7I-IZY" kind="presentation" identifier="incomeSegue" id="1Rh-w9-bKj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-7v-rY4">
-                                        <rect key="frame" x="20" y="239" width="280" height="60"/>
-                                        <color key="backgroundColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="32"/>
-                                        <state key="normal" title="$ 8000.00">
-                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="TxR-LA-GbL" kind="show" identifier="sumSegue" id="GFw-tB-7FV"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-Kl-SVa">
-                                        <rect key="frame" x="120" y="87" width="180" height="60"/>
-                                        <color key="backgroundColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="32"/>
-                                        <state key="normal" title="$ 10000.00">
-                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="TxR-LA-GbL" kind="show" identifier="sumIncomeSegue" id="W1r-DB-HQO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4M-Ex-ITn">
-                                        <rect key="frame" x="20" y="163" width="80" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4M-Ex-ITn">
+                                        <rect key="frame" x="30" y="150" width="155" height="72"/>
                                         <color key="backgroundColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="36"/>
                                         <state key="normal" title="−">
@@ -113,15 +61,29 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="YWe-7I-IZY" kind="presentation" identifier="expenseSegue" id="4xq-Wo-5WR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-rY-ePP">
-                                        <rect key="frame" x="120" y="163" width="180" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BM4-5f-wqs">
+                                        <rect key="frame" x="30" y="236" width="155" height="72"/>
+                                        <color key="backgroundColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="36"/>
+                                        <state key="normal" title="=">
+                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-rY-ePP">
+                                        <rect key="frame" x="215" y="150" width="355" height="72"/>
                                         <color key="backgroundColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="32"/>
                                         <state key="normal" title="$ 2000.00">
@@ -130,18 +92,259 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="TxR-LA-GbL" kind="show" identifier="sumExpenseSegue" id="xMn-lC-zYw"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiT-E6-BOM">
+                                        <rect key="frame" x="30" y="64" width="155" height="72"/>
+                                        <color key="backgroundColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Ktc-ge-hz4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="64"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Ktc-ge-hz4"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <segue destination="YWe-7I-IZY" kind="presentation" identifier="incomeSegue" id="1Rh-w9-bKj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-7v-rY4">
+                                        <rect key="frame" x="215" y="236" width="355" height="72"/>
+                                        <color key="backgroundColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="32"/>
+                                        <state key="normal" title="$ 8000.00">
+                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="TxR-LA-GbL" kind="show" identifier="sumSegue" id="GFw-tB-7FV"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ge2-5I-B4R">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ire-Hx-5Bs"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HnL-Vh-Xmf">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="322"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ZFl-Kl-6Aj"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ZFl-Kl-6Aj"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qU-Mp-UjQ">
+                                        <rect key="frame" x="185" y="0.0" width="30" height="322"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="SCY-Nf-fZU"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="SCY-Nf-fZU"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8I-sB-im6">
+                                        <rect key="frame" x="570" y="0.0" width="30" height="322"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="bh0-YH-eqa"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="bh0-YH-eqa"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTo-sz-iBf">
+                                        <rect key="frame" x="0.0" y="50" width="600" height="14"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="tvw-Xu-lol"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="tvw-Xu-lol"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1K9-Xc-53B">
+                                        <rect key="frame" x="0.0" y="136" width="600" height="14"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="q7Q-Ee-hOg"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="q7Q-Ee-hOg"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlo-Z5-e85">
+                                        <rect key="frame" x="0.0" y="222" width="600" height="14"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="q2c-xN-5tl"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="q2c-xN-5tl"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Fp-uq-NPY">
+                                        <rect key="frame" x="0.0" y="308" width="600" height="14"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="UwO-ju-UmF"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="UwO-ju-UmF"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-Kl-SVa">
+                                        <rect key="frame" x="215" y="64" width="355" height="72"/>
+                                        <color key="backgroundColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="32"/>
+                                        <state key="normal" title="$ 10000.00">
+                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="TxR-LA-GbL" kind="show" identifier="sumIncomeSegue" id="W1r-DB-HQO"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1qU-Mp-UjQ" secondAttribute="bottom" id="0ng-Oa-zie"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Fp-uq-NPY" secondAttribute="trailing" id="1JK-UB-LnI"/>
+                                    <constraint firstAttribute="trailing" secondItem="1K9-Xc-53B" secondAttribute="trailing" id="3M0-BB-JAE"/>
+                                    <constraint firstItem="JUH-7v-rY4" firstAttribute="height" secondItem="bpT-rY-ePP" secondAttribute="height" id="3vS-L6-aTn"/>
+                                    <constraint firstItem="HnL-Vh-Xmf" firstAttribute="leading" secondItem="nWU-X9-Isj" secondAttribute="leading" id="60r-gW-ieU"/>
+                                    <constraint firstItem="tlo-Z5-e85" firstAttribute="height" secondItem="GTo-sz-iBf" secondAttribute="height" id="62Q-i0-eXY"/>
+                                    <constraint firstItem="H8I-sB-im6" firstAttribute="leading" secondItem="dVB-Kl-SVa" secondAttribute="trailing" id="89z-Uc-JKv"/>
+                                    <constraint firstItem="BM4-5f-wqs" firstAttribute="centerY" secondItem="JUH-7v-rY4" secondAttribute="centerY" id="8VT-nY-te8"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Fp-uq-NPY" secondAttribute="bottom" id="8eY-zw-m3X"/>
+                                    <constraint firstItem="GTo-sz-iBf" firstAttribute="leading" secondItem="nWU-X9-Isj" secondAttribute="leading" id="8sR-dn-rRL"/>
+                                    <constraint firstItem="1qU-Mp-UjQ" firstAttribute="width" secondItem="HnL-Vh-Xmf" secondAttribute="width" id="ALI-am-7na"/>
+                                    <constraint firstItem="3Fp-uq-NPY" firstAttribute="top" secondItem="BM4-5f-wqs" secondAttribute="bottom" id="ASc-qV-6WO"/>
+                                    <constraint firstItem="JUH-7v-rY4" firstAttribute="height" secondItem="dVB-Kl-SVa" secondAttribute="height" id="CIR-PN-o8M"/>
+                                    <constraint firstItem="1qU-Mp-UjQ" firstAttribute="leading" secondItem="DiT-E6-BOM" secondAttribute="trailing" id="DxD-E5-lGx"/>
+                                    <constraint firstItem="1K9-Xc-53B" firstAttribute="top" secondItem="DiT-E6-BOM" secondAttribute="bottom" id="EHd-HH-8cO"/>
+                                    <constraint firstAttribute="trailing" secondItem="GTo-sz-iBf" secondAttribute="trailing" id="EWd-DQ-U6Y"/>
+                                    <constraint firstItem="1qU-Mp-UjQ" firstAttribute="top" secondItem="nWU-X9-Isj" secondAttribute="top" id="GOx-14-uqD"/>
+                                    <constraint firstAttribute="bottom" secondItem="HnL-Vh-Xmf" secondAttribute="bottom" id="IPb-sx-kHk"/>
+                                    <constraint firstItem="BM4-5f-wqs" firstAttribute="width" secondItem="DiT-E6-BOM" secondAttribute="width" id="Jec-Su-eTb"/>
+                                    <constraint firstItem="A4M-Ex-ITn" firstAttribute="top" secondItem="1K9-Xc-53B" secondAttribute="bottom" id="MjA-VA-9xQ"/>
+                                    <constraint firstItem="A4M-Ex-ITn" firstAttribute="top" secondItem="DiT-E6-BOM" secondAttribute="bottom" constant="22" id="NqT-1j-kJx"/>
+                                    <constraint firstAttribute="trailing" secondItem="H8I-sB-im6" secondAttribute="trailing" id="OED-8J-6eJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="BM4-5f-wqs" secondAttribute="bottom" constant="20" symbolic="YES" id="RmR-mg-5cG"/>
+                                    <constraint firstItem="1K9-Xc-53B" firstAttribute="height" secondItem="GTo-sz-iBf" secondAttribute="height" id="S8d-OD-RXJ"/>
+                                    <constraint firstItem="JUH-7v-rY4" firstAttribute="width" secondItem="dVB-Kl-SVa" secondAttribute="width" id="TX6-My-Qwp"/>
+                                    <constraint firstAttribute="height" secondItem="GTo-sz-iBf" secondAttribute="height" multiplier="20:1" constant="50" id="U30-l0-uNV"/>
+                                    <constraint firstItem="bpT-rY-ePP" firstAttribute="centerX" secondItem="dVB-Kl-SVa" secondAttribute="centerX" id="WE0-3Q-a0K"/>
+                                    <constraint firstItem="BM4-5f-wqs" firstAttribute="top" secondItem="tlo-Z5-e85" secondAttribute="bottom" id="WlZ-e4-eK0"/>
+                                    <constraint firstItem="BM4-5f-wqs" firstAttribute="centerX" secondItem="DiT-E6-BOM" secondAttribute="centerX" id="X8W-aN-fXn"/>
+                                    <constraint firstItem="BM4-5f-wqs" firstAttribute="height" secondItem="DiT-E6-BOM" secondAttribute="height" id="XVG-4v-uWA"/>
+                                    <constraint firstItem="HnL-Vh-Xmf" firstAttribute="top" secondItem="nWU-X9-Isj" secondAttribute="top" id="YsR-AR-yEA"/>
+                                    <constraint firstItem="dVB-Kl-SVa" firstAttribute="top" secondItem="GTo-sz-iBf" secondAttribute="bottom" id="Zzp-ru-OoT"/>
+                                    <constraint firstAttribute="bottom" secondItem="H8I-sB-im6" secondAttribute="bottom" id="a0r-8B-jF0"/>
+                                    <constraint firstItem="ge2-5I-B4R" firstAttribute="top" secondItem="nWU-X9-Isj" secondAttribute="top" id="af6-dj-PF5"/>
+                                    <constraint firstItem="bpT-rY-ePP" firstAttribute="centerY" secondItem="A4M-Ex-ITn" secondAttribute="centerY" id="b3p-pX-s0G"/>
+                                    <constraint firstItem="dVB-Kl-SVa" firstAttribute="leading" secondItem="1qU-Mp-UjQ" secondAttribute="trailing" id="bAI-mz-KLo"/>
+                                    <constraint firstItem="DiT-E6-BOM" firstAttribute="top" secondItem="GTo-sz-iBf" secondAttribute="bottom" id="bIO-KA-9wN"/>
+                                    <constraint firstItem="1qU-Mp-UjQ" firstAttribute="width" secondItem="H8I-sB-im6" secondAttribute="width" id="bNQ-J6-8xu"/>
+                                    <constraint firstAttribute="centerX" secondItem="1qU-Mp-UjQ" secondAttribute="centerX" multiplier="3:2" id="boq-JK-rnB"/>
+                                    <constraint firstItem="DiT-E6-BOM" firstAttribute="top" secondItem="ge2-5I-B4R" secondAttribute="bottom" constant="37" id="cBl-gb-jQS"/>
+                                    <constraint firstItem="DiT-E6-BOM" firstAttribute="leading" secondItem="HnL-Vh-Xmf" secondAttribute="trailing" id="cnc-ru-Jv2"/>
+                                    <constraint firstItem="JUH-7v-rY4" firstAttribute="centerX" secondItem="dVB-Kl-SVa" secondAttribute="centerX" id="deG-a5-jD9"/>
+                                    <constraint firstItem="1K9-Xc-53B" firstAttribute="leading" secondItem="nWU-X9-Isj" secondAttribute="leading" id="iFl-rx-fjo"/>
+                                    <constraint firstItem="1K9-Xc-53B" firstAttribute="width" secondItem="GTo-sz-iBf" secondAttribute="width" id="pIe-MX-7Tz"/>
+                                    <constraint firstItem="BM4-5f-wqs" firstAttribute="top" secondItem="A4M-Ex-ITn" secondAttribute="bottom" constant="8" symbolic="YES" id="qgz-vC-kL2"/>
+                                    <constraint firstItem="1K9-Xc-53B" firstAttribute="top" secondItem="dVB-Kl-SVa" secondAttribute="bottom" id="ri7-kW-fzP"/>
+                                    <constraint firstItem="A4M-Ex-ITn" firstAttribute="height" secondItem="DiT-E6-BOM" secondAttribute="height" id="sbl-PP-eyF"/>
+                                    <constraint firstAttribute="trailing" secondItem="ge2-5I-B4R" secondAttribute="trailing" id="tA1-uW-Rqu"/>
+                                    <constraint firstItem="3Fp-uq-NPY" firstAttribute="leading" secondItem="nWU-X9-Isj" secondAttribute="leading" id="uXt-3w-nrx"/>
+                                    <constraint firstItem="JUH-7v-rY4" firstAttribute="width" secondItem="bpT-rY-ePP" secondAttribute="width" id="ueZ-Od-CoG"/>
+                                    <constraint firstItem="tlo-Z5-e85" firstAttribute="top" secondItem="A4M-Ex-ITn" secondAttribute="bottom" id="v5z-Y5-HQ9"/>
+                                    <constraint firstItem="ge2-5I-B4R" firstAttribute="leading" secondItem="nWU-X9-Isj" secondAttribute="leading" id="vCh-Tb-Yay"/>
+                                    <constraint firstItem="GTo-sz-iBf" firstAttribute="top" secondItem="ge2-5I-B4R" secondAttribute="bottom" id="vKq-fH-Zm9"/>
+                                    <constraint firstItem="HnL-Vh-Xmf" firstAttribute="width" secondItem="nWU-X9-Isj" secondAttribute="width" multiplier="1:20" id="vPP-vM-Qw8"/>
+                                    <constraint firstItem="A4M-Ex-ITn" firstAttribute="width" secondItem="DiT-E6-BOM" secondAttribute="width" id="wTl-ay-QqD"/>
+                                    <constraint firstAttribute="trailing" secondItem="tlo-Z5-e85" secondAttribute="trailing" id="wx3-f8-YQ6"/>
+                                    <constraint firstItem="A4M-Ex-ITn" firstAttribute="centerX" secondItem="DiT-E6-BOM" secondAttribute="centerX" id="x7W-6Q-Dgh"/>
+                                    <constraint firstItem="tlo-Z5-e85" firstAttribute="leading" secondItem="nWU-X9-Isj" secondAttribute="leading" id="xZg-zw-bLy"/>
+                                    <constraint firstItem="GTo-sz-iBf" firstAttribute="height" secondItem="3Fp-uq-NPY" secondAttribute="height" id="xr4-KQ-D7V"/>
+                                    <constraint firstItem="H8I-sB-im6" firstAttribute="top" secondItem="nWU-X9-Isj" secondAttribute="top" id="z5N-uk-ejS"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cBl-gb-jQS"/>
+                                        <exclude reference="pIe-MX-7Tz"/>
+                                        <exclude reference="NqT-1j-kJx"/>
+                                        <exclude reference="RmR-mg-5cG"/>
+                                        <exclude reference="qgz-vC-kL2"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="nWU-X9-Isj" secondAttribute="centerX" id="74w-l2-rW7"/>
+                            <constraint firstItem="nWU-X9-Isj" firstAttribute="trailing" secondItem="tCd-d7-iQa" secondAttribute="trailingMargin" id="EqB-H2-PdX"/>
+                            <constraint firstItem="nWU-X9-Isj" firstAttribute="leading" secondItem="tCd-d7-iQa" secondAttribute="leadingMargin" id="IqL-1m-ISk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nWU-X9-Isj" secondAttribute="trailing" id="Kwc-kz-Y0O"/>
+                            <constraint firstItem="nWU-X9-Isj" firstAttribute="height" secondItem="tCd-d7-iQa" secondAttribute="height" multiplier="3:5" id="W7i-Wo-bPd"/>
+                            <constraint firstItem="nWU-X9-Isj" firstAttribute="width" secondItem="tCd-d7-iQa" secondAttribute="width" id="WaF-oN-DZy"/>
+                            <constraint firstItem="sLQ-qy-z5O" firstAttribute="top" secondItem="nWU-X9-Isj" secondAttribute="bottom" id="arL-bU-Ase"/>
+                            <constraint firstItem="nWU-X9-Isj" firstAttribute="top" secondItem="suN-k3-1Zv" secondAttribute="bottom" constant="184" id="dBV-zQ-vHb"/>
+                            <constraint firstItem="nWU-X9-Isj" firstAttribute="leading" secondItem="tCd-d7-iQa" secondAttribute="leadingMargin" id="qwi-Um-5mx"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EqB-H2-PdX"/>
+                                <exclude reference="IqL-1m-ISk"/>
+                                <exclude reference="Kwc-kz-Y0O"/>
+                                <exclude reference="dBV-zQ-vHb"/>
+                                <exclude reference="qwi-Um-5mx"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="主页" id="HWn-ku-kRe">
                         <barButtonItem key="backBarButtonItem" title=" " id="635-FN-EdA"/>
@@ -157,7 +360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzh-to-vZ7" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035" y="-653.87323943661966"/>
+            <point key="canvasLocation" x="1035" y="-654"/>
         </scene>
         <!--地图-->
         <scene sceneID="na8-OX-jLr">
@@ -1722,24 +1925,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="placemarkCell" textLabel="rcu-Bq-CPK" detailTextLabel="JGP-DS-rau" style="IBUITableViewCellStyleValue1" id="hOb-C8-eFa">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="placemarkCell" id="hOb-C8-eFa">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOb-C8-eFa" id="2e5-so-jlb">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Wuhan, Hubei" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rcu-Bq-CPK">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="NaughtyCartoons" family="Naughty Cartoons" pointSize="16"/>
-                                            <color key="textColor" red="0.31372550129890442" green="0.74117648601531982" blue="0.83137255907058716" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JGP-DS-rau">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="NaughtyCartoons" family="Naughty Cartoons" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="97c-dd-ARE">
+                                            <rect key="frame" x="565" y="8" width="27" height="27"/>
+                                            <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="19"/>
                                             <color key="textColor" red="0.46274510025978088" green="0.48235294222831726" blue="0.49411764740943909" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="武汉市，湖北" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PoW-kb-a5i">
+                                            <rect key="frame" x="8" y="8" width="120" height="28"/>
+                                            <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="20"/>
+                                            <color key="textColor" red="0.31372550129890442" green="0.74117648601531982" blue="0.83137255907058716" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="97c-dd-ARE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PoW-kb-a5i" secondAttribute="trailing" constant="8" symbolic="YES" id="I6t-jy-Zlq"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="97c-dd-ARE" secondAttribute="trailing" id="KXQ-Ve-bMn"/>
+                                        <constraint firstItem="PoW-kb-a5i" firstAttribute="leading" secondItem="2e5-so-jlb" secondAttribute="leadingMargin" id="eP8-Nb-IYA"/>
+                                        <constraint firstAttribute="centerY" secondItem="PoW-kb-a5i" secondAttribute="centerY" id="hMY-Eg-4hm"/>
+                                        <constraint firstAttribute="centerY" secondItem="97c-dd-ARE" secondAttribute="centerY" id="jTE-jc-hhF"/>
+                                        <constraint firstItem="97c-dd-ARE" firstAttribute="leading" secondItem="PoW-kb-a5i" secondAttribute="trailing" constant="8" symbolic="YES" id="wng-FH-ujB"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="wng-FH-ujB"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -2229,8 +2445,8 @@
         <image name="UploadIcon" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4xq-Wo-5WR"/>
         <segue reference="xMn-lC-zYw"/>
+        <segue reference="C6f-3P-d6l"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.31372549020000001" green="0.74117647060000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

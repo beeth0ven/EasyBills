@@ -48,7 +48,7 @@
 -(NSString *)title
 {
     if (self.containedAnnotations.count > 0) {
-        return [NSString stringWithFormat:@"%zd Bills"
+        return [NSString stringWithFormat:@"%zd 笔账单"
                 , self.containedAnnotations.count + 1];
         
     }

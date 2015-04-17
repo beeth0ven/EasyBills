@@ -37,27 +37,27 @@
     
 }
 
--(void)updateUI
-{
-    
-    if (self.bar) [self.bar removeFromSuperview];
-    self.bar = [[PNBar alloc] initWithFrame:CGRectMake(15, //Bar X position
-                                                       self.frame.size.height - 5, //Bar Y position
-                                                       self.frame.size.width - 30, // Bar witdh
-                                                       5)]; //Bar height
-    self.bar.barRadius = 2.0f;
-    self.bar.isHorizontal = YES;
-    self.bar.backgroundColor = PNLightGrey;
-    self.bar.barColor = [self.barColor colorWithAlphaComponent:0.5];
-    self.bar.grade = self.grade;
-    [self insertSubview:self.bar atIndex:0];
-}
+//-(void)updateUI
+//{
+//    
+//    if (self.bar) [self.bar removeFromSuperview];
+//    self.bar = [[PNBar alloc] initWithFrame:CGRectMake(15, //Bar X position
+//                                                       self.frame.size.height - 5, //Bar Y position
+//                                                       self.frame.size.width - 30, // Bar witdh
+//                                                       5)]; //Bar height
+//    self.bar.barRadius = 2.0f;
+//    self.bar.isHorizontal = YES;
+//    self.bar.backgroundColor = PNLightGrey;
+//    self.bar.barColor = [self.barColor colorWithAlphaComponent:0.5];
+//    self.bar.grade = self.grade;
+//    [self insertSubview:self.bar atIndex:0];
+//}
 
 
 -(void)setGrade:(float)grade
 {
     _grade = grade;
-    [self updateUI];
+//    [self updateUI];
     
 }
 

@@ -27,8 +27,15 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"placemarkCell"];
     Plackmark *placemark = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = placemark.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i",placemark.bills.count];
+    
+    UILabel *placeLabel = (UILabel *)[cell viewWithTag:1];
+    UILabel *countLabel = (UILabel *)[cell viewWithTag:2];
+    
+    placeLabel.text = placemark.name;
+    countLabel.text = [NSString stringWithFormat:@"%i",placemark.bills.count];
+    
+//    cell.textLabel.text = placemark.name;
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i",placemark.bills.count];
     return cell;
 }
 
