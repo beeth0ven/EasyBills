@@ -13,7 +13,7 @@
 
 - (void)setupMenuButton{
     
-    UIImage *image = [UIImage imageNamed:@"MenuNavigationBarLeftIcon"];
+    UIImage *image = [UIImage imageNamed:@"MenuNavigationBarIcon"];
     
     self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc]
                                               initWithImage:image

@@ -98,6 +98,7 @@
     return cell;
 }
 
+
 -(void)configBillCell:(UICollectionViewCell *)cell
 {
     
@@ -415,16 +416,18 @@
     
     NSInteger colorItem = [self.cellIdentifiers indexOfObject:@"inputcolorCell"];
     
+    CGFloat cellWidth = collectionView.bounds.size.width - 20;
+    
     if ([self inputCellIndexPath] &&
         (self.inputCellIndexPath.item == indexPath.item)) {
-        size = CGSizeMake(297, 200);
+        size = CGSizeMake(cellWidth, 200);
         
     }else if(colorItem == indexPath.item){
-        size = CGSizeMake(297, 235);
+        size = CGSizeMake(cellWidth, 235);
         
     }
     else{
-        size =  CGSizeMake(297, 64);
+        size =  CGSizeMake(cellWidth, 64);
         
     }
     return size;

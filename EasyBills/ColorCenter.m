@@ -118,7 +118,7 @@
     [[self colors] enumerateObjectsUsingBlock:^(UIColor *obj, NSUInteger idx, BOOL *stop) {
         if ((idx%2) == 0) {
             [colors insertObject:obj atIndex:0];
-            NSLog(@"incomeColors idx: %i",idx);
+            NSLog(@"incomeColors idx: %lu",(unsigned long)idx);
         }
     }];
     return colors;
@@ -142,7 +142,7 @@
     [[self colors] enumerateObjectsUsingBlock:^(UIColor *obj, NSUInteger idx, BOOL *stop) {
         if ((idx%2) == 1) {
             [colors insertObject:obj atIndex:0];
-            NSLog(@"expenseColors idx: %i",idx);
+            NSLog(@"expenseColors idx: %lu",(unsigned long)idx);
         }
     }];
     return colors;

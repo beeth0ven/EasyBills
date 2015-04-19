@@ -308,8 +308,8 @@
     }else{
         //color pick collection view case here
         
-        int colorIDIntValue = indexPath.item;
-        self.kind.colorID = [NSNumber numberWithInt:colorIDIntValue];
+        NSInteger colorIDIntValue = indexPath.item;
+        self.kind.colorID = [NSNumber numberWithInteger:colorIDIntValue];
         NSLog(@"selected colorID is : %i",self.kind.colorID.intValue);
         
         for (ColorCVCell *visibleCell in collectionView.visibleCells) {

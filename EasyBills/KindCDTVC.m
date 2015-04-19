@@ -39,14 +39,6 @@
 
 @implementation KindCDTVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -63,7 +55,7 @@
     
     [self registerNotifications];
     [self setupMenuButton];
-    [self updateUI];
+    [self resetFetchedResultsController];
 
 }
 
@@ -96,7 +88,7 @@
                         change:(NSDictionary *)change
                        context:(void *)context{
     
-//    if ([keyPath isEqualToString:@"selectIndex"]) {
+    if ([keyPath isEqualToString:@"selectIndex"]) {
 //        NSNumber *newValue = [change objectForKey:NSKeyValueChangeNewKey];
 //        if ([newValue respondsToSelector:@selector(integerValue)]) {
 //            NSInteger selectIndex = newValue.integerValue;
@@ -111,13 +103,13 @@
 //        
 //            
 //        }
-        [self updateUI];
+        [self resetFetchedResultsController];
         
-//    }
+    }
     
 }
 
--(void) updateUI
+- (void)resetFetchedResultsController
 {
     
     
@@ -126,9 +118,9 @@
                                            withDateMode:[self dateMode]]];
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
-    request.sortDescriptors = @[
-                                [NSSortDescriptor sortDescriptorWithKey:@"sumMoney"
-                                                              ascending:[self isIncomeMode] == isIncomeYes ? NO : YES]
+    request.sortDescriptors = @[[NSSortDescriptor
+                                 sortDescriptorWithKey:@"sumMoney"
+                                 ascending:[self isIncomeMode] == isIncomeYes ? NO : YES]
 //                                [NSSortDescriptor sortDescriptorWithKey:@"isIncome" ascending:NO],
 //                                [NSSortDescriptor sortDescriptorWithKey:@"visiteTime" ascending:NO]
                                 ];
@@ -141,7 +133,9 @@
                                      sectionNameKeyPath:nil
                                      cacheName:nil];
     
-    [self enumerateSumMoney];
+    NSLog(@"frc objexts: %i",self.fetchedResultsController.fetchedObjects.count);
+    NSLog(@"frc sections: %i",self.fetchedResultsController.sections.count);
+//    [self enumerateSumMoney];
     
 //    [self updataHeaderView];
     
@@ -151,7 +145,8 @@
 
 
 - (void)enumerateSumMoney {
-    [self.fetchedResultsController.fetchedObjects enumerateObjectsUsingBlock:^(Kind *kind, NSUInteger idx, BOOL *stop) {
+    [self.fetchedResultsController.fetchedObjects
+     enumerateObjectsUsingBlock:^(Kind *kind, NSUInteger idx, BOOL *stop) {
         NSLog(@"%@ : %.0f" ,kind.name ,kind.sumMoney.floatValue);
     }];
 }
@@ -536,6 +531,7 @@
                                                             managedObjectContext:[PubicVariable managedObjectContext]
                                                             sectionNameKeyPath:nil
                                                             cacheName:nil];
+
     return fetchedResultsController;
 }
 

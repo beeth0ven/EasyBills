@@ -36,14 +36,6 @@
     
     UIBarButtonItem *barButtonItemAppearance = [UIBarButtonItem appearance];
     UIImage *backButtonImage = [UIImage imageNamed:@"LeftNavigationBarBackIcon"];
-    UIEdgeInsets insets = UIEdgeInsetsMake(0,
-                                           backButtonImage.size.width - 1,
-                                           0,
-                                           0);
-    backButtonImage = [backButtonImage
-                       resizableImageWithCapInsets:insets];
-    
-    
     [barButtonItemAppearance setBackButtonBackgroundImage:backButtonImage
                                                  forState:UIControlStateNormal
                                                barMetrics:UIBarMetricsDefault];

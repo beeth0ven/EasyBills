@@ -32,7 +32,7 @@
     UILabel *countLabel = (UILabel *)[cell viewWithTag:2];
     
     placeLabel.text = placemark.name;
-    countLabel.text = [NSString stringWithFormat:@"%i",placemark.bills.count];
+    countLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)placemark.bills.count];
     
 //    cell.textLabel.text = placemark.name;
 //    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i",placemark.bills.count];

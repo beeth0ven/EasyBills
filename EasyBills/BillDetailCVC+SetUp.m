@@ -78,6 +78,7 @@
 {
     [self.view endEditing:YES];
     if (self.bill.money.floatValue != 0) {
+        // Money != 0
         [self setIsUndo:NO];
         
         UINavigationController *navigationController = self.navigationController;
@@ -92,11 +93,8 @@
             [PubicVariable saveContext];
         }];
     }else{
-//        NSInteger item = [self.cellIdentifiers indexOfObject:@"moneyCell"];
-//        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
-//        UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
-//        MoneyCVCell *moneyCollectionViewCell = (MoneyCVCell *)cell;
-//        moneyCollectionViewCell.label.textColor = [UIColor redColor];
+        // Money = 0
+        self.navigationItem.prompt = @"金额不能为零";
     }
     
     

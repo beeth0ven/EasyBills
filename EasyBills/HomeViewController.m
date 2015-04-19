@@ -64,8 +64,7 @@
     imageView.image = image;
     [self.view insertSubview:imageView atIndex:0];
     
-    //[self customSetup];
-    [self setupMenuButton];
+    [self customSetup];
 
     
 
@@ -73,14 +72,7 @@
 
 - (void)customSetup
 {
-    UIImage *image = [UIImage imageNamed:@"MenuNavigationBarLeftIcon"];
-    
-    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc]
-                                              initWithImage:image
-                                              style:UIBarButtonItemStylePlain
-                                              target:self.revealViewController
-                                              action:@selector(revealToggle:)];
-    
+    [self setupMenuButton];
     [self.navigationController.navigationBar
      addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 

@@ -25,31 +25,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (!self.fetchedResultsController) {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
-        request.predicate = nil;
-        
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                            managedObjectContext:[PubicVariable managedObjectContext]
-                                                                              sectionNameKeyPath:nil
-                                                                                       cacheName:nil];
-    }
+    [self setupFetchedResultsController];
+    [self showEmptyBackgroundIfNeeded];
+    
+}
+
+- (void)showEmptyBackgroundIfNeeded {
     //If there is no data, Display a label instead.
     if (self.fetchedResultsController.fetchedObjects.count == 0){
         self.tableView.backgroundView = [self emptyBackgroundView];
-
+        
     }
-    
-//    UIBarButtonItem *backBarButton =
-//    [[UIBarButtonItem alloc] initWithTitle:@" "
-//                                     style:UIBarButtonItemStylePlain
-//                                    target:nil
-//                                    action:nil];
-//    
-//    self.navigationItem.backBarButtonItem = backBarButton;
-    
-    // Do any additional setup after loading the view.
 }
 
 - (UIView *)emptyBackgroundView {
@@ -171,6 +157,18 @@
 
 }
 
+- (void)setupFetchedResultsController {
+    if (!self.fetchedResultsController) {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
+        request.predicate = nil;
+        
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                            managedObjectContext:[PubicVariable managedObjectContext]
+                                                                              sectionNameKeyPath:nil
+                                                                                       cacheName:nil];
+    }
+}
 #pragma mark - UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
