@@ -8,119 +8,89 @@
 
 #import "ManageKindCDTVC.h"
 #import "PubicVariable+FetchRequest.h"
+#import "Kind+Create.h"
+#import "UINavigationController+Style.h"
+#import "HomeViewController.h"
 
 @interface ManageKindCDTVC ()
-
-@property (strong ,nonatomic) NSNumber *total;
-@property (strong, nonatomic) NSArray *filters;
-
 
 @end
 
 @implementation ManageKindCDTVC
 
+#pragma mark - UIView Controller Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [self setupFetchedResultsController];
-    [self resetFetchedResultsController];
+    [self setupFetchedResultsController];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController applyDefualtStyle:NO];
+
 }
 
 
+#pragma mark - UITable View Data Source
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"kind"];
+    Kind *kind = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self configCell:cell WithKind:kind];
+    return cell;
+}
+
+-(void)configCell:(UITableViewCell *)cell WithKind:(Kind *)kind {
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@  ",[kind.name description]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@" %@ ",kind.isIncomeDescription];
+
+    cell.textLabel.backgroundColor = kind.color;
+    cell.detailTextLabel.backgroundColor = kind.isIncome.boolValue ? EBBlue : PNRed;
+
+    [cell.textLabel setHighlightedTextColor: cell.textLabel.backgroundColor];
+    [cell.detailTextLabel setHighlightedTextColor: cell.detailTextLabel.backgroundColor];
+
+}
+
+- (CGFloat)     tableView:(UITableView *)tableView
+  heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
+    return 50.0f;
+}
+
+#pragma mark - UITable View Data Delegate
+- (void)        tableView:(UITableView *)tableView
+  didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.tableView
+     reloadRowsAtIndexPaths:@[indexPath]
+     withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+#pragma mark - Some Method
+
 - (void)setupFetchedResultsController {
     if (!self.fetchedResultsController) {
+        NSFetchRequest *request = [[NSFetchRequest alloc]
+                                   initWithEntityName:@"Kind"];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"isIncome" ascending:YES],
+                                    [NSSortDescriptor sortDescriptorWithKey:@"createDate" ascending:YES]];
+        request.predicate = nil;
         
-//        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
-//        request.sortDescriptors = @[[NSSortDescriptor
-//                                     sortDescriptorWithKey:@"sumMoney"
-//                                     ascending: YES]
-//                                    //                                [NSSortDescriptor sortDescriptorWithKey:@"isIncome" ascending:NO],
-//                                    //                                [NSSortDescriptor sortDescriptorWithKey:@"visiteTime" ascending:NO]
-//                                    ];
-//        
-//        request.predicate = [PubicVariable predicateWithIncomeMode:isIncomeYes];
-//        
-//        self.fetchedResultsController = [[NSFetchedResultsController alloc]
-//                                         initWithFetchRequest:request
-//                                         managedObjectContext:[PubicVariable managedObjectContext]
-//                                         sectionNameKeyPath:nil
-//                                         cacheName:nil];
-        
-        
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
-        request.sortDescriptors = @[
-//                                    [NSSortDescriptor sortDescriptorWithKey:@"isIncome" ascending:NO],
-                                    [NSSortDescriptor sortDescriptorWithKey:@"visiteTime" ascending:YES]];
-        request.predicate = [PubicVariable predicateWithIncomeMode:isIncomeNil];
-        
-        NSError *error;
-        NSArray *matches = [[PubicVariable managedObjectContext]
-                            executeFetchRequest:request error:&error];
-        NSLog(@"matches : %i",matches.count);
-        
-        
-//        self.fetchedResultsController =
-        NSFetchedResultsController *frc =
-        [[NSFetchedResultsController alloc]
+        self.fetchedResultsController = [[NSFetchedResultsController alloc]
                                          initWithFetchRequest:request
                                          managedObjectContext:[PubicVariable managedObjectContext]
                                          sectionNameKeyPath:nil
                                          cacheName:nil];
-        NSLog(@"frc objexts: %i",frc.fetchedObjects.count);
-        NSLog(@"frc sections: %i",frc.sections.count);
-//        NSLog(@"frc rows: %i",frc.sections.firstObject.);
-
 
     }
 }
 
-- (void)resetFetchedResultsController
-{
-    
-    
-    self.total = [NSNumber numberWithFloat:
-                  [PubicVariable sumMoneyWithIncomeMode:isIncomeNo
-                                           withDateMode:all]];
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
-    request.sortDescriptors = @[[NSSortDescriptor
-                                 sortDescriptorWithKey:@"sumMoney"
-                                 ascending:isIncomeNo == isIncomeYes ? NO : YES]
-                                //                                [NSSortDescriptor sortDescriptorWithKey:@"isIncome" ascending:NO],
-                                //                                [NSSortDescriptor sortDescriptorWithKey:@"visiteTime" ascending:NO]
-                                ];
-    
-    request.predicate = [PubicVariable predicateWithIncomeMode:isIncomeNo];
-    
-    self.fetchedResultsController = [[NSFetchedResultsController alloc]
-                                     initWithFetchRequest:request
-                                     managedObjectContext:[PubicVariable managedObjectContext]
-                                     sectionNameKeyPath:nil
-                                     cacheName:nil];
-    
-    NSLog(@"frc objexts: %i",self.fetchedResultsController.fetchedObjects.count);
-    NSLog(@"frc sections: %i",self.fetchedResultsController.sections.count);
-    //    [self enumerateSumMoney];
-    
-    //    [self updataHeaderView];
-    
-    
-    
-}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSString *cellIdentifier = @"kind";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    Kind *kind = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@  ",[kind.name description]];
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@  ",
-//                                 (kind.isIncome.boolValue ?
-//                                 @"收入" :
-//                                 @"支出")];
-//
-//    return cell;
-//}
+
 /*
 #pragma mark - Navigation
 
@@ -130,7 +100,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-
 
 @end

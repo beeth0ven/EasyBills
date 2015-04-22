@@ -18,23 +18,61 @@
 
 @interface BillCDTVC ()
 
+@property (weak, nonatomic) IBOutlet UILabel *equalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+
 @end
 
 @implementation BillCDTVC
+
+#pragma mark - UIView Controller Lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupFetchedResultsController];
+    [self upadateFootView];
     [self showEmptyBackgroundIfNeeded];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController applyDefualtStyle:NO];
+}
+
+
+- (void)didReceiveMemoryWarning
+{
     
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Some Method
+
+
+- (void)upadateFootView {
+    NSNumber *sum = [self.fetchedResultsController.fetchedObjects
+                     valueForKeyPath:@"@sum.money"];
+    
+    self.sumLabel.text = [NSString stringWithFormat:@" ¥ %.0f  ",
+                          fabs(sum.floatValue)];
+    
+    self.countLabel.text = [NSString stringWithFormat:@" 共%i笔   ",
+                            self.fetchedResultsController.fetchedObjects.count];
+    
+    self.equalLabel.font = [self.equalLabel.font fontWithSize:25];
+    self.sumLabel.textColor = sum.floatValue >= 0 ? EBBlue : PNRed;
+
 }
 
 - (void)showEmptyBackgroundIfNeeded {
     //If there is no data, Display a label instead.
     if (self.fetchedResultsController.fetchedObjects.count == 0){
         self.tableView.backgroundView = [self emptyBackgroundView];
-        
+        self.tableView.tableFooterView = nil;
     }
 }
 
@@ -60,22 +98,37 @@
     return result;
 }
 
--(void)viewWillAppear:(BOOL)animated
+
+
+
+-(float)maxBillMoney
 {
-    [super viewWillAppear:animated];
-    [self.navigationController applyDefualtStyle:NO];
+    float result = 0;
+    NSPredicate *predicate = self.fetchedResultsController.fetchRequest.predicate;
+    float maxFloat = [PubicVariable performeFetchForFunction:@"max:" WithPredicate:predicate];
+    float minFloat = [PubicVariable performeFetchForFunction:@"min:" WithPredicate:predicate];
+    result = MAX(fabs(maxFloat), fabs(minFloat));
+    return result;
 }
 
 
 
 
-- (void)didReceiveMemoryWarning
-{
-    
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupFetchedResultsController {
+    if (!self.fetchedResultsController) {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
+        request.predicate = nil;
+        
+        self.fetchedResultsController = [[NSFetchedResultsController alloc]
+                                         initWithFetchRequest:request
+                                         managedObjectContext:[PubicVariable managedObjectContext]
+                                         sectionNameKeyPath:nil
+                                         cacheName:nil];
+    }
 }
 
+#pragma mark - UITable View Data Source
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BillTVCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bill"];
@@ -90,44 +143,50 @@
     UILabel *kindLabel =  (UILabel *)[cell viewWithTag:1];
     UILabel *moneyLabel =  (UILabel *)[cell viewWithTag:2];
     UILabel *dateLabel =  (UILabel *)[cell viewWithTag:3];
-
+    
     kindLabel.text = [NSString stringWithFormat:@"%@  ",[bill.kind.name description]];
     moneyLabel.text = [NSString stringWithFormat:@" ¥ %.0f  ",fabs(bill.money.floatValue)];
-    dateLabel.text = [NSString stringWithFormat:@"%@ ", [PubicVariable stringFromDate:bill.date]];
-
+    dateLabel.text = [NSString stringWithFormat:@"%@  ", [PubicVariable stringFromDate:bill.date]];
+    
     kindLabel.backgroundColor = bill.kind.color;
     [kindLabel setHighlightedTextColor: kindLabel.backgroundColor];
     moneyLabel.backgroundColor = bill.isIncome.boolValue ? EBBlue : PNRed;
     [moneyLabel setHighlightedTextColor:moneyLabel.backgroundColor];
     [dateLabel setHighlightedTextColor:dateLabel.backgroundColor];
-
+    
     /**/
-//    cell.indentationLevel = 2;
-//    cell.textLabel.text = [NSString stringWithFormat:@"  %@  ",[bill.kind.name description]];
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@" ¥  %.0f ",fabs(bill.money.floatValue)];
-//    cell.textLabel.backgroundColor = bill.kind.color;
-//    [cell.textLabel setHighlightedTextColor: cell.textLabel.backgroundColor];
-//    cell.detailTextLabel.backgroundColor = bill.isIncome.boolValue ? EBBlue : PNRed;
-//    [cell.detailTextLabel setHighlightedTextColor:cell.detailTextLabel.backgroundColor];
-//    cell.barColor = bill.kind.color;
-////    bill.isIncome.boolValue ? EBBlue : PNRed;
-//    float maxBillMoney = [self maxBillMoney];
-//    float money = fabs(bill.money.floatValue);
-//    cell.grade = money/maxBillMoney;
+    //    cell.indentationLevel = 2;
+    //    cell.textLabel.text = [NSString stringWithFormat:@"  %@  ",[bill.kind.name description]];
+    //    cell.detailTextLabel.text = [NSString stringWithFormat:@" ¥  %.0f ",fabs(bill.money.floatValue)];
+    //    cell.textLabel.backgroundColor = bill.kind.color;
+    //    [cell.textLabel setHighlightedTextColor: cell.textLabel.backgroundColor];
+    //    cell.detailTextLabel.backgroundColor = bill.isIncome.boolValue ? EBBlue : PNRed;
+    //    [cell.detailTextLabel setHighlightedTextColor:cell.detailTextLabel.backgroundColor];
+    //    cell.barColor = bill.kind.color;
+    ////    bill.isIncome.boolValue ? EBBlue : PNRed;
+    //    float maxBillMoney = [self maxBillMoney];
+    //    float money = fabs(bill.money.floatValue);
+    //    cell.grade = money/maxBillMoney;
     
 }
 
--(float)maxBillMoney
-{
-    float result = 0;
-    NSPredicate *predicate = self.fetchedResultsController.fetchRequest.predicate;
-    float maxFloat = [PubicVariable performeFetchForFunction:@"max:" WithPredicate:predicate];
-    float minFloat = [PubicVariable performeFetchForFunction:@"min:" WithPredicate:predicate];
-    result = MAX(fabs(maxFloat), fabs(minFloat));
-    return result;
+- (CGFloat)     tableView:(UITableView *)tableView
+  heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
+    return 60.0f;
+}
+
+#pragma mark - UITable View Data Delegate 
+- (void)        tableView:(UITableView *)tableView
+  didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.tableView
+     reloadRowsAtIndexPaths:@[indexPath]
+     withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
+
+#pragma mark - Navigation
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -140,7 +199,7 @@
                     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
                     Bill *bill = [self.fetchedResultsController objectAtIndexPath:indexPath];
                     myCollectionViewController.bill = bill;
-
+                    
                     NSLog(@"showBill");
                 }
             }
@@ -154,29 +213,8 @@
             }
         }
     }
-
+    
 }
-
-- (void)setupFetchedResultsController {
-    if (!self.fetchedResultsController) {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
-        request.predicate = nil;
-        
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                            managedObjectContext:[PubicVariable managedObjectContext]
-                                                                              sectionNameKeyPath:nil
-                                                                                       cacheName:nil];
-    }
-}
-#pragma mark - UITableViewDataSource
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
-    return 50.0f;
-}
-
-
-
 
 
 

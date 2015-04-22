@@ -73,6 +73,12 @@
     }];
 }
 
+- (IBAction)refresh:(UIRefreshControl *)sender {
+    [sender endRefreshing];
+    [self resetFetchedResultsController];
+}
+
+
 -(void)registerNotifications {
     [self.filters enumerateObjectsUsingBlock:^(Filter *obj, NSUInteger idx, BOOL *stop) {
         [obj addObserver:self
@@ -133,8 +139,6 @@
                                      sectionNameKeyPath:nil
                                      cacheName:nil];
     
-    NSLog(@"frc objexts: %i",self.fetchedResultsController.fetchedObjects.count);
-    NSLog(@"frc sections: %i",self.fetchedResultsController.sections.count);
 //    [self enumerateSumMoney];
     
 //    [self updataHeaderView];
@@ -293,7 +297,7 @@
 {
     UILabel *indexLabel = (UILabel *)[cell viewWithTag:1];
     UILabel *label = (UILabel *)[cell viewWithTag:2];
-    UICountingLabel *detailLabel = (UICountingLabel *)[cell viewWithTag:3];
+    UILabel *detailLabel = (UILabel *)[cell viewWithTag:3];
     UIView *circleView = (UIView *)[cell viewWithTag:4];
     
     NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:kind];
@@ -302,16 +306,17 @@
     indexLabel.text = [NSString stringWithFormat:@"%i.",indexPath.row + 1];
     label.text = [NSString stringWithFormat:@"  %@  ",[kind.name description]];
     circleView.backgroundColor = kind.color;
-    circleView.layer.cornerRadius = circleView.bounds.size.width * 3 / 4;
+//    circleView.layer.cornerRadius = circleView.bounds.size.width * 3 / 4;
 //    detailLabel.text = [NSString stringWithFormat:@"¥  %.2f",current.floatValue];
     
 //    [detailLabel setTextAlignment:NSTextAlignmentCenter];
 ////    [detailLabel setFont:[UIFont boldSystemFontOfSize:10.0]];
 //    [detailLabel setTextColor:detailLabel.textColor];
-    detailLabel.method = UILabelCountingMethodEaseInOut;
-    detailLabel.format = @"¥  %.0f";
-    [detailLabel countFrom:0 to:current.floatValue withDuration:1.0];
+    detailLabel.text = [NSString stringWithFormat:@"¥  %.0f",current.floatValue];
 
+//    detailLabel.method = UILabelCountingMethodEaseInOut;
+//    detailLabel.format = @"¥  %.0f";
+//    [detailLabel countFrom:0 to:current.floatValue withDuration:1.0];
 //
 //    CGFloat height = 30;
 //    
@@ -433,24 +438,15 @@
 
 
 
-- (void)        tableView:(UITableView *)tableView
-       commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-        forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
 
-
-- (void)        tableView:(UITableView *)tableView
-       moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-              toIndexPath:(NSIndexPath *)destinationIndexPath
-{
-    
-}
 #pragma mark - Table view delegate
 
 - (void)            tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.tableView
+     reloadRowsAtIndexPaths:@[indexPath]
+     withRowAnimation:UITableViewRowAnimationAutomatic];
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *segueIdentifier = @"showBillByKind";
@@ -458,8 +454,23 @@
     [self performSegueWithIdentifier:segueIdentifier sender:cell];
     
 }
-//
 
+
+#pragma mark - NSFetched Results Controller Delegate
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    [super controller:controller
+      didChangeObject:anObject
+          atIndexPath:indexPath
+        forChangeType:type
+         newIndexPath:newIndexPath];
+    
+    [self.tableView reloadData];
+    
+}
 
 #pragma mark - Navigation
 

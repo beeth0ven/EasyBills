@@ -49,6 +49,12 @@
     
 }
 
+- (NSString *)isIncomeDescription {
+    return self.isIncome.boolValue ? @"收入": @"支出";
+    
+}
+
+
 - (void)addBillsObject:(Bill *)value {
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"bills" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];

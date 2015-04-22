@@ -21,5 +21,6 @@
 
 - (UIColor *)color;
 - (void)calculatorSumMoney;
+- (NSString *)isIncomeDescription;
 
 @end
