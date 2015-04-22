@@ -8,22 +8,34 @@
 
 #import "ToolBarCMCDTVC.h"
 #import "EasyBillsCursorButton.h"
+#import "UIAlertView+Extension.h"
 
 @interface ToolBarCMCDTVC ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cursorBarButtonItem;
+@property (strong, nonatomic)  EasyBillsCursorButton *cursorButton;
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mapTypeSegmented;
+
+@property (nonatomic) BOOL showsUserLocation;
+@property (nonatomic) BOOL shouldRestMapRegionToUserLocation;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
 @implementation ToolBarCMCDTVC
 
+#pragma mark - ViewController LifeCycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpCursorBarButtonItem];
     [self configMapTypeSegmented];
+}
 
-
+- (void)viewWillDisappear:(BOOL)animated {
+    self.mapView.mapType = !self.mapTypeSegmented.selectedSegmentIndex;
+    self.mapView.mapType = self.mapTypeSegmented.selectedSegmentIndex;
 }
 
 //- (void)viewWillAppear:(BOOL)animated {
@@ -40,15 +52,102 @@
 //}
 
 
+#pragma mark - MKMapView Delegate
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    self.showsUserLocation = YES;
+    if (self.shouldRestMapRegionToUserLocation) {
+        [self restMapRegion];
+        self.shouldRestMapRegionToUserLocation = NO;
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
+    self.showsUserLocation = NO;
+}
+
+#pragma mark - CLLocation authorization Method
+
+
+- (void)requestGetCurentLocation{
+    
+    if ([CLLocationManager locationServicesEnabled]) {
+        
+        switch ([CLLocationManager authorizationStatus]) {
+            case kCLAuthorizationStatusDenied:{
+                [UIAlertView displayAlertWithTitle:kCLAuthorizationStatusDeniedTitle
+                                           message:kCLAuthorizationStatusDeniedMessage];
+                self.showsUserLocation = NO;
+                
+                break;
+            }
+            case kCLAuthorizationStatusNotDetermined:{
+                [self.locationManager requestWhenInUseAuthorization];
+                break;
+            }
+            case kCLAuthorizationStatusRestricted:{
+                [UIAlertView displayAlertWithTitle:kCLAuthorizationStatusRestrictedTitle
+                                           message:kCLAuthorizationStatusRestrictedMessage];
+                self.showsUserLocation = NO;
+                
+                break;
+            }
+            default:{
+                self.showsUserLocation = YES;
+                break;
+            }
+        }
+        
+        
+    }
+    
+}
+
+
+- (void)        locationManager:(CLLocationManager *)manager
+   didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    
+    NSLog(@"The authorization status of location services is changed to: ");
+    
+    switch ([CLLocationManager authorizationStatus]) {
+        case kCLAuthorizationStatusDenied:{
+            NSLog(@"Denied");
+            self.showsUserLocation = NO;
+            break;
+        }
+        case kCLAuthorizationStatusNotDetermined:{
+            NSLog(@"Not determined");
+            break;
+        }case kCLAuthorizationStatusRestricted:{
+            NSLog(@"Restricted");
+            self.showsUserLocation = NO;
+            break;
+        }
+        default:{
+            self.showsUserLocation = YES;
+            break;
+        }
+    }
+    
+}
+
+
+#pragma mark - Some Method
 
 - (void)setUpCursorBarButtonItem {
-    EasyBillsCursorButton *cursorButton = [EasyBillsCursorButton
-                                           cursorButtonSetOn:self.mapView.showsUserLocation];
+//    if (self.showsUserLocation) {
+//        [self requestGetCurentLocation];
+//    }else{
+//        self.mapView.showsUserLocation = NO;
+//    }
+    self.cursorButton = [EasyBillsCursorButton
+                         cursorButtonSetOn:self.showsUserLocation];
     
-    [cursorButton addTarget:self
-                     action:@selector(changeShowLocationStates:)
-           forControlEvents:UIControlEventTouchUpInside];
-    self.cursorBarButtonItem.customView = cursorButton;
+    [self.cursorButton addTarget:self
+                          action:@selector(changeShowLocationStates:)
+                forControlEvents:UIControlEventTouchUpInside];
+    
+    self.cursorBarButtonItem.customView = self.cursorButton;
 }
 
 - (void)configMapTypeSegmented {
@@ -59,7 +158,7 @@
 
 - (IBAction)changeShowLocationStates:(EasyBillsCursorButton *)sender {
     
-    if (self.mapView.showsUserLocation) {
+    if (self.showsUserLocation) {
         //Determ Whether Change show to not show.
         MKMapPoint currentPoint =  MKMapPointForCoordinate(self.mapView.userLocation.coordinate);
         MKMapPoint regionCenterPoint = MKMapPointForCoordinate(self.mapView.region.center);
@@ -71,22 +170,23 @@
             return;
         }
         
+        self.showsUserLocation = NO;
     }else{
         //Turn it on,Show location.
-        [self restMapRegion];
+        [self requestGetCurentLocation];
     }
     
-    self.mapView.showsUserLocation = !self.mapView.showsUserLocation;
-    sender.on = self.mapView.showsUserLocation;
 
 }
 
 - (void)restMapRegion {
-    MKCoordinateRegion mapRegion;
-    mapRegion.center = self.mapView.userLocation.location.coordinate;
-    mapRegion.span.latitudeDelta  = self.mapView.region.span.latitudeDelta;
-    mapRegion.span.longitudeDelta = self.mapView.region.span.longitudeDelta;
-    [self.mapView setRegion:mapRegion animated:YES];
+    if (self.mapView.showsUserLocation) {
+        MKCoordinateRegion mapRegion;
+        mapRegion.center = self.mapView.userLocation.location.coordinate;
+        mapRegion.span.latitudeDelta  = self.mapView.region.span.latitudeDelta;
+        mapRegion.span.longitudeDelta = self.mapView.region.span.longitudeDelta;
+        [self.mapView setRegion:mapRegion animated:YES];
+    }
 }
 
 
@@ -94,5 +194,32 @@
     self.mapView.mapType = sender.selectedSegmentIndex;
 }
 
+#pragma mark - Properties Setter And Getter Method
+//- (BOOL)showsUserLocation {
+//    NSNumber *showsUserLocationNum =
+//    [[NSUserDefaults standardUserDefaults]
+//     objectForKey:@"kToolBarCMCDTVCShowsUserLocation"];
+//    return showsUserLocationNum.boolValue;
+//}
+
+- (void)setShowsUserLocation:(BOOL)showsUserLocation {
+    
+    if (_showsUserLocation != showsUserLocation) {
+        self.mapView.showsUserLocation = showsUserLocation;
+        self.cursorButton.on = showsUserLocation;
+        _showsUserLocation = showsUserLocation;
+        if (showsUserLocation)
+            self.shouldRestMapRegionToUserLocation = YES;
+        
+    }
+}
+
+- (CLLocationManager *)locationManager {
+    if (!_locationManager) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+    }
+    return _locationManager;
+}
 
 @end

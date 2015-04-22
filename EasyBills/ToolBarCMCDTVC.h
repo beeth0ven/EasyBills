@@ -8,6 +8,6 @@
 
 #import "ClusterMapCDTVC.h"
 
-@interface ToolBarCMCDTVC : ClusterMapCDTVC
+@interface ToolBarCMCDTVC : ClusterMapCDTVC <CLLocationManagerDelegate>
 
 @end

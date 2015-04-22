@@ -40,6 +40,7 @@
 		45ECF3981AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3971AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m */; };
 		45ECF3A11AC5358400D0CACB /* BillDetailCVC+UITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */; };
 		45ECF3A71AC537F400D0CACB /* BillDetailCVC+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3A61AC537F400D0CACB /* BillDetailCVC+Extension.m */; };
+		45F9FB091AE778E600C8112C /* UIAlertView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F9FB081AE778E600C8112C /* UIAlertView+Extension.m */; };
 		8F0B3811DD8B4AD6A1A72E3F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A5F4B0F58449C59A21A605 /* libPods.a */; };
 		BD0749671A86660300467648 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0749661A86660300467648 /* UIButton+Extension.m */; };
 		BD0FDC781A90DFF200679961 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0FDC771A90DFF200679961 /* Media.xcassets */; };
@@ -159,6 +160,8 @@
 		45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UITextField.m"; sourceTree = "<group>"; };
 		45ECF3A51AC537F400D0CACB /* BillDetailCVC+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+Extension.h"; sourceTree = "<group>"; };
 		45ECF3A61AC537F400D0CACB /* BillDetailCVC+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+Extension.m"; sourceTree = "<group>"; };
+		45F9FB071AE778E600C8112C /* UIAlertView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Extension.h"; sourceTree = "<group>"; };
+		45F9FB081AE778E600C8112C /* UIAlertView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Extension.m"; sourceTree = "<group>"; };
 		50A5F4B0F58449C59A21A605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0749651A86660300467648 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		BD0749661A86660300467648 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
@@ -541,6 +544,8 @@
 			isa = PBXGroup;
 			children = (
 				455C0DA01AD64E660060C4DF /* CustomAnimationController.h */,
+				45F9FB071AE778E600C8112C /* UIAlertView+Extension.h */,
+				45F9FB081AE778E600C8112C /* UIAlertView+Extension.m */,
 				455C0D9D1AD64A080060C4DF /* LoadingStatus.h */,
 				455C0D9E1AD64A080060C4DF /* LoadingStatus.m */,
 				BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */,
@@ -912,6 +917,7 @@
 				458C77541AD4E1670088BA86 /* CustomPresentAnimationController.m in Sources */,
 				45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */,
 				BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */,
+				45F9FB091AE778E600C8112C /* UIAlertView+Extension.m in Sources */,
 				BDB39FD919E814BF0022E5C4 /* KindCDTVC.m in Sources */,
 				4508D6581AC3F283007CA44A /* EasyBillsCursorButton.m in Sources */,
 				4508D6501AC3EDF5007CA44A /* CursorButton.m in Sources */,

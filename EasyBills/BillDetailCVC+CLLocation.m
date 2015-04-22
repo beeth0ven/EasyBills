@@ -8,6 +8,7 @@
 
 #import "BillDetailCVC+CLLocation.h"
 #import "Bill+MKAnnotation.h"
+#import "UIAlertView+Extension.h"
 
 @implementation BillDetailCVC (CLLocation)
 
@@ -20,16 +21,21 @@
         
         switch ([CLLocationManager authorizationStatus]) {
             case kCLAuthorizationStatusDenied:{
-                [self displayAlertWithTitle:@"访问拒绝"
-                                    message:@"应用程序没有权利访问定位服务！"];
+                [UIAlertView displayAlertWithTitle:kCLAuthorizationStatusDeniedTitle
+                                    message:kCLAuthorizationStatusDeniedMessage];
+                self.bill.locationIsOn = [NSNumber numberWithBool:NO];
+
                 break;
             }
             case kCLAuthorizationStatusNotDetermined:{
                 [self.locationManager requestWhenInUseAuthorization];
                 break;
-            }case kCLAuthorizationStatusRestricted:{
-                [self displayAlertWithTitle:@"访问受限"
-                                    message:@"应用程访问定位服务受到限制！"];
+            }
+            case kCLAuthorizationStatusRestricted:{
+                [UIAlertView displayAlertWithTitle:kCLAuthorizationStatusRestrictedTitle
+                                           message:kCLAuthorizationStatusRestrictedMessage];
+                self.bill.locationIsOn = [NSNumber numberWithBool:NO];
+
                 break;
             }
             default:{
@@ -38,9 +44,10 @@
             }
         }
         
-        [self updateCellWithIdentifier:@"locationCell"];
         
     }
+    [self updateCellWithIdentifier:@"locationCell"];
+
 }
 
 
@@ -53,6 +60,7 @@
     switch ([CLLocationManager authorizationStatus]) {
         case kCLAuthorizationStatusDenied:{
             NSLog(@"Denied");
+            self.bill.locationIsOn = [NSNumber numberWithBool:NO];
             break;
         }
         case kCLAuthorizationStatusNotDetermined:{
@@ -60,6 +68,7 @@
             break;
         }case kCLAuthorizationStatusRestricted:{
             NSLog(@"Restricted");
+            self.bill.locationIsOn = [NSNumber numberWithBool:NO];
             break;
         }
         default:{
@@ -88,9 +97,10 @@
 -(void) locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error
 {
-    //    [self displayAlertWithTitle:@"访问错误"
-    //                        message:@"无法获取您的位置！"];
+
     [self.locationManager stopUpdatingLocation];
+    self.bill.locationIsOn = [NSNumber numberWithBool:NO];
+    [self updateCellWithIdentifier:@"locationCell"];
     //    self.locationSwitch.on = NO;
     //    [self locationIsOnStateChanged:self.locationSwitch];
     
@@ -100,22 +110,6 @@
     [self.locationManager startUpdatingLocation];
     
 }
-
-- (void)displayAlertWithTitle:(NSString *)title
-                      message:(NSString *)message{
-    
-    UIAlertView *alertView =
-    [[UIAlertView alloc]
-     initWithTitle:title
-     message:message
-     delegate:nil
-     cancelButtonTitle:@"OK"
-     otherButtonTitles: nil];
-    
-    [alertView show];
-    
-}
-
 
 
 

@@ -168,6 +168,11 @@
         MKMapView               *mapView    = (MKMapView *)[cell viewWithTag:3];
         
         mapView.delegate = self;
+        mapView.zoomEnabled = NO;
+        mapView.scrollEnabled = NO;
+        mapView.pitchEnabled = NO;
+        mapView.rotateEnabled = NO;
+
         [self reloadDataInMapView:mapView];
         [self updateMapCellLabel:label activity:activity];
         self.mapCell = cell;

@@ -10,7 +10,7 @@
 
 @interface CoreDataMapViewController ()
 
-@property (strong ,nonatomic) NSArray *fetchedAnnotations;
+//@property (strong ,nonatomic) NSArray *fetchedAnnotations;
 
 
 @end
@@ -74,26 +74,26 @@
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
     
-    [self.mapView addAnnotations:self.fetchedAnnotations];
+    [self.mapView addAnnotations:self.fetchedResultsController.fetchedObjects];
     
-    [self.mapView showAnnotations:self.fetchedAnnotations animated:YES];
+    [self.mapView showAnnotations:self.fetchedResultsController.fetchedObjects animated:YES];
 }
 
--(NSArray *)fetchedAnnotations
-{
-    if (!_fetchedAnnotations) {
-        if (self.fetchedResultsController) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"locationIsOn == YES"];
-            _fetchedAnnotations = [self.fetchedResultsController.fetchedObjects filteredArrayUsingPredicate:predicate];
-            NSLog(@"fetchedAnnotations count: %lu",(unsigned long)_fetchedAnnotations.count);
-            
-        }
-    }
-    NSLog(@"fetchedAnnotations count: %lu",(unsigned long)_fetchedAnnotations.count);
-
-    return _fetchedAnnotations;
-
-}
+//-(NSArray *)fetchedAnnotations
+//{
+//    if (!_fetchedAnnotations) {
+//        if (self.fetchedResultsController) {
+//            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"locationIsOn == YES"];
+//            _fetchedAnnotations = [self.fetchedResultsController.fetchedObjects filteredArrayUsingPredicate:predicate];
+//            NSLog(@"fetchedAnnotations count: %lu",(unsigned long)_fetchedAnnotations.count);
+//            
+//        }
+//    }
+//    NSLog(@"fetchedAnnotations count: %lu",(unsigned long)_fetchedAnnotations.count);
+//
+//    return _fetchedAnnotations;
+//
+//}
 
 
 

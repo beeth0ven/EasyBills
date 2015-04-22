@@ -211,8 +211,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self updateVisibleAnnotations];
 //    [self populateWorldWithAllBillAnnotations];
 }
+
+#pragma mark - NSFetched Results Controller Delegate
+//
+//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+//{
+//    [super controllerDidChangeContent:controller];
+//    [self updateVisibleAnnotations];
+//}
+
 
 #pragma mark - MKMapViewDelegate
 
@@ -256,6 +266,7 @@
     
     if ([view.annotation isKindOfClass:[Bill class]]) {
         Bill *annotation = view.annotation;
+        [mapView deselectAnnotation:annotation animated:YES];
         if (annotation.containedAnnotations.count > 0) {
             [self performSegueWithIdentifier:@"showBillByMap" sender:view];
         }else{
@@ -273,7 +284,6 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"prepareForSegue %@",segue.identifier);
     if ([sender isKindOfClass:[MKAnnotationView class]]) {
         [self prepareViewController:segue.destinationViewController
                            forSegue:segue.identifier
@@ -287,7 +297,6 @@
         [self prepareViewController:segue.destinationViewController
                            forSegue:segue.identifier];
     }
-    NSLog(@"prepareForSegue %@",segue.identifier);
 
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
@@ -410,7 +419,7 @@
     
     NSMutableArray *billsToShow = [NSMutableArray arrayWithObject:bill];
     [billsToShow addObjectsFromArray:bill.containedAnnotations.allObjects];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF IN %@" , billsToShow];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF IN %@ && locationIsOn == YES" , billsToShow];
     return [self billFetchedResultsControlleWithPredicate:predicate];
 }
 

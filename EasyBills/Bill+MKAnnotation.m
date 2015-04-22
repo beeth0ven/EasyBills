@@ -86,28 +86,32 @@
 
 
 - (void)upadatePlacemark{
-    if (self.locationIsOn) {
-        
-        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-        CLLocation *location =[[CLLocation alloc]
-                               initWithLatitude:self.latitude.doubleValue
-                               longitude:self.longitude.doubleValue];
-        
-        [geocoder reverseGeocodeLocation:location
-                       completionHandler:
-         ^(NSArray *placemarks, NSError *error){
-             if (!error && [placemarks count] > 0) {
-                 CLPlacemark *placemark = [placemarks lastObject];
-                 NSString *name = [NSString stringForPlacemark:placemark];
-                 self.plackmark = [Plackmark plackmarkWithName:name];
-             }else{
-                 self.plackmark = [Plackmark plackmarkWithName:@"未知地点"];
-             }
-         }];
-     
-    }else{
-        self.plackmark = nil;
-    }
+    
+        if (self.locationIsOn) {
+            
+            CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+            CLLocation *location =[[CLLocation alloc]
+                                   initWithLatitude:self.latitude.doubleValue
+                                   longitude:self.longitude.doubleValue];
+            
+            [geocoder reverseGeocodeLocation:location
+                           completionHandler:
+             ^(NSArray *placemarks, NSError *error){
+                 if (self) {
+                     if (!error && [placemarks count] > 0) {
+                         CLPlacemark *placemark = [placemarks lastObject];
+                         NSString *name = [NSString stringForPlacemark:placemark];
+                         self.plackmark = [Plackmark plackmarkWithName:name];
+                     }else{
+                         self.plackmark = [Plackmark plackmarkWithName:@"未知地点"];
+                     }
+                 }
+             }];
+            
+        }else{
+            self.plackmark = nil;
+        }
+
     
 }
 

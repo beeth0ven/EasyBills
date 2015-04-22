@@ -62,7 +62,7 @@
 
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
-        request.predicate = nil;
+        request.predicate = [NSPredicate predicateWithFormat:@"locationIsOn == YES"];
         
         NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                             managedObjectContext:[PubicVariable managedObjectContext]

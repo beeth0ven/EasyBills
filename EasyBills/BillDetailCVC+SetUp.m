@@ -26,7 +26,10 @@
         
         //         The location state is inherit from last bill.
         //         If this is the unique bill(last bill don't exist), Then the state is On, by defult.
-        if ([self isBillCreateUnique] || [self lastBillLocationStateIsOn]) [self requestGetCurentLocation];
+        if ([self isBillCreateUnique] || [self lastBillLocationStateIsOn]) {
+            self.bill.locationIsOn = [NSNumber numberWithBool:YES];
+            [self requestGetCurentLocation];
+        }
     }
     self.isIncome = self.bill.isIncome.boolValue;
     [self registerNotifications];
@@ -103,8 +106,9 @@
 - (IBAction)cancel:(UIBarButtonItem *)sender
 {
     [self.view endEditing:YES];
-    [self setIsUndo:YES];
-    [self dismissViewControllerAnimated:YES completion:^(){}];
+    [self dismissViewControllerAnimated:YES completion:^(){
+        [self setIsUndo:YES];
+    }];
     
     
 }
