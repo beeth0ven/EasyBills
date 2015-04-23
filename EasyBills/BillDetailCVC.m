@@ -20,7 +20,7 @@
 #import "BillDetailCVC+UIDatePicker.h"
 #import "BillDetailCVC+UIPickerView.h"
 #import "BillDetailCVC+UITextField.h"
-#import "BillDetailCVC+Extension.h"
+#import "UIToolbar+Extension.h"
 #import "NSString+Extension.h"
 #import "Plackmark+Create.h"
 #import "Plackmark.h"
@@ -107,7 +107,9 @@
         if ([view isKindOfClass:[UITextField class]]) {
             UITextField *textField = (UITextField *)view;
             textField.delegate = self;
-            textField.inputAccessoryView = [self keyboardToolBar];
+            textField.inputAccessoryView = [UIToolbar
+                                            keyboardToolBarWithVC:self
+                                            doneAction:@selector(endEditing)];
             
             textField.text =
             self.bill.money.floatValue != 0 ?
@@ -181,7 +183,9 @@
         if ([view isKindOfClass:[UITextField class]]) {
             UITextField *textField = (UITextField *)view;
             textField.delegate = self;
-            textField.inputAccessoryView = [self keyboardToolBar];
+            textField.inputAccessoryView = [UIToolbar
+                                            keyboardToolBarWithVC:self
+                                            doneAction:@selector(endEditing)];
             
             textField.text = self.bill.note;
         }

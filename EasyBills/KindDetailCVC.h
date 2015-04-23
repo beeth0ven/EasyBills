@@ -11,6 +11,7 @@
 
 
 @interface KindDetailCVC : UICollectionViewController
+<UITextFieldDelegate>
 
 
 @property (strong ,nonatomic) Kind *kind;

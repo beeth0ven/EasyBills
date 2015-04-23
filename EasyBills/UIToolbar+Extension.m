@@ -1,22 +1,26 @@
 //
-//  BillDetailCVC+Extension.m
+//  UIToolbar+Extension.m
 //  EasyBills
 //
-//  Created by luojie on 3/27/15.
+//  Created by luojie on 4/23/15.
 //  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
-#import "BillDetailCVC+Extension.h"
+#import "UIToolbar+Extension.h"
+#import "DefaultStyleController.h"
 
-@implementation BillDetailCVC (Extension)
+@implementation UIToolbar (Extension)
 
 
--(UIToolbar *)keyboardToolBar
+
+
++ (UIToolbar *)keyboardToolBarWithVC:(UIViewController *)VC
+                         doneAction:(SEL)doneAction
 {
     UIToolbar *result = [[UIToolbar alloc]
                          initWithFrame:CGRectMake(0,
                                                   0,
-                                                  self.view.bounds.size.width,
+                                                  VC.view.bounds.size.width,
                                                   35)];
     
     result.barStyle = UIBarStyleDefault;
@@ -29,8 +33,8 @@
     UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]
                                       initWithTitle:@"完成"
                                       style:UIBarButtonItemStylePlain
-                                      target:self
-                                      action:@selector(endEditing)];
+                                      target:VC
+                                      action:doneAction];
     
     NSDictionary *attributes = @{NSForegroundColorAttributeName : EBBlue};
     [doneBarButton setTitleTextAttributes:attributes
@@ -40,7 +44,6 @@
     
     return result;
 }
-
 
 
 @end

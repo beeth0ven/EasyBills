@@ -11,11 +11,14 @@
 #import "DefaultStyleController.h"
 #import "ColorCenter.h"
 #import "ColorCVCell.h"
+#import "UIFont+Extension.h"
+#import "UIToolbar+Extension.h"
 
 @interface KindDetailCVC ()
 
 @property (strong ,nonatomic) NSMutableArray *cellIdentifiers;
 
+@property (strong ,nonatomic) UITextField *activeField;
 
 @end
 
@@ -23,42 +26,31 @@
 
 @implementation KindDetailCVC
 
+#pragma mark - UIView Controller Lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[self undoManager] beginUndoGrouping];
-//    if (!self.bill)self.bill = [kind kindIsIncome:self.kind];
-    self.isIncome = self.kind.isIncome.boolValue;
-    self.title = self.isIncome ? @"收入": @"支出";
+    [self setUp];
     
-    NSArray *array = @[@"nameCell",
-                       @"colorCell",
-                       @"inputcolorCell",
-                       @"deleteCell"];
-    self.cellIdentifiers = [array mutableCopy];
+    
     //self.datePickerIndexPath = [NSIndexPath indexPathForItem:3 inSection:0];
     
     // Do any additional setup after loading the view.
     //[self updateUI];
 //    [self configBarButtonItem];
-    [self registerNotifications];
-    
-    UIImage *image = [UIImage imageNamed:@"Account details BG"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    self.collectionView.backgroundView = imageView;
-}
+    }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController applyDefualtStyle:NO];
-    [self registerAsObserver];
+//    [self registerAsObserver];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     
-    [self unregisterForChangeNotification];
+//    [self unregisterForChangeNotification];
     
 }
 
@@ -81,6 +73,42 @@
     return collectionView;
 }
 
+
+- (void)endEditing{
+    
+    [self.view endEditing:YES];
+
+}
+
+
+-(void)setIsUndo:(BOOL)isUndo
+{
+    [[self undoManager] endUndoGrouping];
+    if (isUndo)[[self undoManager] undoNestedGroup];
+}
+
+- (void)setUp {
+    
+    [[self undoManager] beginUndoGrouping];
+    if (!self.kind){
+        self.kind = [Kind kindWithName:@"" isIncome:self.isIncome];
+    }else{
+        self.isIncome = self.kind.isIncome.boolValue;
+    }
+    [self registerNotifications];
+    [self setUpBackgroundView];
+}
+
+- (void)setUpBackgroundView {
+    UIImage *image = [UIImage imageNamed:@"Account details BG"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    self.collectionView.backgroundView = imageView;
+    if (self.kind.name.length > 0) {
+        self.title = self.kind.name;
+    }else{
+        self.title = @"未命名";
+    }
+}
 
 #pragma mark - Notifications
 
@@ -119,43 +147,43 @@
 
 -(void)registerNotifications
 {
-//    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 
 
     
-    //keyboard notification ,scoll textfield to visible.
+//    keyboard notification ,scoll textfield to visible.
     
-//    [center addObserver:self
-//               selector:@selector(keyboardWasShown:)
-//                   name:UIKeyboardDidShowNotification object:nil];
-//    
-//    [center addObserver:self
-//               selector:@selector(keyboardWillBeHidden:)
-//                   name:UIKeyboardWillHideNotification object:nil];
-//    
+    [center addObserver:self
+               selector:@selector(keyboardWasShown:)
+                   name:UIKeyboardDidShowNotification object:nil];
+    
+    [center addObserver:self
+               selector:@selector(keyboardWillBeHidden:)
+                   name:UIKeyboardWillHideNotification object:nil];
+    
     
 }
 
 
-//- (void)keyboardWasShown:(NSNotification*)aNotification
-//{
-//    NSDictionary *info = [aNotification userInfo];
-//    CGSize kbSize =[[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-//    
-//    
-//    UIEdgeInsets contentInsets = self.collectionView.contentInset;
-//    contentInsets.bottom = kbSize.height;
-//    
-//    self.collectionView.contentInset = contentInsets;
-//    self.collectionView.scrollIndicatorInsets = contentInsets;
-//    
-//    CGRect aRect = self.view.frame;
-//    aRect.size.height -= (kbSize.height);
-//    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin)) {
-//        CGRect rect = self.activeField.frame;
-//        [self.collectionView scrollRectToVisible:rect animated:YES];
-//    }
-//}
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary *info = [aNotification userInfo];
+    CGSize kbSize =[[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    
+    UIEdgeInsets contentInsets = self.collectionView.contentInset;
+    contentInsets.bottom = kbSize.height;
+    
+    self.collectionView.contentInset = contentInsets;
+    self.collectionView.scrollIndicatorInsets = contentInsets;
+    
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= (kbSize.height);
+    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin)) {
+        CGRect rect = self.activeField.frame;
+        [self.collectionView scrollRectToVisible:rect animated:YES];
+    }
+}
 
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
@@ -172,7 +200,7 @@
 - (void) dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-#pragma mark - UICollectionViewDataSource
+#pragma mark - UICollection View Data Source
 
 
 
@@ -216,6 +244,7 @@
         
         cellIdentifier = [self cellIdentifiers][indexPath.item];
         
+        
     }else{
         //color pick collection view case here
         cellIdentifier = @"colorUnitCell";
@@ -235,29 +264,48 @@
 
 - (void)configCell:(UICollectionViewCell *)cell
        atIndexPath:(NSIndexPath *)indexPath{
-
     
-    if ([cell.reuseIdentifier isEqualToString:@"colorCell"]){
-        
-        id view = [cell viewWithTag:1];
-        if ([view isKindOfClass:[UIView class]]) {
-            UIView *colorView = view;
-            colorView.backgroundColor = self.kind.color;
+    if ([cell.reuseIdentifier isEqualToString:@"nameCell"]){
+
+        UIView *view = [cell viewWithTag:3];
+        if ([view isKindOfClass:[UITextField class]]) {
+            UITextField *textField = (UITextField *)view;
+            textField.delegate = self;
+            textField.inputAccessoryView = [UIToolbar
+                                            keyboardToolBarWithVC:self
+                                            doneAction:@selector(endEditing)];
+            
+            textField.text = self.kind.name;
         }
+
+        
+    }else if ([cell.reuseIdentifier isEqualToString:@"colorCell"]){
+//        
+//        id view = [cell viewWithTag:1];
+//        if ([view isKindOfClass:[UIView class]]) {
+//            UIView *colorView = view;
+//            colorView.backgroundColor = self.kind.color;
+//        }
         
     }
     else if ([cell.reuseIdentifier isEqualToString:@"colorUnitCell"]) {
         //color pick collection view case here
-        
-        UIColor *color = (UIColor *)
-        [[ColorCenter colors] objectAtIndex:indexPath.row];
-        
-        cell.layer.cornerRadius = cell.frame.size.width / 2;
-        cell.backgroundColor = color;
-        
-        int colorIDIntValue = self.kind.colorID.intValue;
-        cell.selected = (colorIDIntValue == indexPath.item);
-        
+//        
+//        UIColor *color = (UIColor *)
+//        [[ColorCenter colors] objectAtIndex:indexPath.row];
+//        
+//        cell.layer.cornerRadius = cell.frame.size.width / 2;
+//        cell.backgroundColor = color;
+//        
+//        int colorIDIntValue = self.kind.colorID.intValue;
+//        cell.selected = (colorIDIntValue == indexPath.item);
+//        
+    }
+    
+    UIView *view = [cell viewWithTag:2];
+    if ([view isKindOfClass:[UILabel class]]) {
+        UILabel *label = (UILabel *)view;
+        label.font = [UIFont wawaFontWithSize:25];
     }
     
     
@@ -325,6 +373,54 @@
     
     
 }
+#pragma mark - IBAction Method
+
+- (IBAction)done:(UIBarButtonItem *)sender
+{
+    [self.view endEditing:YES];
+    if (self.kind.name.length > 0) {
+        // Money != 0
+        [self setIsUndo:NO];
+        
+        [self dismissViewControllerAnimated:YES completion:^(){
+            [PubicVariable saveContext];
+        }];
+    }else{
+        // Money = 0
+        self.navigationItem.prompt = @"请输入一个名字";
+    }
+    
+    
+}
+
+- (IBAction)cancel:(UIBarButtonItem *)sender
+{
+    [self.view endEditing:YES];
+    [self dismissViewControllerAnimated:YES completion:^(){
+        [self setIsUndo:YES];
+    }];
+    
+    
+}
+
+- (IBAction)changeIncomeMode:(UISwitch *)sender {
+    
+}
+#pragma mark - UIText Field Delegate
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+    self.kind.name = textField.text;
+    
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    //scoll cell to visible
+    self.activeField = textField;
+}
+
+
 
 #pragma mark - NSUndoManager
 
@@ -338,6 +434,17 @@
     return managedObjectContext.undoManager;
 }
 
-
+#pragma mark - Properties Setter And Getter Method
+- (NSMutableArray *)cellIdentifiers {
+    if (!_cellIdentifiers) {
+        _cellIdentifiers = [@[@"nameCell",
+                              @"isIncomeCell",
+                              @"colorCell",
+                              @"inputcolorCell",
+                              @"deleteCell"] mutableCopy];
+        
+    }
+    return _cellIdentifiers;
+}
 
 @end

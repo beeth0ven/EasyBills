@@ -39,8 +39,8 @@
 		45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */; };
 		45ECF3981AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3971AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m */; };
 		45ECF3A11AC5358400D0CACB /* BillDetailCVC+UITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */; };
-		45ECF3A71AC537F400D0CACB /* BillDetailCVC+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3A61AC537F400D0CACB /* BillDetailCVC+Extension.m */; };
 		45F9FB091AE778E600C8112C /* UIAlertView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F9FB081AE778E600C8112C /* UIAlertView+Extension.m */; };
+		45F9FB0F1AE8CC3D00C8112C /* UIToolbar+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F9FB0E1AE8CC3D00C8112C /* UIToolbar+Extension.m */; };
 		8F0B3811DD8B4AD6A1A72E3F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A5F4B0F58449C59A21A605 /* libPods.a */; };
 		BD0749671A86660300467648 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0749661A86660300467648 /* UIButton+Extension.m */; };
 		BD0FDC781A90DFF200679961 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0FDC771A90DFF200679961 /* Media.xcassets */; };
@@ -158,10 +158,10 @@
 		45ECF3971AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UIPickerView.m"; sourceTree = "<group>"; };
 		45ECF39F1AC5358400D0CACB /* BillDetailCVC+UITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UITextField.h"; sourceTree = "<group>"; };
 		45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UITextField.m"; sourceTree = "<group>"; };
-		45ECF3A51AC537F400D0CACB /* BillDetailCVC+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+Extension.h"; sourceTree = "<group>"; };
-		45ECF3A61AC537F400D0CACB /* BillDetailCVC+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+Extension.m"; sourceTree = "<group>"; };
 		45F9FB071AE778E600C8112C /* UIAlertView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Extension.h"; sourceTree = "<group>"; };
 		45F9FB081AE778E600C8112C /* UIAlertView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Extension.m"; sourceTree = "<group>"; };
+		45F9FB0D1AE8CC3D00C8112C /* UIToolbar+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+Extension.h"; sourceTree = "<group>"; };
+		45F9FB0E1AE8CC3D00C8112C /* UIToolbar+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+Extension.m"; sourceTree = "<group>"; };
 		50A5F4B0F58449C59A21A605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0749651A86660300467648 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		BD0749661A86660300467648 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
@@ -450,8 +450,8 @@
 			children = (
 				BDA956371A10F13F00E55A9D /* BillDetailCVC.h */,
 				BDA956381A10F13F00E55A9D /* BillDetailCVC.m */,
-				45ECF3A51AC537F400D0CACB /* BillDetailCVC+Extension.h */,
-				45ECF3A61AC537F400D0CACB /* BillDetailCVC+Extension.m */,
+				45F9FB0D1AE8CC3D00C8112C /* UIToolbar+Extension.h */,
+				45F9FB0E1AE8CC3D00C8112C /* UIToolbar+Extension.m */,
 				45ECF39F1AC5358400D0CACB /* BillDetailCVC+UITextField.h */,
 				45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */,
 				45ECF3961AC52FD200D0CACB /* BillDetailCVC+UIPickerView.h */,
@@ -617,7 +617,6 @@
 				BDB39FD719E814BF0022E5C4 /* KindCDTVC.h */,
 				BDB39FD819E814BF0022E5C4 /* KindCDTVC.m */,
 				458517A41AC95C7B003149C3 /* PopverSegue */,
-				BD6FC8511AA0B7900059AC20 /* PushSegue */,
 			);
 			name = KindCDTVC;
 			sourceTree = "<group>";
@@ -636,9 +635,10 @@
 			children = (
 				BD1BF81219DB927300B1379A /* BillCDTVC.h */,
 				BD1BF81319DB927300B1379A /* BillCDTVC.m */,
+				BD1BF84919DB9C7800B1379A /* PushSegue */,
 				45C076F91AE3DEC9001F9B44 /* ManageKindCDTVC.h */,
 				45C076FA1AE3DEC9001F9B44 /* ManageKindCDTVC.m */,
-				BD1BF84919DB9C7800B1379A /* PushSegue */,
+				BD6FC8511AA0B7900059AC20 /* PushSegue */,
 				BD1BF84D19DB9DB900B1379A /* CoreDataTableViewController */,
 			);
 			name = PushSegue;
@@ -911,7 +911,6 @@
 				BD7348951A9995B700692EE4 /* UIViewController+Extension.m in Sources */,
 				458C77571AD4FD2B0088BA86 /* CustomDismissAnimationController.m in Sources */,
 				BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */,
-				45ECF3A71AC537F400D0CACB /* BillDetailCVC+Extension.m in Sources */,
 				BD1BF83B19DB927300B1379A /* Kind+Create.m in Sources */,
 				BD58BDA01AA8984300CE2D08 /* ColorTransformer.m in Sources */,
 				458C77541AD4E1670088BA86 /* CustomPresentAnimationController.m in Sources */,
@@ -923,6 +922,7 @@
 				4508D6501AC3EDF5007CA44A /* CursorButton.m in Sources */,
 				BD81A3ED1A99D78500C2CBE6 /* BillTVCell.m in Sources */,
 				4508D6611AC41642007CA44A /* BillDetailCVC+UIActionSheet.m in Sources */,
+				45F9FB0F1AE8CC3D00C8112C /* UIToolbar+Extension.m in Sources */,
 				BD1BF83419DB927300B1379A /* ChartDate.m in Sources */,
 				BD1BF7E519DB901E00B1379A /* main.m in Sources */,
 				BDB073DC19FBD9780062462F /* Bill+MKAnnotation.m in Sources */,

@@ -11,6 +11,7 @@
 #import "Kind+Create.h"
 #import "UINavigationController+Style.h"
 #import "HomeViewController.h"
+#import "KindDetailCVC.h"
 
 @interface ManageKindCDTVC ()
 
@@ -62,10 +63,13 @@
     return 50.0f;
 }
 
-#pragma mark - UITable View Data Delegate
+#pragma mark - UITable View Delegate
 - (void)        tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"showKindDetail" sender:cell];
+
     [self.tableView
      reloadRowsAtIndexPaths:@[indexPath]
      withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -89,16 +93,37 @@
 
     }
 }
+#pragma mark - IBAction Method
+
+- (IBAction)addKind:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"showKindDetail" sender:sender];
+}
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"showKindDetail"]) {
+        if ([sender isKindOfClass:[UITableViewCell class]]) {
+            if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
+                UINavigationController *navigationController = segue.destinationViewController;
+                if ([navigationController.topViewController isKindOfClass:[KindDetailCVC class]]) {
+                    KindDetailCVC *kindDetailCVC = (KindDetailCVC *)navigationController.topViewController;
+                    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+                    Kind *kind = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                    kindDetailCVC.kind = kind;
+                    NSLog(@"showKindDetail");
+                }
+            }
+        }
+       
+    }
+    
 }
-*/
+
 
 @end

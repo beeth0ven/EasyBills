@@ -60,8 +60,8 @@
     self.sumLabel.text = [NSString stringWithFormat:@" ¥ %.0f  ",
                           fabs(sum.floatValue)];
     
-    self.countLabel.text = [NSString stringWithFormat:@" 共%i笔   ",
-                            self.fetchedResultsController.fetchedObjects.count];
+    self.countLabel.text = [NSString stringWithFormat:@" 共%lu笔   ",
+                            (unsigned long)self.fetchedResultsController.fetchedObjects.count];
     
     self.equalLabel.font = [self.equalLabel.font fontWithSize:25];
     self.sumLabel.textColor = sum.floatValue >= 0 ? EBBlue : PNRed;
