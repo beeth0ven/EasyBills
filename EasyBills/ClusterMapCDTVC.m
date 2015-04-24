@@ -266,7 +266,7 @@
     
     if ([view.annotation isKindOfClass:[Bill class]]) {
         Bill *annotation = view.annotation;
-        [mapView deselectAnnotation:annotation animated:YES];
+        [mapView deselectAnnotation:annotation animated:NO];
         if (annotation.containedAnnotations.count > 0) {
             [self performSegueWithIdentifier:@"showBillByMap" sender:view];
         }else{

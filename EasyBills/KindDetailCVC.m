@@ -20,6 +20,7 @@
 
 @property (strong ,nonatomic) UITextField *activeField;
 
+
 @end
 
 
@@ -91,18 +92,23 @@
     
     [[self undoManager] beginUndoGrouping];
     if (!self.kind){
-        self.kind = [Kind kindWithName:@"" isIncome:self.isIncome];
+        self.kind = [Kind kindWithName:@"" isIncome:[Kind lastCreateKindIsIncome]];
     }else{
         self.isIncome = self.kind.isIncome.boolValue;
     }
     [self registerNotifications];
     [self setUpBackgroundView];
+    [self updateTitle];
 }
 
 - (void)setUpBackgroundView {
     UIImage *image = [UIImage imageNamed:@"Account details BG"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     self.collectionView.backgroundView = imageView;
+    
+}
+
+- (void)updateTitle {
     if (self.kind.name.length > 0) {
         self.title = self.kind.name;
     }else{
@@ -265,8 +271,10 @@
 - (void)configCell:(UICollectionViewCell *)cell
        atIndexPath:(NSIndexPath *)indexPath{
     
+    
+    
     if ([cell.reuseIdentifier isEqualToString:@"nameCell"]){
-
+        
         UIView *view = [cell viewWithTag:3];
         if ([view isKindOfClass:[UITextField class]]) {
             UITextField *textField = (UITextField *)view;
@@ -277,7 +285,17 @@
             
             textField.text = self.kind.name;
         }
-
+        
+        
+    }else if ([cell.reuseIdentifier isEqualToString:@"isIncomeCell"]){
+        
+        UIView *view = [cell viewWithTag:3];
+        if ([view isKindOfClass:[UISwitch class]]) {
+            UISwitch *switchControl = (UISwitch *)view;
+            [switchControl setOn:self.kind.isIncome.boolValue];
+            
+        }
+        
         
     }else if ([cell.reuseIdentifier isEqualToString:@"colorCell"]){
 //        
@@ -311,6 +329,8 @@
     
 }
 
+
+
 - (CGSize)          collectionView:(UICollectionView *)collectionView
                             layout:(UICollectionViewLayout*)collectionViewLayout
             sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -341,6 +361,7 @@
 
 }
 
+#pragma mark - UICollection View Delegate
 
 
 -(void)     collectionView:(UICollectionView *)collectionView
@@ -348,7 +369,10 @@
 {
     
     if (collectionView == self.collectionView) {
-        
+        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+        if ([cell.reuseIdentifier isEqualToString:@"deleteCell"]) {
+            [self didSelectDeleteCell];
+        }
         
 //        [super collectionView:collectionView
 //        didSelectItemAtIndexPath:indexPath];
@@ -373,23 +397,40 @@
     
     
 }
+
+- (void)didSelectDeleteCell{
+    UIActionSheet *actionSheet =
+    [[UIActionSheet alloc] initWithTitle:DELETE_KIND_ACTIONSHEET_TITLE
+                                delegate:self
+                       cancelButtonTitle:@"取消"
+                  destructiveButtonTitle:@"删除"
+                       otherButtonTitles: nil];
+    [actionSheet showInView:self.view];
+}
+
 #pragma mark - IBAction Method
 
 - (IBAction)done:(UIBarButtonItem *)sender
 {
     [self.view endEditing:YES];
-    if (self.kind.name.length > 0) {
-        // Money != 0
-        [self setIsUndo:NO];
-        
-        [self dismissViewControllerAnimated:YES completion:^(){
-            [PubicVariable saveContext];
-        }];
-    }else{
-        // Money = 0
+
+    if (self.kind.name.length == 0) {
         self.navigationItem.prompt = @"请输入一个名字";
+        return;
     }
     
+    if (![self.kind isUnique]) {
+        self.navigationItem.prompt = [NSString stringWithFormat:
+                                      @"’%@‘已存在",
+                                      self.kind.name];
+        return;
+    }
+    
+    [self setIsUndo:NO];
+    
+    [self dismissViewControllerAnimated:YES completion:^(){
+        [PubicVariable saveContext];
+    }];
     
 }
 
@@ -404,14 +445,32 @@
 }
 
 - (IBAction)changeIncomeMode:(UISwitch *)sender {
-    
+    if (self.kind.bills.count == 0) {
+        self.kind.isIncome = [NSNumber numberWithBool:sender.isOn];
+    }else{
+        NSLog(@"This kind has bills.");
+        
+        NSString *message = [NSString stringWithFormat:@"‘%@’下存在%i比笔记录。需要将它们移动到‘其他’吗？",
+                             self.kind.name,self.kind.bills.count];
+        UIAlertView *alert =
+        [[UIAlertView alloc]
+         initWithTitle:@"提示"
+         message:message
+         delegate:self
+         cancelButtonTitle:@"取消"
+         otherButtonTitles:@"移动",nil];
+        
+        [alert show];
+        
+    }
 }
-#pragma mark - UIText Field Delegate
+
+#pragma mark - UITextField Delegate Methods
+
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
     self.kind.name = textField.text;
-    
+    [self updateTitle];
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
@@ -420,7 +479,40 @@
     self.activeField = textField;
 }
 
+#pragma mark - UIAlert View Delegate
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([buttonTitle isEqualToString:@"移动"]) {
+        [self.kind removeAllBills];
+        self.kind.isIncome = [NSNumber numberWithBool:!self.kind.isIncome.boolValue];
+    }else if([buttonTitle isEqualToString:@"取消"]){
+        NSInteger item = [self.cellIdentifiers indexOfObject:@"isIncomeCell"];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
+        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    }
+}
+
+#pragma mark - UIAction Sheet Delegate Method
+
+
+-(void)     actionSheet:(UIActionSheet *)actionSheet
+   clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if ([title isEqualToString:@"删除" ]) {
+        [self deleteKind];
+    }
+}
+
+- (void)deleteKind
+{
+    [self.kind removeAllBills];
+    [[PubicVariable managedObjectContext] deleteObject:self.kind];
+    [PubicVariable saveContext];
+    [self dismissViewControllerAnimated:YES completion:^(){}];
+    
+}
 
 #pragma mark - NSUndoManager
 

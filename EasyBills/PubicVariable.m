@@ -262,8 +262,7 @@
     if (firstRun)
     {
         
-        [Kind kindWithNames:[PubicVariable incomeKinds] isIncome:YES];
-        [Kind kindWithNames:[PubicVariable expenseKinds] isIncome:NO];
+        [Kind createDefaultKinds];
         [PubicVariable setNextAssignIncomeColorIndex:-1];
         [PubicVariable setNextAssignExpenseColorIndex:-1];
 		[self saveContext];
@@ -273,15 +272,6 @@
 
 
 
-+(NSArray *)incomeKinds
-{
-    return @[@"工资",@"人情",@"其他"];
-}
-
-+(NSArray *)expenseKinds
-{
-    return @[@"衣服",@"餐饮",@"住宿",@"交通",@"人情",@"其他"];
-}
 
 
 #pragma mark - Application's Documents directory

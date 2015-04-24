@@ -62,8 +62,13 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    
     [self.navigationController applyDefualtStyle:YES];
+    if (self.shouldRelaodData) {
+        if (self.refreshControl) {
+            [self.refreshControl beginRefreshing];
+        }
+        [self refresh:self.refreshControl];
+    }
 
 }
 
@@ -74,8 +79,9 @@
 }
 
 - (IBAction)refresh:(UIRefreshControl *)sender {
-    [sender endRefreshing];
     [self resetFetchedResultsController];
+    [sender endRefreshing];
+    self.shouldRelaodData = NO;
 }
 
 
@@ -467,9 +473,10 @@
           atIndexPath:indexPath
         forChangeType:type
          newIndexPath:newIndexPath];
+  
+        self.shouldRelaodData = YES;
     
-    [self.tableView reloadData];
-    
+
 }
 
 #pragma mark - Navigation

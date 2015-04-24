@@ -11,11 +11,18 @@
 
 @interface Kind (Create)
 
-+ (Kind *) kindWithName:(NSString *)name isIncome:(BOOL) isIncome;
-+ (void) kindWithNames:(NSArray *)names isIncome:(BOOL) isIncome;
-+ (Kind *) lastVisiteKindIsIncome:(BOOL) isIncome;
++ (Kind *)kindWithName:(NSString *)name isIncome:(BOOL) isIncome;
++ (void)kindWithNames:(NSArray *)names isIncome:(BOOL) isIncome;
++ (Kind *)lastVisiteKindIsIncome:(BOOL) isIncome;
++ (Kind *)lastCreateKind;
++ (BOOL)lastCreateKindIsIncome;
 
-+ (BOOL) kindIsExistedWithName:(NSString *)name isIncome:(BOOL) isIncome;
+- (void)removeAllBills;
++ (void)createDefaultKinds;
+
++ (BOOL)kindIsExistedWithName:(NSString *)name isIncome:(BOOL) isIncome;
+- (BOOL)isUnique;
+
 
 +(NSFetchedResultsController *)fetchedResultsControllerIsincome:(BOOL) isIncome;
 

@@ -293,7 +293,7 @@
 
 - (void)didSelectDeleteCell{
     UIActionSheet *actionSheet =
-    [[UIActionSheet alloc] initWithTitle:@DELETE_BILL_ACTIONSHEET_TITLE
+    [[UIActionSheet alloc] initWithTitle:DELETE_BILL_ACTIONSHEET_TITLE
                                 delegate:self
                        cancelButtonTitle:@"取消"
                   destructiveButtonTitle:@"删除"

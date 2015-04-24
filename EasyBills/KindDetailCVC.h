@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Kind+Create.h"
 
+#define DELETE_KIND_ACTIONSHEET_TITLE @"您确定要删除账此类别吗?"
 
 @interface KindDetailCVC : UICollectionViewController
-<UITextFieldDelegate>
+<UITextFieldDelegate,
+UIAlertViewDelegate,
+UIActionSheetDelegate>
 
 
 @property (strong ,nonatomic) Kind *kind;

@@ -31,6 +31,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController applyDefualtStyle:NO];
+    if (self.shouldRelaodData){
+        [self.tableView reloadData];
+        self.shouldRelaodData = NO;
+    }
 
 }
 
@@ -47,7 +51,7 @@
 
 -(void)configCell:(UITableViewCell *)cell WithKind:(Kind *)kind {
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@  ",[kind.name description]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@  ",(kind.name.length > 0) ? kind.name : @"未命名"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@" %@ ",kind.isIncomeDescription];
 
     cell.textLabel.backgroundColor = kind.color;
@@ -70,9 +74,10 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"showKindDetail" sender:cell];
 
-    [self.tableView
-     reloadRowsAtIndexPaths:@[indexPath]
-     withRowAnimation:UITableViewRowAnimationAutomatic];
+    self.shouldRelaodData = YES;
+//    [self.tableView
+//     reloadRowsAtIndexPaths:@[indexPath]
+//     withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Some Method
@@ -98,7 +103,25 @@
 - (IBAction)addKind:(UIBarButtonItem *)sender {
     [self performSegueWithIdentifier:@"showKindDetail" sender:sender];
 }
+#pragma mark - NSFetchedResultsControllerDelegate
 
+
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+   [super controller:controller
+     didChangeObject:anObject
+         atIndexPath:indexPath
+       forChangeType:type
+        newIndexPath:newIndexPath];
+    
+    
+    self.shouldRelaodData = YES;
+}
 
 
 #pragma mark - Navigation

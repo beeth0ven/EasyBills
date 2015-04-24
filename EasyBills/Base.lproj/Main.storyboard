@@ -402,7 +402,7 @@
                                         </segmentedControl>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fqa-Sw-flw"/>
-                                    <barButtonItem image="EqualizerToolBarIcon" id="mva-A3-jWV">
+                                    <barButtonItem image="ListNavigationBarIcon" id="mva-A3-jWV">
                                         <connections>
                                             <segue destination="Eg1-Uc-N3A" kind="popoverPresentation" identifier="showLocation" popoverAnchorBarButtonItem="mva-A3-jWV" id="ULs-Xa-Fzq">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -3304,6 +3304,7 @@
         <image name="HomeIcon" width="66" height="64"/>
         <image name="InfoIcon" width="64" height="64"/>
         <image name="LaunchIcon" width="64" height="64"/>
+        <image name="ListNavigationBarIcon" width="22" height="44"/>
         <image name="LockIcon" width="64" height="64"/>
         <image name="MapIcon" width="64" height="64"/>
         <image name="PaperPlaneIcon" width="64" height="64"/>
@@ -3319,8 +3320,8 @@
         <image name="WalletIcon" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xMn-lC-zYw"/>
-        <segue reference="4xq-Wo-5WR"/>
+        <segue reference="2Y9-ck-bRC"/>
+        <segue reference="1iF-0M-vvk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.31372549020000001" green="0.74117647060000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

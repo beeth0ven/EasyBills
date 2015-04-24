@@ -33,7 +33,6 @@
     [super viewDidLoad];
     [self setupFetchedResultsController];
     [self upadateFootView];
-    [self showEmptyBackgroundIfNeeded];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -42,13 +41,26 @@
     [self.navigationController applyDefualtStyle:NO];
 }
 
+#pragma mark - NSFetchedResultsControllerDelegate
 
-- (void)didReceiveMemoryWarning
+
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
 {
+    [super controller:controller
+      didChangeObject:anObject
+          atIndexPath:indexPath
+        forChangeType:type
+         newIndexPath:newIndexPath];
     
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    [self upadateFootView];
 }
+
 
 #pragma mark - Some Method
 
@@ -65,7 +77,8 @@
     
     self.equalLabel.font = [self.equalLabel.font fontWithSize:25];
     self.sumLabel.textColor = sum.floatValue >= 0 ? EBBlue : PNRed;
-
+    
+    [self showEmptyBackgroundIfNeeded];
 }
 
 - (void)showEmptyBackgroundIfNeeded {
@@ -153,20 +166,6 @@
     moneyLabel.backgroundColor = bill.isIncome.boolValue ? EBBlue : PNRed;
     [moneyLabel setHighlightedTextColor:moneyLabel.backgroundColor];
     [dateLabel setHighlightedTextColor:dateLabel.backgroundColor];
-    
-    /**/
-    //    cell.indentationLevel = 2;
-    //    cell.textLabel.text = [NSString stringWithFormat:@"  %@  ",[bill.kind.name description]];
-    //    cell.detailTextLabel.text = [NSString stringWithFormat:@" ¥  %.0f ",fabs(bill.money.floatValue)];
-    //    cell.textLabel.backgroundColor = bill.kind.color;
-    //    [cell.textLabel setHighlightedTextColor: cell.textLabel.backgroundColor];
-    //    cell.detailTextLabel.backgroundColor = bill.isIncome.boolValue ? EBBlue : PNRed;
-    //    [cell.detailTextLabel setHighlightedTextColor:cell.detailTextLabel.backgroundColor];
-    //    cell.barColor = bill.kind.color;
-    ////    bill.isIncome.boolValue ? EBBlue : PNRed;
-    //    float maxBillMoney = [self maxBillMoney];
-    //    float money = fabs(bill.money.floatValue);
-    //    cell.grade = money/maxBillMoney;
     
 }
 

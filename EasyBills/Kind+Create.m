@@ -17,7 +17,7 @@
 {
     Kind *kind = nil;
     
-    if (name.length) {
+//    if (name.length) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
         request.predicate = [NSPredicate predicateWithFormat:@"name = %@ AND isIncome = %@",name,[NSNumber numberWithBool:isIncome]];
@@ -28,6 +28,7 @@
         
         if (!matches || [matches count] > 1) {
             //error
+            NSLog(@"error: kind match");
         }else if ([matches count] == 0){
             
             kind = [NSEntityDescription insertNewObjectForEntityForName:@"Kind" inManagedObjectContext:[PubicVariable managedObjectContext]];
@@ -39,7 +40,7 @@
         }else if ([matches count] == 1){
             kind = [matches lastObject];
         }
-    }
+//    }
     return kind;
 }
 
@@ -108,6 +109,8 @@
     }
 }
 
+
+
 + (Kind *) lastVisiteKindIsIncome:(BOOL) isIncome
 {
     Kind *kind = nil;
@@ -136,6 +139,81 @@
     
 }
 
++ (Kind *)lastCreateKind {
+    Kind *kind = nil;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"createDate" ascending:YES]];
+    request.predicate = nil;
+    
+    NSError *error = nil;
+    NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+    
+
+    if ([matches count] > 0){
+        kind = [matches lastObject];
+    }
+    
+    return kind;
+}
+
++ (BOOL)lastCreateKindIsIncome {
+    return [self lastCreateKind].isIncome.boolValue;
+}
+
+- (void)removeAllBills {
+    if (self.bills.count > 0) {
+        Kind *kind = [Kind kindWithName:@"其他" isIncome:self.isIncome.boolValue];
+        [self.bills enumerateObjectsUsingBlock:^(Bill *bill, BOOL *stop) {
+            bill.kind = kind;
+        }];
+    }
+}
+
++ (BOOL)kindIsExistedWithName:(NSString *)name isIncome:(BOOL) isIncome
+{
+    return [self numberOfkindsWithName:name isIncome:isIncome] >= 1;
+}
+
+- (BOOL)isUnique {
+    return [Kind numberOfkindsWithName:self.name isIncome:self.isIncome.boolValue] == 1;
+}
+
++ (NSInteger)numberOfkindsWithName:(NSString *)name isIncome:(BOOL) isIncome {
+    NSInteger result = 0;
+    if (name.length) {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+        request.predicate = [NSPredicate predicateWithFormat:@"name = %@ AND isIncome = %@",name,[NSNumber numberWithBool:isIncome]];
+        
+        NSError *error = nil;
+        NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+        
+        
+        result = [matches count];
+    }
+    return result;
+}
+
+
++ (void)createDefaultKinds {
+    [self kindWithNames:[self incomeKinds] isIncome:YES];
+    [self kindWithNames:[self expenseKinds] isIncome:NO];
+}
+
++ (NSArray *)incomeKinds
+{
+    return @[@"工资",@"人情",@"其他"];
+}
+
++ (NSArray *)expenseKinds
+{
+    return @[@"衣服",@"餐饮",@"住宿",@"交通",@"人情",@"其他"];
+}
+
+
+
+
 +(NSFetchedResultsController *)fetchedResultsControllerIsincome:(BOOL) isIncome
 {
     NSFetchedResultsController *fetchedResultsController = [self performFetchIsincome:isIncome];
@@ -146,27 +224,6 @@
     return fetchedResultsController;
     
 }
-
-+ (BOOL) kindIsExistedWithName:(NSString *)name isIncome:(BOOL) isIncome
-{
-    BOOL result = NO;
-    if (name.length) {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-        request.predicate = [NSPredicate predicateWithFormat:@"name = %@ AND isIncome = %@",name,[NSNumber numberWithBool:isIncome]];
-        
-        NSError *error = nil;
-        NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
-        
-        
-        if ([matches count] == 1){
-            result = YES;
-        }
-    }
-    return result;
-}
-
-
 
 +(NSFetchedResultsController *)performFetchIsincome:(BOOL) isIncome
 {

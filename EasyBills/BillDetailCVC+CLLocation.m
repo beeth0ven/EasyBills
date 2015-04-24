@@ -72,6 +72,7 @@
             break;
         }
         default:{
+            NSLog(@"Default");
             [self getCurentLocation];
             break;
         }
