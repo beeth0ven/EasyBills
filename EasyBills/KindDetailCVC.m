@@ -27,6 +27,12 @@
 
 @implementation KindDetailCVC
 
+#define ColorCellWidth 45.0f
+#define ColorCellSpace 5.0f
+#define CellMargin 10.0f
+
+
+
 #pragma mark - UIView Controller Lifecycle
 
 - (void)viewDidLoad
@@ -306,18 +312,29 @@
 //        }
         
     }
-    else if ([cell.reuseIdentifier isEqualToString:@"colorUnitCell"]) {
+    
+    else if ([cell.reuseIdentifier isEqualToString:@"inputcolorCell"]) {
+        UICollectionView *collectionView = (UICollectionView *)[cell viewWithTag:1];
+//        CGSize cellSize = [self collectionView:collectionView
+//                                        layout:collectionView.collectionViewLayout
+//                        sizeForItemAtIndexPath:indexPath];
+//        CGFloat minSpacingForCells = collectionView.frame.size.width-(5*cellSize.width)/9*2;
+//        collectionView.m
+        
+        collectionView.dataSource = self;
+        collectionView.delegate = self;
+    }else if ([cell.reuseIdentifier isEqualToString:@"colorUnitCell"]) {
         //color pick collection view case here
-//        
-//        UIColor *color = (UIColor *)
-//        [[ColorCenter colors] objectAtIndex:indexPath.row];
-//        
-//        cell.layer.cornerRadius = cell.frame.size.width / 2;
-//        cell.backgroundColor = color;
-//        
-//        int colorIDIntValue = self.kind.colorID.intValue;
-//        cell.selected = (colorIDIntValue == indexPath.item);
-//        
+        
+                UIColor *color = (UIColor *)
+                [[ColorCenter colors] objectAtIndex:indexPath.row];
+        
+                cell.layer.cornerRadius = cell.frame.size.width / 2;
+                cell.backgroundColor = color;
+        
+                int colorIDIntValue = self.kind.colorID.intValue;
+                cell.selected = (colorIDIntValue == indexPath.item);
+                
     }
     
     UIView *view = [cell viewWithTag:2];
@@ -340,13 +357,14 @@
     if (collectionView == self.collectionView) {
         
         NSInteger colorItem = [self.cellIdentifiers indexOfObject:@"inputcolorCell"];
+        CGFloat width = collectionView.bounds.size.width-2*CellMargin;
         
         if(colorItem == indexPath.item){
-            size = CGSizeMake(297, 235);
+            size = CGSizeMake(width, 258);
             
         }
         else{
-            size =  CGSizeMake(297, 64);
+            size =  CGSizeMake(width, 64);
             
         }
         return size;
@@ -354,11 +372,30 @@
     }else{
         //color pick collection view case here
 
-        return CGSizeMake(50, 50);
+        return CGSizeMake(ColorCellWidth, ColorCellWidth);
         
     }
     
 
+}
+
+- (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    if (collectionView == self.collectionView) {
+        return 0;
+    }else{
+        CGFloat cellUnitWidth = ColorCellWidth + ColorCellSpace;
+        NSInteger count = collectionView.bounds.size.width / cellUnitWidth;
+        CGFloat extraWidth = fmod(collectionView.bounds.size.width, cellUnitWidth)-ColorCellSpace/2;
+        CGFloat extraUnitWidth = extraWidth/(count - 0.5);
+//        NSLog(@"collectionView width: %.1f",collectionView.bounds.size.width);
+//        NSLog(@"count: %i",count);
+//        NSLog(@"extraWidth: %.1f",extraWidth);
+//        NSLog(@"extraUnitWidth: %.1f",extraUnitWidth);
+//        NSLog(@"result: %.1f",ColorCellSpace+extraUnitWidth);
+//
+//        
+        return ColorCellSpace+extraUnitWidth;
+    }
 }
 
 #pragma mark - UICollection View Delegate

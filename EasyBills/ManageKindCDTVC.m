@@ -57,8 +57,10 @@
     cell.textLabel.backgroundColor = kind.color;
     cell.detailTextLabel.backgroundColor = kind.isIncome.boolValue ? EBBlue : PNRed;
 
-    [cell.textLabel setHighlightedTextColor: cell.textLabel.backgroundColor];
-    [cell.detailTextLabel setHighlightedTextColor: cell.detailTextLabel.backgroundColor];
+//    [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
+////     cell.textLabel.backgroundColor];
+//    [cell.detailTextLabel setHighlightedTextColor:[UIColor whiteColor]];
+////     cell.detailTextLabel.backgroundColor];
 
 }
 

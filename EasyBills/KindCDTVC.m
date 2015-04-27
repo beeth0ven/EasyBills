@@ -10,7 +10,6 @@
 #import "Bill+Create.h"
 #import "PubicVariable.h"
 #import "HomeViewController.h"
-#import "BillTVCell.h"
 #import "Kind+Create.h"
 #import "SWRevealViewController.h"
 #import "PubicVariable+FetchRequest.h"

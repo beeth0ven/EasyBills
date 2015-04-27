@@ -10,7 +10,6 @@
 #import "Bill+Create.h"
 #import "PubicVariable.h"
 #import "HomeViewController.h"
-#import "BillTVCell.h"
 #import "MapCDTVC.h"
 #import "BillDetailCVC.h"
 #import "DefaultStyleController.h"
@@ -39,6 +38,10 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController applyDefualtStyle:NO];
+    if (self.shouldRelaodData){
+        [self.tableView reloadData];
+        self.shouldRelaodData = NO;
+    }
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -57,7 +60,7 @@
         forChangeType:type
          newIndexPath:newIndexPath];
     
-    
+    self.shouldRelaodData = YES;
     [self upadateFootView];
 }
 
@@ -144,13 +147,13 @@
 #pragma mark - UITable View Data Source
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BillTVCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bill"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bill"];
     Bill *bill = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self configCell:cell WithBill:bill];
     return cell;
 }
 
--(void)configCell:(BillTVCell *)cell WithBill:(Bill *)bill
+-(void)configCell:(UITableViewCell *)cell WithBill:(Bill *)bill
 {
     //cell.textLabel.text = [NSString stringWithFormat:@"￥  %.2f",fabs(bill.money.floatValue)];
     UILabel *kindLabel =  (UILabel *)[cell viewWithTag:1];
@@ -162,11 +165,15 @@
     dateLabel.text = [NSString stringWithFormat:@"%@  ", [PubicVariable stringFromDate:bill.date]];
     
     kindLabel.backgroundColor = bill.kind.color;
-    [kindLabel setHighlightedTextColor: kindLabel.backgroundColor];
     moneyLabel.backgroundColor = bill.isIncome.boolValue ? EBBlue : PNRed;
-    [moneyLabel setHighlightedTextColor:moneyLabel.backgroundColor];
-    [dateLabel setHighlightedTextColor:dateLabel.backgroundColor];
     
+//    [kindLabel setHighlightedTextColor:[UIColor whiteColor]];
+//    //     kindLabel.backgroundColor];
+//    [moneyLabel setHighlightedTextColor:[UIColor whiteColor]];
+////     moneyLabel.backgroundColor];
+//    [dateLabel setHighlightedTextColor:[UIColor whiteColor]];
+////     dateLabel.backgroundColor];
+//    
 }
 
 - (CGFloat)     tableView:(UITableView *)tableView
@@ -178,9 +185,11 @@
 - (void)        tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.tableView
-     reloadRowsAtIndexPaths:@[indexPath]
-     withRowAnimation:UITableViewRowAnimationAutomatic];
+    self.shouldRelaodData = YES;
+
+//    [self.tableView
+//     reloadRowsAtIndexPaths:@[indexPath]
+//     withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 

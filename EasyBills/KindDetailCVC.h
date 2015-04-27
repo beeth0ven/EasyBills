@@ -14,7 +14,8 @@
 @interface KindDetailCVC : UICollectionViewController
 <UITextFieldDelegate,
 UIAlertViewDelegate,
-UIActionSheetDelegate>
+UIActionSheetDelegate,
+UICollectionViewDelegateFlowLayout>
 
 
 @property (strong ,nonatomic) Kind *kind;

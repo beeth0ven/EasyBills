@@ -73,7 +73,6 @@
 		BD6FC8501AA0B7730059AC20 /* KindDetailCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6FC84F1AA0B7730059AC20 /* KindDetailCVC.m */; };
 		BD7348841A99842B00692EE4 /* UINavigationController+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7348831A99842B00692EE4 /* UINavigationController+Style.m */; };
 		BD7348951A9995B700692EE4 /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7348941A9995B700692EE4 /* UIViewController+Extension.m */; };
-		BD81A3ED1A99D78500C2CBE6 /* BillTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD81A3EC1A99D78500C2CBE6 /* BillTVCell.m */; };
 		BDA397841A3BE9E400E1D9F7 /* DefaultStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */; };
 		BDA5A34C19FA787A006D2E69 /* MapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA5A34B19FA787A006D2E69 /* MapCDTVC.m */; };
 		BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA956381A10F13F00E55A9D /* BillDetailCVC.m */; };
@@ -215,8 +214,6 @@
 		BD7348831A99842B00692EE4 /* UINavigationController+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Style.m"; sourceTree = "<group>"; };
 		BD7348931A9995B600692EE4 /* UIViewController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extension.h"; sourceTree = "<group>"; };
 		BD7348941A9995B700692EE4 /* UIViewController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extension.m"; sourceTree = "<group>"; };
-		BD81A3EB1A99D78500C2CBE6 /* BillTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillTVCell.h; sourceTree = "<group>"; };
-		BD81A3EC1A99D78500C2CBE6 /* BillTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillTVCell.m; sourceTree = "<group>"; };
 		BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultStyleController.h; sourceTree = "<group>"; };
 		BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultStyleController.m; sourceTree = "<group>"; };
 		BDA5A34A19FA787A006D2E69 /* MapCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCDTVC.h; sourceTree = "<group>"; };
@@ -498,7 +495,6 @@
 			isa = PBXGroup;
 			children = (
 				BD1BF7EA19DB901E00B1379A /* Main.storyboard */,
-				BD81A3EE1A99D7A000C2CBE6 /* BillCDTVCCells */,
 				BD81A3E91A99D6C900C2CBE6 /* ColorCVCell */,
 			);
 			name = View;
@@ -714,15 +710,6 @@
 			name = ColorCVCell;
 			sourceTree = "<group>";
 		};
-		BD81A3EE1A99D7A000C2CBE6 /* BillCDTVCCells */ = {
-			isa = PBXGroup;
-			children = (
-				BD81A3EB1A99D78500C2CBE6 /* BillTVCell.h */,
-				BD81A3EC1A99D78500C2CBE6 /* BillTVCell.m */,
-			);
-			name = BillCDTVCCells;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -920,7 +907,6 @@
 				BDB39FD919E814BF0022E5C4 /* KindCDTVC.m in Sources */,
 				4508D6581AC3F283007CA44A /* EasyBillsCursorButton.m in Sources */,
 				4508D6501AC3EDF5007CA44A /* CursorButton.m in Sources */,
-				BD81A3ED1A99D78500C2CBE6 /* BillTVCell.m in Sources */,
 				4508D6611AC41642007CA44A /* BillDetailCVC+UIActionSheet.m in Sources */,
 				45F9FB0F1AE8CC3D00C8112C /* UIToolbar+Extension.m in Sources */,
 				BD1BF83419DB927300B1379A /* ChartDate.m in Sources */,
