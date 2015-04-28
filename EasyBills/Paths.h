@@ -11,5 +11,7 @@
 @interface Paths : NSObject
 
 + (CGPathRef)cursor;
++ (CGPathRef)heart;
++ (CGPathRef)circleInFrame:(CGRect)frame;
 
 @end

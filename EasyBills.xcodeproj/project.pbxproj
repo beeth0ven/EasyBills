@@ -22,6 +22,7 @@
 		455C0DA61AD65BAF0060C4DF /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA51AD65BAF0060C4DF /* Bill.m */; };
 		455C0DA91AD65BB00060C4DF /* Plackmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA81AD65BB00060C4DF /* Plackmark.m */; };
 		455C0DAC1AD65BE20060C4DF /* Plackmark+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DAB1AD65BE20060C4DF /* Plackmark+Create.m */; };
+		4561ECEC1AEE0F990079D6A9 /* ColorCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4561ECEB1AEE0F990079D6A9 /* ColorCVCell.m */; };
 		456664A81ADA48F500808312 /* Naughty Cartoons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456664A71ADA48F500808312 /* Naughty Cartoons.ttf */; };
 		456664B01ADA604A00808312 /* WawaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 456664AF1ADA604A00808312 /* WawaSC-Regular.otf */; };
 		456664B31ADCD12600808312 /* UIFont+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 456664B21ADCD12600808312 /* UIFont+Extension.m */; };
@@ -67,7 +68,6 @@
 		BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82F19DB927300B1379A /* PubicVariable+FetchRequest.m */; };
 		BD1BF84519DB961800B1379A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF84419DB961800B1379A /* CoreData.framework */; };
 		BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3342A11A4DB07F00BC163C /* ColorPickerCollectionViewController.m */; };
-		BD571E181A82633A0040CCF4 /* ColorCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD571E171A82633A0040CCF4 /* ColorCVCell.m */; };
 		BD58BDA01AA8984300CE2D08 /* ColorTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD58BD9F1AA8984300CE2D08 /* ColorTransformer.m */; };
 		BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BD58BDB61AA8A5B000CE2D08 /* ColorCenter.m */; };
 		BD6FC8501AA0B7730059AC20 /* KindDetailCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6FC84F1AA0B7730059AC20 /* KindDetailCVC.m */; };
@@ -126,6 +126,8 @@
 		455C0DA81AD65BB00060C4DF /* Plackmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Plackmark.m; path = ../Plackmark.m; sourceTree = "<group>"; };
 		455C0DAA1AD65BE20060C4DF /* Plackmark+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plackmark+Create.h"; sourceTree = "<group>"; };
 		455C0DAB1AD65BE20060C4DF /* Plackmark+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plackmark+Create.m"; sourceTree = "<group>"; };
+		4561ECEA1AEE0F990079D6A9 /* ColorCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCVCell.h; sourceTree = "<group>"; };
+		4561ECEB1AEE0F990079D6A9 /* ColorCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorCVCell.m; sourceTree = "<group>"; };
 		456664A71ADA48F500808312 /* Naughty Cartoons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Naughty Cartoons.ttf"; sourceTree = "<group>"; };
 		456664AF1ADA604A00808312 /* WawaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WawaSC-Regular.otf"; sourceTree = "<group>"; };
 		456664B11ADCD12600808312 /* UIFont+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extension.h"; sourceTree = "<group>"; };
@@ -202,8 +204,6 @@
 		BD1BF84419DB961800B1379A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BD3342A01A4DB07F00BC163C /* ColorPickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewController.h; sourceTree = "<group>"; };
 		BD3342A11A4DB07F00BC163C /* ColorPickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewController.m; sourceTree = "<group>"; };
-		BD571E161A82633A0040CCF4 /* ColorCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCVCell.h; sourceTree = "<group>"; };
-		BD571E171A82633A0040CCF4 /* ColorCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorCVCell.m; sourceTree = "<group>"; };
 		BD58BD9E1AA8984300CE2D08 /* ColorTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTransformer.h; sourceTree = "<group>"; };
 		BD58BD9F1AA8984300CE2D08 /* ColorTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTransformer.m; sourceTree = "<group>"; };
 		BD58BDB51AA8A5B000CE2D08 /* ColorCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCenter.h; sourceTree = "<group>"; };
@@ -704,8 +704,8 @@
 		BD81A3E91A99D6C900C2CBE6 /* ColorCVCell */ = {
 			isa = PBXGroup;
 			children = (
-				BD571E161A82633A0040CCF4 /* ColorCVCell.h */,
-				BD571E171A82633A0040CCF4 /* ColorCVCell.m */,
+				4561ECEA1AEE0F990079D6A9 /* ColorCVCell.h */,
+				4561ECEB1AEE0F990079D6A9 /* ColorCVCell.m */,
 			);
 			name = ColorCVCell;
 			sourceTree = "<group>";
@@ -862,6 +862,7 @@
 				459CDE1E1ACD5C2100A6B0E2 /* Kind.m in Sources */,
 				4508D6511AC3EDF5007CA44A /* Paths.m in Sources */,
 				458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */,
+				4561ECEC1AEE0F990079D6A9 /* ColorCVCell.m in Sources */,
 				BDB32C9C1A22421C00EA822E /* SidebarViewController.m in Sources */,
 				4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */,
 				BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */,
@@ -891,7 +892,6 @@
 				BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */,
 				BD1BF7E919DB901E00B1379A /* AppDelegate.m in Sources */,
 				455C0DAC1AD65BE20060C4DF /* Plackmark+Create.m in Sources */,
-				BD571E181A82633A0040CCF4 /* ColorCVCell.m in Sources */,
 				BDB056BA19E3A1D000494080 /* SettingTVC.m in Sources */,
 				4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */,
 				BDA5A34C19FA787A006D2E69 /* MapCDTVC.m in Sources */,

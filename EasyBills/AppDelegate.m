@@ -74,6 +74,7 @@
     */
     
     
+    
     UINavigationController *frontViewController = (UINavigationController *)[self.viewControllers firstObject];
     SidebarViewController *rearViewController = [self.storyBoard
                                                  instantiateViewControllerWithIdentifier:@"rearViewController"];

@@ -10,9 +10,10 @@
 #import "UINavigationController+Style.h"
 #import "DefaultStyleController.h"
 #import "ColorCenter.h"
-#import "ColorCVCell.h"
 #import "UIFont+Extension.h"
 #import "UIToolbar+Extension.h"
+#import "ColorCVCell.h"
+
 
 @interface KindDetailCVC ()
 
@@ -27,8 +28,8 @@
 
 @implementation KindDetailCVC
 
-#define ColorCellWidth 45.0f
-#define ColorCellSpace 5.0f
+#define ColorCellWidth 40.0f
+#define ColorCellSpace 10.0f
 #define CellMargin 10.0f
 
 
@@ -326,15 +327,19 @@
     }else if ([cell.reuseIdentifier isEqualToString:@"colorUnitCell"]) {
         //color pick collection view case here
         
-                UIColor *color = (UIColor *)
-                [[ColorCenter colors] objectAtIndex:indexPath.row];
+        UIColor *color = (UIColor *)
+        [[ColorCenter colors] objectAtIndex:indexPath.row];
         
-                cell.layer.cornerRadius = cell.frame.size.width / 2;
-                cell.backgroundColor = color;
+        if ([cell isKindOfClass:[ColorCVCell class]]) {
+            ColorCVCell *colorCVCell = (ColorCVCell *)cell;
+            colorCVCell.favoriteColor = color;
+            colorCVCell.notFavoriteColor = [color colorWithAlphaComponent:0.9];
+//            
+            int colorIDIntValue = self.kind.colorID.intValue;
+            colorCVCell.favorite = (colorIDIntValue == indexPath.item);
+
+        }
         
-                int colorIDIntValue = self.kind.colorID.intValue;
-                cell.selected = (colorIDIntValue == indexPath.item);
-                
     }
     
     UIView *view = [cell viewWithTag:2];
@@ -360,7 +365,7 @@
         CGFloat width = collectionView.bounds.size.width-2*CellMargin;
         
         if(colorItem == indexPath.item){
-            size = CGSizeMake(width, 258);
+            size = CGSizeMake(width, 211);
             
         }
         else{
@@ -379,24 +384,18 @@
 
 }
 
-- (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    
     if (collectionView == self.collectionView) {
         return 0;
     }else{
-        CGFloat cellUnitWidth = ColorCellWidth + ColorCellSpace;
-        NSInteger count = collectionView.bounds.size.width / cellUnitWidth;
-        CGFloat extraWidth = fmod(collectionView.bounds.size.width, cellUnitWidth)-ColorCellSpace/2;
-        CGFloat extraUnitWidth = extraWidth/(count - 0.5);
-//        NSLog(@"collectionView width: %.1f",collectionView.bounds.size.width);
-//        NSLog(@"count: %i",count);
-//        NSLog(@"extraWidth: %.1f",extraWidth);
-//        NSLog(@"extraUnitWidth: %.1f",extraUnitWidth);
-//        NSLog(@"result: %.1f",ColorCellSpace+extraUnitWidth);
-//
-//        
-        return ColorCellSpace+extraUnitWidth;
+
+        return (collectionView.bounds.size.width-5*ColorCellWidth) / 4;
     }
 }
+
 
 #pragma mark - UICollection View Delegate
 
@@ -424,8 +423,14 @@
         for (ColorCVCell *visibleCell in collectionView.visibleCells) {
             NSIndexPath *visibleCellIndexPath = [collectionView indexPathForCell:visibleCell];
             if (([visibleCellIndexPath compare: indexPath]) != NSOrderedSame) {
-                if (visibleCell.isSelected) {
-                    visibleCell.selected = NO;
+                //Not selected cell.
+                visibleCell.favorite = NO;
+
+            }else{
+                //Is selected cell.
+                if (!visibleCell.isFavorite) {
+                    //Change if cell is not selected, before.
+                    visibleCell.favorite = YES;
                 }
             }
         }

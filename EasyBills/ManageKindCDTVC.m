@@ -51,11 +51,19 @@
 
 -(void)configCell:(UITableViewCell *)cell WithKind:(Kind *)kind {
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@  ",(kind.name.length > 0) ? kind.name : @"未命名"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@" %@ ",kind.isIncomeDescription];
+    UILabel *nameLabel =  (UILabel *)[cell viewWithTag:1];
+    UILabel *countLabel =  (UILabel *)[cell viewWithTag:2];
+    UILabel *isIncomeLabel =  (UILabel *)[cell viewWithTag:3];
+    
+    nameLabel.text = [NSString stringWithFormat:@"%@  ",(kind.name.length > 0) ? kind.name : @"未命名"];
+    countLabel.text = [NSString stringWithFormat:@" 共%lu笔   ",
+                       (unsigned long)kind.bills.count];
+    isIncomeLabel.text = [NSString stringWithFormat:@" %@ ",kind.isIncomeDescription];
+    
 
-    cell.textLabel.backgroundColor = kind.color;
-    cell.detailTextLabel.backgroundColor = kind.isIncome.boolValue ? EBBlue : PNRed;
+
+    nameLabel.backgroundColor = kind.color;
+    countLabel.backgroundColor = kind.isIncome.boolValue ? EBBlue : PNRed;
 
 //    [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
 ////     cell.textLabel.backgroundColor];
@@ -66,7 +74,7 @@
 
 - (CGFloat)     tableView:(UITableView *)tableView
   heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
-    return 50.0f;
+    return 60.0f;
 }
 
 #pragma mark - UITable View Delegate

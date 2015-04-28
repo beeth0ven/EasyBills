@@ -80,37 +80,69 @@
 #pragma Property Method
 
 + (NSArray *)colors{
-
-//    return [[self incomeColors] arrayByAddingObjectsFromArray:
-//            [self expenseColors]];
+    
+    //    return [[self incomeColors] arrayByAddingObjectsFromArray:
+    //            [self expenseColors]];
     return @[
-             FlatRed, FlatRedDark,
-             FlatOrange, FlatOrangeDark,
-             FlatYellow, FlatYellowDark,
-             FlatGreen, FlatGreenDark,
-             FlatPink, FlatPinkDark,
-             FlatBlue, FlatBlueDark,
-             FlatPurple, FlatPurpleDark,
-             
+             FlatRed,
+             FlatOrange,
+             FlatYellow,
+             FlatGreen,
+             FlatPink,
+             FlatBlue,
+             FlatPurple,
              //             FlatBrown, FlatBrownDark,
-             FlatCoffee, FlatCoffeeDark,
-             FlatForestGreen, FlatForestGreenDark,
-             FlatGray, FlatGrayDark,
-             FlatLime, FlatLimeDark,
-             FlatMagenta, FlatMagentaDark,
-             FlatMaroon, FlatMaroonDark,
-             FlatMint, FlatMintDark,
+             FlatCoffee,
+             FlatForestGreen,
+             FlatGray,
+             FlatLime,
+             FlatMagenta,
+             FlatMaroon,
+             FlatMint,
              //             FlatNavyBlue, FlatNavyBlueDark,
-             FlatPlum, FlatPlumDark,
-             FlatPowderBlue, FlatPowderBlueDark,
-             FlatSand, FlatSandDark,
-             FlatSkyBlue, FlatSkyBlueDark,
-             FlatTeal, FlatTealDark,
-             FlatWatermelon, FlatWatermelonDark,
+             FlatPlum,
+             FlatPowderBlue,
+             FlatSand,
+             FlatSkyBlue,
+             FlatTeal,
+             FlatWatermelon,
              //             FlatWhite, FlatWhiteDark,
              //             FlatBlack, FlatBlackDark,
              ];
 }
+//
+//+ (NSArray *)colors{
+//    
+//    //    return [[self incomeColors] arrayByAddingObjectsFromArray:
+//    //            [self expenseColors]];
+//    return @[
+//             FlatRed, FlatRedDark,
+//             FlatOrange, FlatOrangeDark,
+//             FlatYellow, FlatYellowDark,
+//             FlatGreen, FlatGreenDark,
+//             FlatPink, FlatPinkDark,
+//             FlatBlue, FlatBlueDark,
+//             FlatPurple, FlatPurpleDark,
+//             
+//             //             FlatBrown, FlatBrownDark,
+//             FlatCoffee, FlatCoffeeDark,
+//             FlatForestGreen, FlatForestGreenDark,
+//             FlatGray, FlatGrayDark,
+//             FlatLime, FlatLimeDark,
+//             FlatMagenta, FlatMagentaDark,
+//             FlatMaroon, FlatMaroonDark,
+//             FlatMint, FlatMintDark,
+//             //             FlatNavyBlue, FlatNavyBlueDark,
+//             FlatPlum, FlatPlumDark,
+//             FlatPowderBlue, FlatPowderBlueDark,
+//             FlatSand, FlatSandDark,
+//             FlatSkyBlue, FlatSkyBlueDark,
+//             FlatTeal, FlatTealDark,
+//             FlatWatermelon, FlatWatermelonDark,
+//             //             FlatWhite, FlatWhiteDark,
+//             //             FlatBlack, FlatBlackDark,
+//             ];
+//}
 
 
 + (NSArray *)incomeColors{
