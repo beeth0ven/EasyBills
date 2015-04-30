@@ -17,30 +17,47 @@
 {
     Kind *kind = nil;
     
-//    if (name.length) {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-        request.predicate = [NSPredicate predicateWithFormat:@"name = %@ AND isIncome = %@",name,[NSNumber numberWithBool:isIncome]];
-        
-        NSError *error = nil;
-        NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
-        
-        
-        if (!matches || [matches count] > 1) {
-            //error
-            NSLog(@"error: kind match");
-        }else if ([matches count] == 0){
-            
-            kind = [NSEntityDescription insertNewObjectForEntityForName:@"Kind" inManagedObjectContext:[PubicVariable managedObjectContext]];
-            kind.name  = name;
-            kind.createDate = [NSDate date];
-            kind.isIncome = [NSNumber numberWithBool: isIncome];
-            kind.colorID = [ColorCenter assingColorIDIsIncome:isIncome];
-            [PubicVariable saveContext];
-        }else if ([matches count] == 1){
-            kind = [matches lastObject];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"name = %@ AND isIncome = %@",name,[NSNumber numberWithBool:isIncome]];
+    
+    NSError *error = nil;
+    NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+    
+    
+    if (!matches ) {
+        //error
+        NSLog(@"error: kind match");
+    }else if ([matches count] > 1) {
+        //error
+        NSLog(@"error: kind match > 1");
+        kind = matches.firstObject;
+        for (Kind *aKind in matches) {
+            if ([kind.createDate compare:aKind.createDate] == NSOrderedAscending) {
+                //aKind is newer
+                [aKind addBills:kind.bills];
+                [[PubicVariable managedObjectContext] deleteObject:kind];
+                kind = aKind;
+            }else{
+                //kind is newer
+                [kind addBills:aKind.bills];
+                [[PubicVariable managedObjectContext] deleteObject:aKind];
+            }
         }
-//    }
+        
+        [PubicVariable saveContext];
+        
+    }else if ([matches count] == 0){
+        
+        kind = [NSEntityDescription insertNewObjectForEntityForName:@"Kind" inManagedObjectContext:[PubicVariable managedObjectContext]];
+        kind.name  = name;
+        kind.createDate = [NSDate date];
+        kind.isIncome = [NSNumber numberWithBool: isIncome];
+        kind.colorID = [ColorCenter assingColorIDIsIncome:isIncome];
+        [PubicVariable saveContext];
+    }else if ([matches count] == 1){
+        kind = [matches lastObject];
+    }
     return kind;
 }
 

@@ -29,6 +29,12 @@
     return pubicVariable;
 }
 
+- (void)dealloc {
+    NSLog(@"PubicVariable removeObserver");
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 + (NSManagedObjectContext *)managedObjectContext
 {
     PubicVariable *pubicVariable = [PubicVariable pubicVariable];
@@ -202,6 +208,8 @@
         _managedObjectContext.undoManager = [[NSUndoManager alloc] init];
 
     }
+    
+    
     return _managedObjectContext;
 }
 
@@ -271,6 +279,7 @@
         [PubicVariable setNextAssignExpenseColorIndex:-1];
 		[self saveContext];
 	}
+    [self registerForiCloudNotifications];
     return _persistentStoreCoordinator;
 }
 
@@ -285,6 +294,75 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+
+
+#pragma mark - Notification Observers
+
+- (void)registerForiCloudNotifications {
+    NSLog(@"registerForiCloudNotifications");
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    
+    [notificationCenter addObserver:self
+                           selector:@selector(storesWillChange:)
+                               name:NSPersistentStoreCoordinatorStoresWillChangeNotification
+                             object:self.persistentStoreCoordinator];
+    
+    [notificationCenter addObserver:self
+                           selector:@selector(storesDidChange:)
+                               name:NSPersistentStoreCoordinatorStoresDidChangeNotification
+                             object:self.persistentStoreCoordinator];
+    
+    [notificationCenter addObserver:self
+                           selector:@selector(persistentStoreDidImportUbiquitousContentChanges:)
+                               name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
+                             object:self.persistentStoreCoordinator];
+    
+}
+
+- (void)persistentStoreDidImportUbiquitousContentChanges:(NSNotification *)changeNotification {
+    NSLog(@"persistentStoreDidImportUbiquitousContentChanges");
+    
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+//    [context performBlock:^{
+        [context mergeChangesFromContextDidSaveNotification:changeNotification];
+//    }];
+}
+
+
+
+- (void)storesWillChange:(NSNotification *)notification {
+    NSLog(@"storesWillChange");
+
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+//    [context performBlockAndWait:^{
+        NSError *error;
+        
+        if ([context hasChanges]) {
+            BOOL success = [context save:&error];
+            
+            if (!success && error) {
+                //error
+                
+                NSLog(@"%@",[error localizedDescription]);
+                
+            }
+        }
+        [context reset];
+//    }];
+    //Update UI
+}
+
+- (void)storesDidChange:(NSNotification *)notification {
+    NSLog(@"storesDidChange");
+
+    //Update UI
+}
+
+#pragma mark - NSUser Defaults KVC
 
 #define DATEMODE @"DateMode"
 #define KINDISINCOME @"kindIsIncome"

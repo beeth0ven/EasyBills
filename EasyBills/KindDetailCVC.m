@@ -492,8 +492,8 @@
     }else{
         NSLog(@"This kind has bills.");
         
-        NSString *message = [NSString stringWithFormat:@"‘%@’下存在%i比笔记录。需要将它们移动到‘其他’吗？",
-                             self.kind.name,self.kind.bills.count];
+        NSString *message = [NSString stringWithFormat:@"‘%@’下存在%lu比笔记录。需要将它们移动到‘其他’吗？",
+                             self.kind.name,(unsigned long)self.kind.bills.count];
         UIAlertView *alert =
         [[UIAlertView alloc]
          initWithTitle:@"提示"
