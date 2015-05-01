@@ -471,7 +471,7 @@
     [self setIsUndo:NO];
     
     [self dismissViewControllerAnimated:YES completion:^(){
-        [PubicVariable saveContext];
+        // [PubicVariable saveContext];
     }];
     
 }
@@ -551,7 +551,7 @@
 {
     [self.kind removeAllBills];
     [[PubicVariable managedObjectContext] deleteObject:self.kind];
-    [PubicVariable saveContext];
+    // [PubicVariable saveContext];
     [self dismissViewControllerAnimated:YES completion:^(){}];
     
 }

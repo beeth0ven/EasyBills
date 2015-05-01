@@ -36,7 +36,7 @@
                          inManagedObjectContext:[PubicVariable managedObjectContext]];
             
             plackmark.name  = name;
-            [PubicVariable saveContext];
+            // [PubicVariable saveContext];
         }else if ([matches count] == 1){
             plackmark = [matches lastObject];
         }

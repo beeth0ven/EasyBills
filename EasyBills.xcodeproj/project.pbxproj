@@ -33,6 +33,8 @@
 		45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */; };
 		458C77541AD4E1670088BA86 /* CustomPresentAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458C77531AD4E1670088BA86 /* CustomPresentAnimationController.m */; };
 		458C77571AD4FD2B0088BA86 /* CustomDismissAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458C77561AD4FD2B0088BA86 /* CustomDismissAnimationController.m */; };
+		4594DABD1AF34EE200C4BFBB /* UIStoryboardSegue+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4594DABC1AF34EE200C4BFBB /* UIStoryboardSegue+Extension.m */; };
+		4594DAF81AF367B200C4BFBB /* NSManagedObjectContext+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4594DAF71AF367B200C4BFBB /* NSManagedObjectContext+Extension.m */; };
 		459A8FB71AD7943D00685124 /* PlacemarkCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A8FB61AD7943D00685124 /* PlacemarkCDTVC.m */; };
 		459CDE1E1ACD5C2100A6B0E2 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDE1D1ACD5C2100A6B0E2 /* Kind.m */; };
 		459CDE231ACE5E6900A6B0E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */; };
@@ -146,6 +148,10 @@
 		458C77531AD4E1670088BA86 /* CustomPresentAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPresentAnimationController.m; sourceTree = "<group>"; };
 		458C77551AD4FD2B0088BA86 /* CustomDismissAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDismissAnimationController.h; sourceTree = "<group>"; };
 		458C77561AD4FD2B0088BA86 /* CustomDismissAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDismissAnimationController.m; sourceTree = "<group>"; };
+		4594DABB1AF34EE200C4BFBB /* UIStoryboardSegue+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboardSegue+Extension.h"; sourceTree = "<group>"; };
+		4594DABC1AF34EE200C4BFBB /* UIStoryboardSegue+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboardSegue+Extension.m"; sourceTree = "<group>"; };
+		4594DAF61AF367B200C4BFBB /* NSManagedObjectContext+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Extension.h"; sourceTree = "<group>"; };
+		4594DAF71AF367B200C4BFBB /* NSManagedObjectContext+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Extension.m"; sourceTree = "<group>"; };
 		459A8FB51AD7943D00685124 /* PlacemarkCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacemarkCDTVC.h; sourceTree = "<group>"; };
 		459A8FB61AD7943D00685124 /* PlacemarkCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacemarkCDTVC.m; sourceTree = "<group>"; };
 		459CDE1C1ACD5C2100A6B0E2 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
@@ -540,6 +546,10 @@
 			isa = PBXGroup;
 			children = (
 				455C0DA01AD64E660060C4DF /* CustomAnimationController.h */,
+				4594DAF61AF367B200C4BFBB /* NSManagedObjectContext+Extension.h */,
+				4594DAF71AF367B200C4BFBB /* NSManagedObjectContext+Extension.m */,
+				4594DABB1AF34EE200C4BFBB /* UIStoryboardSegue+Extension.h */,
+				4594DABC1AF34EE200C4BFBB /* UIStoryboardSegue+Extension.m */,
 				45F9FB071AE778E600C8112C /* UIAlertView+Extension.h */,
 				45F9FB081AE778E600C8112C /* UIAlertView+Extension.m */,
 				455C0D9D1AD64A080060C4DF /* LoadingStatus.h */,
@@ -859,6 +869,7 @@
 				455C0DA61AD65BAF0060C4DF /* Bill.m in Sources */,
 				BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */,
 				4508D65E1AC41327007CA44A /* BillDetailCVC+MKMapView.m in Sources */,
+				4594DAF81AF367B200C4BFBB /* NSManagedObjectContext+Extension.m in Sources */,
 				459CDE1E1ACD5C2100A6B0E2 /* Kind.m in Sources */,
 				4508D6511AC3EDF5007CA44A /* Paths.m in Sources */,
 				458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */,
@@ -876,6 +887,7 @@
 				BD1BF83519DB927300B1379A /* CoreDataTableViewController.m in Sources */,
 				4508D65B1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m in Sources */,
 				455C0D9F1AD64A080060C4DF /* LoadingStatus.m in Sources */,
+				4594DABD1AF34EE200C4BFBB /* UIStoryboardSegue+Extension.m in Sources */,
 				45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */,
 				BD1BF83219DB927300B1379A /* BillCDTVC.m in Sources */,
 				455C0DA31AD650150060C4DF /* NSString+Extension.m in Sources */,

@@ -37,18 +37,8 @@ enum :NSInteger{
 
 
 + (PubicVariable *)pubicVariable;
-+ (NSManagedObjectContext *)managedObjectContext;
-+ (void)saveContext;
+
 + (NSString *)stringFromDate:(NSDate *)date;
-+ (BOOL)managedObjectContextHasChanges;
-
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (nonatomic) BOOL managedObjectContextHasChanges;
-
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
 
 + (void)setDateMode:(NSInteger)dateMode;
 + (NSInteger)dateMode;

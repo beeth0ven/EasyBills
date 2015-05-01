@@ -84,11 +84,11 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController applyDefualtStyle:YES];
-    if ([PubicVariable managedObjectContextHasChanges]) {
-        [self updateUI];
-        PubicVariable *pubicVariable = [PubicVariable pubicVariable];
-        pubicVariable.managedObjectContextHasChanges = NO;
-    }
+//    if ([PubicVariable managedObjectContextHasChanges]) {
+//        [self updateUI];
+//        PubicVariable *pubicVariable = [PubicVariable pubicVariable];
+//        pubicVariable.managedObjectContextHasChanges = NO;
+//    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -382,7 +382,7 @@
     billCoreDataTableViewController.isIncomeMode = incomeMode;
     billCoreDataTableViewController.fetchedResultsController = [[NSFetchedResultsController alloc]
                                                                 initWithFetchRequest:request
-                                                                managedObjectContext:[PubicVariable managedObjectContext]
+                                                                managedObjectContext:self.managedObjectContext
                                                                 sectionNameKeyPath:nil
                                                                 cacheName:nil];
 }

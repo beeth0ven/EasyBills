@@ -13,7 +13,10 @@
 
 @implementation Kind (Create)
 
-+ (Kind *) kindWithName:(NSString *)name isIncome:(BOOL) isIncome
+
+
+
++ (Kind *)kindWithName:(NSString *)name isIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context
 {
     Kind *kind = nil;
     
@@ -22,7 +25,7 @@
     request.predicate = [NSPredicate predicateWithFormat:@"name = %@ AND isIncome = %@",name,[NSNumber numberWithBool:isIncome]];
     
     NSError *error = nil;
-    NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+    NSArray *matches = [context executeFetchRequest:request error:&error];
     
     
     if (!matches ) {
@@ -36,25 +39,25 @@
             if ([kind.createDate compare:aKind.createDate] == NSOrderedAscending) {
                 //aKind is newer
                 [aKind addBills:kind.bills];
-                [[PubicVariable managedObjectContext] deleteObject:kind];
+                [context deleteObject:kind];
                 kind = aKind;
             }else{
                 //kind is newer
                 [kind addBills:aKind.bills];
-                [[PubicVariable managedObjectContext] deleteObject:aKind];
+                [context deleteObject:aKind];
             }
         }
         
-        [PubicVariable saveContext];
+        // [PubicVariable saveContext];
         
     }else if ([matches count] == 0){
         
-        kind = [NSEntityDescription insertNewObjectForEntityForName:@"Kind" inManagedObjectContext:[PubicVariable managedObjectContext]];
+        kind = [NSEntityDescription insertNewObjectForEntityForName:@"Kind" inManagedObjectContext:context];
         kind.name  = name;
         kind.createDate = [NSDate date];
         kind.isIncome = [NSNumber numberWithBool: isIncome];
         kind.colorID = [ColorCenter assingColorIDIsIncome:isIncome];
-        [PubicVariable saveContext];
+        // [PubicVariable saveContext];
     }else if ([matches count] == 1){
         kind = [matches lastObject];
     }
@@ -115,12 +118,12 @@
 }
 
 
-+ (void) kindWithNames:(NSArray *)names isIncome:(BOOL) isIncome
++ (void)kindWithNames:(NSArray *)names isIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context
 {
     for (id object in names) {
         if ([object isKindOfClass:[NSString class]]) {
             NSString *name = object;
-            [self kindWithName:name isIncome:isIncome];
+            [self kindWithName:name isIncome:isIncome inManagedObjectContext:context];
             
         }
     }
@@ -128,7 +131,7 @@
 
 
 
-+ (Kind *) lastVisiteKindIsIncome:(BOOL) isIncome
++ (Kind *)lastVisiteKindIsIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context
 {
     Kind *kind = nil;
 
@@ -138,7 +141,7 @@
     request.predicate = [NSPredicate predicateWithFormat:@"isIncome = %@",[NSNumber numberWithBool:isIncome]];
     
     NSError *error = nil;
-    NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+    NSArray *matches = [context executeFetchRequest:request error:&error];
     
     NSLog(@"isincome: %i", isIncome);
     NSLog(@"matches: %lu", (unsigned long)[matches count]);
@@ -146,7 +149,7 @@
     //NSLog(@"isincome: %i", isIncome);
     
     if ([matches count] == 0){
-        kind = [Kind kindWithName:@"其他" isIncome:isIncome];
+        kind =[self kindWithName:@"其他" isIncome:isIncome inManagedObjectContext:context];
     }else {
         kind = [matches lastObject];
     }
@@ -156,7 +159,8 @@
     
 }
 
-+ (Kind *)lastCreateKind {
++ (Kind *)lastCreateKindInManagedObjectContext:(NSManagedObjectContext *)context
+{
     Kind *kind = nil;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
@@ -164,7 +168,7 @@
     request.predicate = nil;
     
     NSError *error = nil;
-    NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+    NSArray *matches = [context executeFetchRequest:request error:&error];
     
 
     if ([matches count] > 0){
@@ -174,29 +178,33 @@
     return kind;
 }
 
-+ (BOOL)lastCreateKindIsIncome {
-    return [self lastCreateKind].isIncome.boolValue;
++ (BOOL)lastCreatedKindIsIncomeInManagedObjectContext:(NSManagedObjectContext *)context
+ {
+    return [self lastCreateKindInManagedObjectContext:context].isIncome.boolValue;
 }
 
 - (void)removeAllBills {
     if (self.bills.count > 0) {
-        Kind *kind = [Kind kindWithName:@"其他" isIncome:self.isIncome.boolValue];
+        Kind *kind = [Kind kindWithName:@"其他" isIncome:self.isIncome.boolValue inManagedObjectContext:self.managedObjectContext];
+//        [Kind kindWithName:@"其他" isIncome:self.isIncome.boolValue];
         [self.bills enumerateObjectsUsingBlock:^(Bill *bill, BOOL *stop) {
             bill.kind = kind;
         }];
     }
 }
 
-+ (BOOL)kindIsExistedWithName:(NSString *)name isIncome:(BOOL) isIncome
+
++ (BOOL)kindIsExistedWithName:(NSString *)name isIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context
 {
-    return [self numberOfkindsWithName:name isIncome:isIncome] >= 1;
+    return [self numberOfkindsWithName:name isIncome:isIncome inManagedObjectContext:context] >= 1;
 }
 
 - (BOOL)isUnique {
-    return [Kind numberOfkindsWithName:self.name isIncome:self.isIncome.boolValue] == 1;
+    return [Kind numberOfkindsWithName:self.name isIncome:self.isIncome.boolValue inManagedObjectContext:self.managedObjectContext] == 1;
 }
 
-+ (NSInteger)numberOfkindsWithName:(NSString *)name isIncome:(BOOL) isIncome {
++ (NSInteger)numberOfkindsWithName:(NSString *)name isIncome:(BOOL) isIncome  inManagedObjectContext:(NSManagedObjectContext *)context
+{
     NSInteger result = 0;
     if (name.length) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
@@ -204,7 +212,7 @@
         request.predicate = [NSPredicate predicateWithFormat:@"name = %@ AND isIncome = %@",name,[NSNumber numberWithBool:isIncome]];
         
         NSError *error = nil;
-        NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+        NSArray *matches = [context executeFetchRequest:request error:&error];
         
         
         result = [matches count];
@@ -213,9 +221,10 @@
 }
 
 
-+ (void)createDefaultKinds {
-    [self kindWithNames:[self incomeKinds] isIncome:YES];
-    [self kindWithNames:[self expenseKinds] isIncome:NO];
++ (void)createDefaultKindsInManagedObjectContext:(NSManagedObjectContext *)context
+ {
+    [self kindWithNames:[self incomeKinds] isIncome:YES inManagedObjectContext:context];
+    [self kindWithNames:[self expenseKinds] isIncome:NO inManagedObjectContext:context];
 }
 
 + (NSArray *)incomeKinds
@@ -231,9 +240,9 @@
 
 
 
-+(NSFetchedResultsController *)fetchedResultsControllerIsincome:(BOOL) isIncome
++(NSFetchedResultsController *)fetchedResultsControllerIsincome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context
 {
-    NSFetchedResultsController *fetchedResultsController = [self performFetchIsincome:isIncome];
+    NSFetchedResultsController *fetchedResultsController = [self performFetchIsincome:isIncome inManagedObjectContext:context];
     
     NSError *error;
     [fetchedResultsController performFetch:&error];
@@ -242,13 +251,13 @@
     
 }
 
-+(NSFetchedResultsController *)performFetchIsincome:(BOOL) isIncome
++(NSFetchedResultsController *)performFetchIsincome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"createDate" ascending:YES]];
     request.predicate = [NSPredicate predicateWithFormat:@"isIncome = %@",[NSNumber numberWithBool:isIncome]];
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                                               managedObjectContext:[PubicVariable managedObjectContext]
+                                                                                               managedObjectContext:context
                                                                                                  sectionNameKeyPath:nil
                                                                                                           cacheName:nil];
     NSError *error;

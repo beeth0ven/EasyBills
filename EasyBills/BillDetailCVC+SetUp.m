@@ -93,7 +93,7 @@
         }
         
         [self dismissViewControllerAnimated:YES completion:^(){
-            [PubicVariable saveContext];
+            // [PubicVariable saveContext];
         }];
     }else{
         // Money = 0

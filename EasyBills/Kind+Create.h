@@ -11,20 +11,20 @@
 
 @interface Kind (Create)
 
-+ (Kind *)kindWithName:(NSString *)name isIncome:(BOOL) isIncome;
-+ (void)kindWithNames:(NSArray *)names isIncome:(BOOL) isIncome;
-+ (Kind *)lastVisiteKindIsIncome:(BOOL) isIncome;
-+ (Kind *)lastCreateKind;
-+ (BOOL)lastCreateKindIsIncome;
++ (Kind *)kindWithName:(NSString *)name isIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context;
++ (void)kindWithNames:(NSArray *)names isIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Kind *)lastVisiteKindIsIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Kind *)lastCreateKindInManagedObjectContext:(NSManagedObjectContext *)context;
++ (BOOL)lastCreatedKindIsIncomeInManagedObjectContext:(NSManagedObjectContext *)context;
 
 - (void)removeAllBills;
-+ (void)createDefaultKinds;
++ (void)createDefaultKindsInManagedObjectContext:(NSManagedObjectContext *)context;
 
-+ (BOOL)kindIsExistedWithName:(NSString *)name isIncome:(BOOL) isIncome;
++ (BOOL)kindIsExistedWithName:(NSString *)name isIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context;
 - (BOOL)isUnique;
 
 
-+(NSFetchedResultsController *)fetchedResultsControllerIsincome:(BOOL) isIncome;
++(NSFetchedResultsController *)fetchedResultsControllerIsincome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context;
 
 - (UIColor *)color;
 - (void)calculatorSumMoney;

@@ -25,7 +25,7 @@
 - (void)deleteBill
 {
     [[PubicVariable managedObjectContext] deleteObject:self.bill];
-    [PubicVariable saveContext];
+    // [PubicVariable saveContext];
     [self dismissViewControllerAnimated:YES completion:^(){}];
     
 }

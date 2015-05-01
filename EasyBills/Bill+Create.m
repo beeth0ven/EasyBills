@@ -12,14 +12,16 @@
 @implementation Bill (Create)
 
 + (Bill *) billIsIncome:(BOOL)isIncome
+ inManagedObjectContext:(NSManagedObjectContext *)context
 {
-    Bill *bill = [NSEntityDescription insertNewObjectForEntityForName:@"Bill" inManagedObjectContext:[PubicVariable managedObjectContext]];
+    
+    Bill *bill = [NSEntityDescription insertNewObjectForEntityForName:@"Bill" inManagedObjectContext:self.managedObjectContext];
     Kind *lastVisiteKind = [Kind lastVisiteKindIsIncome:isIncome];
     bill.kind = lastVisiteKind;
     bill.createDate = [NSDate date];
     [bill setDateAttributes:[NSDate date]];
     bill.isIncome = [NSNumber numberWithBool:isIncome];
-    [PubicVariable saveContext];
+//    [PubicVariable saveContext];
     return bill;
 }
 

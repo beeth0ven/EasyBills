@@ -7,7 +7,6 @@
 //
 
 #import "Bill.h"
-#import "Bill.h"
 #import "Kind.h"
 
 
@@ -34,5 +33,7 @@
 @dynamic containedAnnotations;
 @dynamic kind;
 @dynamic plackmark;
+
+
 
 @end

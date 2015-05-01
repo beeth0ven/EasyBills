@@ -63,7 +63,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [self.view endEditing:YES];
-    [PubicVariable saveContext];
+//    [PubicVariable saveContext];
 }
 
 

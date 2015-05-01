@@ -13,8 +13,8 @@
 
 @interface HomeViewController : UIViewController<PNChartDelegate, UIViewControllerTransitioningDelegate>
 
+//@property (nonatomic) PNBarChart * barChart;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-
-@property (nonatomic) PNBarChart * barChart;
 
 @end

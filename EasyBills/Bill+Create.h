@@ -18,8 +18,9 @@
 
 @interface Bill (Create)
 
-+ (Bill *) billIsIncome:(BOOL)isIncome;
-+ (NSArray *) billsWithDateMode:(NSInteger) dateMode;
++ (Bill *) billIsIncome:(BOOL)isIncome inManagedObjectContext:(NSManagedObjectContext *)context;
+
++ (NSArray *) billsWithDateMode:(NSInteger) dateMode inManagedObjectContext:(NSManagedObjectContext *)context;
 
 
 -(void)setDateAttributes:(NSDate *)date;
