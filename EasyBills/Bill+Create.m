@@ -9,14 +9,18 @@
 #import "Bill+Create.h"
 #import "Kind+Create.h"
 #import "PubicVariable+FetchRequest.h"
+#import "NSNumber+PrivateExtension.h"
+#import "NSPredicate+PrivateExtension.h"
+
+
 @implementation Bill (Create)
 
 + (Bill *) billIsIncome:(BOOL)isIncome
  inManagedObjectContext:(NSManagedObjectContext *)context
 {
     
-    Bill *bill = [NSEntityDescription insertNewObjectForEntityForName:@"Bill" inManagedObjectContext:self.managedObjectContext];
-    Kind *lastVisiteKind = [Kind lastVisiteKindIsIncome:isIncome];
+    Bill *bill = [NSEntityDescription insertNewObjectForEntityForName:@"Bill" inManagedObjectContext:context];
+    Kind *lastVisiteKind = [Kind lastVisiteKindIsIncome:isIncome inManagedObjectContext:context];
     bill.kind = lastVisiteKind;
     bill.createDate = [NSDate date];
     [bill setDateAttributes:[NSDate date]];
@@ -28,23 +32,24 @@
 -(void)setDateAttributes:(NSDate *)date
 {
     self.date = date;
-    self.dayID =  [PubicVariable dayIDWithDate:self.date];
-    self.weekID = [PubicVariable weekIDWithDate:self.date];
-    self.monthID = [PubicVariable monthIDWithDate:self.date];
-    self.weekday = [PubicVariable weekdayWithDate:self.date];
-    self.weekOfMonth = [PubicVariable weekOfMonthWithDate:self.date];
-    self.month = [PubicVariable monthWithDate:self.date];
+    self.dayID =  [NSNumber dayIDWithDate:self.date];
+    self.weekID = [NSNumber weekIDWithDate:self.date];
+    self.monthID = [NSNumber monthIDWithDate:self.date];
+    self.weekday = [NSNumber weekdayWithDate:self.date];
+    self.weekOfMonth = [NSNumber weekOfMonthWithDate:self.date];
+    self.month = [NSNumber monthWithDate:self.date];
 }
 
 
-+ (NSArray *) billsWithDateMode:(NSInteger) dateMode
++ (NSArray *)billsWithDateMode:(NSInteger) dateMode
+ inManagedObjectContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
-    request.predicate = [PubicVariable predicateWithbDateMode:dateMode];
+    request.predicate = [NSPredicate predicateWithbDateMode:dateMode];
     
     NSError *error = nil;
-    NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+    NSArray *matches = [context executeFetchRequest:request error:&error];
     NSLog(@"billsCount: %lu",(unsigned long)matches.count);
     return matches;
 }
@@ -61,7 +66,7 @@
 
 
 
-+ (Bill *) lastCreateBill
++ (Bill *) lastCreateBillInManagedObjectContext:(NSManagedObjectContext *)context
 {
     Bill *bill = nil;
     
@@ -71,7 +76,7 @@
     request.predicate = nil;
     
     NSError *error = nil;
-    NSArray *matches = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+    NSArray *matches = [context executeFetchRequest:request error:&error];
     
     NSLog(@"matches: %lu", (unsigned long)[matches count]);
     

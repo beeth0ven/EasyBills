@@ -11,6 +11,7 @@
 @interface UIViewController (Extension)
 
 - (void)setupMenuButton;
+- (void)setupBackgroundImage;
 
 
 @end

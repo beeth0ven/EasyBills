@@ -11,5 +11,6 @@
 @interface BillCDTVC : CoreDataTableViewController
 
 @property (nonatomic) NSInteger isIncomeMode;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

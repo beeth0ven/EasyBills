@@ -55,6 +55,7 @@
         kind = [NSEntityDescription insertNewObjectForEntityForName:@"Kind" inManagedObjectContext:context];
         kind.name  = name;
         kind.createDate = [NSDate date];
+        kind.visiteTime = kind.createDate;
         kind.isIncome = [NSNumber numberWithBool: isIncome];
         kind.colorID = [ColorCenter assingColorIDIsIncome:isIncome];
         // [PubicVariable saveContext];

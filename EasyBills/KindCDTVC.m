@@ -25,6 +25,8 @@
 #import "Filter.h"
 #import "PNColor.h"
 #import "UICountingLabel.h"
+#import "UIStoryboardSegue+Extension.h"
+#import "NSPredicate+PrivateExtension.h"
 
 @interface KindCDTVC ()
 
@@ -123,10 +125,11 @@
 - (void)resetFetchedResultsController
 {
     
+    float total =[PubicVariable sumMoneyWithIncomeMode:[self isIncomeMode]
+                                          withDateMode:[self dateMode]
+                                inManagedObjectContext:self.managedObjectContext];
     
-    self.total = [NSNumber numberWithFloat:
-                  [PubicVariable sumMoneyWithIncomeMode:[self isIncomeMode]
-                                           withDateMode:[self dateMode]]];
+    self.total = [NSNumber numberWithFloat:total];
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
     request.sortDescriptors = @[[NSSortDescriptor
@@ -136,11 +139,11 @@
 //                                [NSSortDescriptor sortDescriptorWithKey:@"visiteTime" ascending:NO]
                                 ];
     
-    request.predicate = [PubicVariable predicateWithIncomeMode:[self isIncomeMode]];
+    request.predicate = [NSPredicate predicateWithIncomeMode:[self isIncomeMode]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc]
                                      initWithFetchRequest:request
-                                     managedObjectContext:[PubicVariable managedObjectContext]
+                                     managedObjectContext:self.managedObjectContext
                                      sectionNameKeyPath:nil
                                      cacheName:nil];
     
@@ -307,7 +310,9 @@
     
     NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:kind];
     NSNumber *current =[NSNumber numberWithFloat:
-                        fabs([PubicVariable sumMoneyWithKind:kind dateMode:[self dateMode]])];
+                        fabs([PubicVariable sumMoneyWithKind:kind
+                                                    dateMode:[self dateMode]
+                                      inManagedObjectContext:self.managedObjectContext])];
     indexLabel.text = [NSString stringWithFormat:@"%i.",indexPath.row + 1];
     label.text = [NSString stringWithFormat:@"  %@  ",[kind.name description]];
     circleView.backgroundColor = kind.color;
@@ -358,7 +363,10 @@
 //    
     NSMutableArray *items = [[NSMutableArray alloc] init];
     [self.fetchedResultsController.fetchedObjects enumerateObjectsUsingBlock:^(Kind *kind, NSUInteger idx, BOOL *stop) {
-        float sum = fabs([PubicVariable sumMoneyWithKind:kind dateMode:[self dateMode]]);
+        float sum = fabs([PubicVariable
+                          sumMoneyWithKind:kind
+                          dateMode:[self dateMode]
+                          inManagedObjectContext:self.managedObjectContext]);
         if (sum > 0) {
             PNPieChartDataItem *item = [PNPieChartDataItem dataItemWithValue:sum color:kind.color];
             [items addObject:item];
@@ -486,6 +494,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
+    [segue passManagedObjectContextIfNeeded];
+    
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     Kind *kind = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
@@ -538,14 +548,14 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Bill"];
     
     NSPredicate *kindPredicate = [NSPredicate predicateWithFormat:@"kind = %@" , kind];
-    NSPredicate *datePredicate = [PubicVariable predicateWithbDateMode:[self dateMode]];
+    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:[self dateMode]];
 
-    request.predicate = [PubicVariable addPredicate:kindPredicate withPredicate:datePredicate];
+    request.predicate = [NSPredicate addPredicate:kindPredicate withPredicate:datePredicate];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]
                                                             initWithFetchRequest:request
-                                                            managedObjectContext:[PubicVariable managedObjectContext]
+                                                            managedObjectContext:self.managedObjectContext
                                                             sectionNameKeyPath:nil
                                                             cacheName:nil];
 

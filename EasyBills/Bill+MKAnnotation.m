@@ -10,6 +10,7 @@
 #import "Kind+Create.h"
 #import "NSString+Extension.h"
 #import "Plackmark+Create.h"
+#import "AppDelegate.h"
 
 @implementation Bill (MKAnnotation)
 
@@ -97,19 +98,22 @@
             [geocoder reverseGeocodeLocation:location
                            completionHandler:
              ^(NSArray *placemarks, NSError *error){
-//                 [[PubicVariable managedObjectContext] performBlock:^{
                      dispatch_async(dispatch_get_main_queue(), ^{
                          if (!error && [placemarks count] > 0) {
                              CLPlacemark *placemark = [placemarks lastObject];
                              NSString *name = [NSString stringForPlacemark:placemark];
-                             self.plackmark = [Plackmark plackmarkWithName:name];
+                             self.plackmark = [Plackmark plackmarkWithName:name inManagedObjectContext:self.managedObjectContext];
                          }else{
-                             self.plackmark = [Plackmark plackmarkWithName:@"未知地点"];
+                             self.plackmark = [Plackmark plackmarkWithName:@"未知地点" inManagedObjectContext:self.managedObjectContext];
                              
                          }
+                         
+       
+                         AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+                         [appDelegate saveContext];
+
                      });
              
-//                 }];
                  
              }];
             

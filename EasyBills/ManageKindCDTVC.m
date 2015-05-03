@@ -12,6 +12,7 @@
 #import "UINavigationController+Style.h"
 #import "HomeViewController.h"
 #import "KindDetailCVC.h"
+#import "UIStoryboardSegue+Extension.h"
 
 @interface ManageKindCDTVC ()
 
@@ -102,7 +103,7 @@
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc]
                                          initWithFetchRequest:request
-                                         managedObjectContext:[PubicVariable managedObjectContext]
+                                         managedObjectContext:self.managedObjectContext
                                          sectionNameKeyPath:nil
                                          cacheName:nil];
 
@@ -140,6 +141,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    [segue passManagedObjectContextIfNeeded];
+    
     if ([segue.identifier isEqualToString:@"showKindDetail"]) {
         if ([sender isKindOfClass:[UITableViewCell class]]) {
             if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {

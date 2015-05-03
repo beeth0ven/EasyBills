@@ -12,4 +12,6 @@
 <UIPopoverPresentationControllerDelegate,
 UIAdaptivePresentationControllerDelegate>
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end

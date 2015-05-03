@@ -11,4 +11,6 @@
 
 @interface SettingTVC : UITableViewController <UIActionSheetDelegate,MFMailComposeViewControllerDelegate>
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end

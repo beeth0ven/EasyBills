@@ -10,6 +10,7 @@
 
 @interface NSManagedObjectContext (Extension)
 
+
 - (void)passToViewController:(UIViewController *)toViewController;
 
 @end

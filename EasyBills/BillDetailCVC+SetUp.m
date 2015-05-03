@@ -10,6 +10,7 @@
 #import "BillDetailCVC+CLLocation.h"
 #import "BillDetailCVC+Observer.h"
 #import "CustomDismissAnimationController.h"
+#import "AppDelegate.h"
 
 @implementation BillDetailCVC (SetUp)
 
@@ -22,7 +23,7 @@
     [[self undoManager] beginUndoGrouping];
     if (!self.bill){
         //         The bill is created, not passed.
-        self.bill = [Bill billIsIncome:self.isIncome];
+        self.bill = [Bill billIsIncome:self.isIncome inManagedObjectContext:self.managedObjectContext];
         
         //         The location state is inherit from last bill.
         //         If this is the unique bill(last bill don't exist), Then the state is On, by defult.
@@ -37,12 +38,12 @@
 }
 
 - (BOOL)isBillCreateUnique{
-    return [Bill lastCreateBill] == nil;
+    return [Bill lastCreateBillInManagedObjectContext:self.bill.managedObjectContext] == nil;
 }
 
 - (BOOL)lastBillLocationStateIsOn
 {
-    Bill *lastCreateBill = [Bill lastCreateBill];
+    Bill *lastCreateBill = [Bill lastCreateBillInManagedObjectContext:self.bill.managedObjectContext];
     return lastCreateBill.locationIsOn.boolValue;
 }
 
@@ -68,7 +69,7 @@
 
 - (NSUndoManager *)undoManager
 {
-    NSManagedObjectContext *managedObjectContext = [PubicVariable managedObjectContext];
+    NSManagedObjectContext *managedObjectContext = self.bill.managedObjectContext ? self.bill.managedObjectContext :self.managedObjectContext;
     if (!managedObjectContext.undoManager) {
         managedObjectContext.undoManager = [[NSUndoManager alloc] init];
     }
@@ -92,8 +93,12 @@
             customDismissAnimationController.customDismissAnimationControllerEndPointType = CustomDismissAnimationControllerEndPointTypeSum;
         }
         
+        //Save before dismiss so that the pre view can update UI.
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate saveContext];
+        
         [self dismissViewControllerAnimated:YES completion:^(){
-            // [PubicVariable saveContext];
+
         }];
     }else{
         // Money = 0

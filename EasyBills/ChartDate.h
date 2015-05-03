@@ -15,5 +15,8 @@
 @property (readonly, strong, nonatomic) NSArray *incomeDataArray;
 @property (readonly, strong, nonatomic) NSArray *expenseDataArray;
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)context;
 
 @end

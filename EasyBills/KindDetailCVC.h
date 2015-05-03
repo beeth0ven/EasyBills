@@ -21,5 +21,6 @@ UICollectionViewDelegateFlowLayout>
 @property (strong ,nonatomic) Kind *kind;
 @property (nonatomic) BOOL isIncome;
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

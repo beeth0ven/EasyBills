@@ -18,7 +18,18 @@
 
 
 @end
+
+
 @implementation ChartDate
+
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)context {
+    self = [self init];
+    if (self) {
+        _managedObjectContext = context;
+    }
+    return self;
+}
+
 
 -(NSArray *)xLabels
 {
@@ -110,7 +121,10 @@
         NSDateComponents *comps = [[NSDateComponents alloc] init];
         [comps setDay:day];
         NSDate *date = [gregorian dateByAddingComponents:comps toDate:[NSDate date]  options:0];
-        float  money = [PubicVariable sumMoneyWithIncomeMode:isIncomeMode withStyle:predicateDayStyle withDate:date];
+        float  money = [PubicVariable sumMoneyWithIncomeMode:isIncomeMode
+                                                   withStyle:predicateDayStyle
+                                                    withDate:date
+                                      inManagedObjectContext:self.managedObjectContext];
         [mutableArray addObject:[NSNumber numberWithFloat:fabs(money)]];
         
     }
@@ -133,7 +147,10 @@
         NSDateComponents *comps = [[NSDateComponents alloc] init];
         [comps setDay:week*7];
         NSDate *date = [gregorian dateByAddingComponents:comps toDate:[NSDate date]  options:0];
-        float  money = [PubicVariable sumMoneyWithIncomeMode:isIncomeMode withStyle:predicateWeekInMonthStyle withDate:date];
+        float  money = [PubicVariable sumMoneyWithIncomeMode:isIncomeMode
+                                                   withStyle:predicateWeekInMonthStyle
+                                                    withDate:date
+                                      inManagedObjectContext:self.managedObjectContext];
         /*
         NSLog(@"dateWeekID = %@",[PubicVariable weekIDWithDate:date]);
         NSLog(@"isIncomeMode = %li",(long)isIncomeMode);
@@ -156,7 +173,10 @@
         NSDateComponents *comps = [[NSDateComponents alloc] init];
         [comps setMonth:month];
         NSDate *date = [gregorian dateByAddingComponents:comps toDate:[NSDate date]  options:0];
-        float  money = [PubicVariable sumMoneyWithIncomeMode:isIncomeMode withStyle:predicateMonthStyle withDate:date];
+        float  money = [PubicVariable sumMoneyWithIncomeMode:isIncomeMode
+                                                   withStyle:predicateMonthStyle
+                                                    withDate:date
+                                      inManagedObjectContext:self.managedObjectContext];
         [mutableArray addObject:[NSNumber numberWithFloat:fabs(money)]];
         
     }

@@ -65,7 +65,7 @@
         request.predicate = [NSPredicate predicateWithFormat:@"locationIsOn == YES"];
         
         NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                            managedObjectContext:[PubicVariable managedObjectContext]
+                                                                            managedObjectContext:self.managedObjectContext
                                                                               sectionNameKeyPath:nil
                                                                                        cacheName:nil];
             dispatch_async(dispatch_get_main_queue(), ^{

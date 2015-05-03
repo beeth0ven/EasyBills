@@ -2896,13 +2896,13 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOb-C8-eFa" id="2e5-so-jlb">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="97c-dd-ARE">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="97c-dd-ARE">
                                             <rect key="frame" x="565" y="8" width="27" height="27"/>
                                             <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="19"/>
                                             <color key="textColor" red="0.46274510025978088" green="0.48235294222831726" blue="0.49411764740943909" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="武汉市，湖北" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PoW-kb-a5i">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="武汉市，湖北" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PoW-kb-a5i">
                                             <rect key="frame" x="8" y="8" width="120" height="28"/>
                                             <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="20"/>
                                             <color key="textColor" red="0.31372550129890442" green="0.74117648601531982" blue="0.83137255907058716" alpha="1" colorSpace="calibratedRGB"/>
@@ -3282,8 +3282,8 @@
         <image name="WalletIcon" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4xq-Wo-5WR"/>
-        <segue reference="xMn-lC-zYw"/>
+        <segue reference="1iF-0M-vvk"/>
+        <segue reference="2Y9-ck-bRC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.31372549020000001" green="0.74117647060000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

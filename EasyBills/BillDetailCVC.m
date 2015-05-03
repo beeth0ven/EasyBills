@@ -472,7 +472,8 @@
 - (NSFetchedResultsController *)kindFRC {
     if (_kindFRC == nil) {
         _kindFRC =
-        [Kind fetchedResultsControllerIsincome:self.bill.isIncome.boolValue];
+        [Kind fetchedResultsControllerIsincome:self.bill.isIncome.boolValue
+                        inManagedObjectContext:self.bill.managedObjectContext];
     }
     return _kindFRC;
 }

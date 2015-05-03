@@ -26,6 +26,9 @@
 #import "CustomPresentAnimationController.h"
 #import "CustomDismissAnimationController.h"
 #import "UIFont+Extension.h"
+#import "UIStoryboardSegue+Extension.h"
+#import "NSPredicate+PrivateExtension.h"
+#import "UIViewController+Extension.h"
 
 @interface HomeViewController () <DZNSegmentedControlDelegate>
 
@@ -47,10 +50,13 @@
 @property (nonatomic, strong) CustomPresentAnimationController *customPresentAnimationController;
 @property (nonatomic, strong) CustomDismissAnimationController *customDismissAnimationController;
 
+@property (nonatomic) BOOL shouldUpdateUI;
 
 @end
 
 @implementation HomeViewController
+
+#pragma mark - View Controller Life Cycle Method
 
 - (void)viewDidLoad
 {
@@ -59,44 +65,62 @@
     [self setupSegmentedControl];
     //[self setupButtons];
     [self updateUI];
-    UIImage *image = [UIImage imageNamed:@"Account details BG"];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    imageView.image = image;
-    [self.view insertSubview:imageView atIndex:0];
-    
+    [self setupBackgroundImage];
+    [self registerNotifications];
     [self customSetup];
-
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController applyDefualtStyle:YES];
 
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (self.shouldUpdateUI) {
+        [self updateUI];
+        self.shouldUpdateUI = NO;
+    }
+}
+
+- (void)dealloc {
+    [self removeObserver:self.managedObjectContext forKeyPath:@"hasChanges"];
+}
+
+#pragma mark - Navigation Method
+
+- (void)registerNotifications {
+    //    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [self.managedObjectContext addObserver:self
+                                forKeyPath:@"hasChanges"
+                                   options:NSKeyValueObservingOptionNew
+                                   context:NULL];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    if ([keyPath isEqualToString:@"hasChanges"]) {
+        self.shouldUpdateUI = YES;
+    }
+    
+}
+
+
+#pragma mark - SetUp Method
 
 - (void)customSetup
 {
     [self setupMenuButton];
     [self.navigationController.navigationBar
      addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-
+    
 }
-
-
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController applyDefualtStyle:YES];
-//    if ([PubicVariable managedObjectContextHasChanges]) {
-//        [self updateUI];
-//        PubicVariable *pubicVariable = [PubicVariable pubicVariable];
-//        pubicVariable.managedObjectContextHasChanges = NO;
-//    }
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-
-}
-
 
 
 -(void)setupSegmentedControl
@@ -263,9 +287,9 @@
     
     //[self.view addSubview:self.lineChartLabel];
     [self.view addSubview:self.lineChart];
-    float sumAddedMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeYes withDateMode:[PubicVariable dateMode]];
-    float sumReduceMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNo withDateMode:[PubicVariable dateMode]];
-    float sumMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNil withDateMode:[PubicVariable dateMode]];
+    float sumAddedMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeYes withDateMode:[PubicVariable dateMode] inManagedObjectContext:self.managedObjectContext];
+    float sumReduceMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNo withDateMode:[PubicVariable dateMode] inManagedObjectContext:self.managedObjectContext];
+    float sumMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNil withDateMode:[PubicVariable dateMode] inManagedObjectContext:self.managedObjectContext];
     
     [self.sumAddedMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",sumAddedMoney] forState:UIControlStateNormal];
     [self.sumReduceMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",fabs(sumReduceMoney)] forState:UIControlStateNormal];
@@ -288,10 +312,13 @@
     
 }
 
+#pragma mark - Navigation Method
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
+    [segue passManagedObjectContextIfNeeded];
     
     if ([segue.identifier isEqualToString:@"incomeSegue"]) {
         
@@ -356,6 +383,18 @@
     }
 }
 
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    return self.customPresentAnimationController;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    return self.customDismissAnimationController;
+}
+
+#pragma mark - NSFetched Results Controller Delegate Method
+
 -(void)setFetchedResultsControllerWithbillCoreDataTableViewController:(BillCDTVC *)billCoreDataTableViewController
                                                        withIncomeMode:(NSInteger)incomeMode
 {
@@ -376,9 +415,9 @@
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:sectionNameKeyPath ascending:NO],
                                 [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     
-    NSPredicate *incomePredicate = [PubicVariable predicateWithIncomeMode:incomeMode];
-    NSPredicate *datePredicate = [PubicVariable predicateWithbDateMode:[PubicVariable dateMode]];
-    request.predicate = [PubicVariable addPredicate:incomePredicate withPredicate:datePredicate];
+    NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
+    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:[PubicVariable dateMode]];
+    request.predicate = [NSPredicate addPredicate:incomePredicate withPredicate:datePredicate];
     billCoreDataTableViewController.isIncomeMode = incomeMode;
     billCoreDataTableViewController.fetchedResultsController = [[NSFetchedResultsController alloc]
                                                                 initWithFetchRequest:request
@@ -387,20 +426,14 @@
                                                                 cacheName:nil];
 }
 
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                  presentingController:(UIViewController *)presenting
-                                                                      sourceController:(UIViewController *)source {
-    return self.customPresentAnimationController;
-}
 
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    return self.customDismissAnimationController;
-}
+#pragma mark - Property Setter And Getter Method
+
 
 -(ChartDate *)chartDate
 {
     if (!_chartDate) {
-        _chartDate = [[ChartDate alloc]init];
+        _chartDate = [[ChartDate alloc] initWithManagedObjectContext:self.managedObjectContext];
     }
     return _chartDate;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "BillDetailCVC+UIActionSheet.h"
+#import "AppDelegate.h"
 
 @implementation BillDetailCVC (UIActionSheet)
 
@@ -24,9 +25,11 @@
 
 - (void)deleteBill
 {
-    [[PubicVariable managedObjectContext] deleteObject:self.bill];
-    // [PubicVariable saveContext];
-    [self dismissViewControllerAnimated:YES completion:^(){}];
+    [self.managedObjectContext deleteObject:self.bill];
+    [self dismissViewControllerAnimated:YES completion:^(){
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate saveContext];
+    }];
     
 }
 

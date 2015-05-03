@@ -12,5 +12,7 @@
 
 @interface MapCDTVC : CoreDataMapViewController
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 
 @end

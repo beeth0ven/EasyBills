@@ -11,24 +11,25 @@
 
 @interface PubicVariable (FetchRequest)
 
-+(float) sumMoneyWithKind:(Kind *) kind;
 +(float) sumMoneyWithKind:(Kind *) kind
-                 dateMode:(NSInteger)dateMode;
-+(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode withDateMode:(NSInteger) dateMode;
-+(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode withStyle:(NSInteger) predicateStyle withDate:(NSDate *) date;
-+(float) performeFetchForFunction:(NSString *)name WithPredicate:(NSPredicate *)predicate;
+   inManagedObjectContext:(NSManagedObjectContext *)context;
 
++(float) sumMoneyWithKind:(Kind *) kind
+                 dateMode:(NSInteger)dateMode
+   inManagedObjectContext:(NSManagedObjectContext *)context;
 
-+(NSPredicate *)predicateWithIncomeMode:(NSInteger)incomeMode;
-+(NSPredicate *)predicateWithbDateMode:(NSInteger) dateMode;
-+(NSPredicate *)predicateStyle:(NSInteger) predicateStyle withDate:(NSDate *) date;
-+(NSPredicate *)addPredicate:(NSPredicate *)firstPredicate withPredicate:(NSPredicate *) secondPredicate;
++(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode
+                   withDateMode:(NSInteger) dateMode
+         inManagedObjectContext:(NSManagedObjectContext *)context;
 
-+(NSNumber *)dayIDWithDate:(NSDate *)date;
-+(NSNumber *)weekIDWithDate:(NSDate *)date;
-+(NSNumber *)monthIDWithDate:(NSDate *)date;
-+(NSNumber *)weekdayWithDate:(NSDate *)date;
-+(NSNumber *)weekOfMonthWithDate:(NSDate *)date;
-+(NSNumber *)monthWithDate:(NSDate *)date;
++(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode
+                      withStyle:(NSInteger) predicateStyle
+                       withDate:(NSDate *) date
+         inManagedObjectContext:(NSManagedObjectContext *)context;
+
++(float) performeFetchForFunction:(NSString *)name
+                    WithPredicate:(NSPredicate *)predicate
+           inManagedObjectContext:(NSManagedObjectContext *)context;
+
 
 @end

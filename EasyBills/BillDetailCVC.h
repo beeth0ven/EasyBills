@@ -32,6 +32,7 @@
 @property (strong ,nonatomic) Bill *bill;
 @property (nonatomic) BOOL isIncome;
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 //For Inner Use
 

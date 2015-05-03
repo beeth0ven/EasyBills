@@ -14,6 +14,7 @@
 #import "BillDetailCVC.h"
 #import "DefaultStyleController.h"
 #import "UINavigationController+Style.h"
+#import "UIStoryboardSegue+Extension.h"
 
 @interface BillCDTVC ()
 
@@ -121,8 +122,8 @@
 {
     float result = 0;
     NSPredicate *predicate = self.fetchedResultsController.fetchRequest.predicate;
-    float maxFloat = [PubicVariable performeFetchForFunction:@"max:" WithPredicate:predicate];
-    float minFloat = [PubicVariable performeFetchForFunction:@"min:" WithPredicate:predicate];
+    float maxFloat = [PubicVariable performeFetchForFunction:@"max:" WithPredicate:predicate inManagedObjectContext:self.managedObjectContext];
+    float minFloat = [PubicVariable performeFetchForFunction:@"min:" WithPredicate:predicate inManagedObjectContext:self.managedObjectContext];
     result = MAX(fabs(maxFloat), fabs(minFloat));
     return result;
 }
@@ -138,7 +139,7 @@
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc]
                                          initWithFetchRequest:request
-                                         managedObjectContext:[PubicVariable managedObjectContext]
+                                         managedObjectContext:self.managedObjectContext
                                          sectionNameKeyPath:nil
                                          cacheName:nil];
     }
@@ -198,6 +199,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [segue passManagedObjectContextIfNeeded];
+    
     if ([sender isKindOfClass:[UITableViewCell class] ]) {
         if ([segue.identifier isEqualToString:@"showBill"]) {
             if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {

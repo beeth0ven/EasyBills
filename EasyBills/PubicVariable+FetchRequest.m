@@ -7,26 +7,30 @@
 //
 
 #import "PubicVariable+FetchRequest.h"
+#import "NSPredicate+PrivateExtension.h"
 
 @implementation PubicVariable (FetchRequest)
 
-+(float) sumMoneyWithKind:(Kind *) kind
++ (float)sumMoneyWithKind:(Kind *) kind
+   inManagedObjectContext:(NSManagedObjectContext *)context
 {
-    return [self sumMoneyWithKind:kind dateMode:all];
+    return [self sumMoneyWithKind:kind dateMode:all inManagedObjectContext:context];
     
 }
 
 +(float) sumMoneyWithKind:(Kind *) kind
                  dateMode:(NSInteger)dateMode
+   inManagedObjectContext:(NSManagedObjectContext *)context
+
 {
     float result = 0.0f;
     
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Bill"];
     NSPredicate *kindPredicate = [NSPredicate predicateWithFormat:@"kind = %@" , kind];
-    NSPredicate *datePredicate = [self predicateWithbDateMode:dateMode];
+    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:dateMode];
 
     
-    request.predicate = [self addPredicate:kindPredicate withPredicate:datePredicate];
+    request.predicate = [NSPredicate addPredicate:kindPredicate withPredicate:datePredicate];
     
     NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"money"];
     NSExpression *sumMoneyExpression = [NSExpression expressionForFunction:@"sum:"
@@ -42,7 +46,7 @@
     
     
     NSError *error = nil;
-    NSArray *objects = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+    NSArray *objects = [context executeFetchRequest:request error:&error];
     
     if (objects == nil) {
         // Handle the error.
@@ -58,37 +62,44 @@
 
 
 
-+(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode withDateMode:(NSInteger) dateMode
++(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode
+                   withDateMode:(NSInteger) dateMode
+         inManagedObjectContext:(NSManagedObjectContext *)context
 {
-    NSPredicate *incomePredicate = [self predicateWithIncomeMode:incomeMode];
-    NSPredicate *datePredicate = [self predicateWithbDateMode:dateMode];
-    NSPredicate *predicate = [self addPredicate:incomePredicate withPredicate:datePredicate];
-    return [self performeFetchForFunction:@"sum:" WithPredicate:predicate];
+    NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
+    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:dateMode];
+    NSPredicate *predicate = [NSPredicate addPredicate:incomePredicate withPredicate:datePredicate];
+    return [self performeFetchForFunction:@"sum:" WithPredicate:predicate inManagedObjectContext:context];
     
 }
 
 
 
-+(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode withStyle:(NSInteger) predicateStyle withDate:(NSDate *) date
++(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode
+                      withStyle:(NSInteger) predicateStyle
+                       withDate:(NSDate *) date
+         inManagedObjectContext:(NSManagedObjectContext *)context
 {
-    NSPredicate *incomePredicate = [self predicateWithIncomeMode:incomeMode];
-    NSPredicate *datePredicate = [self predicateStyle:predicateStyle withDate:date];
-    NSPredicate *predicate = [self addPredicate:incomePredicate withPredicate:datePredicate];
-    return [self performeFetchForFunction:@"sum:" WithPredicate:predicate];;
+    NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
+    NSPredicate *datePredicate = [NSPredicate predicateStyle:predicateStyle withDate:date];
+    NSPredicate *predicate = [NSPredicate addPredicate:incomePredicate withPredicate:datePredicate];
+    return [self performeFetchForFunction:@"sum:" WithPredicate:predicate inManagedObjectContext:context];
     
 }
 
 
 
 
-+(float) performeFetchForFunction:(NSString *)name WithPredicate:(NSPredicate *)predicate
++(float) performeFetchForFunction:(NSString *)name
+                    WithPredicate:(NSPredicate *)predicate
+           inManagedObjectContext:(NSManagedObjectContext *)context
 {
     float result = 0.0f;
     
     if ([name isEqualToString:@"sum:"]|[name isEqualToString:@"max:"]|[name isEqualToString:@"min:"] )
     {
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bill" inManagedObjectContext:[PubicVariable managedObjectContext]];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bill" inManagedObjectContext:context];
         [request setEntity:entity];
         [request setPredicate:predicate];
         
@@ -107,7 +118,7 @@
         
         
         NSError *error = nil;
-        NSArray *objects = [[PubicVariable managedObjectContext] executeFetchRequest:request error:&error];
+        NSArray *objects = [context executeFetchRequest:request error:&error];
         
         if (objects == nil) {
             // Handle the error.
@@ -120,184 +131,6 @@
     
     
     return result;
-}
-
-
-+(NSPredicate *)predicateWithIncomeMode:(NSInteger)incomeMode
-{
-    NSPredicate *incomeModePredicate;
-    
-    switch (incomeMode) {
-        case isIncomeYes:
-            incomeModePredicate = [NSPredicate predicateWithFormat:@"isIncome = %@",@YES];
-            break;
-        case isIncomeNo:
-            incomeModePredicate = [NSPredicate predicateWithFormat:@"isIncome = %@",@NO];
-            break;
-        default:
-            incomeModePredicate = nil;
-            break;
-    }
-    return incomeModePredicate;
-}
-
-+(NSPredicate *)predicateWithbDateMode:(NSInteger) dateMode
-{
-    NSPredicate *dateModePredicate;
-    
-    switch (dateMode) {
-        case week:
-            dateModePredicate = [NSPredicate predicateWithFormat:@"weekID = %@",[self thisWeekID]];
-            break;
-        case month:
-            dateModePredicate = [NSPredicate predicateWithFormat:@"monthID = %@",[self thisMonthID]];
-            break;
-        default:
-            dateModePredicate = nil;
-            break;
-    }
-    return dateModePredicate;
-}
-
-+(NSPredicate *)predicateStyle:(NSInteger) predicateStyle withDate:(NSDate *) date
-{
-    NSPredicate *predicate;
-    
-    switch (predicateStyle) {
-        case predicateDayStyle:
-            predicate = [NSPredicate predicateWithFormat:@"dayID = %@",[self dayIDWithDate:date]];
-            break;
-        case predicateWeekStyle:
-            predicate = [NSPredicate predicateWithFormat:@"weekID = %@",[self weekIDWithDate:date]];
-            break;
-        case predicateWeekInMonthStyle:
-            predicate = [NSPredicate predicateWithFormat:@"(monthID = %@) && (weekID = %@)",[self monthIDWithDate:[NSDate date]],[self weekIDWithDate:date]];
-            break;
-        default:
-            predicate = [NSPredicate predicateWithFormat:@"monthID = %@",[self monthIDWithDate:date]];
-            break;
-    }
-    return predicate;
-}
-
-
-+(NSPredicate *)addPredicate:(NSPredicate *)firstPredicate withPredicate:(NSPredicate *) secondPredicate
-{
-
-    NSPredicate *predicate;
-    if (firstPredicate) {
-        if (secondPredicate) {
-            //incomeModePredicate and dateModePredicate all
-            NSArray *array = @[firstPredicate,secondPredicate];
-            predicate =[NSCompoundPredicate andPredicateWithSubpredicates:array];
-        }else{
-            //incomeModePredicate only
-            predicate =firstPredicate;
-        }
-        
-    }else{
-        if (secondPredicate) {
-            //dateModePredicate only
-            predicate =secondPredicate;
-        }else{
-            //all nil
-            predicate = nil;
-        }
-    }
-    return predicate;
-    
-}
-
-
-+(NSNumber *)thisWeekID
-{
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [gregorian components:NSCalendarUnitYear | NSCalendarUnitWeekOfYear
-                                                    fromDate:[NSDate date]];
-    NSInteger years = [components year];
-    NSInteger weekOfYear = [components weekOfYear];
-    NSInteger result = years * 1000 + weekOfYear;
-    return [NSNumber numberWithInteger:result];
-
-}
-
-+(NSNumber *)thisMonthID
-{
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [gregorian components:NSCalendarUnitYear | NSCalendarUnitMonth
-                                                    fromDate:[NSDate date]];
-    NSInteger years = [components year];
-    NSInteger month = [components month];
-    NSInteger result = years * 1000 + month;
-    return [NSNumber numberWithInteger:result];
-}
-
-
-+(NSNumber *)dayIDWithDate:(NSDate *)date
-{
-    if (date == nil) return nil;
-    
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [gregorian components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
-                                                fromDate:date];
-    NSInteger years = [components year];
-    NSInteger month = [components month];
-    NSInteger day = [components day];
-    NSInteger result = years * 1000 * 1000+ month* 1000 + day;
-    return [NSNumber numberWithInteger:result];
-}
-
-+(NSNumber *)weekIDWithDate:(NSDate *)date
-{
-    if (date == nil) return nil;
-    
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [gregorian components:NSCalendarUnitYear | NSCalendarUnitWeekOfYear
-                                                fromDate:date];
-    NSInteger years = [components year];
-    NSInteger weekOfYear = [components weekOfYear];
-    NSInteger result = years * 1000 + weekOfYear;
-    return [NSNumber numberWithInteger:result];
-}
-
-+(NSNumber *)monthIDWithDate:(NSDate *)date
-{
-    //if (date == nil) return nil;
-    
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [gregorian components:NSCalendarUnitYear | NSCalendarUnitMonth
-                                                fromDate:date];
-    NSInteger years = [components year];
-    NSInteger month = [components month];
-    NSInteger result = years * 1000 + month;
-    return [NSNumber numberWithInteger:result];
-}
-
-+(NSNumber *)weekdayWithDate:(NSDate *)date
-{
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [gregorian components:NSCalendarUnitWeekday
-                                                fromDate:date];
-    NSInteger weekday  = [components weekday];
-    return [NSNumber numberWithInteger:weekday];
-}
-
-+(NSNumber *)weekOfMonthWithDate:(NSDate *)date
-{
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [gregorian components:NSCalendarUnitWeekOfMonth
-                                                fromDate:date];
-    NSInteger weekOfMonth   = [components weekOfMonth];
-    return [NSNumber numberWithInteger:weekOfMonth];
-}
-
-+(NSNumber *)monthWithDate:(NSDate *)date
-{
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [gregorian components:NSCalendarUnitMonth
-                                                fromDate:date];
-    NSInteger month  = [components month];
-    return [NSNumber numberWithInteger:month];
 }
 
 

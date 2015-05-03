@@ -10,7 +10,7 @@
 
 @interface Plackmark (Create)
 
-+ (Plackmark *)plackmarkWithName:(NSString *)name;
++ (Plackmark *)plackmarkWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
 
 
 @end

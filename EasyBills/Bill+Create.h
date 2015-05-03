@@ -24,6 +24,6 @@
 
 
 -(void)setDateAttributes:(NSDate *)date;
-+ (Bill *) lastCreateBill;
++ (Bill *) lastCreateBillInManagedObjectContext:(NSManagedObjectContext *)context;
 
 @end

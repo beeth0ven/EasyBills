@@ -10,4 +10,7 @@
 
 @interface ManageKindCDTVC : CoreDataTableViewController
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+
 @end

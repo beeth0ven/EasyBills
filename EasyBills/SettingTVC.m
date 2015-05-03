@@ -168,7 +168,7 @@
 {
     NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"Bills.csv"];
     
-    NSArray *bills = [Bill billsWithDateMode:dateMode];
+    NSArray *bills = [Bill billsWithDateMode:dateMode inManagedObjectContext:self.managedObjectContext];
     NSString *CSV = @"类型,金额,日期,备注\n";
     for (Bill *bill in bills) {
         CSV = [CSV stringByAppendingFormat:@"%@,%@,%@,%@\n",bill.kind.name,bill.money,[PubicVariable stringFromDate:bill.date],bill.note];

@@ -20,7 +20,6 @@
 @interface AppDelegate ()
 
 @property (strong, nonatomic) UIStoryboard *storyBoard;
-@property (strong, nonatomic) NSMutableArray *viewControllers;
 
 
 @end
@@ -209,7 +208,11 @@
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
     
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:storeOptions error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                   configuration:nil
+                                                             URL:storeURL
+                                                         options:storeOptions
+                                                           error:&error]) {
         // Report any error we got.
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
@@ -225,7 +228,7 @@
     if (firstRun)
     {
         
-        [Kind createDefaultKinds];
+        [Kind createDefaultKindsInManagedObjectContext:self.managedObjectContext];
         [PubicVariable setNextAssignIncomeColorIndex:-1];
         [PubicVariable setNextAssignExpenseColorIndex:-1];
         [self saveContext];
@@ -247,7 +250,7 @@
     if (!coordinator) {
         return nil;
     }
-    _managedObjectContext = [[NSManagedObjectContext alloc] init];
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     return _managedObjectContext;
 }
@@ -273,65 +276,115 @@
 - (void)registerForiCloudNotifications {
     NSLog(@"registerForiCloudNotifications");
     
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [[NSNotificationCenter defaultCenter]
+     addObserverForName:NSPersistentStoreCoordinatorStoresWillChangeNotification
+     object:self.managedObjectContext.persistentStoreCoordinator
+     queue:[NSOperationQueue mainQueue]
+     usingBlock:^(NSNotification *note) {
+         // disable user interface with setEnabled: or an overlay
+         NSLog(@"NSPersistentStoreCoordinatorStoresWillChangeNotification");
+
+         [self.managedObjectContext performBlock:^{
+             if ([self.managedObjectContext hasChanges]) {
+                 NSError *saveError;
+                 if (![self.managedObjectContext save:&saveError]) {
+                     NSLog(@"Save error: %@", saveError);
+                 }
+             } else {
+                 // drop any managed object references
+                 [self.managedObjectContext reset];
+             }
+         }];
+     }];
     
-    [notificationCenter addObserver:self
-                           selector:@selector(storesWillChange:)
-                               name:NSPersistentStoreCoordinatorStoresWillChangeNotification
-                             object:self.persistentStoreCoordinator];
+    [[NSNotificationCenter defaultCenter]
+     addObserverForName:NSPersistentStoreCoordinatorStoresDidChangeNotification
+     object:self.managedObjectContext.persistentStoreCoordinator
+     queue:[NSOperationQueue mainQueue]
+     usingBlock:^(NSNotification *note) {
+         //Update UI
+         NSLog(@"NSPersistentStoreCoordinatorStoresDidChangeNotification");
+
+     }];
     
-    [notificationCenter addObserver:self
-                           selector:@selector(storesDidChange:)
-                               name:NSPersistentStoreCoordinatorStoresDidChangeNotification
-                             object:self.persistentStoreCoordinator];
-    
-    [notificationCenter addObserver:self
-                           selector:@selector(persistentStoreDidImportUbiquitousContentChanges:)
-                               name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
-                             object:self.persistentStoreCoordinator];
-    
+    [[NSNotificationCenter defaultCenter]
+     addObserverForName:NSPersistentStoreDidImportUbiquitousContentChangesNotification
+     object:self.managedObjectContext.persistentStoreCoordinator
+     queue:[NSOperationQueue mainQueue]
+     usingBlock:^(NSNotification *note) {
+         NSLog(@"NSPersistentStoreDidImportUbiquitousContentChangesNotification");
+
+         [self.managedObjectContext performBlock:^{
+             [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
+             [self detectingAndRemovingDuplicateRecords];
+         }];
+     }];
 }
 
-- (void)persistentStoreDidImportUbiquitousContentChanges:(NSNotification *)changeNotification {
-    NSLog(@"persistentStoreDidImportUbiquitousContentChanges");
+- (void)detectingAndRemovingDuplicateRecords {
     
-    NSManagedObjectContext *context = self.managedObjectContext;
-    
-    [context performBlock:^{
-        [context mergeChangesFromContextDidSaveNotification:changeNotification];
-    }];
-}
+//    Choose a property or a hash of multiple properties to use as a unique ID for each record.
 
-
-
-- (void)storesWillChange:(NSNotification *)notification {
-    NSLog(@"storesWillChange");
+    NSString *uniquePropertyKey = <# property to use as a unique ID #>
+    NSExpression *countExpression = [NSExpression expressionWithFormat:@"count:(%@)", uniquePropertyKey];
+    NSExpressionDescription *countExpressionDescription = [[NSExpressionDescription alloc] init];
+    [countExpressionDescription setName:@"count"];
+    [countExpressionDescription setExpression:countExpression];
+    [countExpressionDescription setExpressionResultType:NSInteger64AttributeType];
+    NSManagedObjectContext *context = <# your managed object context #>
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"<# your entity #>" inManagedObjectContext:context];
+    NSAttributeDescription *uniqueAttribute = [[entity attributesByName] objectForKey:uniquePropertyKey];
     
-    NSManagedObjectContext *context = self.managedObjectContext;
+//    Fetch the number of times each unique value appears in the store.
+//    The context returns an array of dictionaries, each containing a unique value and the number of times that value appeared in the store.
     
-    [context performBlockAndWait:^{
-        NSError *error;
-        
-        if ([context hasChanges]) {
-            BOOL success = [context save:&error];
-            
-            if (!success && error) {
-                //error
-                
-                NSLog(@"%@",[error localizedDescription]);
-                
-            }
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"<# your entity #>"];
+    [fetchRequest setPropertiesToFetch:@[uniqueAttribute, countExpression]];
+    [fetchRequest setPropertiesToGroupBy:@[uniqueAttribute]];
+    [fetchRequest setResultType:NSDictionaryResultType];
+    NSArray *fetchedDictionaries = <# execute a fetch request against your store #>;
+    
+//    Filter out unique values that have no duplicates.
+    NSMutableArray *valuesWithDupes = [NSMutableArray array];
+    for (NSDictionary *dict in fetchedDictionaries) {
+        NSNumber *count = dict[@"count"];
+        if ([count integerValue] > 1) {
+            [valuesWithDupes addObject:dict[@"<# property used as the unique ID #>"]];
         }
-        [context reset];
-    }];
-    //Update UI
+    }
+    
+//    Use a predicate to fetch all of the records with duplicates.
+//    Use a sort descriptor to properly order the results for the winner algorithm in the next step.
+    
+    NSFetchRequest *dupeFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"<# your entity #>"];
+    [dupeFetchRequest setIncludesPendingChanges:NO];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"<# property used as the unique ID #> IN (%@)", valuesWithDupes];
+    [dupeFetchRequest setPredicate:predicate];
+    
+//    Choose the winner.
+//    After retrieving all of the duplicates, your app decides which ones to keep. This decision must be deterministic, meaning that every peer should always choose the same winner. Among other methods, your app could store a created or last-changed timestamp for each record and then decide based on that.
+    
+    MyClass *prevObject;
+    for (MyClass *duplicate in dupes) {
+        if (prevObject) {
+            if ([duplicate.uniqueProperty isEqualToString:prevObject.uniqueProperty]) {
+                if ([duplicate.createdTimestamp compare:prevObject.createdTimestamp] == NSOrderedAscending) {
+                    [context deleteObject:duplicate];
+                } else {
+                    [context deleteObject:prevObject];
+                    prevObject = duplicate;
+                }
+            } else {
+                prevObject = duplicate;
+            }
+        } else {
+            prevObject = duplicate;
+        }
+    }
+//    Remember to set a batch size on the fetch and whenever you reach the end of a batch, save the context.
+
 }
 
-- (void)storesDidChange:(NSNotification *)notification {
-    NSLog(@"storesDidChange");
-    
-    //Update UI
-}
 
 #pragma mark - Some method
 
@@ -394,6 +447,7 @@
              
              if ([controller isKindOfClass:[UINavigationController class]]) {
                  [self.managedObjectContext passToViewController:controller];
+                 
                  [_viewControllers addObject:controller];
              }
          }];

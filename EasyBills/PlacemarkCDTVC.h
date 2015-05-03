@@ -13,4 +13,7 @@
 
 @property (nonatomic, strong) Plackmark *selectedPlacemark;
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+
 @end

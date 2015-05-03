@@ -12,7 +12,8 @@
 @implementation Plackmark (Create)
 
 
-+ (Plackmark *)plackmarkWithName:(NSString *)name {
++ (Plackmark *)plackmarkWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context
+{
     
     Plackmark *plackmark = nil;
     
@@ -22,7 +23,7 @@
         request.predicate = [NSPredicate predicateWithFormat:@"name = %@",name];
         
         NSError *error = nil;
-        NSArray *matches = [[PubicVariable managedObjectContext]
+        NSArray *matches = [context
                             executeFetchRequest:request error:&error];
         
         
@@ -33,7 +34,7 @@
             
             plackmark = [NSEntityDescription
                          insertNewObjectForEntityForName:@"Plackmark"
-                         inManagedObjectContext:[PubicVariable managedObjectContext]];
+                         inManagedObjectContext:context];
             
             plackmark.name  = name;
             // [PubicVariable saveContext];

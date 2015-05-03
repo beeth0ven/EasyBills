@@ -21,6 +21,7 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+@property (strong, nonatomic) NSMutableArray *viewControllers;
 
 
 @end

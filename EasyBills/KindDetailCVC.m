@@ -13,6 +13,8 @@
 #import "UIFont+Extension.h"
 #import "UIToolbar+Extension.h"
 #import "ColorCVCell.h"
+#import "AppDelegate.h"
+#import "AppDelegate.h"
 
 
 @interface KindDetailCVC ()
@@ -99,7 +101,10 @@
     
     [[self undoManager] beginUndoGrouping];
     if (!self.kind){
-        self.kind = [Kind kindWithName:@"" isIncome:[Kind lastCreateKindIsIncome]];
+        BOOL lastCreatedKindIsIncome = [Kind lastCreatedKindIsIncomeInManagedObjectContext:self.managedObjectContext];
+        self.kind = [Kind kindWithName:@""
+                              isIncome:lastCreatedKindIsIncome
+                inManagedObjectContext:self.managedObjectContext];
     }else{
         self.isIncome = self.kind.isIncome.boolValue;
     }
@@ -470,8 +475,12 @@
     
     [self setIsUndo:NO];
     
+    //Save before dismiss so that the pre view can update UI.
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate saveContext];
+    
     [self dismissViewControllerAnimated:YES completion:^(){
-        // [PubicVariable saveContext];
+
     }];
     
 }
@@ -550,9 +559,11 @@
 - (void)deleteKind
 {
     [self.kind removeAllBills];
-    [[PubicVariable managedObjectContext] deleteObject:self.kind];
-    // [PubicVariable saveContext];
-    [self dismissViewControllerAnimated:YES completion:^(){}];
+    [self.kind.managedObjectContext deleteObject:self.kind];
+    [self dismissViewControllerAnimated:YES completion:^(){
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate saveContext];
+    }];
     
 }
 
@@ -561,7 +572,7 @@
 
 -(NSUndoManager *)undoManager
 {
-    NSManagedObjectContext *managedObjectContext = [PubicVariable managedObjectContext];
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (!managedObjectContext.undoManager) {
         managedObjectContext.undoManager = [[NSUndoManager alloc] init];
     }
