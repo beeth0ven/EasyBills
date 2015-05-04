@@ -30,7 +30,7 @@
     NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:dateMode];
 
     
-    request.predicate = [NSPredicate addPredicate:kindPredicate withPredicate:datePredicate];
+    request.predicate = [kindPredicate predicateCombineWithPredicate:datePredicate];
     
     NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"money"];
     NSExpression *sumMoneyExpression = [NSExpression expressionForFunction:@"sum:"
@@ -68,7 +68,7 @@
 {
     NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
     NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:dateMode];
-    NSPredicate *predicate = [NSPredicate addPredicate:incomePredicate withPredicate:datePredicate];
+    NSPredicate *predicate = [incomePredicate predicateCombineWithPredicate:datePredicate];
     return [self performeFetchForFunction:@"sum:" WithPredicate:predicate inManagedObjectContext:context];
     
 }
@@ -82,7 +82,7 @@
 {
     NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
     NSPredicate *datePredicate = [NSPredicate predicateStyle:predicateStyle withDate:date];
-    NSPredicate *predicate = [NSPredicate addPredicate:incomePredicate withPredicate:datePredicate];
+    NSPredicate *predicate = [incomePredicate predicateCombineWithPredicate:datePredicate];
     return [self performeFetchForFunction:@"sum:" WithPredicate:predicate inManagedObjectContext:context];
     
 }

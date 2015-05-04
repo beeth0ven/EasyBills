@@ -37,6 +37,7 @@
 		4594DAF81AF367B200C4BFBB /* NSManagedObjectContext+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4594DAF71AF367B200C4BFBB /* NSManagedObjectContext+Extension.m */; };
 		4594DAFB1AF5BDF600C4BFBB /* NSPredicate+PrivateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4594DAFA1AF5BDF500C4BFBB /* NSPredicate+PrivateExtension.m */; };
 		4594DAFE1AF5BE5A00C4BFBB /* NSNumber+PrivateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4594DAFD1AF5BE5A00C4BFBB /* NSNumber+PrivateExtension.m */; };
+		4594DB041AF76B2800C4BFBB /* NSManagedObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4594DB031AF76B2800C4BFBB /* NSManagedObject+Extension.m */; };
 		459A8FB71AD7943D00685124 /* PlacemarkCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A8FB61AD7943D00685124 /* PlacemarkCDTVC.m */; };
 		459CDE1E1ACD5C2100A6B0E2 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDE1D1ACD5C2100A6B0E2 /* Kind.m */; };
 		459CDE231ACE5E6900A6B0E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */; };
@@ -158,6 +159,8 @@
 		4594DAFA1AF5BDF500C4BFBB /* NSPredicate+PrivateExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+PrivateExtension.m"; sourceTree = "<group>"; };
 		4594DAFC1AF5BE5A00C4BFBB /* NSNumber+PrivateExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+PrivateExtension.h"; sourceTree = "<group>"; };
 		4594DAFD1AF5BE5A00C4BFBB /* NSNumber+PrivateExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+PrivateExtension.m"; sourceTree = "<group>"; };
+		4594DB021AF76B2800C4BFBB /* NSManagedObject+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Extension.h"; sourceTree = "<group>"; };
+		4594DB031AF76B2800C4BFBB /* NSManagedObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Extension.m"; sourceTree = "<group>"; };
 		459A8FB51AD7943D00685124 /* PlacemarkCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacemarkCDTVC.h; sourceTree = "<group>"; };
 		459A8FB61AD7943D00685124 /* PlacemarkCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacemarkCDTVC.m; sourceTree = "<group>"; };
 		459CDE1C1ACD5C2100A6B0E2 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
@@ -560,6 +563,8 @@
 				4594DAFA1AF5BDF500C4BFBB /* NSPredicate+PrivateExtension.m */,
 				4594DAFC1AF5BE5A00C4BFBB /* NSNumber+PrivateExtension.h */,
 				4594DAFD1AF5BE5A00C4BFBB /* NSNumber+PrivateExtension.m */,
+				4594DB021AF76B2800C4BFBB /* NSManagedObject+Extension.h */,
+				4594DB031AF76B2800C4BFBB /* NSManagedObject+Extension.m */,
 				4594DAF61AF367B200C4BFBB /* NSManagedObjectContext+Extension.h */,
 				4594DAF71AF367B200C4BFBB /* NSManagedObjectContext+Extension.m */,
 				4594DABB1AF34EE200C4BFBB /* UIStoryboardSegue+Extension.h */,
@@ -907,6 +912,7 @@
 				BD0749671A86660300467648 /* UIButton+Extension.m in Sources */,
 				BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */,
 				456664B31ADCD12600808312 /* UIFont+Extension.m in Sources */,
+				4594DB041AF76B2800C4BFBB /* NSManagedObject+Extension.m in Sources */,
 				4508D6551AC3EE10007CA44A /* CGPath+Extension.m in Sources */,
 				4508D66D1AC41E60007CA44A /* BillDetailCVC+Observer.m in Sources */,
 				456F70081ADE4687000E2B04 /* NSDate+Extension.m in Sources */,

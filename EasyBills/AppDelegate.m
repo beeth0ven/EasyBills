@@ -16,6 +16,9 @@
 #import "HomeViewController.h"
 #import "NSManagedObjectContext+Extension.h"
 #import "UIStoryboardSegue+Extension.h"
+#import "NSPredicate+PrivateExtension.h"
+#import "Bill+Create.h"
+#import "NSManagedObject+Extension.h"
 
 @interface AppDelegate ()
 
@@ -78,7 +81,7 @@
     */
     
     
-    
+
     UINavigationController *frontViewController = (UINavigationController *)[self.viewControllers firstObject];
     SidebarViewController *rearViewController = [self.storyBoard
                                                  instantiateViewControllerWithIdentifier:@"rearViewController"];
@@ -304,6 +307,8 @@
      usingBlock:^(NSNotification *note) {
          //Update UI
          NSLog(@"NSPersistentStoreCoordinatorStoresDidChangeNotification");
+         [self removingDuplicateRecords];
+
 
      }];
     
@@ -316,64 +321,145 @@
 
          [self.managedObjectContext performBlock:^{
              [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
-             [self detectingAndRemovingDuplicateRecords];
+             [self removingDuplicateRecords];
+
          }];
      }];
 }
 
-- (void)detectingAndRemovingDuplicateRecords {
+
+- (void)removingDuplicateRecords {
+    [self removingDuplicateKindRecordsIsIncome:NO];
+    [self removingDuplicateKindRecordsIsIncome:YES];
+    
+}
+
+
+- (void)removingDuplicateKindRecordsIsIncome:(BOOL)isIncome {
+    NSString *entityName = @"Kind";
+    NSString *uniquePropertyKey = @"name";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isIncome = %@",[NSNumber numberWithBool:isIncome]];
+    [self removingDuplicateRecordsOfEntityName:entityName
+                             uniquePropertyKey:uniquePropertyKey
+                               entityPredicate:predicate
+                        inManagedObjectContext:self.managedObjectContext];
+    
+    [self billsAddMissedKindIsIncome:isIncome
+             inManagedObjectContext:self.managedObjectContext];
+    
+}
+
+- (void)billsAddMissedKindIsIncome:(BOOL)isIncome
+                   inManagedObjectContext:(NSManagedObjectContext *)aContext {
+    
+    NSString *entityName = @"Bill";
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    fetchRequest.predicate = nil;
+    NSError *error;
+    NSArray *matches = [aContext executeFetchRequest:fetchRequest error:&error];
+    
+    if (error) {
+        NSLog(@"%@",[error localizedDescription]);
+        return;
+    }
+    
+    for (Bill *bill in matches) {
+        if (bill.kind == nil) {
+            bill.kind = [Kind kindWithName:@"其他" isIncome:isIncome inManagedObjectContext:aContext];
+        }
+    }
+}
+
+- (void)removingDuplicateRecordsOfEntityName:(NSString *)entityName
+                           uniquePropertyKey:(NSString *)uniquePropertyKey
+                                   entityPredicate:(NSPredicate *)aPredicate
+                      inManagedObjectContext:(NSManagedObjectContext *)aContext {
     
 //    Choose a property or a hash of multiple properties to use as a unique ID for each record.
+    
+    
 
-    NSString *uniquePropertyKey = <# property to use as a unique ID #>
-    NSExpression *countExpression = [NSExpression expressionWithFormat:@"count:(%@)", uniquePropertyKey];
+    NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:uniquePropertyKey];
+    NSExpression *countExpression = [NSExpression expressionForFunction: @"count:" arguments:@[keyPathExpression]];
     NSExpressionDescription *countExpressionDescription = [[NSExpressionDescription alloc] init];
+    
     [countExpressionDescription setName:@"count"];
     [countExpressionDescription setExpression:countExpression];
     [countExpressionDescription setExpressionResultType:NSInteger64AttributeType];
-    NSManagedObjectContext *context = <# your managed object context #>
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"<# your entity #>" inManagedObjectContext:context];
+    NSManagedObjectContext *context = aContext;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
     NSAttributeDescription *uniqueAttribute = [[entity attributesByName] objectForKey:uniquePropertyKey];
-    
+
 //    Fetch the number of times each unique value appears in the store.
 //    The context returns an array of dictionaries, each containing a unique value and the number of times that value appeared in the store.
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"<# your entity #>"];
-    [fetchRequest setPropertiesToFetch:@[uniqueAttribute, countExpression]];
+
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    fetchRequest.propertiesToFetch = @[uniqueAttribute, countExpressionDescription];
     [fetchRequest setPropertiesToGroupBy:@[uniqueAttribute]];
     [fetchRequest setResultType:NSDictionaryResultType];
-    NSArray *fetchedDictionaries = <# execute a fetch request against your store #>;
+    [fetchRequest setPredicate:aPredicate];
+    NSError *error;
+    NSArray *fetchedDictionaries = [context executeFetchRequest:fetchRequest error:&error];
     
+    if (error) {
+        NSLog(@"%@",[error localizedDescription]);
+        return;
+    }
+
 //    Filter out unique values that have no duplicates.
     NSMutableArray *valuesWithDupes = [NSMutableArray array];
     for (NSDictionary *dict in fetchedDictionaries) {
         NSNumber *count = dict[@"count"];
         if ([count integerValue] > 1) {
-            [valuesWithDupes addObject:dict[@"<# property used as the unique ID #>"]];
+            [valuesWithDupes addObject:dict[uniquePropertyKey]];
         }
     }
-    
+
 //    Use a predicate to fetch all of the records with duplicates.
 //    Use a sort descriptor to properly order the results for the winner algorithm in the next step.
-    
-    NSFetchRequest *dupeFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"<# your entity #>"];
+
+    NSFetchRequest *dupeFetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
     [dupeFetchRequest setIncludesPendingChanges:NO];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"<# property used as the unique ID #> IN (%@)", valuesWithDupes];
-    [dupeFetchRequest setPredicate:predicate];
+
+    [dupeFetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:uniquePropertyKey ascending:YES]]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ IN (%@)", uniquePropertyKey ,valuesWithDupes];
+    predicate = [predicate predicateCombineWithPredicate:aPredicate];
+    [dupeFetchRequest setPredicate:aPredicate];
+    
+    NSArray *dupes = [context executeFetchRequest:dupeFetchRequest error:&error];
+    
+    if (error) {
+        NSLog(@"%@",[error localizedDescription]);
+        return;
+    }
     
 //    Choose the winner.
 //    After retrieving all of the duplicates, your app decides which ones to keep. This decision must be deterministic, meaning that every peer should always choose the same winner. Among other methods, your app could store a created or last-changed timestamp for each record and then decide based on that.
     
-    MyClass *prevObject;
-    for (MyClass *duplicate in dupes) {
+    
+    NSManagedObject *prevObject;
+    for (NSManagedObject *duplicate in dupes) {
         if (prevObject) {
-            if ([duplicate.uniqueProperty isEqualToString:prevObject.uniqueProperty]) {
-                if ([duplicate.createdTimestamp compare:prevObject.createdTimestamp] == NSOrderedAscending) {
-                    [context deleteObject:duplicate];
-                } else {
-                    [context deleteObject:prevObject];
-                    prevObject = duplicate;
+            NSString *uniqueProperty = [duplicate valueForKey:uniquePropertyKey];
+            NSString *preUniqueProperty = [prevObject valueForKey:uniquePropertyKey];
+            if ([uniqueProperty isEqualToString:preUniqueProperty]) {
+                if ([duplicate respondsToSelector:@selector(createDate)] &&
+                    [prevObject respondsToSelector:@selector(createDate)]) {
+                    NSDate *createDate = [duplicate performSelector:@selector(createDate)];
+                    NSDate *preCreateDate = [prevObject performSelector:@selector(createDate)];
+                    if ([createDate compare:preCreateDate] == NSOrderedAscending) {
+                        [duplicate moveAllRelatedObectsTo:prevObject];
+                        [context deleteObject:duplicate];
+                        NSLog(@"Successfully remove a %@!",[prevObject performSelector:@selector(name)]);
+                    } else {
+                        [prevObject moveAllRelatedObectsTo:duplicate];
+                        [context deleteObject:prevObject];
+                        prevObject = duplicate;
+                        NSLog(@"Successfully remove a %@!",[prevObject performSelector:@selector(name)]);
+
+                    }
                 }
+                
             } else {
                 prevObject = duplicate;
             }
@@ -382,6 +468,8 @@
         }
     }
 //    Remember to set a batch size on the fetch and whenever you reach the end of a batch, save the context.
+    [self saveContext];
+
 
 }
 

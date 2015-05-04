@@ -71,30 +71,30 @@
 }
 
 
-+(NSPredicate *)addPredicate:(NSPredicate *)firstPredicate withPredicate:(NSPredicate *) secondPredicate
+- (NSPredicate *)predicateCombineWithPredicate:(NSPredicate *)predicate;
 {
     
-    NSPredicate *predicate;
-    if (firstPredicate) {
-        if (secondPredicate) {
+    NSPredicate *result;
+    if (self) {
+        if (predicate) {
             //incomeModePredicate and dateModePredicate all
-            NSArray *array = @[firstPredicate,secondPredicate];
-            predicate =[NSCompoundPredicate andPredicateWithSubpredicates:array];
+            NSArray *array = @[self,predicate];
+            result =[NSCompoundPredicate andPredicateWithSubpredicates:array];
         }else{
             //incomeModePredicate only
-            predicate =firstPredicate;
+            result = self;
         }
         
     }else{
-        if (secondPredicate) {
+        if (predicate) {
             //dateModePredicate only
-            predicate =secondPredicate;
+            result = predicate;
         }else{
             //all nil
-            predicate = nil;
+            result = nil;
         }
     }
-    return predicate;
+    return result;
     
 }
 

@@ -1810,7 +1810,7 @@
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                         <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vV-AG-dGV">
-                                            <rect key="frame" x="129" y="19" width="320" height="162"/>
+                                            <rect key="frame" x="0.0" y="19" width="577" height="162"/>
                                         </pickerView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1820,6 +1820,8 @@
                                     <constraint firstAttribute="trailing" secondItem="6vV-AG-dGV" secondAttribute="trailing" id="JPR-kI-K6r"/>
                                     <constraint firstAttribute="centerX" secondItem="6vV-AG-dGV" secondAttribute="centerX" id="PcH-L7-4Tc"/>
                                     <constraint firstItem="6vV-AG-dGV" firstAttribute="leading" secondItem="IPP-Lh-eXd" secondAttribute="leading" id="Saq-A0-LoV"/>
+                                    <constraint firstItem="6vV-AG-dGV" firstAttribute="leading" secondItem="IPP-Lh-eXd" secondAttribute="leadingMargin" constant="-8" id="Tpq-nn-F6H"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="6vV-AG-dGV" secondAttribute="trailing" constant="-8" id="ZL2-eb-mmA"/>
                                     <constraint firstAttribute="centerY" secondItem="6vV-AG-dGV" secondAttribute="centerY" id="jPe-Gl-cud"/>
                                     <constraint firstAttribute="centerX" secondItem="6vV-AG-dGV" secondAttribute="centerX" constant="140" id="tKO-WB-wGv"/>
                                 </constraints>
@@ -1827,6 +1829,7 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="JPR-kI-K6r"/>
+                                        <exclude reference="PcH-L7-4Tc"/>
                                         <exclude reference="Saq-A0-LoV"/>
                                         <exclude reference="tKO-WB-wGv"/>
                                     </mask>
@@ -1892,7 +1895,7 @@
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                         <datePicker tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-Fb-4fu">
-                                            <rect key="frame" x="129" y="19" width="320" height="162"/>
+                                            <rect key="frame" x="0.0" y="19" width="577" height="162"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="321" id="1U5-H9-0s1"/>
                                             </constraints>
@@ -1911,9 +1914,16 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="1DH-Fb-4fu" firstAttribute="centerX" secondItem="LkJ-P6-Mxp" secondAttribute="centerX" id="8EM-uX-sJH"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="1DH-Fb-4fu" secondAttribute="trailing" constant="-8" id="BMQ-NK-Ry2"/>
                                     <constraint firstItem="1DH-Fb-4fu" firstAttribute="centerY" secondItem="LkJ-P6-Mxp" secondAttribute="centerY" id="tzC-xY-WSU"/>
+                                    <constraint firstItem="1DH-Fb-4fu" firstAttribute="leading" secondItem="LkJ-P6-Mxp" secondAttribute="leadingMargin" constant="-8" id="viP-nf-djY"/>
                                 </constraints>
                                 <size key="customSize" width="577" height="200"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8EM-uX-sJH"/>
+                                    </mask>
+                                </variation>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="locationCell" id="EQl-3V-gZt">
                                 <rect key="frame" x="12" y="612" width="297" height="64"/>
@@ -3108,13 +3118,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帮助" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lo6-dw-t35">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lo6-dw-t35">
                                                     <rect key="frame" x="260" y="11" width="52" height="37"/>
                                                     <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="26"/>
                                                     <color key="textColor" red="0.53725490200000003" green="0.5568627451" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuestionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Bim-Xj-NxC">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InfoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Bim-Xj-NxC">
                                                     <rect key="frame" x="230" y="19" width="22" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="E5e-V3-xQr"/>
@@ -3274,7 +3284,6 @@
         <image name="PieChartIcon" width="64" height="64"/>
         <image name="PlusNavigationBarIcon" width="22" height="44"/>
         <image name="PointerIcon" width="64" height="64"/>
-        <image name="QuestionIcon" width="64" height="64"/>
         <image name="RefreshIcon" width="64" height="64"/>
         <image name="SettingIcon" width="64" height="64"/>
         <image name="TagIcon" width="64" height="64"/>

@@ -34,19 +34,19 @@
     }else if ([matches count] > 1) {
         //error
         NSLog(@"error: kind match > 1");
-        kind = matches.firstObject;
-        for (Kind *aKind in matches) {
-            if ([kind.createDate compare:aKind.createDate] == NSOrderedAscending) {
-                //aKind is newer
-                [aKind addBills:kind.bills];
-                [context deleteObject:kind];
-                kind = aKind;
-            }else{
-                //kind is newer
-                [kind addBills:aKind.bills];
-                [context deleteObject:aKind];
-            }
-        }
+//        kind = matches.firstObject;
+//        for (Kind *aKind in matches) {
+//            if ([kind.createDate compare:aKind.createDate] == NSOrderedAscending) {
+//                //aKind is newer
+//                [aKind addBills:kind.bills];
+//                [context deleteObject:kind];
+//                kind = aKind;
+//            }else{
+//                //kind is newer
+//                [kind addBills:aKind.bills];
+//                [context deleteObject:aKind];
+//            }
+//        }
         
         // [PubicVariable saveContext];
         

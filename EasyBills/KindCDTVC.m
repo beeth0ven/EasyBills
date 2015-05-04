@@ -550,7 +550,7 @@
     NSPredicate *kindPredicate = [NSPredicate predicateWithFormat:@"kind = %@" , kind];
     NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:[self dateMode]];
 
-    request.predicate = [NSPredicate addPredicate:kindPredicate withPredicate:datePredicate];
+    request.predicate = [kindPredicate predicateCombineWithPredicate:datePredicate];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]

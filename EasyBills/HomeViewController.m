@@ -106,7 +106,11 @@
                         change:(NSDictionary *)change
                        context:(void *)context {
     if ([keyPath isEqualToString:@"hasChanges"]) {
-        self.shouldUpdateUI = YES;
+        if (self.view.window) {
+            [self updateUI];
+        } else {
+            self.shouldUpdateUI = YES; 
+        }
     }
     
 }
@@ -417,7 +421,7 @@
     
     NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
     NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:[PubicVariable dateMode]];
-    request.predicate = [NSPredicate addPredicate:incomePredicate withPredicate:datePredicate];
+    request.predicate = [incomePredicate predicateCombineWithPredicate:datePredicate];
     billCoreDataTableViewController.isIncomeMode = incomeMode;
     billCoreDataTableViewController.fetchedResultsController = [[NSFetchedResultsController alloc]
                                                                 initWithFetchRequest:request

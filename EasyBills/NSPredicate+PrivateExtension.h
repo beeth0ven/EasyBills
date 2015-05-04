@@ -11,9 +11,9 @@
 
 @interface NSPredicate (PrivateExtension)
 
-+(NSPredicate *)predicateWithIncomeMode:(NSInteger)incomeMode;
-+(NSPredicate *)predicateWithbDateMode:(NSInteger) dateMode;
-+(NSPredicate *)predicateStyle:(NSInteger) predicateStyle withDate:(NSDate *) date;
-+(NSPredicate *)addPredicate:(NSPredicate *)firstPredicate withPredicate:(NSPredicate *) secondPredicate;
++ (NSPredicate *)predicateWithIncomeMode:(NSInteger)incomeMode;
++ (NSPredicate *)predicateWithbDateMode:(NSInteger) dateMode;
++ (NSPredicate *)predicateStyle:(NSInteger) predicateStyle withDate:(NSDate *) date;
+- (NSPredicate *)predicateCombineWithPredicate:(NSPredicate *)predicate;
 
 @end

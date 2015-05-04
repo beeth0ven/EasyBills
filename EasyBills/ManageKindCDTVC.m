@@ -64,7 +64,7 @@
 
 
     nameLabel.backgroundColor = kind.color;
-    countLabel.backgroundColor = kind.isIncome.boolValue ? EBBlue : PNRed;
+    isIncomeLabel.backgroundColor = kind.isIncome.boolValue ? EBBlue : PNRed;
 
 //    [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
 ////     cell.textLabel.backgroundColor];
