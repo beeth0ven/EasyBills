@@ -17,9 +17,9 @@
 		4508D6611AC41642007CA44A /* BillDetailCVC+UIActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6601AC41642007CA44A /* BillDetailCVC+UIActionSheet.m */; };
 		4508D66A1AC41909007CA44A /* BillDetailCVC+SetUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6691AC41909007CA44A /* BillDetailCVC+SetUp.m */; };
 		4508D66D1AC41E60007CA44A /* BillDetailCVC+Observer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D66C1AC41E60007CA44A /* BillDetailCVC+Observer.m */; };
+		4542180F1AF8B3A100E5A65D /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 4542180E1AF8B3A100E5A65D /* Bill.m */; };
 		455C0D9F1AD64A080060C4DF /* LoadingStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0D9E1AD64A080060C4DF /* LoadingStatus.m */; };
 		455C0DA31AD650150060C4DF /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA21AD650150060C4DF /* NSString+Extension.m */; };
-		455C0DA61AD65BAF0060C4DF /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA51AD65BAF0060C4DF /* Bill.m */; };
 		455C0DA91AD65BB00060C4DF /* Plackmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA81AD65BB00060C4DF /* Plackmark.m */; };
 		455C0DAC1AD65BE20060C4DF /* Plackmark+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DAB1AD65BE20060C4DF /* Plackmark+Create.m */; };
 		4561ECEC1AEE0F990079D6A9 /* ColorCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4561ECEB1AEE0F990079D6A9 /* ColorCVCell.m */; };
@@ -39,9 +39,9 @@
 		4594DAFE1AF5BE5A00C4BFBB /* NSNumber+PrivateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4594DAFD1AF5BE5A00C4BFBB /* NSNumber+PrivateExtension.m */; };
 		4594DB041AF76B2800C4BFBB /* NSManagedObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4594DB031AF76B2800C4BFBB /* NSManagedObject+Extension.m */; };
 		459A8FB71AD7943D00685124 /* PlacemarkCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A8FB61AD7943D00685124 /* PlacemarkCDTVC.m */; };
-		459CDE1E1ACD5C2100A6B0E2 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDE1D1ACD5C2100A6B0E2 /* Kind.m */; };
 		459CDE231ACE5E6900A6B0E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */; };
 		45C076FB1AE3DEC9001F9B44 /* ManageKindCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C076FA1AE3DEC9001F9B44 /* ManageKindCDTVC.m */; };
+		45D0CBA21AF8BCB700F456A2 /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D0CBA11AF8BCB700F456A2 /* Kind.m */; };
 		45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */; };
 		45ECF3981AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3971AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m */; };
 		45ECF3A11AC5358400D0CACB /* BillDetailCVC+UITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */; };
@@ -121,12 +121,12 @@
 		4508D6691AC41909007CA44A /* BillDetailCVC+SetUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+SetUp.m"; sourceTree = "<group>"; };
 		4508D66B1AC41E60007CA44A /* BillDetailCVC+Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+Observer.h"; sourceTree = "<group>"; };
 		4508D66C1AC41E60007CA44A /* BillDetailCVC+Observer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+Observer.m"; sourceTree = "<group>"; };
+		4542180D1AF8B3A100E5A65D /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
+		4542180E1AF8B3A100E5A65D /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
 		455C0D9D1AD64A080060C4DF /* LoadingStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingStatus.h; path = ../LoadingStatus.h; sourceTree = "<group>"; };
 		455C0D9E1AD64A080060C4DF /* LoadingStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingStatus.m; path = ../LoadingStatus.m; sourceTree = "<group>"; };
 		455C0DA11AD650150060C4DF /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		455C0DA21AD650150060C4DF /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
-		455C0DA41AD65BAF0060C4DF /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bill.h; path = ../Bill.h; sourceTree = "<group>"; };
-		455C0DA51AD65BAF0060C4DF /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bill.m; path = ../Bill.m; sourceTree = "<group>"; };
 		455C0DA71AD65BB00060C4DF /* Plackmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plackmark.h; path = ../Plackmark.h; sourceTree = "<group>"; };
 		455C0DA81AD65BB00060C4DF /* Plackmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Plackmark.m; path = ../Plackmark.m; sourceTree = "<group>"; };
 		455C0DAA1AD65BE20060C4DF /* Plackmark+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plackmark+Create.h"; sourceTree = "<group>"; };
@@ -163,11 +163,11 @@
 		4594DB031AF76B2800C4BFBB /* NSManagedObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Extension.m"; sourceTree = "<group>"; };
 		459A8FB51AD7943D00685124 /* PlacemarkCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacemarkCDTVC.h; sourceTree = "<group>"; };
 		459A8FB61AD7943D00685124 /* PlacemarkCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacemarkCDTVC.m; sourceTree = "<group>"; };
-		459CDE1C1ACD5C2100A6B0E2 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
-		459CDE1D1ACD5C2100A6B0E2 /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
 		459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		45C076F91AE3DEC9001F9B44 /* ManageKindCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageKindCDTVC.h; sourceTree = "<group>"; };
 		45C076FA1AE3DEC9001F9B44 /* ManageKindCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageKindCDTVC.m; sourceTree = "<group>"; };
+		45D0CBA01AF8BCB700F456A2 /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
+		45D0CBA11AF8BCB700F456A2 /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
 		45ECF3931AC5227500D0CACB /* BillDetailCVC+UIDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIDatePicker.h"; sourceTree = "<group>"; };
 		45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UIDatePicker.m"; sourceTree = "<group>"; };
 		45ECF3961AC52FD200D0CACB /* BillDetailCVC+UIPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIPickerView.h"; sourceTree = "<group>"; };
@@ -444,10 +444,10 @@
 			isa = PBXGroup;
 			children = (
 				BD1BF82819DB927300B1379A /* Model.xcdatamodeld */,
-				455C0DA41AD65BAF0060C4DF /* Bill.h */,
-				455C0DA51AD65BAF0060C4DF /* Bill.m */,
-				459CDE1C1ACD5C2100A6B0E2 /* Kind.h */,
-				459CDE1D1ACD5C2100A6B0E2 /* Kind.m */,
+				45D0CBA01AF8BCB700F456A2 /* Kind.h */,
+				45D0CBA11AF8BCB700F456A2 /* Kind.m */,
+				4542180D1AF8B3A100E5A65D /* Bill.h */,
+				4542180E1AF8B3A100E5A65D /* Bill.m */,
 				455C0DA71AD65BB00060C4DF /* Plackmark.h */,
 				455C0DA81AD65BB00060C4DF /* Plackmark.m */,
 				455C0DAD1AD65BF10060C4DF /* Plackmark+ */,
@@ -881,17 +881,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				455C0DA61AD65BAF0060C4DF /* Bill.m in Sources */,
 				BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */,
 				4508D65E1AC41327007CA44A /* BillDetailCVC+MKMapView.m in Sources */,
 				4594DAF81AF367B200C4BFBB /* NSManagedObjectContext+Extension.m in Sources */,
-				459CDE1E1ACD5C2100A6B0E2 /* Kind.m in Sources */,
 				4508D6511AC3EDF5007CA44A /* Paths.m in Sources */,
 				458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */,
 				4561ECEC1AEE0F990079D6A9 /* ColorCVCell.m in Sources */,
 				BDB32C9C1A22421C00EA822E /* SidebarViewController.m in Sources */,
 				4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */,
 				BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */,
+				4542180F1AF8B3A100E5A65D /* Bill.m in Sources */,
 				BD6FC8501AA0B7730059AC20 /* KindDetailCVC.m in Sources */,
 				BDA397841A3BE9E400E1D9F7 /* DefaultStyleController.m in Sources */,
 				45ECF3981AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m in Sources */,
@@ -919,6 +918,7 @@
 				BD1BF7EF19DB901E00B1379A /* HomeViewController.m in Sources */,
 				BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */,
 				BD1BF7E919DB901E00B1379A /* AppDelegate.m in Sources */,
+				45D0CBA21AF8BCB700F456A2 /* Kind.m in Sources */,
 				455C0DAC1AD65BE20060C4DF /* Plackmark+Create.m in Sources */,
 				BDB056BA19E3A1D000494080 /* SettingTVC.m in Sources */,
 				4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */,

@@ -34,22 +34,7 @@
     }else if ([matches count] > 1) {
         //error
         NSLog(@"error: kind match > 1");
-//        kind = matches.firstObject;
-//        for (Kind *aKind in matches) {
-//            if ([kind.createDate compare:aKind.createDate] == NSOrderedAscending) {
-//                //aKind is newer
-//                [aKind addBills:kind.bills];
-//                [context deleteObject:kind];
-//                kind = aKind;
-//            }else{
-//                //kind is newer
-//                [kind addBills:aKind.bills];
-//                [context deleteObject:aKind];
-//            }
-//        }
-        
-        // [PubicVariable saveContext];
-        
+
     }else if ([matches count] == 0){
         
         kind = [NSEntityDescription insertNewObjectForEntityForName:@"Kind" inManagedObjectContext:context];
@@ -58,11 +43,22 @@
         kind.visiteTime = kind.createDate;
         kind.isIncome = [NSNumber numberWithBool: isIncome];
         kind.colorID = [ColorCenter assingColorIDIsIncome:isIncome];
-        // [PubicVariable saveContext];
+        [kind updateUniqueIfNeeded];
+        
     }else if ([matches count] == 1){
         kind = [matches lastObject];
     }
     return kind;
+}
+
+- (void)updateUniqueIfNeeded {
+    NSString *unique = [NSString stringWithFormat:@"%@|%@",
+                        self.name.description,
+                        self.isIncome.description];
+    if (![self.unique isEqualToString:unique]) {
+        self.unique = unique;
+        NSLog(@"Successfully  Update Kind Unique: %@", self.unique);
+    }
 }
 
 - (UIColor *)color{
@@ -109,6 +105,9 @@
     [self calculatorSumMoney];
 
 }
+
+
+
 
 - (void)calculatorSumMoney {
     __block float result = 0;

@@ -19,16 +19,17 @@
     [self configBackButtonImageOnNavigationBar];
     [self configSwichAppearance];
     
-    NSDictionary *segmentedTitleAttributes = @{NSFontAttributeName : [UIFont wawaFontForSegmentedTitle]};
-    NSDictionary *barButtonItemTitleAttributes = @{NSFontAttributeName : [UIFont wawaFontForBarButtonItem]};
     //Configure UILabel font.
-    [[UILabel appearance] setFont:[UIFont wawaFontForLabel]];
-    //Configure UISegmentedControl.
-    [[UISegmentedControl appearance] setTitleTextAttributes:segmentedTitleAttributes
-                                                   forState:UIControlStateNormal];
+//    [[UILabel appearance] setFont:[UIFont wawaFontForLabel]];
+//    Configure UISegmentedControl.
+    //    NSDictionary *segmentedTitleAttributes = @{NSFontAttributeName : [UIFont wawaFontForSegmentedTitle]};
+//    [[UISegmentedControl appearance] setTitleTextAttributes:segmentedTitleAttributes
+//                                                   forState:UIControlStateNormal];
     //Configure UIBarButtonItem.
-    [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonItemTitleAttributes
-                                          forState:UIControlStateNormal];
+    //    NSDictionary *barButtonItemTitleAttributes = @{NSFontAttributeName : [UIFont wawaFontForBarButtonItem]};
+//    [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonItemTitleAttributes
+//                                          forState:UIControlStateNormal];
+    
     //Configure UITableViewCell selected color.
     UIColor *cellSellectedColor = [EBBlue colorWithAlphaComponent:0.3];
     UIView *colorView = [[UIView alloc] init];

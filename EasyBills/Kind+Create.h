@@ -30,4 +30,6 @@
 - (void)calculatorSumMoney;
 - (NSString *)isIncomeDescription;
 
+- (void)updateUniqueIfNeeded;
+
 @end

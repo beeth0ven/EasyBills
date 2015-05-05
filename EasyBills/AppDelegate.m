@@ -24,6 +24,11 @@
 
 @property (strong, nonatomic) UIStoryboard *storyBoard;
 
+@property (strong, nonatomic) id persistentStoreCoordinatorStoresWillChangeNotificationObserver;
+@property (strong, nonatomic) id persistentStoreCoordinatorStoresDidChangeNotificationObserver;
+@property (strong, nonatomic) id persistentStoreDidImportUbiquitousContentChangesNotificationObserver;
+@property (strong, nonatomic) id managedObjectContextWillSaveNotificationObserver;
+
 
 @end
 
@@ -62,8 +67,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [DefaultStyleController applyStyle];
     
+//    [self resetCoordinatorToDefault];
+//    
+//    return YES;
+    
+    [DefaultStyleController applyStyle];
+    [self registerForiCloudNotifications];
+
 
 //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
@@ -80,8 +91,6 @@
     }
     */
     
-    
-
     UINavigationController *frontViewController = (UINavigationController *)[self.viewControllers firstObject];
     SidebarViewController *rearViewController = [self.storyBoard
                                                  instantiateViewControllerWithIdentifier:@"rearViewController"];
@@ -105,7 +114,7 @@
     [self.window makeKeyAndVisible];
     
     [self showPasscodeIfNeeded];
-    
+
     return YES;
     
 }
@@ -137,39 +146,20 @@
 //    
 }
 
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [self saveContext];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)dealloc {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self.persistentStoreCoordinatorStoresWillChangeNotificationObserver];
+    [center removeObserver:self.persistentStoreCoordinatorStoresDidChangeNotificationObserver];
+    [center removeObserver:self.persistentStoreDidImportUbiquitousContentChangesNotificationObserver];
+    [center removeObserver:self.managedObjectContextWillSaveNotificationObserver];
+}
 
 #pragma mark - Core Data stack
 
@@ -237,7 +227,6 @@
         [self saveContext];
     }
     
-    [self registerForiCloudNotifications];
 
     return _persistentStoreCoordinator;
 }
@@ -258,6 +247,18 @@
     return _managedObjectContext;
 }
 
+- (void)resetCoordinatorToDefault {
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Model.sqlite"];
+    NSError *error;
+    NSDictionary *storeOptions =
+    @{NSPersistentStoreUbiquitousContentNameKey: @"MyAppCloudStore"};
+    
+    [NSPersistentStoreCoordinator removeUbiquitousContentAndPersistentStoreAtURL:storeURL options:storeOptions error:&error];
+    
+}
+
+
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {
@@ -274,11 +275,13 @@
 }
 
 
-#pragma mark - Notification Observers For iCloud support
+
+
+#pragma mark - Notification Observers
 
 - (void)registerForiCloudNotifications {
     NSLog(@"registerForiCloudNotifications");
-    
+    self.persistentStoreCoordinatorStoresWillChangeNotificationObserver =
     [[NSNotificationCenter defaultCenter]
      addObserverForName:NSPersistentStoreCoordinatorStoresWillChangeNotification
      object:self.managedObjectContext.persistentStoreCoordinator
@@ -300,6 +303,7 @@
          }];
      }];
     
+    self.persistentStoreCoordinatorStoresDidChangeNotificationObserver =
     [[NSNotificationCenter defaultCenter]
      addObserverForName:NSPersistentStoreCoordinatorStoresDidChangeNotification
      object:self.managedObjectContext.persistentStoreCoordinator
@@ -312,6 +316,7 @@
 
      }];
     
+    self.persistentStoreDidImportUbiquitousContentChangesNotificationObserver =
     [[NSNotificationCenter defaultCenter]
      addObserverForName:NSPersistentStoreDidImportUbiquitousContentChangesNotification
      object:self.managedObjectContext.persistentStoreCoordinator
@@ -321,68 +326,71 @@
 
          [self.managedObjectContext performBlock:^{
              [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
-             [self removingDuplicateRecords];
+//             [self removingDuplicateRecords];
 
          }];
+     }];
+    
+    self.managedObjectContextWillSaveNotificationObserver =
+    [[NSNotificationCenter defaultCenter]
+     addObserverForName:NSManagedObjectContextWillSaveNotification
+     object:nil
+     queue:[NSOperationQueue mainQueue]
+     usingBlock:^(NSNotification *note) {
+         NSLog(@"NSManagedObjectContextWillSaveNotification");
+         
+         NSManagedObjectContext *context = [note object];
+         NSSet *updatedObject = [context updatedObjects];
+         
+         for (NSManagedObject *managedObject in [updatedObject allObjects]) {
+             if ([managedObject respondsToSelector:@selector(updateUniqueIfNeeded)]) {
+                 [managedObject performSelector:@selector(updateUniqueIfNeeded)];
+             }
+         }
+     
      }];
 }
 
 
+
+
+
+NSString *const kEntityName = @"kEntityName";
+NSString *const kUniqueProperty = @"kUniqueProperty";
+
+
 - (void)removingDuplicateRecords {
-    [self removingDuplicateKindRecordsIsIncome:NO];
-    [self removingDuplicateKindRecordsIsIncome:YES];
     
-}
+    NSArray *entitysToRemove =
+    @[
+      @{ kEntityName: @"Kind", kUniqueProperty: @"unique"},
+      @{ kEntityName: @"Bill", kUniqueProperty: @"unique"},
+    ];
+    
+    for (NSDictionary *entity in entitysToRemove) {
+        NSString *entityName = [entity valueForKey:kEntityName];
+        NSString *uniquePropertyKey = [entity valueForKey:kUniqueProperty];
+        
+        [self removingDuplicateRecordsOfEntityName:entityName
+                                 uniquePropertyKey:uniquePropertyKey
+                            inManagedObjectContext:self.managedObjectContext];
 
-
-- (void)removingDuplicateKindRecordsIsIncome:(BOOL)isIncome {
-    NSString *entityName = @"Kind";
-    NSString *uniquePropertyKey = @"name";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isIncome = %@",[NSNumber numberWithBool:isIncome]];
-    [self removingDuplicateRecordsOfEntityName:entityName
-                             uniquePropertyKey:uniquePropertyKey
-                               entityPredicate:predicate
-                        inManagedObjectContext:self.managedObjectContext];
-    
-    [self billsAddMissedKindIsIncome:isIncome
-             inManagedObjectContext:self.managedObjectContext];
-    
-}
-
-- (void)billsAddMissedKindIsIncome:(BOOL)isIncome
-                   inManagedObjectContext:(NSManagedObjectContext *)aContext {
-    
-    NSString *entityName = @"Bill";
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    fetchRequest.predicate = nil;
-    NSError *error;
-    NSArray *matches = [aContext executeFetchRequest:fetchRequest error:&error];
-    
-    if (error) {
-        NSLog(@"%@",[error localizedDescription]);
-        return;
     }
+
     
-    for (Bill *bill in matches) {
-        if (bill.kind == nil) {
-            bill.kind = [Kind kindWithName:@"其他" isIncome:isIncome inManagedObjectContext:aContext];
-        }
-    }
 }
+
 
 - (void)removingDuplicateRecordsOfEntityName:(NSString *)entityName
                            uniquePropertyKey:(NSString *)uniquePropertyKey
-                                   entityPredicate:(NSPredicate *)aPredicate
                       inManagedObjectContext:(NSManagedObjectContext *)aContext {
     
 //    Choose a property or a hash of multiple properties to use as a unique ID for each record.
     
-    
-
     NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:uniquePropertyKey];
     NSExpression *countExpression = [NSExpression expressionForFunction: @"count:" arguments:@[keyPathExpression]];
-    NSExpressionDescription *countExpressionDescription = [[NSExpressionDescription alloc] init];
     
+    NSExpressionDescription *countExpressionDescription = [[NSExpressionDescription alloc] init];
     [countExpressionDescription setName:@"count"];
     [countExpressionDescription setExpression:countExpression];
     [countExpressionDescription setExpressionResultType:NSInteger64AttributeType];
@@ -397,7 +405,6 @@
     fetchRequest.propertiesToFetch = @[uniqueAttribute, countExpressionDescription];
     [fetchRequest setPropertiesToGroupBy:@[uniqueAttribute]];
     [fetchRequest setResultType:NSDictionaryResultType];
-    [fetchRequest setPredicate:aPredicate];
     NSError *error;
     NSArray *fetchedDictionaries = [context executeFetchRequest:fetchRequest error:&error];
     
@@ -423,8 +430,7 @@
 
     [dupeFetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:uniquePropertyKey ascending:YES]]];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ IN (%@)", uniquePropertyKey ,valuesWithDupes];
-    predicate = [predicate predicateCombineWithPredicate:aPredicate];
-    [dupeFetchRequest setPredicate:aPredicate];
+    [dupeFetchRequest setPredicate:predicate];
     
     NSArray *dupes = [context executeFetchRequest:dupeFetchRequest error:&error];
     

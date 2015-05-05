@@ -98,21 +98,22 @@
             [geocoder reverseGeocodeLocation:location
                            completionHandler:
              ^(NSArray *placemarks, NSError *error){
-                     dispatch_async(dispatch_get_main_queue(), ^{
-                         if (!error && [placemarks count] > 0) {
-                             CLPlacemark *placemark = [placemarks lastObject];
-                             NSString *name = [NSString stringForPlacemark:placemark];
-                             self.plackmark = [Plackmark plackmarkWithName:name inManagedObjectContext:self.managedObjectContext];
-                         }else{
-                             self.plackmark = [Plackmark plackmarkWithName:@"未知地点" inManagedObjectContext:self.managedObjectContext];
-                             
-                         }
+                 [self.managedObjectContext performBlock:^{
+                     
+                     if (!error && [placemarks count] > 0) {
+                         CLPlacemark *placemark = [placemarks lastObject];
+                         NSString *name = [NSString stringForPlacemark:placemark];
+                         self.plackmark = [Plackmark plackmarkWithName:name inManagedObjectContext:self.managedObjectContext];
+                     }else{
+                         self.plackmark = [Plackmark plackmarkWithName:@"未知地点" inManagedObjectContext:self.managedObjectContext];
                          
-       
-                         AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-                         [appDelegate saveContext];
+                     }
+                     
+                     
+                     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+                     [appDelegate saveContext];
+                 }];
 
-                     });
              
                  
              }];
