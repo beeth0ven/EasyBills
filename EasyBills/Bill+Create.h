@@ -26,6 +26,6 @@
 -(void)setDateAttributes:(NSDate *)date;
 + (Bill *) lastCreateBillInManagedObjectContext:(NSManagedObjectContext *)context;
 
-- (void)updateUniqueIfNeeded;
+- (void)updateUniqueIDIfNeeded;
 
 @end

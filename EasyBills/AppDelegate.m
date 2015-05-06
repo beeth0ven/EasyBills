@@ -35,42 +35,13 @@
 
 @implementation AppDelegate
 
-//- (void) scheduleLocalNotification{
-//    
-//    UILocalNotification *notification = [[UILocalNotification alloc] init];
-//    
-//    /* Time and timezone settings */
-//    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:8.0];
-//    notification.timeZone = [[NSCalendar currentCalendar] timeZone];
-//    
-//    notification.alertBody =
-//    NSLocalizedString(@"A new item is downloaded.", nil);
-//    
-//    /* Action settings */
-//    notification.hasAction = YES;
-//    notification.alertAction = NSLocalizedString(@"View", nil);
-//    
-//    /* Badge settings */
-//    notification.applicationIconBadgeNumber =
-//    [UIApplication sharedApplication].applicationIconBadgeNumber - 1;
-//    
-//    /* Additional information, user info */
-//    notification.userInfo = @{@"Key 1": @"Value 1",
-//                              @"Key 2" : @"Value 2"};
-//    
-//    /* Schedule the notification */
-//    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-//    
-//    
-//    
-//}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-//    [self resetCoordinatorToDefault];
-//    
-//    return YES;
+    [self resetCoordinatorToDefault];
+    
     
     [DefaultStyleController applyStyle];
     [self registerForiCloudNotifications];
@@ -167,10 +138,6 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-- (NSURL *)applicationDocumentsDirectory {
-    // The directory the application uses to store the Core Data store file. This code uses a directory named "cn.beeth0ven.test" in the application's documents directory.
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
 
 - (NSManagedObjectModel *)managedObjectModel {
     // The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
@@ -192,18 +159,14 @@
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Model.sqlite"];
-    BOOL firstRun = ![storeURL checkResourceIsReachableAndReturnError:NULL];
-    
-    NSDictionary *storeOptions =
-    @{NSPersistentStoreUbiquitousContentNameKey: @"MyAppCloudStore"};
-
+    BOOL firstRun = ![[self storeURL] checkResourceIsReachableAndReturnError:NULL];
+    NSDictionary *storeOptions = [PubicVariable iCloudEnable] ? [self iCloudStoreOptions] : nil;
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
     
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                    configuration:nil
-                                                             URL:storeURL
+                                                             URL:[self storeURL]
                                                          options:storeOptions
                                                            error:&error]) {
         // Report any error we got.
@@ -258,11 +221,61 @@
     
 }
 
+- (void)setiCloudEnable:(BOOL)enable {
+    // assuming you only have one store.
+    NSLog(@"1Change iCloud Enable State To %i .",enable);
+    NSPersistentStore *store = [[_persistentStoreCoordinator persistentStores] firstObject];
+    
+    NSDictionary *storeOptions = [self iCloudStoreOptions];
+    NSDictionary *reloadStoreOptions = [self iCloudStoreOptions];
+
+    if (!enable) {
+        storeOptions = [self removeiCloudStoreOptions];
+        reloadStoreOptions = nil;
+    }
+    
+    if ([reloadStoreOptions isEqualToDictionary:store.options]) return;
+    NSLog(@"2Change iCloud Enable State To %i .",enable);
+
+    //migrate Stores
+    NSPersistentStore *newStore =  [_persistentStoreCoordinator
+                                    migratePersistentStore:store
+                                    toURL:[self storeURL]
+                                    options:storeOptions
+                                    withType:NSSQLiteStoreType error:nil];
+    NSLog(@"3Change iCloud Enable State To %i .",enable);
+
+    [self reloadStore:newStore
+              options:reloadStoreOptions];
+    NSLog(@"4Change iCloud Enable State To %i .",enable);
+
+
+}
+
+- (void)reloadStore:(NSPersistentStore *)store
+            options:(NSDictionary *)options
+{
+    NSLog(@"reloadStore");
+
+    if (store) {
+        [_persistentStoreCoordinator removePersistentStore:store error:nil];
+    }
+    
+    [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                               configuration:nil
+                                         URL:[self storeURL]
+                                     options:options
+                                       error:nil];
+    NSLog(@"reloadStore");
+
+}
+
 
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    NSLog(@"saveContext");
     if (managedObjectContext != nil) {
         NSError *error = nil;
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
@@ -313,6 +326,7 @@
          NSLog(@"NSPersistentStoreCoordinatorStoresDidChangeNotification");
          [self removingDuplicateRecords];
 
+         NSLog(@"NSPersistentStoreCoordinatorStoresDidChangeNotification");
 
      }];
     
@@ -326,9 +340,11 @@
 
          [self.managedObjectContext performBlock:^{
              [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
-//             [self removingDuplicateRecords];
+             [self removingDuplicateRecords];
 
          }];
+         NSLog(@"NSPersistentStoreDidImportUbiquitousContentChangesNotification");
+
      }];
     
     self.managedObjectContextWillSaveNotificationObserver =
@@ -343,10 +359,12 @@
          NSSet *updatedObject = [context updatedObjects];
          
          for (NSManagedObject *managedObject in [updatedObject allObjects]) {
-             if ([managedObject respondsToSelector:@selector(updateUniqueIfNeeded)]) {
-                 [managedObject performSelector:@selector(updateUniqueIfNeeded)];
+             if ([managedObject respondsToSelector:@selector(updateUniqueIDIfNeeded)]) {
+                 [managedObject performSelector:@selector(updateUniqueIDIfNeeded)];
              }
          }
+         NSLog(@"NSManagedObjectContextWillSaveNotification");
+
      
      }];
 }
@@ -360,11 +378,12 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
 
 
 - (void)removingDuplicateRecords {
-    
+    NSLog(@"removingDuplicateRecords");
     NSArray *entitysToRemove =
     @[
-      @{ kEntityName: @"Kind", kUniqueProperty: @"unique"},
-      @{ kEntityName: @"Bill", kUniqueProperty: @"unique"},
+//      @{ kEntityName: @"Kind", kUniqueProperty: @"unique"},
+      @{ kEntityName: @"Kind", kUniqueProperty: @"uniqueID"},
+      @{ kEntityName: @"Bill", kUniqueProperty: @"uniqueID"},
     ];
     
     for (NSDictionary *entity in entitysToRemove) {
@@ -429,7 +448,7 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
     [dupeFetchRequest setIncludesPendingChanges:NO];
 
     [dupeFetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:uniquePropertyKey ascending:YES]]];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ IN (%@)", uniquePropertyKey ,valuesWithDupes];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K IN (%@)",uniquePropertyKey, valuesWithDupes];
     [dupeFetchRequest setPredicate:predicate];
     
     NSArray *dupes = [context executeFetchRequest:dupeFetchRequest error:&error];
@@ -456,12 +475,12 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
                     if ([createDate compare:preCreateDate] == NSOrderedAscending) {
                         [duplicate moveAllRelatedObectsTo:prevObject];
                         [context deleteObject:duplicate];
-                        NSLog(@"Successfully remove a %@!",[prevObject performSelector:@selector(name)]);
+//                        NSLog(@"Successfully remove a %@!",[prevObject performSelector:@selector(name)]);
                     } else {
                         [prevObject moveAllRelatedObectsTo:duplicate];
                         [context deleteObject:prevObject];
                         prevObject = duplicate;
-                        NSLog(@"Successfully remove a %@!",[prevObject performSelector:@selector(name)]);
+//                        NSLog(@"Successfully remove a %@!",[prevObject performSelector:@selector(name)]);
 
                     }
                 }
@@ -479,6 +498,35 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
 
 }
 
+//- (void) scheduleLocalNotification{
+//
+//    UILocalNotification *notification = [[UILocalNotification alloc] init];
+//
+//    /* Time and timezone settings */
+//    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:8.0];
+//    notification.timeZone = [[NSCalendar currentCalendar] timeZone];
+//
+//    notification.alertBody =
+//    NSLocalizedString(@"A new item is downloaded.", nil);
+//
+//    /* Action settings */
+//    notification.hasAction = YES;
+//    notification.alertAction = NSLocalizedString(@"View", nil);
+//
+//    /* Badge settings */
+//    notification.applicationIconBadgeNumber =
+//    [UIApplication sharedApplication].applicationIconBadgeNumber - 1;
+//
+//    /* Additional information, user info */
+//    notification.userInfo = @{@"Key 1": @"Value 1",
+//                              @"Key 2" : @"Value 2"};
+//
+//    /* Schedule the notification */
+//    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+//
+//
+//
+//}
 
 #pragma mark - Some method
 
@@ -573,5 +621,23 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
 }
 
 
+- (NSURL *)applicationDocumentsDirectory {
+    // The directory the application uses to store the Core Data store file. This code uses a directory named "cn.beeth0ven.test" in the application's documents directory.
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (NSURL *)storeURL {
+    return [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Model.sqlite"];
+}
+
+
+- (NSDictionary *)iCloudStoreOptions {
+    return  @{NSPersistentStoreUbiquitousContentNameKey: @"MyAppCloudStore"};
+    
+}
+
+- (NSDictionary *)removeiCloudStoreOptions {
+    return   @{NSPersistentStoreRemoveUbiquitousMetadataOption :@YES};
+}
 
 @end

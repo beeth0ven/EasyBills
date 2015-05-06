@@ -43,7 +43,8 @@
         kind.visiteTime = kind.createDate;
         kind.isIncome = [NSNumber numberWithBool: isIncome];
         kind.colorID = [ColorCenter assingColorIDIsIncome:isIncome];
-        [kind updateUniqueIfNeeded];
+//        kind.uniqueID = name;
+        [kind updateUniqueIDIfNeeded];
         
     }else if ([matches count] == 1){
         kind = [matches lastObject];
@@ -51,13 +52,13 @@
     return kind;
 }
 
-- (void)updateUniqueIfNeeded {
-    NSString *unique = [NSString stringWithFormat:@"%@|%@",
+- (void)updateUniqueIDIfNeeded {
+    NSString *uniqueID = [NSString stringWithFormat:@"%@|%@",
                         self.name.description,
                         self.isIncome.description];
-    if (![self.unique isEqualToString:unique]) {
-        self.unique = unique;
-        NSLog(@"Successfully  Update Kind Unique: %@", self.unique);
+    if (![self.uniqueID isEqualToString:uniqueID]) {
+        self.uniqueID = uniqueID;
+        NSLog(@"Successfully  Update Kind Unique: %@", self.uniqueID);
     }
 }
 
@@ -143,8 +144,8 @@
     NSError *error = nil;
     NSArray *matches = [context executeFetchRequest:request error:&error];
     
-    NSLog(@"isincome: %i", isIncome);
-    NSLog(@"matches: %lu", (unsigned long)[matches count]);
+//    NSLog(@"isincome: %i", isIncome);
+//    NSLog(@"matches: %lu", (unsigned long)[matches count]);
     
     //NSLog(@"isincome: %i", isIncome);
     

@@ -2,7 +2,7 @@
 //  Kind.m
 //  EasyBills
 //
-//  Created by luojie on 5/5/15.
+//  Created by luojie on 5/6/15.
 //  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
@@ -17,8 +17,8 @@
 @dynamic isIncome;
 @dynamic name;
 @dynamic sumMoney;
+@dynamic uniqueID;
 @dynamic visiteTime;
-@dynamic unique;
 @dynamic bills;
 
 @end

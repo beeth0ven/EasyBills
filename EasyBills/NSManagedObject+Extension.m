@@ -20,11 +20,18 @@
             
             NSArray *destinationRelationshipNames = destinationEntityDescription.relationshipsByName.allKeys;
             if ([destinationRelationshipNames containsObject:relationshipName]) {
-                NSSet *relatedObjects = [self valueForKey:relationshipName];
-                NSMutableSet *destinationRelatedObjects = [[destinationManagedObject valueForKey:relationshipName] mutableCopy];
-                [destinationRelatedObjects unionSet:relatedObjects];
-                [destinationManagedObject setValue:destinationRelatedObjects forKey:relationshipName];
-                NSLog(@"Successfully move relation ship name: %@.",relationshipName);
+                id relatedObject = [self valueForKey:relationshipName];
+                if ([relatedObject isKindOfClass:[NSSet class]]) {
+                    NSSet *relatedObjects = (NSSet *)relatedObject;
+                    NSMutableSet *destinationRelatedObjects = [[destinationManagedObject valueForKey:relationshipName] mutableCopy];
+                    [destinationRelatedObjects unionSet:relatedObjects];
+                    [destinationManagedObject setValue:destinationRelatedObjects forKey:relationshipName];
+                    NSLog(@"Successfully move to many relation ship name: %@.",relationshipName);
+                } else {
+                    [destinationManagedObject setValue:relatedObject forKey:relationshipName];
+                    NSLog(@"Successfully move to one relation ship name: %@.",relationshipName);
+                }
+                
             }
             
         }

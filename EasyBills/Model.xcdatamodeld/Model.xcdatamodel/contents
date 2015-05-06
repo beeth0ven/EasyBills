@@ -15,7 +15,7 @@
         <attribute name="month" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="monthID" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="unique" attributeType="String" defaultValueString="unique" syncable="YES"/>
+        <attribute name="uniqueID" attributeType="String" defaultValueString="unique" syncable="YES"/>
         <attribute name="weekday" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="weekID" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="weekOfMonth" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -30,7 +30,7 @@
         <attribute name="isIncome" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="sumMoney" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="unique" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uniqueID" attributeType="String" syncable="YES"/>
         <attribute name="visiteTime" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="bills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="kind" inverseEntity="Bill" syncable="YES"/>
     </entity>
@@ -39,7 +39,7 @@
         <relationship name="bills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="plackmark" inverseEntity="Bill" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="373"/>
+        <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="375"/>
         <element name="Kind" positionX="-3762" positionY="-1660" width="128" height="163"/>
         <element name="Plackmark" positionX="-4230" positionY="-1495" width="128" height="73"/>
     </elements>

@@ -9,6 +9,7 @@
 #import "PubicVariable.h"
 #import "Kind+Create.h"
 #import "NSDate+Extension.h"
+#import "AppDelegate.h"
 
 
 @implementation PubicVariable
@@ -225,6 +226,27 @@
 {
     NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:NEXTASSIGNEXPENSECOLORINDEX];
     return  number.integerValue;
+}
+
+#define ICLOUDENABLE @"iCloudEnable"
+
++ (void)setiCloudEnable:(BOOL)enable
+{
+    if ([self iCloudEnable] != enable) {
+        NSNumber *number = [NSNumber numberWithBool:enable];
+        [[NSUserDefaults standardUserDefaults] setObject:number forKey:ICLOUDENABLE];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate setiCloudEnable:enable];
+    }
+    
+}
+
++ (BOOL)iCloudEnable
+{
+    NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:ICLOUDENABLE];
+    return  number.boolValue;
 }
 
 

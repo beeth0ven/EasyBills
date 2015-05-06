@@ -25,7 +25,7 @@
     bill.createDate = [NSDate date];
     [bill setDateAttributes:[NSDate date]];
     bill.isIncome = [NSNumber numberWithBool:isIncome];
-    [bill updateUniqueIfNeeded];
+    [bill updateUniqueIDIfNeeded];
     return bill;
 }
 
@@ -78,7 +78,7 @@
     NSError *error = nil;
     NSArray *matches = [context executeFetchRequest:request error:&error];
     
-    NSLog(@"matches: %lu", (unsigned long)[matches count]);
+//    NSLog(@"matches: %lu", (unsigned long)[matches count]);
     
     
     if ([matches count] > 1){
@@ -90,15 +90,15 @@
     return bill;
 }
 
-- (void)updateUniqueIfNeeded {
-    NSString *unique = [NSString stringWithFormat:@"%@|%@|%@|%@",
+- (void)updateUniqueIDIfNeeded {
+    NSString *uniqueID = [NSString stringWithFormat:@"%@|%@|%@|%@",
                         self.money.description,
                         self.kind.name.description,
                         self.dayID.description,
                         self.note.description];
-    if (![self.unique isEqualToString:unique]) {
-        self.unique = unique;
-        NSLog(@"Successfully  Update Bill Unique: %@", unique);
+    if (![self.uniqueID isEqualToString:uniqueID]) {
+        self.uniqueID = uniqueID;
+        NSLog(@"Successfully  Update Bill Unique: %@", self.uniqueID);
     }
 }
 

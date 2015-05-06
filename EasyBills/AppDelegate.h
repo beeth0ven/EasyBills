@@ -21,6 +21,9 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+- (void)setiCloudEnable:(BOOL)enable;
+
+    
 @property (strong, nonatomic) NSMutableArray *viewControllers;
 
 
