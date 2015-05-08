@@ -8,6 +8,7 @@
         <attribute name="dayID" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="hasClusterAnnotation" optional="YES" transient="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isIncome" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="kindUniqueID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationIsOn" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
@@ -39,7 +40,7 @@
         <relationship name="bills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="plackmark" inverseEntity="Bill" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="375"/>
+        <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="390"/>
         <element name="Kind" positionX="-3762" positionY="-1660" width="128" height="163"/>
         <element name="Plackmark" positionX="-4230" positionY="-1495" width="128" height="73"/>
     </elements>

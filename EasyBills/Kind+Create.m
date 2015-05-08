@@ -52,6 +52,31 @@
     return kind;
 }
 
++ (Kind *)kindWithUniqueID:(NSString *)uniqueID inManagedObjectContext:(NSManagedObjectContext *)context
+{
+    Kind *kind = nil;
+    NSLog(@"kindWithUniqueID: %@",uniqueID);
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"uniqueID" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"uniqueID = %@",uniqueID];
+    
+    NSError *error = nil;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    
+    if ([matches count] > 0 ) {
+        kind = [matches lastObject];
+        NSLog(@"Successfully get kind uniqueID: %@",uniqueID);
+
+    } else {
+        //error
+        NSLog(@"Failed get kind uniqueID: %@",uniqueID);
+    }
+    return kind;
+}
+
+
 - (void)updateUniqueIDIfNeeded {
     NSString *uniqueID = [NSString stringWithFormat:@"%@|%@",
                         self.name.description,
@@ -131,7 +156,6 @@
 }
 
 
-
 + (Kind *)lastVisiteKindIsIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context
 {
     Kind *kind = nil;
@@ -150,7 +174,7 @@
     //NSLog(@"isincome: %i", isIncome);
     
     if ([matches count] == 0){
-        kind =[self kindWithName:@"其他" isIncome:isIncome inManagedObjectContext:context];
+        kind =[self defaultKindIsIncome:isIncome inManagedObjectContext:context];
     }else {
         kind = [matches lastObject];
     }
@@ -159,6 +183,11 @@
     
     
 }
+
++ (Kind *)defaultKindIsIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context {
+    return [self kindWithName:@"其他" isIncome:isIncome inManagedObjectContext:context];
+}
+
 
 + (Kind *)lastCreateKindInManagedObjectContext:(NSManagedObjectContext *)context
 {
@@ -186,13 +215,15 @@
 
 - (void)removeAllBills {
     if (self.bills.count > 0) {
-        Kind *kind = [Kind kindWithName:@"其他" isIncome:self.isIncome.boolValue inManagedObjectContext:self.managedObjectContext];
+        Kind *kind = [Kind defaultKindIsIncome:self.isIncome.boolValue inManagedObjectContext:self.managedObjectContext];
+//        [Kind kindWithName:@"其他" isIncome:self.isIncome.boolValue inManagedObjectContext:self.managedObjectContext];
 //        [Kind kindWithName:@"其他" isIncome:self.isIncome.boolValue];
         [self.bills enumerateObjectsUsingBlock:^(Bill *bill, BOOL *stop) {
             bill.kind = kind;
         }];
     }
 }
+
 
 
 + (BOOL)kindIsExistedWithName:(NSString *)name isIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context

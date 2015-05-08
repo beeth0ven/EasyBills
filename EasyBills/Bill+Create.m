@@ -100,8 +100,23 @@
         self.uniqueID = uniqueID;
         NSLog(@"Successfully  Update Bill Unique: %@", self.uniqueID);
     }
+    
+    if (self.kind) {
+        [self.kind updateUniqueIDIfNeeded];
+        if (self.kindUniqueID != self.kind.uniqueID) {
+            self.kindUniqueID = self.kind.uniqueID;
+        }
+        
+    }
 }
 
+- (void)addMissedKind {
+    Kind *kind = [Kind kindWithUniqueID:self.kindUniqueID inManagedObjectContext:self.managedObjectContext];
+    if (kind == nil)
+        kind = [Kind defaultKindIsIncome:self.isIncome.boolValue inManagedObjectContext:self.managedObjectContext];
+    self.kind = kind;
+    NSLog(@"Successfully Add Missed Kind Name: %@",kind.name);
+}
 
 
 @end

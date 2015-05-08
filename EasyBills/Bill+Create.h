@@ -27,5 +27,6 @@
 + (Bill *) lastCreateBillInManagedObjectContext:(NSManagedObjectContext *)context;
 
 - (void)updateUniqueIDIfNeeded;
+- (void)addMissedKind;
 
 @end

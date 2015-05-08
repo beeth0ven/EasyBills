@@ -71,20 +71,20 @@
 
 - (IBAction)changeiCloudEnableState:(UISwitch *)sender {
     NSLog(@"UISwitch changeiCloudEnableState.");
-    sender.hidden = YES;
-    UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc]
-                                                      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicatorView.center = sender.center;
-    [sender.superview addSubview:activityIndicatorView];
-    [activityIndicatorView startAnimating];
-    
+//    sender.hidden = YES;
+//    UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc]
+//                                                      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    activityIndicatorView.center = sender.center;
+//    [sender.superview addSubview:activityIndicatorView];
+//    [activityIndicatorView startAnimating];
+//    
     [PubicVariable setiCloudEnable:sender.isOn];
-    
-    [activityIndicatorView stopAnimating];
-    [activityIndicatorView removeFromSuperview];
-    sender.hidden = NO;
-
-    NSLog(@"UISwitch changeiCloudEnableState.");
+//    
+//    [activityIndicatorView stopAnimating];
+//    [activityIndicatorView removeFromSuperview];
+//    sender.hidden = NO;
+//
+//    NSLog(@"UISwitch changeiCloudEnableState.");
     
 }
 

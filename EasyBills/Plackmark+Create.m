@@ -30,6 +30,7 @@
         if (!matches || [matches count] > 1) {
             //error
             NSLog(@"Error ,The same placemark exist.");
+            plackmark = [matches firstObject];
         }else if ([matches count] == 0){
             
             plackmark = [NSEntityDescription

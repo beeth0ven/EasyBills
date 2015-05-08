@@ -90,6 +90,7 @@
     return cell;
 }
 
+
 #pragma mark - Table view data delegate
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)selectedRowIndexPath
@@ -160,7 +161,7 @@
     
     if (canConfigureImageView)
         cellImageView.tintColor = textColor;
-    label.font = [label.font fontWithSize:26.0];
+    label.font = [label.font fontWithSize:24.0];
     label.textColor = textColor;
     cell.backgroundColor = backgroundColor;
     

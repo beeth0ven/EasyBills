@@ -12,8 +12,10 @@
 @interface Kind (Create)
 
 + (Kind *)kindWithName:(NSString *)name isIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Kind *)kindWithUniqueID:(NSString *)uniqueID inManagedObjectContext:(NSManagedObjectContext *)context;
 + (void)kindWithNames:(NSArray *)names isIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context;
 + (Kind *)lastVisiteKindIsIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Kind *)defaultKindIsIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context;
 + (Kind *)lastCreateKindInManagedObjectContext:(NSManagedObjectContext *)context;
 + (BOOL)lastCreatedKindIsIncomeInManagedObjectContext:(NSManagedObjectContext *)context;
 

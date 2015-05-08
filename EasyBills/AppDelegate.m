@@ -36,11 +36,102 @@
 @implementation AppDelegate
 
 
+- (BOOL) createIcloudDirectory:(NSString *)paramDirectory
+             recursiveCreation:(BOOL)paramRecursiveCreation
+                     finalPath:(NSString **)paramFinalPath{
+    
+    BOOL result = NO;
+    
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+
+    NSURL *containerURL =
+    [fileManager URLForUbiquityContainerIdentifier:nil];
+    
+    NSString *documentsDirectory =
+    [[containerURL path]
+     stringByAppendingPathComponent:@"Documents"];
+    
+    if (paramFinalPath != nil){
+        *paramFinalPath = documentsDirectory;
+    }
+    
+    BOOL isDirectory = NO;
+    BOOL mustCreateDocumentsDirectory = NO;
+    
+    if ([fileManager fileExistsAtPath:documentsDirectory
+                          isDirectory:&isDirectory]){
+        if (isDirectory == NO){
+            mustCreateDocumentsDirectory = YES;
+        }
+    } else {
+        mustCreateDocumentsDirectory = YES;
+    }
+    
+    if (mustCreateDocumentsDirectory){
+        NSLog(@"Must create the directory.");
+        
+        NSError *directoryCreationError = nil;
+        
+        if ([fileManager createDirectoryAtPath:documentsDirectory
+                   withIntermediateDirectories:paramRecursiveCreation
+                                    attributes:nil
+                                         error:&directoryCreationError]){
+            result = YES;
+            NSLog(@"Successfully created the folder.");
+        } else {
+            NSLog(@"Failed to create the folder with error = %@",
+                  directoryCreationError);
+        }
+        
+    } else {
+        NSLog(@"This folder already exists.");
+        result = YES;
+    }
+    
+    return result;
+    
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [self resetCoordinatorToDefault];
+    
+    
+
+    NSString *documentsDirectory = nil;
+    
+    if ([self createIcloudDirectory:@"Documents"
+                  recursiveCreation:YES
+                          finalPath:&documentsDirectory]){
+        
+        NSLog(@"Successfully created the directory in %@",
+              documentsDirectory);
+        
+        NSString *stringToSave = @"My String";
+        
+        NSString *pathToSave =
+        [documentsDirectory
+         stringByAppendingPathComponent:@"MyString.txt"];
+        
+        NSError *savingError = nil;
+        
+        if ([stringToSave writeToFile:pathToSave
+                           atomically:YES
+                             encoding:NSUTF8StringEncoding
+                                error:&savingError]){
+            NSLog(@"Successfully saved the string in iCloud.");
+        } else {
+            NSLog(@"Failed to save the string with error = %@", savingError);
+        }
+        
+        
+    } else {
+        NSLog(@"Failed to create the directory.");
+    }
+
+    
+//    [self resetCoordinatorToDefault];
     
     
     [DefaultStyleController applyStyle];
@@ -75,7 +166,7 @@
     UIWindow *window = [[UIWindow alloc]
                         initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    mainRevealController.rearViewRevealWidth = window.frame.size.width * 2 / 3;
+    mainRevealController.rearViewRevealWidth = 213.0f;
 //    NSLog(@"RearViewRevealWidth Width: %.0f",mainRevealController.rearViewRevealWidth);
 
 //    [self enumerateFonts];
@@ -207,6 +298,7 @@
     }
     _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    [_managedObjectContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
     return _managedObjectContext;
 }
 
@@ -235,7 +327,7 @@
     }
     
     if ([reloadStoreOptions isEqualToDictionary:store.options]) return;
-    NSLog(@"2Change iCloud Enable State To %i .",enable);
+//    NSLog(@"2Change iCloud Enable State To %i .",enable);
 
     //migrate Stores
     NSPersistentStore *newStore =  [_persistentStoreCoordinator
@@ -243,11 +335,11 @@
                                     toURL:[self storeURL]
                                     options:storeOptions
                                     withType:NSSQLiteStoreType error:nil];
-    NSLog(@"3Change iCloud Enable State To %i .",enable);
+//    NSLog(@"3Change iCloud Enable State To %i .",enable);
 
     [self reloadStore:newStore
               options:reloadStoreOptions];
-    NSLog(@"4Change iCloud Enable State To %i .",enable);
+//    NSLog(@"4Change iCloud Enable State To %i .",enable);
 
 
 }
@@ -324,9 +416,8 @@
      usingBlock:^(NSNotification *note) {
          //Update UI
          NSLog(@"NSPersistentStoreCoordinatorStoresDidChangeNotification");
-         [self removingDuplicateRecords];
+         [self removingDuplicateRecordsAndAddMissedRelationShip];
 
-         NSLog(@"NSPersistentStoreCoordinatorStoresDidChangeNotification");
 
      }];
     
@@ -340,10 +431,9 @@
 
          [self.managedObjectContext performBlock:^{
              [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
-             [self removingDuplicateRecords];
-
+             [self removingDuplicateRecordsAndAddMissedRelationShip];
+             
          }];
-         NSLog(@"NSPersistentStoreDidImportUbiquitousContentChangesNotification");
 
      }];
     
@@ -363,7 +453,6 @@
                  [managedObject performSelector:@selector(updateUniqueIDIfNeeded)];
              }
          }
-         NSLog(@"NSManagedObjectContextWillSaveNotification");
 
      
      }];
@@ -377,13 +466,13 @@ NSString *const kEntityName = @"kEntityName";
 NSString *const kUniqueProperty = @"kUniqueProperty";
 
 
-- (void)removingDuplicateRecords {
+- (void)removingDuplicateRecordsAndAddMissedRelationShip {
     NSLog(@"removingDuplicateRecords");
     NSArray *entitysToRemove =
     @[
-//      @{ kEntityName: @"Kind", kUniqueProperty: @"unique"},
       @{ kEntityName: @"Kind", kUniqueProperty: @"uniqueID"},
       @{ kEntityName: @"Bill", kUniqueProperty: @"uniqueID"},
+      @{ kEntityName: @"Plackmark", kUniqueProperty: @"name"},
     ];
     
     for (NSDictionary *entity in entitysToRemove) {
@@ -395,9 +484,30 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
                             inManagedObjectContext:self.managedObjectContext];
 
     }
-
     
+    NSLog(@"AddMissedRelationShip");
+    // Add bill's kind,
+    NSArray *bills = [self allBills];
+    
+    for (Bill *bill in bills) {
+        if (!bill.kind) {
+            [bill addMissedKind];
+        }
+    }
+ 
 }
+
+- (NSArray *)allBills {
+    //Fetch all bills
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"createDate" ascending:YES]];
+    request.predicate = nil;
+    
+    NSError *error = nil;
+    return  [self.managedObjectContext executeFetchRequest:request error:&error];
+}
+
+
 
 
 - (void)removingDuplicateRecordsOfEntityName:(NSString *)entityName
@@ -475,12 +585,12 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
                     if ([createDate compare:preCreateDate] == NSOrderedAscending) {
                         [duplicate moveAllRelatedObectsTo:prevObject];
                         [context deleteObject:duplicate];
-//                        NSLog(@"Successfully remove a %@!",[prevObject performSelector:@selector(name)]);
+                        NSLog(@"Successfully remove a %@!",prevObject.entity.name);
                     } else {
                         [prevObject moveAllRelatedObectsTo:duplicate];
                         [context deleteObject:prevObject];
                         prevObject = duplicate;
-//                        NSLog(@"Successfully remove a %@!",[prevObject performSelector:@selector(name)]);
+                        NSLog(@"Successfully remove a %@!",prevObject.entity.name);
 
                     }
                 }
