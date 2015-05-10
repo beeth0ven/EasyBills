@@ -25,6 +25,8 @@
 
     
 @property (strong, nonatomic) NSMutableArray *viewControllers;
+@property (weak, nonatomic, readonly) NSString *appVersion;
+
 
 
 @end

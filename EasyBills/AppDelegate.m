@@ -688,7 +688,7 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
                                            @"categoryNavigationController",
                                            @"mapNavigationController",
                                            @"settingNavigationController",
-                                           @"settingNavigationController"];
+                                           @"sboutNavigationController"];
         
         
         [controllerIdentifiers
@@ -748,6 +748,11 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
 
 - (NSDictionary *)removeiCloudStoreOptions {
     return   @{NSPersistentStoreRemoveUbiquitousMetadataOption :@YES};
+}
+
+- (NSString *)appVersion {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    return  infoDictionary[(NSString*)kCFBundleVersionKey];
 }
 
 @end

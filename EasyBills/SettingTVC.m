@@ -17,11 +17,11 @@
 #import "UIButton+Extension.h"
 #import "UIViewController+Extension.h"
 #import "UINavigationController+Style.h"
+#import "UIAlertView+Extension.h"
 
 @interface SettingTVC ()
+
 @property (weak, nonatomic) IBOutlet UISwitch *passcodeSwitch;
-
-
 
 @end
 
@@ -60,12 +60,6 @@
     //self.navigationController.navigationBar.barTintColor = PNTwitterColor;
     [self.navigationController applyDefualtStyle:YES];
     self.passcodeSwitch.on = [LTHPasscodeViewController doesPasscodeExist];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -149,12 +143,20 @@
 {
     UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell.reuseIdentifier isEqualToString:@"exportData"]) {
-        UIActionSheet *actionSheet =[[UIActionSheet alloc]initWithTitle:@"导出数据:"
-                                                               delegate:self
-                                                      cancelButtonTitle:@"取消"
-                                                 destructiveButtonTitle:nil
-                                                      otherButtonTitles:@"本周", @"本月",@"总体",nil];
-        [actionSheet showInView:self.view];
+        if ([MFMailComposeViewController canSendMail]) {
+            
+            UIActionSheet *actionSheet =[[UIActionSheet alloc]initWithTitle:@"导出数据:"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"取消"
+                                                     destructiveButtonTitle:nil
+                                                          otherButtonTitles:@"本周", @"本月",@"总体",nil];
+            [actionSheet showInView:self.view];
+            
+        } else {
+            [UIAlertView displayAlertWithTitle:kPromptTitle
+                                       message:kMailNotConfiguredMessage];
+        }
+       
     }
     cell.selected = NO;
 }
@@ -211,31 +213,38 @@
 */
 -(void)displayComposerSheetWithFilePath:(NSString *)filePath withDateMode:(NSInteger) dateMode
 {
-    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
-    picker.mailComposeDelegate = self;
-    NSString *subject;
-    switch (dateMode) {
-        case week:
-            subject = @"EasyBills This Week's Data";
-            break;
-        case month:
-            subject = @"EasyBills This Month's Data";
-            break;
-        default:
-            subject = @"EasyBills All Data";
-            break;
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+        picker.mailComposeDelegate = self;
+        NSString *subject;
+        switch (dateMode) {
+            case week:
+                subject = @"EasyBills This Week's Data";
+                break;
+            case month:
+                subject = @"EasyBills This Month's Data";
+                break;
+            default:
+                subject = @"EasyBills All Data";
+                break;
+        }
+        
+        [picker setSubject:subject];
+        //
+        NSData *myData = [NSData dataWithContentsOfFile:filePath];
+        [picker addAttachmentData:myData mimeType:@"text/csv" fileName:@"Bills.csv"];
+        
+        NSString *emailBody = @"It is EasyBills's Data!";
+        [picker setMessageBody:emailBody isHTML:NO];
+        
+        picker.navigationController.navigationBar.barTintColor = PNRed;
+        [self presentViewController:picker animated:YES completion:^(){}];
+    } else {
+        [UIAlertView displayAlertWithTitle:kPromptTitle
+                                   message:kMailNotConfiguredMessage];
     }
     
-    [picker setSubject:subject];
-    //
-    NSData *myData = [NSData dataWithContentsOfFile:filePath];
-    [picker addAttachmentData:myData mimeType:@"text/csv" fileName:@"Bills.csv"];
-    
-    NSString *emailBody = @"It is EasyBills's Data!";
-    [picker setMessageBody:emailBody isHTML:NO];
-    
-    picker.navigationController.navigationBar.barTintColor = PNRed;
-    [self presentViewController:picker animated:YES completion:^(){}];
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
@@ -273,54 +282,5 @@
     }
     
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>LicenseProjectName</key>
+		<string>Chameleon for iOS</string>
+		<key>LicenseInfo</key>
+		<string>The MIT License (MIT)
+ 
+ Copyright (c) 2014-2015 Vicc Alexander.
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the &quot;Software&quot;), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFT</string>
+	</dict>
+	<dict>
+		<key>LicenseProjectName</key>
+		<string>DZNSegmentedControl</string>
+		<key>LicenseInfo</key>
+		<string>(The MIT License)
+
+Copyright (c) 2014 Ignacio Romero Zurbuchen iromero@dzen.cl
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &apos;Software&apos;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &apos;AS IS&apos;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+	</dict>
+	<dict>
+		<key>LicenseProjectName</key>
+		<string>iOS 7 UI Components</string>
+		<key>LicenseInfo</key>
+		<string>By: Raul Taciu
+
+GraphicBurger License
+
+
+All resources available for download on GraphicBurger, including but not limited to,
+Logo MockUps, Product MockUps, Text Effects, Icons, User Interfaces, Illustrations, 
+Background Images, are royalty free for use in both personal and commercial projects.
+
+
+Rights
+
+You are permitted to use the resources for any number of personal and commercial projects.
+You may modify the resources according to your requirements and include them into works, 
+such as websites, applications or other materials intended for sale. No attribution or 
+link back to this site is required, however any credit will be much appreciated.
+
+
+Prohibitions
+
+You do not have the rights to redistribute, resell, lease, license, sublicense or offer 
+files downloaded from GraphicBurger to any third party ìas isî or as a separate attachment 
+from any of your work. If you wish to promote my resources on your site, you must link back 
+to the resource page where users can find the download and not directly to the download file.</string>
+	</dict>
+	<dict>
+		<key>LicenseProjectName</key>
+		<string>LTHPasscodeViewController</string>
+		<key>LicenseInfo</key>
+		<string>The MIT License (MIT)
+
+Copyright (c) 2013 Roland Leth
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the &quot;Software&quot;), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+	</dict>
+	<dict>
+		<key>LicenseProjectName</key>
+		<string>Simple Line Icons</string>
+		<key>LicenseInfo</key>
+		<string>By: Raul Taciu
+
+GraphicBurger License
+
+
+All resources available for download on GraphicBurger, including but not limited to,
+Logo MockUps, Product MockUps, Text Effects, Icons, User Interfaces, Illustrations, 
+Background Images, are royalty free for use in both personal and commercial projects.
+
+
+Rights
+
+You are permitted to use the resources for any number of personal and commercial projects.
+You may modify the resources according to your requirements and include them into works, 
+such as websites, applications or other materials intended for sale. No attribution or 
+link back to this site is required, however any credit will be much appreciated.
+
+
+Prohibitions
+
+You do not have the rights to redistribute, resell, lease, license, sublicense or offer 
+files downloaded from GraphicBurger to any third party ìas isî or as a separate attachment 
+from any of your work. If you wish to promote my resources on your site, you must link back 
+to the resource page where users can find the download and not directly to the download file.</string>
+	</dict>
+	<dict>
+		<key>LicenseProjectName</key>
+		<string>SWRevealViewController</string>
+		<key>LicenseInfo</key>
+		<string>Copyright (c) 2013 Joan Lluch &lt;joan.lluch@sweetwilliamsl.com&gt;
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the &quot;Software&quot;), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is furnished
+ to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+
+ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</string>
+	</dict>
+	<dict>
+		<key>LicenseProjectName</key>
+		<string>PNChart</string>
+		<key>LicenseInfo</key>
+		<string>The MIT License (MIT)
+
+Copyright (c) 2013 Kevin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the &quot;Software&quot;), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+	</dict>
+	<dict>
+		<key>LicenseProjectName</key>
+		<string>UICountingLabel</string>
+		<key>LicenseInfo</key>
+		<string>The MIT License (MIT)
+
+Copyright (c) 2013 Tim Gostony
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</string>
+	</dict>
+</array>
+</plist>

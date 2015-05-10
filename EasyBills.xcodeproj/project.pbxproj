@@ -17,6 +17,9 @@
 		4508D6611AC41642007CA44A /* BillDetailCVC+UIActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6601AC41642007CA44A /* BillDetailCVC+UIActionSheet.m */; };
 		4508D66A1AC41909007CA44A /* BillDetailCVC+SetUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D6691AC41909007CA44A /* BillDetailCVC+SetUp.m */; };
 		4508D66D1AC41E60007CA44A /* BillDetailCVC+Observer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508D66C1AC41E60007CA44A /* BillDetailCVC+Observer.m */; };
+		450DEFAA1AFF07A000B08978 /* AboutTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 450DEFA91AFF07A000B08978 /* AboutTVC.m */; };
+		450DEFAE1AFF17AC00B08978 /* LicenseTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 450DEFAD1AFF17AC00B08978 /* LicenseTVC.m */; };
+		450DEFB01AFF20F800B08978 /* Licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 450DEFAF1AFF20F800B08978 /* Licenses.plist */; };
 		452D9D901AF9CC7600C8298E /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D9D8F1AF9CC7600C8298E /* Kind.m */; };
 		455C0D9F1AD64A080060C4DF /* LoadingStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0D9E1AD64A080060C4DF /* LoadingStatus.m */; };
 		455C0DA31AD650150060C4DF /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA21AD650150060C4DF /* NSString+Extension.m */; };
@@ -121,6 +124,11 @@
 		4508D6691AC41909007CA44A /* BillDetailCVC+SetUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+SetUp.m"; sourceTree = "<group>"; };
 		4508D66B1AC41E60007CA44A /* BillDetailCVC+Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+Observer.h"; sourceTree = "<group>"; };
 		4508D66C1AC41E60007CA44A /* BillDetailCVC+Observer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+Observer.m"; sourceTree = "<group>"; };
+		450DEFA81AFF07A000B08978 /* AboutTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutTVC.h; sourceTree = "<group>"; };
+		450DEFA91AFF07A000B08978 /* AboutTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutTVC.m; sourceTree = "<group>"; };
+		450DEFAC1AFF17AC00B08978 /* LicenseTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseTVC.h; sourceTree = "<group>"; };
+		450DEFAD1AFF17AC00B08978 /* LicenseTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseTVC.m; sourceTree = "<group>"; };
+		450DEFAF1AFF20F800B08978 /* Licenses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Licenses.plist; sourceTree = "<group>"; };
 		452D9D8E1AF9CC7600C8298E /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
 		452D9D8F1AF9CC7600C8298E /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
 		455C0D9D1AD64A080060C4DF /* LoadingStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingStatus.h; path = ../LoadingStatus.h; sourceTree = "<group>"; };
@@ -300,6 +308,17 @@
 			name = CursorButton;
 			sourceTree = "<group>";
 		};
+		450DEFAB1AFF128200B08978 /* AboutTVC */ = {
+			isa = PBXGroup;
+			children = (
+				450DEFA81AFF07A000B08978 /* AboutTVC.h */,
+				450DEFA91AFF07A000B08978 /* AboutTVC.m */,
+				450DEFAC1AFF17AC00B08978 /* LicenseTVC.h */,
+				450DEFAD1AFF17AC00B08978 /* LicenseTVC.m */,
+			);
+			name = AboutTVC;
+			sourceTree = "<group>";
+		};
 		455C0DA01AD64E660060C4DF /* CustomAnimationController.h */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +430,7 @@
 				BD81A3CE1A99CEB800C2CBE6 /* Extension */,
 				4566649E1ADA439D00808312 /* CustomFonts */,
 				BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */,
+				450DEFAF1AFF20F800B08978 /* Licenses.plist */,
 				BD1BF7E719DB901E00B1379A /* AppDelegate.h */,
 				BD1BF7E819DB901E00B1379A /* AppDelegate.m */,
 				459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */,
@@ -605,6 +625,7 @@
 				BD81A3D31A99CFE100C2CBE6 /* KindCDTVC */,
 				BD81A3D21A99CFD800C2CBE6 /* MapCDTVC */,
 				BD81A3D41A99CFEB00C2CBE6 /* SettingTVC */,
+				450DEFAB1AFF128200B08978 /* AboutTVC */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -827,6 +848,7 @@
 				459CDE231ACE5E6900A6B0E2 /* LaunchScreen.xib in Resources */,
 				456664A81ADA48F500808312 /* Naughty Cartoons.ttf in Resources */,
 				BD1BF7E319DB901E00B1379A /* InfoPlist.strings in Resources */,
+				450DEFB01AFF20F800B08978 /* Licenses.plist in Resources */,
 				BD1BF7EC19DB901E00B1379A /* Main.storyboard in Resources */,
 				456664B01ADA604A00808312 /* WawaSC-Regular.otf in Resources */,
 				BD0FDC781A90DFF200679961 /* Media.xcassets in Resources */,
@@ -893,6 +915,7 @@
 				45F47B741AFC848200BE7D64 /* Bill.m in Sources */,
 				BD6FC8501AA0B7730059AC20 /* KindDetailCVC.m in Sources */,
 				BDA397841A3BE9E400E1D9F7 /* DefaultStyleController.m in Sources */,
+				450DEFAE1AFF17AC00B08978 /* LicenseTVC.m in Sources */,
 				45ECF3981AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m in Sources */,
 				BD1BF83119DB927300B1379A /* Bill+Create.m in Sources */,
 				BD7348841A99842B00692EE4 /* UINavigationController+Style.m in Sources */,
@@ -904,6 +927,7 @@
 				4594DABD1AF34EE200C4BFBB /* UIStoryboardSegue+Extension.m in Sources */,
 				45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */,
 				BD1BF83219DB927300B1379A /* BillCDTVC.m in Sources */,
+				450DEFAA1AFF07A000B08978 /* AboutTVC.m in Sources */,
 				455C0DA31AD650150060C4DF /* NSString+Extension.m in Sources */,
 				BD1BF83D19DB927300B1379A /* Model.xcdatamodeld in Sources */,
 				45C076FB1AE3DEC9001F9B44 /* ManageKindCDTVC.m in Sources */,
