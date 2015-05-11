@@ -15,10 +15,13 @@
 #import "DefaultStyleController.h"
 #import "UIImage+Extension.h"
 #import "LoadingStatus.h"
+#import "MRProgressOverlayView.h"
+#import "TextProgressMRPOV.h"
+
 
 @interface MapCDTVC ()
 
-@property (nonatomic, strong) LoadingStatus *loadingStatus;
+@property (nonatomic, strong) TextProgressMRPOV *progressView;
 
 @end
 
@@ -28,11 +31,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setupMenuButton];
     self.mapView.delegate = self;
     [self setupFetchedResultsController];
-    [self.view addSubview:self.loadingStatus];
+    [self setupMenuButton];
 
+//    [self.progressView show:YES];
 
 
 }
@@ -58,6 +61,8 @@
     // add a temporary loading view
     
     if (!self.fetchedResultsController) {
+        [self.progressView show:YES];
+
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
@@ -71,7 +76,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.fetchedResultsController = fetchedResultsController;
                 [self mapViewReloadData];
-
+                [self.progressView dismiss:YES];
             });
         });
 
@@ -128,21 +133,20 @@
 } 
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
-    if (self.loadingStatus.superview) {
-        [self.loadingStatus removeFromSuperviewWithFade];
+    if (self.progressView.superview) {
+//        [self.progressView dismiss:YES];
     }
-
 }
 
 
 
-- (LoadingStatus *)loadingStatus {
-    if (!_loadingStatus) {
-        _loadingStatus = [LoadingStatus defaultLoadingStatusWithWidth:CGRectGetWidth(self.view.frame)];
+- (TextProgressMRPOV *)progressView {
+    if (!_progressView) {
+        _progressView = [TextProgressMRPOV defaultTextProgressMRPOV];
+        [self.revealViewController.frontViewController.view addSubview:_progressView];
     }
-    return _loadingStatus;
+    return _progressView;
 }
-
 
 
 

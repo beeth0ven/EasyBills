@@ -22,8 +22,16 @@
                                               target:self.revealViewController
                                               action:@selector(revealToggle:)];
     
-    [self.navigationController.navigationBar
-     addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+//    SWRevealViewController *revealController = [self revealViewController];
+    
+//    [revealController panGestureRecognizer];
+//    [revealController tapGestureRecognizer];
+    
+//    [self.view addGestureRecognizer:revealController.panGestureRecognizer];
+
+//    [self.navigationController.navigationBar
+//     addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+
     
 }
 

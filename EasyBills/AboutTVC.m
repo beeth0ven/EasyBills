@@ -59,17 +59,17 @@
     
     CGFloat tableFooterViewHeight = self.tableView.bounds.size.height-tableHeaderView.bounds.size.height-rowHeight*rowCount-self.navigationController.navigationBar.bounds.size.height-30;
     
-    NSLog(@"tableHeaderView.bounds.size.height: %.1f,",tableHeaderView.bounds.size.height);
-    NSLog(@"rowHeight: %.1f,",rowHeight);
-    NSLog(@"rowCount: %lu,",(unsigned long)rowCount);
-    NSLog(@"tableFooterViewHeight: %.1f,",tableFooterViewHeight);
+//    NSLog(@"tableHeaderView.bounds.size.height: %.1f,",tableHeaderView.bounds.size.height);
+//    NSLog(@"rowHeight: %.1f,",rowHeight);
+//    NSLog(@"rowCount: %lu,",(unsigned long)rowCount);
+//    NSLog(@"tableFooterViewHeight: %.1f,",tableFooterViewHeight);
 
     tableFooterView.frame = CGRectMake(tableFooterView.frame.origin.x,
                                        tableFooterView.frame.origin.y,
                                        tableFooterView.frame.size.width,
                                        tableFooterViewHeight);
     
-    NSLog(@"height: %.1f,",self.tableView.contentSize.height - self.tableView.bounds.size.height);
+//    NSLog(@"height: %.1f,",self.tableView.contentSize.height - self.tableView.bounds.size.height);
 
 }
 

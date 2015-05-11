@@ -1,37 +1,55 @@
 PODS:
-  - ACPButton (1.0.0)
-  - AFTextView (0.0.1)
   - ChameleonFramework (1.1.2)
   - DZNSegmentedControl (1.2.2)
-  - JTSImageViewController (1.4)
   - LTHPasscodeViewController (3.6.4)
-  - NYSegmentedControl (1.0.3)
+  - MRProgress (0.8.1):
+    - MRProgress/ActivityIndicator (= 0.8.1)
+    - MRProgress/Blur (= 0.8.1)
+    - MRProgress/Circular (= 0.8.1)
+    - MRProgress/Icons (= 0.8.1)
+    - MRProgress/NavigationBarProgress (= 0.8.1)
+    - MRProgress/Overlay (= 0.8.1)
+  - MRProgress/ActivityIndicator (0.8.1):
+    - MRProgress/Stopable
+  - MRProgress/Blur (0.8.1):
+    - MRProgress/Helper
+  - MRProgress/Circular (0.8.1):
+    - MRProgress/Helper
+    - MRProgress/ProgressBaseClass
+    - MRProgress/Stopable
+  - MRProgress/Helper (0.8.1)
+  - MRProgress/Icons (0.8.1)
+  - MRProgress/NavigationBarProgress (0.8.1):
+    - MRProgress/ProgressBaseClass
+  - MRProgress/Overlay (0.8.1):
+    - MRProgress/ActivityIndicator
+    - MRProgress/Blur
+    - MRProgress/Circular
+    - MRProgress/Helper
+    - MRProgress/Icons
+  - MRProgress/ProgressBaseClass (0.8.1)
+  - MRProgress/Stopable (0.8.1):
+    - MRProgress/Helper
   - PNChart (0.8.2):
     - UICountingLabel (~> 1.0.0)
   - SWRevealViewController (2.3.0)
   - UICountingLabel (1.0.0)
 
 DEPENDENCIES:
-  - ACPButton
-  - AFTextView
   - ChameleonFramework
   - DZNSegmentedControl (~> 1.2)
-  - JTSImageViewController (~> 1.4)
   - LTHPasscodeViewController (~> 3.6)
-  - NYSegmentedControl
+  - MRProgress
   - PNChart (~> 0.8)
   - SWRevealViewController (~> 2.3)
 
 SPEC CHECKSUMS:
-  ACPButton: ba5f231d6c7cd84ed0c192602b6261ef7de708cb
-  AFTextView: df47fbb7337d8ba20c2553121347a5f8ad6b4865
   ChameleonFramework: 1b4588efcae564886e1a176fa02fb0f4c81a69b3
   DZNSegmentedControl: 8a7fdd743672742c692106f4456aaede10d43131
-  JTSImageViewController: 6a367b144e257db02cdfacdba78d684377d3777b
   LTHPasscodeViewController: 9116ca5f9058a35792df2e76843542633e3df4c1
-  NYSegmentedControl: c24774be62ed17442595d33f74e6eb23bcff3412
+  MRProgress: 72653f3ffd13c7bbac8c9de1da9bf0249fc2717d
   PNChart: 32b4ffa1ca525e255083204a3601447e85367321
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   UICountingLabel: 540feeca6bbb78be892c8ab75b6ad02313cb2b10
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.36.3

@@ -7,13 +7,14 @@
 //
 
 #import "SidebarViewController.h"
-#import "SWRevealViewController.h"
 #import "DefaultStyleController.h"
 #import "AppDelegate.h"
 #import "Chameleon.h"
 
 @interface SidebarViewController ()
 
+@property (nonatomic, strong) UIView *maskView;
+@property (nonatomic, strong) UIVisualEffectView *visualEffectView;
 
 @end
 
@@ -21,40 +22,19 @@
     NSArray *menuItems;
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self setupBackgroundImage];
+}
+
+- (void)setupBackgroundImage {
     UIImage *image = [UIImage imageNamed:@"Account details BG"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     self.tableView.backgroundView = imageView;
-    
+
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    UITableViewCell *cell = [self tableView:self.tableView
-//                       cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-//    UIImageView *imageView = (UIImageView *)[cell viewWithTag:5];
-//
-//    NSLog(@"TableView Width: %.0f",self.tableView.frame.size.width);
-//    NSLog(@"Cell Width: %.0f",cell.frame.size.width);
-//    NSLog(@"Center x: %.0f",imageView.center.x);
-//}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
@@ -113,6 +93,13 @@
         AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
         UINavigationController *frontViewController = [appDelegate.viewControllers objectAtIndex:index];
         
+
+        
+//        [frontViewController.view addSubview:self.visualEffectView];
+//        [frontViewController.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+//        [frontViewController.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+        
+        //Change front view
         [self.revealViewController
          setFrontViewController:frontViewController];
         
@@ -167,36 +154,101 @@
     
 }
 
+#pragma mark - SWReveal View Controller Delegate
 
-- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
+
+
+- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
 {
-    /*
+    NSLog( @"%@: %@", NSStringFromSelector(_cmd), [self stringFromFrontViewPosition:position]);
+    
+    UIView *frontView = revealController.frontViewController.view;
+    switch (position) {
+        case FrontViewPositionLeft:{
+            
+            if (self.visualEffectView.superview) {
+                [self.visualEffectView removeFromSuperview];
+                [frontView addSubview:self.visualEffectView];
+            }
+            
+            [frontView addGestureRecognizer:revealController.panGestureRecognizer];
+            [frontView addGestureRecognizer:revealController.tapGestureRecognizer];
+            
+            [UIView animateWithDuration:0.7 animations:^{
+                self.visualEffectView.alpha = 0.0;
+            } completion:^(BOOL finished) {
+                if (self.visualEffectView.superview) {
+                    [self.visualEffectView removeFromSuperview];
+                }
+            }];
+            
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+            
+            break;
+        }
+        case FrontViewPositionRight:{
+            [frontView addSubview:self.visualEffectView];
+            [UIView animateWithDuration:0.7 animations:^{
+                self.visualEffectView.alpha = 0.8;
+            }];
+            
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 
-    // Set the title of navigation bar by using the menu items
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
-    destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
-    
-    // Set the photo if it navigates to the PhotoView
-    if ([segue.identifier isEqualToString:@"showPhoto"]) {
-        PhotoViewController *photoController = (PhotoViewController*)segue.destinationViewController;
-        NSString *photoFilename = [NSString stringWithFormat:@"%@_photo.jpg", [menuItems objectAtIndex:indexPath.row]];
-        photoController.photoFilename = photoFilename;
+            break;
+        }
+        default: {
+            break;
+        }
     }
-    
-    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
-        SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
-        
-        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
- 
-            UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
-            [navController setViewControllers: @[dvc] animated: NO ];
-            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
-        };
-        
-    }
-     */
+}
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+{
+    NSLog( @"%@: %@", NSStringFromSelector(_cmd), [self stringFromFrontViewPosition:position]);
+
     
 }
+
+
+- (NSString*)stringFromFrontViewPosition:(FrontViewPosition)position
+{
+    NSString *str = nil;
+    if ( position == FrontViewPositionLeft ) str = @"FrontViewPositionLeft";
+    if ( position == FrontViewPositionRight ) str = @"FrontViewPositionRight";
+    if ( position == FrontViewPositionRightMost ) str = @"FrontViewPositionRightMost";
+    if ( position == FrontViewPositionRightMostRemoved ) str = @"FrontViewPositionRightMostRemoved";
+    return str;
+}
+
+#pragma mark - Property Setter And Getter Method
+
+- (UIView *)maskView {
+    UIView *frontView = self.revealViewController.frontViewController.view;
+    CGRect bounds = frontView.bounds;
+    if (_maskView) {
+        _maskView.frame = bounds;
+        return _maskView;
+    }
+    _maskView = [[UIView alloc] initWithFrame:bounds];
+    _maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+    _maskView.alpha = 0;
+    return _maskView;
+}
+
+
+- (UIVisualEffectView *)visualEffectView {
+    UIView *frontView = self.revealViewController.frontViewController.view;
+    CGRect bounds = frontView.bounds;
+    if (_visualEffectView) {
+        _visualEffectView.frame = bounds;
+        return _visualEffectView;
+    }
+    _visualEffectView = [[UIVisualEffectView alloc]
+                         initWithEffect:[UIBlurEffect effectWithStyle: UIBlurEffectStyleDark]];
+    _visualEffectView.frame = bounds;
+    _visualEffectView.alpha = 0;
+    return _visualEffectView;
+}
+
 
 @end

@@ -72,9 +72,9 @@ NSString *const kLicenseInfo = @"LicenseInfo";
 
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return section == 0 ? @"License" : nil;
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+//    return section == 0 ? @"License" : nil;
+//}
 
 #pragma mark - Property Setter And Getter Method
 

@@ -29,6 +29,8 @@
 		456664A81ADA48F500808312 /* Naughty Cartoons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456664A71ADA48F500808312 /* Naughty Cartoons.ttf */; };
 		456664B01ADA604A00808312 /* WawaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 456664AF1ADA604A00808312 /* WawaSC-Regular.otf */; };
 		456664B31ADCD12600808312 /* UIFont+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 456664B21ADCD12600808312 /* UIFont+Extension.m */; };
+		45668A151B007C52008E3A5B /* TextProgressMRPOV.m in Sources */ = {isa = PBXBuildFile; fileRef = 45668A141B007C52008E3A5B /* TextProgressMRPOV.m */; };
+		45668A1B1B0088B4008E3A5B /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45668A1A1B0088B4008E3A5B /* UIColor+Extension.m */; };
 		4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */; };
 		456F70081ADE4687000E2B04 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 456F70071ADE4687000E2B04 /* NSDate+Extension.m */; };
 		458517A21AC95778003149C3 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4585179F1AC95778003149C3 /* Filter.m */; };
@@ -145,6 +147,10 @@
 		456664AF1ADA604A00808312 /* WawaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WawaSC-Regular.otf"; sourceTree = "<group>"; };
 		456664B11ADCD12600808312 /* UIFont+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extension.h"; sourceTree = "<group>"; };
 		456664B21ADCD12600808312 /* UIFont+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extension.m"; sourceTree = "<group>"; };
+		45668A131B007C52008E3A5B /* TextProgressMRPOV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextProgressMRPOV.h; sourceTree = "<group>"; };
+		45668A141B007C52008E3A5B /* TextProgressMRPOV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextProgressMRPOV.m; sourceTree = "<group>"; };
+		45668A191B0088B4008E3A5B /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		45668A1A1B0088B4008E3A5B /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		4568DB841ABFFA3D0064BBE2 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		456F70061ADE4687000E2B04 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
@@ -313,8 +319,7 @@
 			children = (
 				450DEFA81AFF07A000B08978 /* AboutTVC.h */,
 				450DEFA91AFF07A000B08978 /* AboutTVC.m */,
-				450DEFAC1AFF17AC00B08978 /* LicenseTVC.h */,
-				450DEFAD1AFF17AC00B08978 /* LicenseTVC.m */,
+				45668A121B006F1C008E3A5B /* PushSegue */,
 			);
 			name = AboutTVC;
 			sourceTree = "<group>";
@@ -347,6 +352,15 @@
 				456664A71ADA48F500808312 /* Naughty Cartoons.ttf */,
 			);
 			name = CustomFonts;
+			sourceTree = "<group>";
+		};
+		45668A121B006F1C008E3A5B /* PushSegue */ = {
+			isa = PBXGroup;
+			children = (
+				450DEFAC1AFF17AC00B08978 /* LicenseTVC.h */,
+				450DEFAD1AFF17AC00B08978 /* LicenseTVC.m */,
+			);
+			name = PushSegue;
 			sourceTree = "<group>";
 		};
 		458517A41AC95C7B003149C3 /* PopverSegue */ = {
@@ -426,7 +440,6 @@
 		BD1BF7DF19DB901E00B1379A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4508D6521AC3EE05007CA44A /* CursorButton */,
 				BD81A3CE1A99CEB800C2CBE6 /* Extension */,
 				4566649E1ADA439D00808312 /* CustomFonts */,
 				BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */,
@@ -528,6 +541,11 @@
 			isa = PBXGroup;
 			children = (
 				BD1BF7EA19DB901E00B1379A /* Main.storyboard */,
+				45668A131B007C52008E3A5B /* TextProgressMRPOV.h */,
+				45668A141B007C52008E3A5B /* TextProgressMRPOV.m */,
+				455C0D9D1AD64A080060C4DF /* LoadingStatus.h */,
+				455C0D9E1AD64A080060C4DF /* LoadingStatus.m */,
+				4508D6521AC3EE05007CA44A /* CursorButton */,
 				BD81A3E91A99D6C900C2CBE6 /* ColorCVCell */,
 			);
 			name = View;
@@ -572,11 +590,11 @@
 		BD81A3CE1A99CEB800C2CBE6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				455C0D9D1AD64A080060C4DF /* LoadingStatus.h */,
-				455C0D9E1AD64A080060C4DF /* LoadingStatus.m */,
 				BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */,
 				BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */,
 				455C0DA01AD64E660060C4DF /* CustomAnimationController.h */,
+				45668A191B0088B4008E3A5B /* UIColor+Extension.h */,
+				45668A1A1B0088B4008E3A5B /* UIColor+Extension.m */,
 				45F9FB0D1AE8CC3D00C8112C /* UIToolbar+Extension.h */,
 				45F9FB0E1AE8CC3D00C8112C /* UIToolbar+Extension.m */,
 				4594DAF91AF5BDF500C4BFBB /* NSPredicate+PrivateExtension.h */,
@@ -931,6 +949,7 @@
 				455C0DA31AD650150060C4DF /* NSString+Extension.m in Sources */,
 				BD1BF83D19DB927300B1379A /* Model.xcdatamodeld in Sources */,
 				45C076FB1AE3DEC9001F9B44 /* ManageKindCDTVC.m in Sources */,
+				45668A151B007C52008E3A5B /* TextProgressMRPOV.m in Sources */,
 				458517A21AC95778003149C3 /* Filter.m in Sources */,
 				BD0749671A86660300467648 /* UIButton+Extension.m in Sources */,
 				BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */,
@@ -964,6 +983,7 @@
 				4508D6611AC41642007CA44A /* BillDetailCVC+UIActionSheet.m in Sources */,
 				45F9FB0F1AE8CC3D00C8112C /* UIToolbar+Extension.m in Sources */,
 				BD1BF83419DB927300B1379A /* ChartDate.m in Sources */,
+				45668A1B1B0088B4008E3A5B /* UIColor+Extension.m in Sources */,
 				BD1BF7E519DB901E00B1379A /* main.m in Sources */,
 				BDB073DC19FBD9780062462F /* Bill+MKAnnotation.m in Sources */,
 				455C0DA91AD65BB00060C4DF /* Plackmark.m in Sources */,

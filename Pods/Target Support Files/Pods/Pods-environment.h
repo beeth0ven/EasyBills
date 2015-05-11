@@ -6,18 +6,6 @@
 // project.
 
 
-// ACPButton
-#define COCOAPODS_POD_AVAILABLE_ACPButton
-#define COCOAPODS_VERSION_MAJOR_ACPButton 1
-#define COCOAPODS_VERSION_MINOR_ACPButton 0
-#define COCOAPODS_VERSION_PATCH_ACPButton 0
-
-// AFTextView
-#define COCOAPODS_POD_AVAILABLE_AFTextView
-#define COCOAPODS_VERSION_MAJOR_AFTextView 0
-#define COCOAPODS_VERSION_MINOR_AFTextView 0
-#define COCOAPODS_VERSION_PATCH_AFTextView 1
-
 // ChameleonFramework
 #define COCOAPODS_POD_AVAILABLE_ChameleonFramework
 #define COCOAPODS_VERSION_MAJOR_ChameleonFramework 1
@@ -30,23 +18,71 @@
 #define COCOAPODS_VERSION_MINOR_DZNSegmentedControl 2
 #define COCOAPODS_VERSION_PATCH_DZNSegmentedControl 2
 
-// JTSImageViewController
-#define COCOAPODS_POD_AVAILABLE_JTSImageViewController
-#define COCOAPODS_VERSION_MAJOR_JTSImageViewController 1
-#define COCOAPODS_VERSION_MINOR_JTSImageViewController 4
-#define COCOAPODS_VERSION_PATCH_JTSImageViewController 0
-
 // LTHPasscodeViewController
 #define COCOAPODS_POD_AVAILABLE_LTHPasscodeViewController
 #define COCOAPODS_VERSION_MAJOR_LTHPasscodeViewController 3
 #define COCOAPODS_VERSION_MINOR_LTHPasscodeViewController 6
 #define COCOAPODS_VERSION_PATCH_LTHPasscodeViewController 4
 
-// NYSegmentedControl
-#define COCOAPODS_POD_AVAILABLE_NYSegmentedControl
-#define COCOAPODS_VERSION_MAJOR_NYSegmentedControl 1
-#define COCOAPODS_VERSION_MINOR_NYSegmentedControl 0
-#define COCOAPODS_VERSION_PATCH_NYSegmentedControl 3
+// MRProgress
+#define COCOAPODS_POD_AVAILABLE_MRProgress
+#define COCOAPODS_VERSION_MAJOR_MRProgress 0
+#define COCOAPODS_VERSION_MINOR_MRProgress 8
+#define COCOAPODS_VERSION_PATCH_MRProgress 1
+
+// MRProgress/ActivityIndicator
+#define COCOAPODS_POD_AVAILABLE_MRProgress_ActivityIndicator
+#define COCOAPODS_VERSION_MAJOR_MRProgress_ActivityIndicator 0
+#define COCOAPODS_VERSION_MINOR_MRProgress_ActivityIndicator 8
+#define COCOAPODS_VERSION_PATCH_MRProgress_ActivityIndicator 1
+
+// MRProgress/Blur
+#define COCOAPODS_POD_AVAILABLE_MRProgress_Blur
+#define COCOAPODS_VERSION_MAJOR_MRProgress_Blur 0
+#define COCOAPODS_VERSION_MINOR_MRProgress_Blur 8
+#define COCOAPODS_VERSION_PATCH_MRProgress_Blur 1
+
+// MRProgress/Circular
+#define COCOAPODS_POD_AVAILABLE_MRProgress_Circular
+#define COCOAPODS_VERSION_MAJOR_MRProgress_Circular 0
+#define COCOAPODS_VERSION_MINOR_MRProgress_Circular 8
+#define COCOAPODS_VERSION_PATCH_MRProgress_Circular 1
+
+// MRProgress/Helper
+#define COCOAPODS_POD_AVAILABLE_MRProgress_Helper
+#define COCOAPODS_VERSION_MAJOR_MRProgress_Helper 0
+#define COCOAPODS_VERSION_MINOR_MRProgress_Helper 8
+#define COCOAPODS_VERSION_PATCH_MRProgress_Helper 1
+
+// MRProgress/Icons
+#define COCOAPODS_POD_AVAILABLE_MRProgress_Icons
+#define COCOAPODS_VERSION_MAJOR_MRProgress_Icons 0
+#define COCOAPODS_VERSION_MINOR_MRProgress_Icons 8
+#define COCOAPODS_VERSION_PATCH_MRProgress_Icons 1
+
+// MRProgress/NavigationBarProgress
+#define COCOAPODS_POD_AVAILABLE_MRProgress_NavigationBarProgress
+#define COCOAPODS_VERSION_MAJOR_MRProgress_NavigationBarProgress 0
+#define COCOAPODS_VERSION_MINOR_MRProgress_NavigationBarProgress 8
+#define COCOAPODS_VERSION_PATCH_MRProgress_NavigationBarProgress 1
+
+// MRProgress/Overlay
+#define COCOAPODS_POD_AVAILABLE_MRProgress_Overlay
+#define COCOAPODS_VERSION_MAJOR_MRProgress_Overlay 0
+#define COCOAPODS_VERSION_MINOR_MRProgress_Overlay 8
+#define COCOAPODS_VERSION_PATCH_MRProgress_Overlay 1
+
+// MRProgress/ProgressBaseClass
+#define COCOAPODS_POD_AVAILABLE_MRProgress_ProgressBaseClass
+#define COCOAPODS_VERSION_MAJOR_MRProgress_ProgressBaseClass 0
+#define COCOAPODS_VERSION_MINOR_MRProgress_ProgressBaseClass 8
+#define COCOAPODS_VERSION_PATCH_MRProgress_ProgressBaseClass 1
+
+// MRProgress/Stopable
+#define COCOAPODS_POD_AVAILABLE_MRProgress_Stopable
+#define COCOAPODS_VERSION_MAJOR_MRProgress_Stopable 0
+#define COCOAPODS_VERSION_MINOR_MRProgress_Stopable 8
+#define COCOAPODS_VERSION_PATCH_MRProgress_Stopable 1
 
 // PNChart
 #define COCOAPODS_POD_AVAILABLE_PNChart

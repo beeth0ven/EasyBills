@@ -160,6 +160,7 @@
     SWRevealViewController *mainRevealController =
     [[SWRevealViewController alloc] initWithRearViewController:rearViewController
                                            frontViewController:frontViewController];
+    mainRevealController.delegate = rearViewController;
     
     mainRevealController.toggleAnimationDuration = 0.7;
     
@@ -754,5 +755,7 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     return  infoDictionary[(NSString*)kCFBundleVersionKey];
 }
+
+
 
 @end

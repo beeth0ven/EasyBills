@@ -12,7 +12,6 @@
 #import "Kind+Create.h"
 #import "Bill+Create.h"
 #import "ImageCollectionViewCell.h"
-#import "AFTextView.h"
 #import <CoreData/CoreData.h>
 #import "Bill+Create.h"
 #import "PubicVariable.h"

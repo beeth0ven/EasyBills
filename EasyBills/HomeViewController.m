@@ -10,8 +10,6 @@
 #import "PNChart.h"
 #import "PNLineChartData.h"
 #import "PNLineChartDataItem.h"
-#import "NYSegmentedControl.h"
-#import "ACPButton.h"
 #import "BillCDTVC.h"
 #import "PubicVariable.h"
 #import "Kind+Create.h"
@@ -32,11 +30,11 @@
 
 @interface HomeViewController () <DZNSegmentedControlDelegate>
 
-@property (weak, nonatomic) IBOutlet ACPButton *addButton;
-@property (weak, nonatomic) IBOutlet ACPButton *reduceButton;
-@property (weak, nonatomic) IBOutlet ACPButton *sumAddedMoneyButton;
-@property (weak, nonatomic) IBOutlet ACPButton *sumReduceMoneyButton;
-@property (weak, nonatomic) IBOutlet ACPButton *sumMoneyButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UIButton *reduceButton;
+@property (weak, nonatomic) IBOutlet UIButton *sumAddedMoneyButton;
+@property (weak, nonatomic) IBOutlet UIButton *sumReduceMoneyButton;
+@property (weak, nonatomic) IBOutlet UIButton *sumMoneyButton;
 
 
 @property (strong, nonatomic) UILabel *lineChartLabel;
@@ -63,12 +61,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self setupSegmentedControl];
-    //[self setupButtons];
     [self updateUI];
+    [self setupMenuButton];
     [self setupBackgroundImage];
     [self registerNotifications];
-    [self customSetup];
-    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -117,14 +114,6 @@
 
 
 #pragma mark - SetUp Method
-
-- (void)customSetup
-{
-    [self setupMenuButton];
-    [self.navigationController.navigationBar
-     addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
-}
 
 
 -(void)setupSegmentedControl
@@ -201,22 +190,22 @@
     //self.navigationItem.titleView = self.segmentedControl;
 }
 
--(void)setupButtons
-{
-    [self.addButton setStyle:[PNFreshGreen colorWithAlphaComponent:0.5f] andBottomColor:PNFreshGreen];
-    [self.addButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:50]];
-    [self.sumAddedMoneyButton setStyle:[PNFreshGreen colorWithAlphaComponent:0.5f] andBottomColor:PNFreshGreen];
-    [self.sumAddedMoneyButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:20]];
-    
-    [self.reduceButton setStyle:[PNRed colorWithAlphaComponent:0.5f] andBottomColor:PNRed];
-    [self.reduceButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:50]];
-    [self.sumReduceMoneyButton setStyle:[PNRed colorWithAlphaComponent:0.5f] andBottomColor:PNRed];
-    [self.sumReduceMoneyButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:20]];
-    
-    [self.sumMoneyButton setStyle:[PNTwitterColor colorWithAlphaComponent:0.5f] andBottomColor:PNTwitterColor];
-    [self.sumMoneyButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:20]];
-    
-}
+//-(void)setupButtons
+//{
+//    [self.addButton setStyle:[PNFreshGreen colorWithAlphaComponent:0.5f] andBottomColor:PNFreshGreen];
+//    [self.addButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:50]];
+//    [self.sumAddedMoneyButton setStyle:[PNFreshGreen colorWithAlphaComponent:0.5f] andBottomColor:PNFreshGreen];
+//    [self.sumAddedMoneyButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:20]];
+//    
+//    [self.reduceButton setStyle:[PNRed colorWithAlphaComponent:0.5f] andBottomColor:PNRed];
+//    [self.reduceButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:50]];
+//    [self.sumReduceMoneyButton setStyle:[PNRed colorWithAlphaComponent:0.5f] andBottomColor:PNRed];
+//    [self.sumReduceMoneyButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:20]];
+//    
+//    [self.sumMoneyButton setStyle:[PNTwitterColor colorWithAlphaComponent:0.5f] andBottomColor:PNTwitterColor];
+//    [self.sumMoneyButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:20]];
+//    
+//}
 
 -(NSArray *)functineButtons
 {
@@ -298,6 +287,8 @@
     [self.sumAddedMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",sumAddedMoney] forState:UIControlStateNormal];
     [self.sumReduceMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",fabs(sumReduceMoney)] forState:UIControlStateNormal];
     [self.sumMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",sumMoney] forState:UIControlStateNormal];
+    
+
     
 }
 

@@ -45,17 +45,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.isIncome = [PubicVariable kindIsIncome];
-//    UIImage *image = [UIImage imageNamed:@"Account details BG"];
-//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-//    self.tableView.backgroundView = imageView;
-    
-//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
-    
+
+    [self setupMenuButton]; 
     [self registerNotifications];
-    [self setupMenuButton];
     [self resetFetchedResultsController];
 
 }
@@ -146,7 +138,7 @@
                                      managedObjectContext:self.managedObjectContext
                                      sectionNameKeyPath:nil
                                      cacheName:nil];
-    
+
 //    [self enumerateSumMoney];
     
 //    [self updataHeaderView];
