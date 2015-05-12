@@ -212,6 +212,9 @@
 + (NSInteger)nextAssignIncomeColorIndex
 {
     NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:NEXTASSIGNINCOMECOLORINDEX];
+    if (!number) {
+        NSLog( @"%@", NSStringFromSelector(_cmd));
+    }
     return  number.integerValue;
 }
 
@@ -225,6 +228,9 @@
 + (NSInteger)nextAssignExpenseColorIndex
 {
     NSNumber *number =[[NSUserDefaults standardUserDefaults] objectForKey:NEXTASSIGNEXPENSECOLORINDEX];
+    if (!number) {
+        NSLog( @"%@", NSStringFromSelector(_cmd));
+    }
     return  number.integerValue;
 }
 

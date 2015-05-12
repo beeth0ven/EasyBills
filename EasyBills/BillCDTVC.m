@@ -39,12 +39,17 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController applyDefualtStyle:NO];
-    if (self.shouldRelaodData){
-        [self.tableView reloadData];
-        self.shouldRelaodData = NO;
-    }
-}
 
+}
+//-(void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    if (self.shouldRelaodData){
+//        [self.tableView reloadData];
+//        self.shouldRelaodData = NO;
+//    }
+//    
+//}
 #pragma mark - NSFetchedResultsControllerDelegate
 
 
@@ -228,74 +233,5 @@
 }
 
 
-
-/*
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSString *title;
-    NSInteger sectionHeaderInt = [[[self.fetchedResultsController sections] objectAtIndex:section] name].intValue;
-    NSString *sectionNameKeyPath = self.fetchedResultsController.sectionNameKeyPath;
-    if ([sectionNameKeyPath isEqualToString:@"weekday"]) {
-        title = @[@"??",@"周日",@"周一",@"周二",@"周三",@"周四",@"周五",@"周六"][sectionHeaderInt];
-    }else if([sectionNameKeyPath isEqualToString:@"weekOfMonth"]) {
-        title = @[@"??",@"第一周",@"第二周",@"第三周",@"第四周",@"第五周",@"第六周"][sectionHeaderInt];
-    }else if([sectionNameKeyPath isEqualToString:@"monthID"]){
-        NSInteger year = sectionHeaderInt / 1000;
-        NSInteger month = sectionHeaderInt % 100;
-        title = [NSString stringWithFormat:@"%i年 %i月",year,month];
-    }
-	//return title;
-    return nil;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    BillTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bill"];
-    NSString *title = [self tableView:tableView titleForHeaderInSection:section];
-    cell.textLabel.text = title;
-    return cell;
-}
-
--(float) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    BillTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bill"];
-    return cell.frame.size.height;
-}
-
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
-    NSArray *sections = [self.fetchedResultsController sections];
-    for (NSInteger sectionIndex = 0; sectionIndex < sections.count ; sectionIndex++ ) {
-        NSString *title;
-        NSInteger sectionHeaderInt = [[[self.fetchedResultsController sections] objectAtIndex:sectionIndex] name].intValue;
-        NSString *sectionNameKeyPath = self.fetchedResultsController.sectionNameKeyPath;
-        if ([sectionNameKeyPath isEqualToString:@"weekday"]) {
-            title = @[@"??",@"日",@"一",@"二",@"三",@"四",@"五",@"六"][sectionHeaderInt];
-        }else if([sectionNameKeyPath isEqualToString:@"weekOfMonth"]) {
-            title = @[@"??",@"一",@"二",@"三",@"四",@"五",@"六"][sectionHeaderInt];
-        }else if([sectionNameKeyPath isEqualToString:@"monthID"]){
-            title = [NSString stringWithFormat:@"%i",(sectionHeaderInt % 100)];
-        }
-        [mutableArray addObject:title];
-    }
-    return nil;//[mutableArray copy];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-{
-	return index;
-}
- */
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

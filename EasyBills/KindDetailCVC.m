@@ -14,8 +14,7 @@
 #import "UIToolbar+Extension.h"
 #import "ColorCVCell.h"
 #import "AppDelegate.h"
-#import "AppDelegate.h"
-
+#import "NSString+Extension.h"
 
 @interface KindDetailCVC ()
 
@@ -60,11 +59,17 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     
-//    [self unregisterForChangeNotification];
     
 }
 
-
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+//    if (self.kind.name.length == 0) {
+//        NSInteger index = [self.cellIdentifiers indexOfObject:@"nameCell"];
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+//        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+//    }
+}
 
 
 - (UICollectionView *)colorPickerCollectionView{
@@ -242,8 +247,9 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (collectionView == self.collectionView) {
-        
-        return [[self cellIdentifiers] count];
+        //main collection view case here
+        NSInteger count = self.kind.isDefault.boolValue ? [[self cellIdentifiers] count]-1 :[[self cellIdentifiers] count];
+        return count;
         
     }else{
         //color pick collection view case here
@@ -294,8 +300,12 @@
             textField.inputAccessoryView = [UIToolbar
                                             keyboardToolBarWithVC:self
                                             doneAction:@selector(endEditing)];
-            
-            textField.text = self.kind.name;
+            if (self.kind.name.length > 0) {
+                textField.text = self.kind.name;
+            } else {
+                textField.text = nil;
+            }
+            textField.enabled = !self.kind.isDefault.boolValue;
         }
         
         
@@ -305,6 +315,7 @@
         if ([view isKindOfClass:[UISwitch class]]) {
             UISwitch *switchControl = (UISwitch *)view;
             [switchControl setOn:self.kind.isIncome.boolValue];
+            switchControl.enabled = !self.kind.isDefault.boolValue;
             
         }
         
@@ -520,6 +531,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    textField.text = textField.text.trimmedString;
     self.kind.name = textField.text;
     [self updateTitle];
 }

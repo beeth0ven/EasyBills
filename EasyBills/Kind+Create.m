@@ -43,7 +43,8 @@
         kind.visiteTime = kind.createDate;
         kind.isIncome = [NSNumber numberWithBool: isIncome];
         kind.colorID = [ColorCenter assingColorIDIsIncome:isIncome];
-//        kind.uniqueID = name;
+        BOOL isDefault = [name isEqualToString:kKindDefaultName] ? YES : NO;
+        kind.isDefault = [NSNumber numberWithBool:isDefault];
         [kind updateUniqueIDIfNeeded];
         
     }else if ([matches count] == 1){
@@ -184,8 +185,14 @@
     
 }
 
+
+
+
+
+NSString *const kKindDefaultName  = @"其他";
+
 + (Kind *)defaultKindIsIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context {
-    return [self kindWithName:@"其他" isIncome:isIncome inManagedObjectContext:context];
+    return [self kindWithName:kKindDefaultName isIncome:isIncome inManagedObjectContext:context];
 }
 
 

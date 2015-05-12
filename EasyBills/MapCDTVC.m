@@ -14,7 +14,6 @@
 #import "BillDetailCVC.h"
 #import "DefaultStyleController.h"
 #import "UIImage+Extension.h"
-#import "LoadingStatus.h"
 #import "MRProgressOverlayView.h"
 #import "TextProgressMRPOV.h"
 

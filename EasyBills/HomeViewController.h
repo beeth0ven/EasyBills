@@ -16,5 +16,4 @@
 //@property (nonatomic) PNBarChart * barChart;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-
 @end

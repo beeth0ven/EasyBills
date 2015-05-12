@@ -2,7 +2,7 @@
 //  Kind.h
 //  EasyBills
 //
-//  Created by luojie on 5/6/15.
+//  Created by luojie on 5/12/15.
 //  Copyright (c) 2015 beeth0ven. All rights reserved.
 //
 
@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSNumber * sumMoney;
 @property (nonatomic, retain) NSString * uniqueID;
 @property (nonatomic, retain) NSDate * visiteTime;
+@property (nonatomic, retain) NSNumber * isDefault;
 @property (nonatomic, retain) NSSet *bills;
 @end
 

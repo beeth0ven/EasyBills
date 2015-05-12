@@ -28,6 +28,7 @@
     <entity name="Kind" representedClassName="Kind" syncable="YES">
         <attribute name="colorID" attributeType="Integer 16" valueTransformerName="ColorTransformer" defaultValueString="0" syncable="YES"/>
         <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isDefault" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="isIncome" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="sumMoney" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -41,7 +42,7 @@
     </entity>
     <elements>
         <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="390"/>
-        <element name="Kind" positionX="-3762" positionY="-1660" width="128" height="163"/>
+        <element name="Kind" positionX="-3762" positionY="-1660" width="128" height="178"/>
         <element name="Plackmark" positionX="-4230" positionY="-1495" width="128" height="73"/>
     </elements>
 </model>

@@ -157,26 +157,24 @@
     SidebarViewController *rearViewController = [self.storyBoard
                                                  instantiateViewControllerWithIdentifier:@"rearViewController"];
     
-    SWRevealViewController *mainRevealController =
-    [[SWRevealViewController alloc] initWithRearViewController:rearViewController
-                                           frontViewController:frontViewController];
+    SWRevealViewController *mainRevealController = [[SWRevealViewController alloc]
+                                                    initWithRearViewController:rearViewController
+                                                    frontViewController:frontViewController];
+
     mainRevealController.delegate = rearViewController;
-    
-    mainRevealController.toggleAnimationDuration = 0.7;
+    mainRevealController.toggleAnimationType = SWRevealToggleAnimationTypeEaseOut;
+    mainRevealController.rearViewRevealWidth = 213.0f;
     
     UIWindow *window = [[UIWindow alloc]
                         initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    mainRevealController.rearViewRevealWidth = 213.0f;
-//    NSLog(@"RearViewRevealWidth Width: %.0f",mainRevealController.rearViewRevealWidth);
-
-//    [self enumerateFonts];
-    
+    window.tintColor = EBBlue;
+    window.rootViewController = mainRevealController;
     self.window = window;
-    self.window.rootViewController = mainRevealController;
     [self.window makeKeyAndVisible];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self showPasscodeIfNeeded];
+    //    [self enumerateFonts];
 
     return YES;
     
@@ -277,8 +275,6 @@
     {
         
         [Kind createDefaultKindsInManagedObjectContext:self.managedObjectContext];
-        [PubicVariable setNextAssignIncomeColorIndex:-1];
-        [PubicVariable setNextAssignExpenseColorIndex:-1];
         [self saveContext];
     }
     
@@ -695,7 +691,7 @@ NSString *const kUniqueProperty = @"kUniqueProperty";
         [controllerIdentifiers
          enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
              NSString *identifier = (NSString *)obj;
-             id controller = [self.storyBoard
+             UIViewController* controller = [self.storyBoard
                               instantiateViewControllerWithIdentifier:identifier];
              
              if ([controller isKindOfClass:[UINavigationController class]]) {

@@ -12,5 +12,6 @@
 @interface NSString (Extension)
 
 + (NSString *)stringForPlacemark:(CLPlacemark *)placemark;
+- (NSString *)trimmedString;
 
 @end

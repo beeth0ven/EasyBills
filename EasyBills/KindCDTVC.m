@@ -13,8 +13,6 @@
 #import "Kind+Create.h"
 #import "SWRevealViewController.h"
 #import "PubicVariable+FetchRequest.h"
-#import "PNChart.h"
-#import "PNCircleChart.h"
 #import "DefaultStyleController.h"
 #import "BillCDTVC.h"
 #import "UIViewController+Extension.h"
@@ -27,6 +25,7 @@
 #import "UICountingLabel.h"
 #import "UIStoryboardSegue+Extension.h"
 #import "NSPredicate+PrivateExtension.h"
+#import "UIView+Extension.h"
 
 @interface KindCDTVC ()
 
@@ -35,6 +34,9 @@
 //@property (nonatomic) BOOL isIncome;
 @property (strong ,nonatomic) NSNumber *total;
 @property (strong, nonatomic) NSArray *filters;
+
+@property (strong, nonatomic) NSMutableArray *pieChartKinds;
+
 
 @end
 
@@ -49,7 +51,8 @@
     [self setupMenuButton]; 
     [self registerNotifications];
     [self resetFetchedResultsController];
-
+//    [self setupBackgroundImage];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -70,6 +73,9 @@
         [obj removeObserver:self forKeyPath:@"selectIndex"];
     }];
 }
+
+
+
 
 - (IBAction)refresh:(UIRefreshControl *)sender {
     [self resetFetchedResultsController];
@@ -216,22 +222,6 @@
     return _filters;
 }
 
-/*
-
-- (void)setEditing:(BOOL)editing
-          animated:(BOOL)animated{
-    
-    [super setEditing:editing
-             animated:animated];
-    
-    UIBarButtonItem *rightBarButtonItem = self.navigationItem.rightBarButtonItem;
-    rightBarButtonItem = [[UIBarButtonItem alloc]
-                          initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                          target:self
-                          action:@selector(switchEditingMode:)];
-    
-}
-*/
 
 
 //-(void)updataHeaderView
@@ -264,17 +254,7 @@
 //
 //}
 
-//- (IBAction)changeIncomeMode:(UISegmentedControl *)sender {
-//    self.isIncome = !sender.selectedSegmentIndex;
-//}
 
-//- (void)setIsIncome:(BOOL)isIncome
-//{
-//    _isIncome = isIncome;
-//    [PubicVariable setKindIsIncome:isIncome];
-//    [self updateUI];
-//    
-//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -305,55 +285,28 @@
                         fabs([PubicVariable sumMoneyWithKind:kind
                                                     dateMode:[self dateMode]
                                       inManagedObjectContext:self.managedObjectContext])];
-    indexLabel.text = [NSString stringWithFormat:@"%i.",indexPath.row + 1];
+    indexLabel.text = [NSString stringWithFormat:@"%li.",indexPath.row + 1];
     label.text = [NSString stringWithFormat:@"  %@  ",[kind.name description]];
     circleView.backgroundColor = kind.color;
-//    circleView.layer.cornerRadius = circleView.bounds.size.width * 3 / 4;
-//    detailLabel.text = [NSString stringWithFormat:@"¥  %.2f",current.floatValue];
-    
-//    [detailLabel setTextAlignment:NSTextAlignmentCenter];
-////    [detailLabel setFont:[UIFont boldSystemFontOfSize:10.0]];
-//    [detailLabel setTextColor:detailLabel.textColor];
     detailLabel.text = [NSString stringWithFormat:@"¥  %.0f",current.floatValue];
 
-//    detailLabel.method = UILabelCountingMethodEaseInOut;
-//    detailLabel.format = @"¥  %.0f";
-//    [detailLabel countFrom:0 to:current.floatValue withDuration:1.0];
-//
-//    CGFloat height = 30;
-//    
-//    
-//    PNCircleChart * circleChart = [[PNCircleChart alloc]
-//                                   initWithFrame:CGRectMake(10,
-//                                                            (cell.bounds.size.height - height) / 4,
-//                                                            height,
-//                                                            height)
-//                                   andTotal:self.total
-//                                   andCurrent:current
-//                                   andClockwise:(BOOL)YES
-//                                   andShadow:YES];
-//    
-//    circleChart.backgroundColor = [UIColor clearColor];
-//    circleChart.lineWidth = @4.0;
-//    [circleChart setStrokeColor:kind.color];
-//    [circleChart strokeChart];
-//    [cell addSubview:circleChart];
 }
 
 
 -(UIView *)     tableView:(UITableView *)tableView
    viewForHeaderInSection:(NSInteger)section
 {
+    CGFloat width = self.tableView.frame.size.width;
+    CGFloat height = [self tableView:tableView heightForHeaderInSection:section];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"section"];
-    cell.tag = 1;
-    UIView *separator = (UIView *)[cell viewWithTag:1];
-    separator.backgroundColor = self.tableView.separatorColor;
-//    cell.backgroundColor = [UIColor redColor];
-//    UISegmentedControl *segmentedControl = (UISegmentedControl *)[cell viewWithTag:1];
-//    segmentedControl.selectedSegmentIndex = !self.isIncome;
-//    
+    cell.frame = CGRectMake(0, 0, width, height);
+    [cell setupBackgroundImage];
+    UILabel *chartTitleLabel = (UILabel *)[cell viewWithTag:2];
+
     NSMutableArray *items = [[NSMutableArray alloc] init];
+    self.pieChartKinds = [[NSMutableArray alloc] init];
+
     [self.fetchedResultsController.fetchedObjects enumerateObjectsUsingBlock:^(Kind *kind, NSUInteger idx, BOOL *stop) {
         float sum = fabs([PubicVariable
                           sumMoneyWithKind:kind
@@ -362,48 +315,69 @@
         if (sum > 0) {
             PNPieChartDataItem *item = [PNPieChartDataItem dataItemWithValue:sum color:kind.color];
             [items addObject:item];
+            [self.pieChartKinds addObject:kind];
         }
     }];
     
-    
-    PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(80, 25.0, 160, 160) items:items];
-    pieChart.descriptionTextColor = [UIColor whiteColor];
-    pieChart.descriptionTextShadowColor = [UIColor clearColor];
-    pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:12];
-    
-    [cell addSubview:pieChart];
-    [pieChart strokeChart];
-    
-    UILabel *chartTitleLabel = (UILabel *)[cell viewWithTag:2];
-    chartTitleLabel.text = [self chartTitle];
-    
-//    chartTitleLabel.alpha = 0;
-//    [chartTitleLabel setAlpha:0];
-//    [UILabel beginAnimations:NULL context:nil];
-//    [UILabel setAnimationDuration:2.0];
-//    [chartTitleLabel setAlpha:1];
-//    [UILabel commitAnimations];
-//    [UIView animateWithDuration:1
-//                          delay:0
-//                        options:UIViewAnimationOptionCurveEaseIn
-//                     animations:^{
-//                         chartTitleLabel.alpha = 1;
-//                     } completion:nil];
+    if (items.count) {
+        PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(0, 0, 160, 160) items:items];
+        pieChart.delegate = self;
+        pieChart.center = CGPointMake(cell.bounds.size.width/2, cell.bounds.size.height/2 - 25.0f);
+        pieChart.descriptionTextColor = [UIColor whiteColor];
+        pieChart.descriptionTextShadowColor = [UIColor clearColor];
+        pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:12];
+        
+        [cell addSubview:pieChart];
+        [pieChart strokeChart];
+        chartTitleLabel.text = [self chartTitle];
+
+    } else {
+        UIView *emptyView = [self emptyBackgroundViewWithSize:cell.frame.size];
+        [cell addSubview:emptyView];
+        chartTitleLabel.text = @"没有数据";
+
+    }
     
     
-     
-    //fix bug when update section , section has no indexpath and will not be updated;
-    CGFloat height = [self tableView:tableView heightForHeaderInSection:section];
+    
+    
+    
+        //fix bug when update section , section has no indexpath and will not be updated;
     cell.frame = CGRectMake(0, 0, cell.frame.size.width, height);
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                             0,
-                                                            self.tableView.frame.size.width,
+                                                            width,
                                                             height)];
 //    view.backgroundColor = [UIColor grayColor];
     [view addSubview:cell];
     
     return view;
 }
+
+
+- (void)userClickedOnPieIndexItem:(NSInteger)pieIndex {
+    Kind *kind = [self.pieChartKinds objectAtIndex:pieIndex];
+    NSString *segueIdentifier = @"showBillByKind";
+    [self performSegueWithIdentifier:segueIdentifier sender:kind];
+}
+
+
+- (UIView *)emptyBackgroundViewWithSize:(CGSize)size {
+    UIView *result = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                              0,
+                                                              size.width,
+                                                              size.height)];
+
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    imageView.image = [UIImage imageNamed:@"DrawerIcon"];
+    [imageView sizeToFit];
+    imageView.tintColor = EBBackGround;
+    imageView.center = CGPointMake(size.width  / 2,
+                                   size.height / 2 );
+    [result addSubview:imageView];
+    return result;
+}
+
 
 - (NSString *)chartTitle {
     NSMutableString *mutableString = [@"" mutableCopy];
@@ -426,7 +400,7 @@
             [mutableString appendString:@"收入"];
             break;
     }
-    [mutableString appendString:@"分布图"];
+    [mutableString appendString:@"饼图"];
     return mutableString;
 }
 
@@ -455,7 +429,6 @@
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *segueIdentifier = @"showBillByKind";
-//    self.editing ? @"showKindDetail" : @"showKindDetail" ;
     [self performSegueWithIdentifier:segueIdentifier sender:cell];
     
 }
@@ -488,23 +461,24 @@
     
     [segue passManagedObjectContextIfNeeded];
     
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    Kind *kind = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+
     
     if ([segue.identifier isEqualToString:@"showBillByKind"]) {
-        if ([segue.destinationViewController isKindOfClass:[BillCDTVC class]]) {
+        Kind *kind;
+        if ([sender isKindOfClass:[Kind class]]){
+            //Pie chart segue
+            kind = sender;
+        } else if ([sender isKindOfClass:[UITableViewCell class]]) {
+            //Cell Segue
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+            kind = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        }
+        if (kind && [segue.destinationViewController isKindOfClass:[BillCDTVC class]]) {
             BillCDTVC *billCoreDataTableViewController = segue.destinationViewController;
             billCoreDataTableViewController.fetchedResultsController = [self fetchedResultsControlleWithKind:kind];
             billCoreDataTableViewController.title = kind.name;
-            
         }
-    } else if ([segue.identifier isEqualToString:@"showKindDetail"]) {
-        if ([segue.destinationViewController isKindOfClass:[KindDetailCVC class]]) {
-            KindDetailCVC *kindDetailCVC = segue.destinationViewController;
-            kindDetailCVC.kind = kind;
-        }
-    }else if ([segue.identifier isEqualToString:@"filter"]) {
+    } else if ([segue.identifier isEqualToString:@"filter"]) {
         if ([segue.destinationViewController isKindOfClass:[FilterTableViewController class]]) {
             FilterTableViewController *ftvc = (FilterTableViewController *)segue.destinationViewController;
             ftvc.filters = self.filters;
@@ -512,19 +486,7 @@
             ppc.backgroundColor = ftvc.tableView.backgroundColor;
             ppc.delegate = self;
         }
-    }  /*  else if ([segue.identifier isEqualToString:@"showKindDetail"]) {
-            if ([segue.destinationViewController isKindOfClass:[KindDetailTableViewController class]]) {
-                KindDetailTableViewController *kindDetailTableViewController = segue.destinationViewController;
-                
-                NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-                Kind *kind = [self.fetchedResultsController objectAtIndexPath:indexPath];
-                kindDetailTableViewController.kind = kind;
-                
-                NSLog(@"showKindDetail");
-                
-            }
-        }
-            */
+    }
     
     
 }

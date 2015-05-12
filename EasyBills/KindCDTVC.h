@@ -7,10 +7,13 @@
 //
 
 #import "CoreDataTableViewController.h"
+#import "PNChart.h"
+#import "PNCircleChart.h"
 
 @interface KindCDTVC : CoreDataTableViewController
 <UIPopoverPresentationControllerDelegate,
-UIAdaptivePresentationControllerDelegate>
+UIAdaptivePresentationControllerDelegate,
+PNChartDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

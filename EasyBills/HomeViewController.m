@@ -68,21 +68,19 @@
 
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController applyDefualtStyle:YES];
-
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (self.shouldUpdateUI) {
+    if (self.shouldUpdateUI){
         [self updateUI];
-        self.shouldUpdateUI = NO;
     }
 }
+
 
 - (void)dealloc {
     [self removeObserver:self.managedObjectContext forKeyPath:@"hasChanges"];
@@ -289,7 +287,7 @@
     [self.sumMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",sumMoney] forState:UIControlStateNormal];
     
 
-    
+    self.shouldUpdateUI = NO;
 }
 
 -(void)userClickedOnLineKeyPoint:(CGPoint)point lineIndex:(NSInteger)lineIndex andPointIndex:(NSInteger)pointIndex{
@@ -420,6 +418,8 @@
                                                                 sectionNameKeyPath:nil
                                                                 cacheName:nil];
 }
+
+
 
 
 #pragma mark - Property Setter And Getter Method

@@ -10,6 +10,8 @@
 #import "DefaultStyleController.h"
 #import "AppDelegate.h"
 #import "Chameleon.h"
+#import "UIViewController+Extension.h"
+#import "UINavigationController+Style.h"
 
 @interface SidebarViewController ()
 
@@ -28,12 +30,6 @@
     [self setupBackgroundImage];
 }
 
-- (void)setupBackgroundImage {
-    UIImage *image = [UIImage imageNamed:@"Account details BG"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    self.tableView.backgroundView = imageView;
-
-}
 
 
 #pragma mark - Table view data source
@@ -162,17 +158,17 @@
 {
     NSLog( @"%@: %@", NSStringFromSelector(_cmd), [self stringFromFrontViewPosition:position]);
     
-    UIView *frontView = revealController.frontViewController.view;
+    UINavigationController *frontViewController = (UINavigationController *)revealController.frontViewController;
     switch (position) {
         case FrontViewPositionLeft:{
             
             if (self.visualEffectView.superview) {
                 [self.visualEffectView removeFromSuperview];
-                [frontView addSubview:self.visualEffectView];
+                [frontViewController.view addSubview:self.visualEffectView];
             }
             
-            [frontView addGestureRecognizer:revealController.panGestureRecognizer];
-            [frontView addGestureRecognizer:revealController.tapGestureRecognizer];
+            [frontViewController.view addGestureRecognizer:revealController.panGestureRecognizer];
+            [frontViewController.view addGestureRecognizer:revealController.tapGestureRecognizer];
             
             [UIView animateWithDuration:0.7 animations:^{
                 self.visualEffectView.alpha = 0.0;
@@ -182,14 +178,16 @@
                 }
             }];
             
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+            
+//            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+            [frontViewController updateStatusBar];
             
             break;
         }
         case FrontViewPositionRight:{
-            [frontView addSubview:self.visualEffectView];
+            [frontViewController.view addSubview:self.visualEffectView];
             [UIView animateWithDuration:0.7 animations:^{
-                self.visualEffectView.alpha = 0.8;
+                self.visualEffectView.alpha = 1.0;
             }];
             
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];

@@ -22,16 +22,29 @@
     UIColor *navigationBarBarTintColor  = defualt ? EBBlue   :   white;
     UIColor *navigationBarTintColor     = defualt ? white    :   EBBackGround;
     UIColor *navigationBarTitleColor    = defualt ? white    :   EBBackGround;
-    UIStatusBarStyle stateBarStyle      = defualt ? UIStatusBarStyleLightContent  : UIStatusBarStyleDefault;
+//    UIStatusBarStyle stateBarStyle      = defualt ? UIStatusBarStyleLightContent  : UIStatusBarStyleDefault;
     
     [self setNavigationBarTintColor:navigationBarBarTintColor
                           tintColor:navigationBarTintColor
                          titleColor:navigationBarTitleColor];
+    [self updateStatusBar];
+//    [[UIApplication sharedApplication]
+//     setStatusBarStyle:stateBarStyle
+//     animated:YES];
+}
+
+- (void)updateStatusBar {
+    UINavigationBar *navigationBar = [self navigationBar];
+    UIStatusBarStyle stateBarStyle =
+    CGColorEqualToColor(navigationBar.barTintColor.CGColor,
+                        [UIColor whiteColor].CGColor) ?
+    UIStatusBarStyleDefault :
+    UIStatusBarStyleLightContent;
     
     [[UIApplication sharedApplication]
      setStatusBarStyle:stateBarStyle
      animated:YES];
-}
+    }
 
 - (void)setNavigationBarTintColor:(UIColor *)barTintColor
                         tintColor:(UIColor *)tintColor

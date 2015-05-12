@@ -9,6 +9,7 @@
 #import "TextProgressMRPOV.h"
 #import "UIColor+Extension.h"
 #import "DefaultStyleController.h"
+#import "AppDelegate.h"
 
 @interface TextProgressMRPOV ()
 
@@ -21,7 +22,7 @@
 + (instancetype)defaultTextProgressMRPOV {
     TextProgressMRPOV* textProgressMRPOV = [[self alloc] init];
     textProgressMRPOV.mode = MRProgressOverlayViewModeIndeterminateSmall;
-    textProgressMRPOV.tintColor = EBBlue;
+    textProgressMRPOV.tintColor = [UIColor globalTintColor];
     textProgressMRPOV.titleLabelText = @"读取中...";
     return textProgressMRPOV;
 }

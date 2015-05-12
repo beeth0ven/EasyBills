@@ -36,10 +36,7 @@
 }
 
 - (void)setupBackgroundImage {
-    UIImage *image = [UIImage imageNamed:@"Account details BG"];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    imageView.image = image;
-    [self.view insertSubview:imageView atIndex:0];
+    [self.view setupBackgroundImage];
 }
 
 

@@ -38,4 +38,10 @@
     return string;
 }
 
+- (NSString *)trimmedString{
+    return [self stringByTrimmingCharactersInSet:
+            [NSCharacterSet whitespaceCharacterSet]];
+}
+
+
 @end

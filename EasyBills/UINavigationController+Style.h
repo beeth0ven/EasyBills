@@ -11,6 +11,7 @@
 @interface UINavigationController (Style)
 
 - (void)applyDefualtStyle:(BOOL)defualt;
+- (void)updateStatusBar;
 
 
 

@@ -16,6 +16,11 @@
 
 @interface ManageKindCDTVC ()
 
+@property (weak, nonatomic) IBOutlet UILabel *equalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *billCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *kindCountLabel;
+
+
 @end
 
 @implementation ManageKindCDTVC
@@ -32,12 +37,18 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController applyDefualtStyle:NO];
-    if (self.shouldRelaodData){
-        [self.tableView reloadData];
-        self.shouldRelaodData = NO;
-    }
+
 
 }
+
+//-(void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    if (self.shouldRelaodData){
+//        [self.tableView reloadData];
+//        self.shouldRelaodData = NO;
+//    }
+//}
 
 
 #pragma mark - UITable View Data Source
@@ -91,7 +102,41 @@
 //     withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+#pragma mark - NSFetchedResultsControllerDelegate
+
+
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+    [super controller:controller
+      didChangeObject:anObject
+          atIndexPath:indexPath
+        forChangeType:type
+         newIndexPath:newIndexPath];
+    
+    self.shouldRelaodData = YES;
+    [self upadateFootView];
+}
+
 #pragma mark - Some Method
+
+- (void)upadateFootView {
+    NSNumber *count = [self.fetchedResultsController.fetchedObjects
+                     valueForKeyPath:@"@sum.bills.@count"];
+    
+    self.billCountLabel.text = [NSString stringWithFormat:@" 共%lu笔   ",
+                          count.integerValue];
+    
+    self.kindCountLabel.text = [NSString stringWithFormat:@" 共%lu种   ",
+                            (unsigned long)self.fetchedResultsController.fetchedObjects.count];
+    
+    self.equalLabel.font = [self.equalLabel.font fontWithSize:25];
+    
+}
 
 - (void)setupFetchedResultsController {
     if (!self.fetchedResultsController) {
@@ -106,32 +151,14 @@
                                          managedObjectContext:self.managedObjectContext
                                          sectionNameKeyPath:nil
                                          cacheName:nil];
-
+        
     }
+    [self upadateFootView];
 }
 #pragma mark - IBAction Method
 
 - (IBAction)addKind:(UIBarButtonItem *)sender {
     [self performSegueWithIdentifier:@"showKindDetail" sender:sender];
-}
-#pragma mark - NSFetchedResultsControllerDelegate
-
-
-
-- (void)controller:(NSFetchedResultsController *)controller
-   didChangeObject:(id)anObject
-       atIndexPath:(NSIndexPath *)indexPath
-     forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath
-{
-   [super controller:controller
-     didChangeObject:anObject
-         atIndexPath:indexPath
-       forChangeType:type
-        newIndexPath:newIndexPath];
-    
-    
-    self.shouldRelaodData = YES;
 }
 
 

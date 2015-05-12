@@ -20,8 +20,8 @@
 		450DEFAA1AFF07A000B08978 /* AboutTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 450DEFA91AFF07A000B08978 /* AboutTVC.m */; };
 		450DEFAE1AFF17AC00B08978 /* LicenseTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 450DEFAD1AFF17AC00B08978 /* LicenseTVC.m */; };
 		450DEFB01AFF20F800B08978 /* Licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 450DEFAF1AFF20F800B08978 /* Licenses.plist */; };
-		452D9D901AF9CC7600C8298E /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D9D8F1AF9CC7600C8298E /* Kind.m */; };
-		455C0D9F1AD64A080060C4DF /* LoadingStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0D9E1AD64A080060C4DF /* LoadingStatus.m */; };
+		4539A7B51B01C095006B3BCC /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4539A7B41B01C095006B3BCC /* UIView+Extension.m */; };
+		4539A7B81B01D5AE006B3BCC /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 4539A7B71B01D5AE006B3BCC /* Kind.m */; };
 		455C0DA31AD650150060C4DF /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA21AD650150060C4DF /* NSString+Extension.m */; };
 		455C0DA91AD65BB00060C4DF /* Plackmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA81AD65BB00060C4DF /* Plackmark.m */; };
 		455C0DAC1AD65BE20060C4DF /* Plackmark+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DAB1AD65BE20060C4DF /* Plackmark+Create.m */; };
@@ -131,10 +131,10 @@
 		450DEFAC1AFF17AC00B08978 /* LicenseTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseTVC.h; sourceTree = "<group>"; };
 		450DEFAD1AFF17AC00B08978 /* LicenseTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseTVC.m; sourceTree = "<group>"; };
 		450DEFAF1AFF20F800B08978 /* Licenses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Licenses.plist; sourceTree = "<group>"; };
-		452D9D8E1AF9CC7600C8298E /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
-		452D9D8F1AF9CC7600C8298E /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
-		455C0D9D1AD64A080060C4DF /* LoadingStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingStatus.h; path = ../LoadingStatus.h; sourceTree = "<group>"; };
-		455C0D9E1AD64A080060C4DF /* LoadingStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingStatus.m; path = ../LoadingStatus.m; sourceTree = "<group>"; };
+		4539A7B31B01C095006B3BCC /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		4539A7B41B01C095006B3BCC /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		4539A7B61B01D5AE006B3BCC /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
+		4539A7B71B01D5AE006B3BCC /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
 		455C0DA11AD650150060C4DF /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		455C0DA21AD650150060C4DF /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		455C0DA71AD65BB00060C4DF /* Plackmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plackmark.h; path = ../Plackmark.h; sourceTree = "<group>"; };
@@ -476,10 +476,10 @@
 		BD1BF84719DB9C0100B1379A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4539A7B61B01D5AE006B3BCC /* Kind.h */,
+				4539A7B71B01D5AE006B3BCC /* Kind.m */,
 				45F47B721AFC848200BE7D64 /* Bill.h */,
 				45F47B731AFC848200BE7D64 /* Bill.m */,
-				452D9D8E1AF9CC7600C8298E /* Kind.h */,
-				452D9D8F1AF9CC7600C8298E /* Kind.m */,
 				455C0DA71AD65BB00060C4DF /* Plackmark.h */,
 				455C0DA81AD65BB00060C4DF /* Plackmark.m */,
 				BD1BF82819DB927300B1379A /* Model.xcdatamodeld */,
@@ -543,8 +543,6 @@
 				BD1BF7EA19DB901E00B1379A /* Main.storyboard */,
 				45668A131B007C52008E3A5B /* TextProgressMRPOV.h */,
 				45668A141B007C52008E3A5B /* TextProgressMRPOV.m */,
-				455C0D9D1AD64A080060C4DF /* LoadingStatus.h */,
-				455C0D9E1AD64A080060C4DF /* LoadingStatus.m */,
 				4508D6521AC3EE05007CA44A /* CursorButton */,
 				BD81A3E91A99D6C900C2CBE6 /* ColorCVCell */,
 			);
@@ -621,6 +619,8 @@
 				BD0749661A86660300467648 /* UIButton+Extension.m */,
 				BD7348821A99842B00692EE4 /* UINavigationController+Style.h */,
 				BD7348831A99842B00692EE4 /* UINavigationController+Style.m */,
+				4539A7B31B01C095006B3BCC /* UIView+Extension.h */,
+				4539A7B41B01C095006B3BCC /* UIView+Extension.m */,
 				BD7348931A9995B600692EE4 /* UIViewController+Extension.h */,
 				BD7348941A9995B700692EE4 /* UIViewController+Extension.m */,
 			);
@@ -921,6 +921,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4539A7B81B01D5AE006B3BCC /* Kind.m in Sources */,
 				BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */,
 				4508D65E1AC41327007CA44A /* BillDetailCVC+MKMapView.m in Sources */,
 				4594DAF81AF367B200C4BFBB /* NSManagedObjectContext+Extension.m in Sources */,
@@ -941,13 +942,13 @@
 				459A8FB71AD7943D00685124 /* PlacemarkCDTVC.m in Sources */,
 				BD1BF83519DB927300B1379A /* CoreDataTableViewController.m in Sources */,
 				4508D65B1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m in Sources */,
-				455C0D9F1AD64A080060C4DF /* LoadingStatus.m in Sources */,
 				4594DABD1AF34EE200C4BFBB /* UIStoryboardSegue+Extension.m in Sources */,
 				45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */,
 				BD1BF83219DB927300B1379A /* BillCDTVC.m in Sources */,
 				450DEFAA1AFF07A000B08978 /* AboutTVC.m in Sources */,
 				455C0DA31AD650150060C4DF /* NSString+Extension.m in Sources */,
 				BD1BF83D19DB927300B1379A /* Model.xcdatamodeld in Sources */,
+				4539A7B51B01C095006B3BCC /* UIView+Extension.m in Sources */,
 				45C076FB1AE3DEC9001F9B44 /* ManageKindCDTVC.m in Sources */,
 				45668A151B007C52008E3A5B /* TextProgressMRPOV.m in Sources */,
 				458517A21AC95778003149C3 /* Filter.m in Sources */,
@@ -961,7 +962,6 @@
 				BD1BF7EF19DB901E00B1379A /* HomeViewController.m in Sources */,
 				BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */,
 				BD1BF7E919DB901E00B1379A /* AppDelegate.m in Sources */,
-				452D9D901AF9CC7600C8298E /* Kind.m in Sources */,
 				455C0DAC1AD65BE20060C4DF /* Plackmark+Create.m in Sources */,
 				BDB056BA19E3A1D000494080 /* SettingTVC.m in Sources */,
 				4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */,
