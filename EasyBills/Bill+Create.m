@@ -35,6 +35,7 @@
     self.dayID =  [NSNumber dayIDWithDate:self.date];
     self.weekID = [NSNumber weekIDWithDate:self.date];
     self.monthID = [NSNumber monthIDWithDate:self.date];
+    self.yearID = [NSNumber yearIDWithDate:self.date];
     self.weekday = [NSNumber weekdayWithDate:self.date];
     self.weekOfMonth = [NSNumber weekOfMonthWithDate:self.date];
     self.month = [NSNumber monthWithDate:self.date];
@@ -42,11 +43,11 @@
 
 
 + (NSArray *)billsWithDateMode:(NSInteger) dateMode
- inManagedObjectContext:(NSManagedObjectContext *)context
+        inManagedObjectContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
-    request.predicate = [NSPredicate predicateWithbDateMode:dateMode];
+    request.predicate = [NSPredicate predicateWithbDateMode:dateMode withDate:[NSDate date]];
     
     NSError *error = nil;
     NSArray *matches = [context executeFetchRequest:request error:&error];

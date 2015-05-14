@@ -15,6 +15,7 @@
 +(NSNumber *)dayIDWithDate:(NSDate *)date;
 +(NSNumber *)weekIDWithDate:(NSDate *)date;
 +(NSNumber *)monthIDWithDate:(NSDate *)date;
++(NSNumber *)yearIDWithDate:(NSDate *)date;
 +(NSNumber *)weekdayWithDate:(NSDate *)date;
 +(NSNumber *)weekOfMonthWithDate:(NSDate *)date;
 +(NSNumber *)monthWithDate:(NSDate *)date;

@@ -129,7 +129,7 @@
                      valueForKeyPath:@"@sum.bills.@count"];
     
     self.billCountLabel.text = [NSString stringWithFormat:@" 共%lu笔   ",
-                          count.integerValue];
+                          (long)count.integerValue];
     
     self.kindCountLabel.text = [NSString stringWithFormat:@" 共%lu种   ",
                             (unsigned long)self.fetchedResultsController.fetchedObjects.count];

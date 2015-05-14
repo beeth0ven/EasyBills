@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cursorBarButtonItem;
 @property (strong, nonatomic)  EasyBillsCursorButton *cursorButton;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicatorView;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mapTypeSegmented;
 
@@ -56,6 +57,7 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     self.showsUserLocation = YES;
+    self.cursorBarButtonItem.customView = self.cursorButton;
     if (self.shouldRestMapRegionToUserLocation) {
         [self restMapRegion];
         self.shouldRestMapRegionToUserLocation = NO;
@@ -64,6 +66,8 @@
 
 - (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
     self.showsUserLocation = NO;
+    self.cursorBarButtonItem.customView = self.cursorButton;
+
 }
 
 #pragma mark - CLLocation authorization Method
@@ -207,6 +211,7 @@
     if (_showsUserLocation != showsUserLocation) {
         self.mapView.showsUserLocation = showsUserLocation;
         self.cursorButton.on = showsUserLocation;
+        if (showsUserLocation) self.cursorBarButtonItem.customView = self.activityIndicatorView;
         _showsUserLocation = showsUserLocation;
         if (showsUserLocation)
             self.shouldRestMapRegionToUserLocation = YES;
@@ -220,6 +225,19 @@
         _locationManager.delegate = self;
     }
     return _locationManager;
+}
+
+- (UIActivityIndicatorView *)activityIndicatorView {
+    if (!_activityIndicatorView) {
+        _activityIndicatorView = [[UIActivityIndicatorView alloc]
+                                  initWithFrame:CGRectMake(0,
+                                                           0,
+                                                           22,
+                                                           44)];
+        _activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        [_activityIndicatorView startAnimating];
+    }
+    return _activityIndicatorView;
 }
 
 @end

@@ -170,7 +170,7 @@
             [frontViewController.view addGestureRecognizer:revealController.panGestureRecognizer];
             [frontViewController.view addGestureRecognizer:revealController.tapGestureRecognizer];
             
-            [UIView animateWithDuration:0.7 animations:^{
+            [UIView animateWithDuration:0.3 animations:^{
                 self.visualEffectView.alpha = 0.0;
             } completion:^(BOOL finished) {
                 if (self.visualEffectView.superview) {
@@ -186,7 +186,7 @@
         }
         case FrontViewPositionRight:{
             [frontViewController.view addSubview:self.visualEffectView];
-            [UIView animateWithDuration:0.7 animations:^{
+            [UIView animateWithDuration:0.3 animations:^{
                 self.visualEffectView.alpha = 1.0;
             }];
             
@@ -205,6 +205,25 @@
     NSLog( @"%@: %@", NSStringFromSelector(_cmd), [self stringFromFrontViewPosition:position]);
 
     
+}
+
+- (BOOL)revealControllerPanGestureShouldBegin:(SWRevealViewController *)revealController {
+    FrontViewPosition position = self.revealViewController.frontViewPosition;
+    BOOL result = NO;
+    switch (position) {
+        case FrontViewPositionLeft:{
+            result = NO;
+            break;
+        }
+        case FrontViewPositionRight:{
+            result = YES;
+            break;
+        }
+        default: {
+            break;
+        }
+    }
+    return result;
 }
 
 

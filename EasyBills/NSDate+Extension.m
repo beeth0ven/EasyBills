@@ -47,6 +47,52 @@
     return [[NSDate date] dateByAddingTimeInterval:secendsFromNow];
 }
 
++ (NSDate *)dateSinceNowByWeeks:(NSUInteger)weeks {
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger day = 7 * weeks;
+    [comps setDay:day];
+    NSDate *date = [gregorian dateByAddingComponents:comps
+                                              toDate:[NSDate date]
+                                             options:0];
+    return date;
+}
+
++ (NSDate *)dateSinceNowByMonths:(NSUInteger)months {
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger month = months;
+    [comps setMonth:month];
+    NSDate *date = [gregorian dateByAddingComponents:comps toDate:[NSDate date]  options:0];
+    return date;
+}
+
++ (NSDate *)dateSinceNowByYears:(NSUInteger)years {
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger year = years;
+    [comps setYear:year];
+    NSDate *date = [gregorian dateByAddingComponents:comps toDate:[NSDate date]  options:0];
+    return date;
+}
+
+- (void)showDetail {
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [gregorian components:
+                                    NSCalendarUnitWeekOfMonth |
+                                    NSCalendarUnitMonth |
+                                    NSCalendarUnitYear |
+                                    NSCalendarUnitDay
+                                                fromDate:self];
+        
+    NSLog(@"year:%i month:%i day:%i",
+          [components year],
+          [components month],
+          [components day]
+          );
+}
+
 + (BOOL)isSameDay:(NSDate *)firstDate andDate:(NSDate *)secendDate {
     BOOL result = NO;
     
@@ -67,6 +113,62 @@
     }
 
     return result;
+}
+
+- (NSDate *)lastDayOfMonth {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comps = [calendar
+                               components:NSCalendarUnitYear
+                               |NSCalendarUnitMonth
+                               |NSCalendarUnitWeekOfYear
+                               |NSCalendarUnitWeekday
+                               fromDate:self]; // Get necessary date components
+    
+    [comps setMonth:[comps month]+1];
+    [comps setDay:0];
+    return [calendar dateFromComponents:comps];
+}
+
+- (NSDate *)firstDayOfMonth {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comps = [calendar
+                               components:NSCalendarUnitYear
+                               |NSCalendarUnitMonth
+                               |NSCalendarUnitWeekOfYear
+                               |NSCalendarUnitWeekday
+                               fromDate:self]; // Get necessary date components
+    
+    [comps setDay:1];
+    return [calendar dateFromComponents:comps];
+}
+
+- (NSDate *)firstDayOfYear {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comps = [calendar
+                               components:NSCalendarUnitYear
+                               |NSCalendarUnitMonth
+                               |NSCalendarUnitWeekOfYear
+                               |NSCalendarUnitWeekday
+                               fromDate:self]; // Get necessary date components
+    
+    [comps setMonth:1];
+    [comps setDay:1];
+    return [calendar dateFromComponents:comps];
+}
+
+- (NSDate *)lastDayOfYear {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comps = [calendar
+                               components:NSCalendarUnitYear
+                               |NSCalendarUnitMonth
+                               |NSCalendarUnitWeekOfYear
+                               |NSCalendarUnitWeekday
+                               fromDate:self]; // Get necessary date components
+    
+    [comps setYear:[comps year]+1];
+    [comps setMonth:1];
+    [comps setDay:0];
+    return [calendar dateFromComponents:comps];
 }
 
 @end

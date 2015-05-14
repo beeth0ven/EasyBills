@@ -125,6 +125,7 @@
     
     float total =[PubicVariable sumMoneyWithIncomeMode:[self isIncomeMode]
                                           withDateMode:[self dateMode]
+                                              withDate:[NSDate date]
                                 inManagedObjectContext:self.managedObjectContext];
     
     self.total = [NSNumber numberWithFloat:total];
@@ -285,7 +286,7 @@
                         fabs([PubicVariable sumMoneyWithKind:kind
                                                     dateMode:[self dateMode]
                                       inManagedObjectContext:self.managedObjectContext])];
-    indexLabel.text = [NSString stringWithFormat:@"%li.",indexPath.row + 1];
+    indexLabel.text = [NSString stringWithFormat:@"%i.",indexPath.row + 1];
     label.text = [NSString stringWithFormat:@"  %@  ",[kind.name description]];
     circleView.backgroundColor = kind.color;
     detailLabel.text = [NSString stringWithFormat:@"¥  %.0f",current.floatValue];
@@ -502,9 +503,9 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Bill"];
     
     NSPredicate *kindPredicate = [NSPredicate predicateWithFormat:@"kind = %@" , kind];
-    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:[self dateMode]];
+    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:[self dateMode] withDate:[NSDate date]];
 
-    request.predicate = [kindPredicate predicateCombineWithPredicate:datePredicate];
+    request.predicate = [NSPredicate predicateByCombinePredicate:kindPredicate withPredicate:datePredicate];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]

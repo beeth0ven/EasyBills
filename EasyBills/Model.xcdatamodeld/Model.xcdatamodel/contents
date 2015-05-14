@@ -20,6 +20,7 @@
         <attribute name="weekday" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="weekID" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="weekOfMonth" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="yearID" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="clusterAnnotation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bill" inverseName="containedAnnotations" inverseEntity="Bill" syncable="YES"/>
         <relationship name="containedAnnotations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="clusterAnnotation" inverseEntity="Bill" syncable="YES"/>
         <relationship name="kind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kind" inverseName="bills" inverseEntity="Kind" syncable="YES"/>
@@ -41,7 +42,7 @@
         <relationship name="bills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bill" inverseName="plackmark" inverseEntity="Bill" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="390"/>
+        <element name="Bill" positionX="-4068" positionY="-1827" width="128" height="403"/>
         <element name="Kind" positionX="-3762" positionY="-1660" width="128" height="178"/>
         <element name="Plackmark" positionX="-4230" positionY="-1495" width="128" height="73"/>
     </elements>

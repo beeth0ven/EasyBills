@@ -32,18 +32,19 @@
 }
 
 +(NSPredicate *)predicateWithbDateMode:(NSInteger) dateMode
+                              withDate:(NSDate *) date
 {
     NSPredicate *dateModePredicate;
     
     switch (dateMode) {
         case week:
-            dateModePredicate = [NSPredicate predicateWithFormat:@"weekID = %@",[self thisWeekID]];
+            dateModePredicate = [NSPredicate predicateWithFormat:@"weekID = %@",[NSNumber weekIDWithDate:date]];
             break;
         case month:
-            dateModePredicate = [NSPredicate predicateWithFormat:@"monthID = %@",[self thisMonthID]];
+            dateModePredicate = [NSPredicate predicateWithFormat:@"monthID = %@",[NSNumber monthIDWithDate:date]];
             break;
         default:
-            dateModePredicate = nil;
+            dateModePredicate = [NSPredicate predicateWithFormat:@"yearID = %@",[NSNumber yearIDWithDate:date]];
             break;
     }
     return dateModePredicate;
@@ -61,7 +62,7 @@
             predicate = [NSPredicate predicateWithFormat:@"weekID = %@",[NSNumber weekIDWithDate:date]];
             break;
         case predicateWeekInMonthStyle:
-            predicate = [NSPredicate predicateWithFormat:@"(monthID = %@) && (weekID = %@)",[NSNumber monthIDWithDate:[NSDate date]],[NSNumber weekIDWithDate:date]];
+            predicate = [NSPredicate predicateWithFormat:@"(monthID = %@) && (weekID = %@)",[NSNumber monthIDWithDate:date],[NSNumber weekIDWithDate:date]];
             break;
         default:
             predicate = [NSPredicate predicateWithFormat:@"monthID = %@",[NSNumber monthIDWithDate:date]];
@@ -71,18 +72,19 @@
 }
 
 
-- (NSPredicate *)predicateCombineWithPredicate:(NSPredicate *)predicate;
++ (NSPredicate *)predicateByCombinePredicate:(NSPredicate *)predicate
+                               withPredicate:(NSPredicate *)otherPredicate;
 {
     
     NSPredicate *result;
-    if (self) {
+    if (otherPredicate) {
         if (predicate) {
             //incomeModePredicate and dateModePredicate all
-            NSArray *array = @[self,predicate];
+            NSArray *array = @[otherPredicate,predicate];
             result =[NSCompoundPredicate andPredicateWithSubpredicates:array];
         }else{
             //incomeModePredicate only
-            result = self;
+            result = otherPredicate;
         }
         
     }else{

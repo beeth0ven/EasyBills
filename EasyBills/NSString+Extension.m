@@ -44,4 +44,28 @@
 }
 
 
+- (void)drawInMacCoordinateAtPoint:(CGPoint)point
+                    withAttributes:(NSDictionary *)attributes{
+    
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    
+    CGFloat pointY = point.y;
+    
+    CGContextSaveGState(currentContext);
+    
+    CGContextScaleCTM(currentContext,
+                      1.0f,
+                      -1.0f);
+    
+    CGContextTranslateCTM(currentContext,
+                          0.0f,
+                          -2 * pointY);
+    
+    [self drawAtPoint:point
+       withAttributes:attributes];
+    
+    CGContextRestoreGState(currentContext);
+    
+}
+
 @end

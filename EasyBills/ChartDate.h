@@ -14,9 +14,17 @@
 @property (readonly, strong, nonatomic) NSArray *xLabels;
 @property (readonly, strong, nonatomic) NSArray *incomeDataArray;
 @property (readonly, strong, nonatomic) NSArray *expenseDataArray;
+@property (nonatomic) NSUInteger pageIndex;
+@property (readonly, strong, nonatomic) NSDate *referenceDate;
+@property (strong, nonatomic) NSAttributedString *attributedTitle;
+@property (strong, nonatomic) NSAttributedString *attributedSubTitle;
+
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)context;
+- (void)refreshData;
+//- (void)goPrevious;
+//- (void)goNext;
 
 @end

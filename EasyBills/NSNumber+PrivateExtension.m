@@ -53,6 +53,18 @@
     return [NSNumber numberWithInteger:result];
 }
 
++(NSNumber *)yearIDWithDate:(NSDate *)date
+{
+    //if (date == nil) return nil;
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [gregorian components:NSCalendarUnitYear | NSCalendarUnitMonth
+                                                fromDate:date];
+    NSInteger years = [components year];
+    NSInteger result = years;
+    return [NSNumber numberWithInteger:result];
+}
+
 +(NSNumber *)weekdayWithDate:(NSDate *)date
 {
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];

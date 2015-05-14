@@ -14,4 +14,7 @@
 + (NSString *)stringForPlacemark:(CLPlacemark *)placemark;
 - (NSString *)trimmedString;
 
+- (void)drawInMacCoordinateAtPoint:(CGPoint)point
+                    withAttributes:(NSDictionary *)attributes;
+
 @end

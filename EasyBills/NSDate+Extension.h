@@ -18,6 +18,22 @@
 
 + (NSDate *)dayBeforeYesterday;
 
+
++ (NSDate *)dateSinceNowByWeeks:(NSUInteger)weeks;
+
++ (NSDate *)dateSinceNowByMonths:(NSUInteger)months;
+
++ (NSDate *)dateSinceNowByYears:(NSUInteger)years;
+   
+- (void)showDetail;
+
 + (BOOL)isSameDay:(NSDate *)firstDate andDate:(NSDate *)secendDate;
 
+- (NSDate *)lastDayOfMonth;
+
+- (NSDate *)firstDayOfMonth;
+
+- (NSDate *)firstDayOfYear;
+
+- (NSDate *)lastDayOfYear;
 @end

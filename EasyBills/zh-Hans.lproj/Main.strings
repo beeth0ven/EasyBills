@@ -1,0 +1,225 @@
+
+/* Class = "UILabel"; text = "简单记账"; ObjectID = "3xU-i4-rVO"; */
+"3xU-i4-rVO.text" = "简单记账";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "4Z1-cb-4lP"; */
+"4Z1-cb-4lP.title" = " ";
+
+/* Class = "UILabel"; text = "删除"; ObjectID = "53A-Yd-I23"; */
+"53A-Yd-I23.text" = "删除";
+
+/* Class = "UILabel"; text = " =    "; ObjectID = "5VQ-Hp-XIM"; */
+"5VQ-Hp-XIM.text" = " =    ";
+
+/* Class = "UILabel"; text = "  共3笔  "; ObjectID = "5xe-Mv-gOq"; */
+"5xe-Mv-gOq.text" = "  共3笔  ";
+
+/* Class = "UILabel"; text = "密码锁"; ObjectID = "83F-5g-R1c"; */
+"83F-5g-R1c.text" = "密码锁";
+
+/* Class = "UINavigationItem"; title = "设置"; ObjectID = "973-rx-Kko"; */
+"973-rx-Kko.title" = "设置";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "97c-dd-ARE"; */
+"97c-dd-ARE.text" = "12";
+
+/* Class = "UILabel"; text = " =    "; ObjectID = "9sq-ts-b6J"; */
+"9sq-ts-b6J.text" = " =    ";
+
+/* Class = "UILabel"; text = "开源许可证"; ObjectID = "A1Z-fI-bmW"; */
+"A1Z-fI-bmW.text" = "开源许可证";
+
+/* Class = "UIButton"; normalTitle = "−"; ObjectID = "A4M-Ex-ITn"; */
+"A4M-Ex-ITn.normalTitle" = "−";
+
+/* Class = "UILabel"; text = "时间："; ObjectID = "AFe-76-dQq"; */
+"AFe-76-dQq.text" = "时间：";
+
+/* Class = "UILabel"; text = " ¥ 800 "; ObjectID = "Aev-sU-UUw"; */
+"Aev-sU-UUw.text" = " ¥ 800 ";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Aqp-sz-fbV"; */
+"Aqp-sz-fbV.title" = " ";
+
+/* Class = "UITextField"; placeholder = "编辑"; ObjectID = "BHZ-Z7-nPF"; */
+"BHZ-Z7-nPF.placeholder" = "编辑";
+
+/* Class = "UILabel"; text = "全部"; ObjectID = "BJw-rB-34W"; */
+"BJw-rB-34W.text" = "全部";
+
+/* Class = "UIButton"; normalTitle = "="; ObjectID = "BM4-5f-wqs"; */
+"BM4-5f-wqs.normalTitle" = "=";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "DiT-E6-BOM"; */
+"DiT-E6-BOM.normalTitle" = "+";
+
+/* Class = "UILabel"; text = " ¥ 800   "; ObjectID = "F9G-c4-JJv"; */
+"F9G-c4-JJv.text" = " ¥ 800   ";
+
+/* Class = "UISegmentedControl"; FHV-yT-NDE.segmentTitles[0] = "标准"; ObjectID = "FHV-yT-NDE"; */
+"FHV-yT-NDE.segmentTitles[0]" = "标准";
+
+/* Class = "UISegmentedControl"; FHV-yT-NDE.segmentTitles[1] = "卫星"; ObjectID = "FHV-yT-NDE"; */
+"FHV-yT-NDE.segmentTitles[1]" = "卫星";
+
+/* Class = "UITextField"; placeholder = "0"; ObjectID = "GTS-ae-aKa"; */
+"GTS-ae-aKa.placeholder" = "0";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "HOX-MK-e3X"; */
+"HOX-MK-e3X.title" = " ";
+
+/* Class = "UINavigationItem"; title = "主页"; ObjectID = "HWn-ku-kRe"; */
+"HWn-ku-kRe.title" = "主页";
+
+/* Class = "UIButton"; normalTitle = "$ 8000.00"; ObjectID = "JUH-7v-rY4"; */
+"JUH-7v-rY4.normalTitle" = "$ 8000.00";
+
+/* Class = "UILabel"; text = "Copyright (c) 2015 LuoJie. All rights reserved."; ObjectID = "JZ4-eH-nTo"; */
+"JZ4-eH-nTo.text" = "Copyright (c) 2015 LuoJie. All rights reserved.";
+
+/* Class = "UILabel"; text = "分类"; ObjectID = "Kf0-LZ-dfS"; */
+"Kf0-LZ-dfS.text" = "分类";
+
+/* Class = "UINavigationItem"; title = "管理分类"; ObjectID = "L7v-sE-qI8"; */
+"L7v-sE-qI8.title" = "管理分类";
+
+/* Class = "UINavigationItem"; title = "分类"; ObjectID = "LHt-1N-9DZ"; */
+"LHt-1N-9DZ.title" = "分类";
+
+/* Class = "UILabel"; text = "关于"; ObjectID = "Lo6-dw-t35"; */
+"Lo6-dw-t35.text" = "关于";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "MX7-jQ-Db0"; */
+"MX7-jQ-Db0.title" = " ";
+
+/* Class = "UILabel"; text = "DZNSegmentedControl"; ObjectID = "MXt-3q-EVz"; */
+"MXt-3q-EVz.text" = "DZNSegmentedControl";
+
+/* Class = "UILabel"; text = "0.0"; ObjectID = "Mlx-4w-iX7"; */
+"Mlx-4w-iX7.text" = "0.0";
+
+/* Class = "UILabel"; text = "主页"; ObjectID = "N9h-If-YCk"; */
+"N9h-If-YCk.text" = "主页";
+
+/* Class = "UILabel"; text = " 工资 "; ObjectID = "NCN-3J-xTV"; */
+"NCN-3J-xTV.text" = " 工资 ";
+
+/* Class = "UITextField"; placeholder = "简单描述..."; ObjectID = "NKA-9K-91z"; */
+"NKA-9K-91z.placeholder" = "简单描述...";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "NY6-Sn-kzN"; */
+"NY6-Sn-kzN.title" = " ";
+
+/* Class = "UILabel"; text = " 工资 "; ObjectID = "Nde-NU-Wm7"; */
+"Nde-NU-Wm7.text" = " 工资 ";
+
+/* Class = "UILabel"; text = "武汉市，湖北"; ObjectID = "PoW-kb-a5i"; */
+"PoW-kb-a5i.text" = "武汉市，湖北";
+
+/* Class = "UILabel"; text = "导出"; ObjectID = "TLU-bn-tWX"; */
+"TLU-bn-tWX.text" = "导出";
+
+/* Class = "UILabel"; text = "货币符号"; ObjectID = "UNV-Xo-JOa"; */
+"UNV-Xo-JOa.text" = "货币符号";
+
+/* Class = "UILabel"; text = " 共53笔   "; ObjectID = "VH3-O4-2H8"; */
+"VH3-O4-2H8.text" = " 共53笔   ";
+
+/* Class = "UINavigationItem"; title = "关于"; ObjectID = "Vjq-jk-OgA"; */
+"Vjq-jk-OgA.title" = "关于";
+
+/* Class = "UILabel"; text = "2014年11月10日"; ObjectID = "Xql-x8-Owq"; */
+"Xql-x8-Owq.text" = "2014年11月10日";
+
+/* Class = "UIButton"; normalTitle = "$ 2000.00"; ObjectID = "bpT-rY-ePP"; */
+"bpT-rY-ePP.normalTitle" = "$ 2000.00";
+
+/* Class = "UILabel"; text = "版本"; ObjectID = "cWm-7m-HLY"; */
+"cWm-7m-HLY.text" = "版本";
+
+/* Class = "UINavigationItem"; title = "地图"; ObjectID = "cmd-uU-B5x"; */
+"cmd-uU-B5x.title" = "地图";
+
+/* Class = "UILabel"; text = " 4月15日 "; ObjectID = "d2M-Ew-hfQ"; */
+"d2M-Ew-hfQ.text" = " 4月15日 ";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "dNa-Fj-hSt"; */
+"dNa-Fj-hSt.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "$ 10000.00"; ObjectID = "dVB-Kl-SVa"; */
+"dVB-Kl-SVa.normalTitle" = "$ 10000.00";
+
+/* Class = "UIButton"; normalTitle = "关注 @LuoJie6 "; ObjectID = "ddC-uH-Nyz"; */
+"ddC-uH-Nyz.normalTitle" = "关注 @LuoJie6 ";
+
+/* Class = "UILabel"; text = "人情"; ObjectID = "djD-di-XlQ"; */
+"djD-di-XlQ.text" = "人情";
+
+/* Class = "UINavigationItem"; title = "支出"; ObjectID = "eEc-6c-KEx"; */
+"eEc-6c-KEx.title" = "支出";
+
+/* Class = "UILabel"; text = "地图"; ObjectID = "er2-ns-YgM"; */
+"er2-ns-YgM.text" = "地图";
+
+/* Class = "UILabel"; text = "设置"; ObjectID = "frp-vK-yih"; */
+"frp-vK-yih.text" = "设置";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gPx-hs-vWC"; */
+"gPx-hs-vWC.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "jA2-Ck-77i"; */
+"jA2-Ck-77i.title" = " ";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "jTZ-Pc-OQV"; */
+"jTZ-Pc-OQV.text" = "1";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "jdv-3F-cC5"; */
+"jdv-3F-cC5.text" = "Label";
+
+/* Class = "UILabel"; text = "颜色"; ObjectID = "jgz-nM-VYQ"; */
+"jgz-nM-VYQ.text" = "颜色";
+
+/* Class = "UILabel"; text = "¥"; ObjectID = "kdl-Oc-j3z"; */
+"kdl-Oc-j3z.text" = "¥";
+
+/* Class = "UILabel"; text = "  支出  "; ObjectID = "lTY-pj-ecS"; */
+"lTY-pj-ecS.text" = "  支出  ";
+
+/* Class = "UILabel"; text = "去 App Store 打分"; ObjectID = "lkI-lE-SPk"; */
+"lkI-lE-SPk.text" = "去 App Store 打分";
+
+/* Class = "UILabel"; text = "问题反馈"; ObjectID = "mUa-zx-10k"; */
+"mUa-zx-10k.text" = "问题反馈";
+
+/* Class = "UILabel"; text = "本周收入分布图"; ObjectID = "nb0-l0-YSI"; */
+"nb0-l0-YSI.text" = "本周收入分布图";
+
+/* Class = "UILabel"; text = "共3笔"; ObjectID = "oCi-Zs-NEV"; */
+"oCi-Zs-NEV.text" = "共3笔";
+
+/* Class = "UILabel"; text = "(The MIT License)\n\nCopyright (c) 2014 Ignacio Romero Zurbuchen iromero@dzen.cl\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."; ObjectID = "oGt-XR-WRX"; */
+"oGt-XR-WRX.text" = "(The MIT License)\n\nCopyright (c) 2014 Ignacio Romero Zurbuchen iromero@dzen.cl\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.";
+
+/* Class = "UILabel"; text = "iCloud 保存&读取"; ObjectID = "phu-bZ-XHu"; */
+"phu-bZ-XHu.text" = "iCloud 保存&读取";
+
+/* Class = "UILabel"; text = "全部"; ObjectID = "pol-va-xNO"; */
+"pol-va-xNO.text" = "全部";
+
+/* Class = "UINavigationItem"; title = "开源许可证"; ObjectID = "qjh-jn-B1v"; */
+"qjh-jn-B1v.title" = "开源许可证";
+
+/* Class = "UILabel"; text = "筛选："; ObjectID = "rnD-9V-mzH"; */
+"rnD-9V-mzH.text" = "筛选：";
+
+/* Class = "UILabel"; text = "用于收入项"; ObjectID = "sVG-Ib-sKg"; */
+"sVG-Ib-sKg.text" = "用于收入项";
+
+/* Class = "UILabel"; text = "名字"; ObjectID = "tew-qI-FYR"; */
+"tew-qI-FYR.text" = "名字";
+
+/* Class = "UILabel"; text = "共9种"; ObjectID = "ubn-X5-xU2"; */
+"ubn-X5-xU2.text" = "共9种";
+
+/* Class = "UILabel"; text = "删除"; ObjectID = "vSA-bY-CN6"; */
+"vSA-bY-CN6.text" = "删除";

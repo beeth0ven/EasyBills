@@ -27,10 +27,10 @@
     
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Bill"];
     NSPredicate *kindPredicate = [NSPredicate predicateWithFormat:@"kind = %@" , kind];
-    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:dateMode];
+    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:dateMode withDate:[NSDate date]];
 
     
-    request.predicate = [kindPredicate predicateCombineWithPredicate:datePredicate];
+    request.predicate = [NSPredicate predicateByCombinePredicate:kindPredicate withPredicate:datePredicate];
     
     NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"money"];
     NSExpression *sumMoneyExpression = [NSExpression expressionForFunction:@"sum:"
@@ -64,11 +64,12 @@
 
 +(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode
                    withDateMode:(NSInteger) dateMode
+                       withDate:(NSDate *) date
          inManagedObjectContext:(NSManagedObjectContext *)context
 {
     NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
-    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:dateMode];
-    NSPredicate *predicate = [incomePredicate predicateCombineWithPredicate:datePredicate];
+    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:dateMode withDate:date];
+    NSPredicate *predicate =[NSPredicate predicateByCombinePredicate:incomePredicate withPredicate:datePredicate];
     return [self performeFetchForFunction:@"sum:" WithPredicate:predicate inManagedObjectContext:context];
     
 }
@@ -82,7 +83,7 @@
 {
     NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
     NSPredicate *datePredicate = [NSPredicate predicateStyle:predicateStyle withDate:date];
-    NSPredicate *predicate = [incomePredicate predicateCombineWithPredicate:datePredicate];
+    NSPredicate *predicate = [NSPredicate predicateByCombinePredicate:incomePredicate withPredicate:datePredicate];
     return [self performeFetchForFunction:@"sum:" WithPredicate:predicate inManagedObjectContext:context];
     
 }

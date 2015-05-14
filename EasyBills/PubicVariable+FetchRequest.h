@@ -20,6 +20,7 @@
 
 +(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode
                    withDateMode:(NSInteger) dateMode
+                       withDate:(NSDate *) date
          inManagedObjectContext:(NSManagedObjectContext *)context;
 
 +(float) sumMoneyWithIncomeMode:(NSInteger)incomeMode

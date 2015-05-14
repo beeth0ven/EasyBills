@@ -507,9 +507,27 @@
 }
 
 - (IBAction)changeIncomeMode:(UISwitch *)sender {
-    if (self.kind.bills.count == 0) {
+    BOOL isExisted = [Kind kindIsExistedWithName:self.kind.name
+                                        isIncome:self.kind.isIncome.boolValue
+                          inManagedObjectContext:self.kind.managedObjectContext];
+    if (isExisted){
+        NSString *isIncomeString = self.kind.isIncome.boolValue ? @"支出" : @"收入";
+        NSString *message = [NSString stringWithFormat:@"‘%@’下已经存在‘%@’",
+                             isIncomeString,self.kind.name];
+        UIAlertView *alert =
+        [[UIAlertView alloc]
+         initWithTitle:@"提示"
+         message:message
+         delegate:nil
+         cancelButtonTitle:@"好"
+         otherButtonTitles:nil];
+        
+        [alert show];
+
+        [sender setOn:!sender.isOn];
+    } else if (self.kind.bills.count == 0) {
         self.kind.isIncome = [NSNumber numberWithBool:sender.isOn];
-    }else{
+    }  else {
         NSLog(@"This kind has bills.");
         
         NSString *message = [NSString stringWithFormat:@"‘%@’下存在%lu比笔记录。需要将它们移动到‘其他’吗？",

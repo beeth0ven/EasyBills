@@ -27,8 +27,14 @@
 #import "UIStoryboardSegue+Extension.h"
 #import "NSPredicate+PrivateExtension.h"
 #import "UIViewController+Extension.h"
+#import "LJChartView.h"
+#import "NSNumber+PrivateExtension.h"
+#import "TextProgressMRPOV.h"
+#import "UIView+Extension.h"
+#import "NSDate+Extension.h"
+#import "UIColor+Extension.h"
 
-@interface HomeViewController () <DZNSegmentedControlDelegate>
+@interface HomeViewController () <DZNSegmentedControlDelegate,LJChartViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UIButton *reduceButton;
@@ -50,6 +56,16 @@
 
 @property (nonatomic) BOOL shouldUpdateUI;
 
+
+//@property (nonatomic, strong) NSArray *data; // Test
+
+@property (weak, nonatomic) IBOutlet LJChartView *chartView;
+
+//@property (strong, nonatomic) UISwipeGestureRecognizer *nextPageSwipeGestureRecognizer;
+//@property (strong, nonatomic) NSFetchedResultsController *chartFRC;
+//@property (nonatomic, strong) TextProgressMRPOV *progressView;
+
+
 @end
 
 @implementation HomeViewController
@@ -63,13 +79,15 @@
     [self setupSegmentedControl];
     [self updateUI];
     [self setupMenuButton];
-    [self setupBackgroundImage];
+    [self configureButton];
+//    [self setupBackgroundImage];
     [self registerNotifications];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self refreshChartView];
     [self.navigationController applyDefualtStyle:YES];
 }
 
@@ -85,6 +103,9 @@
 - (void)dealloc {
     [self removeObserver:self.managedObjectContext forKeyPath:@"hasChanges"];
 }
+
+
+
 
 #pragma mark - Navigation Method
 
@@ -111,6 +132,9 @@
 }
 
 
+
+
+
 #pragma mark - SetUp Method
 
 
@@ -119,7 +143,7 @@
     
     //"本周", "本月", "总体"
     self.segmentedControl = [[DZNSegmentedControl alloc]
-                             initWithItems:@[@"本周", @"本月", @"总体"]];
+                             initWithItems:@[@"周", @"月", @"年"]];
     
     self.segmentedControl.frame = CGRectMake(0,
                                              0,
@@ -137,73 +161,13 @@
     self.segmentedControl.hairlineColor = EBBlue;
     self.segmentedControl.autoAdjustSelectionIndicatorWidth = NO;
     self.segmentedControl.adjustsFontSizeToFitWidth = YES;
-            //        _control.height = 120.0f;
-            //        _control.width = 300.0f;
-            //        _control.showsGroupingSeparators = YES;
-            //        _control.inverseTitles = YES;
-            //        _control.backgroundColor = [UIColor lightGrayColor];
-            //        _control.tintColor = [UIColor purpleColor];
-            //        _control.hairlineColor = [UIColor purpleColor];
-            //        _control.showsCount = NO;
-            //        _control.autoAdjustSelectionIndicatorWidth = NO;
-            //        _control.selectionIndicatorHeight = _control.intrinsicContentSize.height;
-            //        _control.adjustsFontSizeToFitWidth = YES;
-
     [self.segmentedControl addTarget:self
                               action:@selector(segmentSelected)
                     forControlEvents:UIControlEventValueChanged];
     
     [self.bottomView addSubview:self.segmentedControl];
 
-    /*
-    // Add desired targets/actions
-    [self.segmentedControl
-     addTarget:self
-     action:@selector(segmentSelected)
-     forControlEvents:UIControlEventValueChanged];
-    
-    // Customize and size the control
-
-    self.segmentedControl.borderWidth = 1.0f;
-    self.segmentedControl.borderColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
-    
-    self.segmentedControl.segmentIndicatorBorderWidth = 1.0f;
-    self.segmentedControl.segmentIndicatorBorderColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
-    
-    self.segmentedControl.drawsGradientBackground = YES;
-    self.segmentedControl.gradientTopColor = [UIColor colorWithWhite:0.9f alpha:1.0];
-    self.segmentedControl.gradientBottomColor = [UIColor colorWithWhite:0.9f alpha:1.0];
-    
-    self.segmentedControl.drawsSegmentIndicatorGradientBackground = YES;
-    self.segmentedControl.segmentIndicatorGradientTopColor = [UIColor colorWithWhite:1.0f alpha:1.0];
-    self.segmentedControl.segmentIndicatorGradientBottomColor = [UIColor colorWithWhite:1.0f alpha:1.0];
-    
-    self.segmentedControl.segmentIndicatorInset = 0.0f;
-    self.segmentedControl.segmentIndicatorAnimationDuration = 0.3f;
-    [self.segmentedControl sizeToFit];
-    self.segmentedControl.selectedSegmentIndex = [PubicVariable dateMode];
-     
-    // Add the control to your view
-     */
-    //self.navigationItem.titleView = self.segmentedControl;
 }
-
-//-(void)setupButtons
-//{
-//    [self.addButton setStyle:[PNFreshGreen colorWithAlphaComponent:0.5f] andBottomColor:PNFreshGreen];
-//    [self.addButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:50]];
-//    [self.sumAddedMoneyButton setStyle:[PNFreshGreen colorWithAlphaComponent:0.5f] andBottomColor:PNFreshGreen];
-//    [self.sumAddedMoneyButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:20]];
-//    
-//    [self.reduceButton setStyle:[PNRed colorWithAlphaComponent:0.5f] andBottomColor:PNRed];
-//    [self.reduceButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:50]];
-//    [self.sumReduceMoneyButton setStyle:[PNRed colorWithAlphaComponent:0.5f] andBottomColor:PNRed];
-//    [self.sumReduceMoneyButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:20]];
-//    
-//    [self.sumMoneyButton setStyle:[PNTwitterColor colorWithAlphaComponent:0.5f] andBottomColor:PNTwitterColor];
-//    [self.sumMoneyButton setLabelFont:[UIFont fontWithName:@"Trebuchet MS" size:20]];
-//    
-//}
 
 -(NSArray *)functineButtons
 {
@@ -216,6 +180,7 @@
 
 -(void)segmentSelected
 {
+    self.chartDate.pageIndex = 0;
     [PubicVariable setDateMode:self.segmentedControl.selectedSegmentIndex];
     [self updateUI];
 }
@@ -223,87 +188,117 @@
 
 -(void)updateUI
 {
-    //Add LineChart
-    if (self.lineChart) {
-        //[self.lineChartLabel removeFromSuperview];
-        [self.lineChart removeFromSuperview];
-    }
-    //self.lineChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, SCREEN_WIDTH, 30)];
-    
-    NSString *string = @"● 收入  ● 支出";
-    
-    NSAttributedString *attributedString = [[NSAttributedString alloc]
-                                            initWithString:string
-                                            attributes:@{NSForegroundColorAttributeName: EBBlue}];
-    
-    NSMutableAttributedString *mat = [attributedString mutableCopy];
-    NSString *searchString = @"● 支出";
-    NSRange range =[string rangeOfString:searchString];
-    
-    NSDictionary *attributes = @{NSForegroundColorAttributeName: PNRed};
-    [mat addAttributes:attributes range:range];
-    
-    self.lineChartLabel .attributedText = mat;
-    //lineChartLabel.textColor = PNFreshGreen;
-    self.lineChartLabel .font = [UIFont fontWithName:@"Avenir-Medium" size:20.0];
-    self.lineChartLabel .textAlignment = NSTextAlignmentCenter;
-    
-    //For LineChart
-    self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 20.0, SCREEN_WIDTH, 155.0)];
-    self.lineChart.backgroundColor = [UIColor clearColor];
-    [self.lineChart setXLabels:self.chartDate.xLabels];
-    
-    // Line Chart No.1
-    NSArray * data01Array = self.chartDate.incomeDataArray;
-    PNLineChartData *data01 = [PNLineChartData new];
-    data01.color = EBBlue;
-    data01.itemCount = self.lineChart.xLabels.count;
-    data01.getData = ^(NSUInteger index) {
-        CGFloat yValue = [data01Array[index] floatValue];
-        return [PNLineChartDataItem dataItemWithY:yValue];
-    };
-    // Line Chart No.2
-    NSArray * data02Array = self.chartDate.expenseDataArray;
-    PNLineChartData *data02 = [PNLineChartData new];
-    data02.color = PNRed;
-    data02.itemCount = self.lineChart.xLabels.count;
-    data02.getData = ^(NSUInteger index) {
-        CGFloat yValue = [data02Array[index] floatValue];
-        return [PNLineChartDataItem dataItemWithY:yValue];
-    };
-    
-    self.lineChart.chartData = @[data02, data01];
-    [self.lineChart strokeChart];
-    
-    
-    //[self.view addSubview:self.lineChartLabel];
-    [self.view addSubview:self.lineChart];
-    float sumAddedMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeYes withDateMode:[PubicVariable dateMode] inManagedObjectContext:self.managedObjectContext];
-    float sumReduceMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNo withDateMode:[PubicVariable dateMode] inManagedObjectContext:self.managedObjectContext];
-    float sumMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNil withDateMode:[PubicVariable dateMode] inManagedObjectContext:self.managedObjectContext];
-    
-    [self.sumAddedMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",sumAddedMoney] forState:UIControlStateNormal];
-    [self.sumReduceMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",fabs(sumReduceMoney)] forState:UIControlStateNormal];
-    [self.sumMoneyButton setTitle:[NSString stringWithFormat:@" ￥ %.0f ",sumMoney] forState:UIControlStateNormal];
-    
-
+    [self refreshChartView];
+    [self updateButtom];
     self.shouldUpdateUI = NO;
+
 }
 
--(void)userClickedOnLineKeyPoint:(CGPoint)point lineIndex:(NSInteger)lineIndex andPointIndex:(NSInteger)pointIndex{
-    NSLog(@"Click Key on line %f, %f line index is %d and point index is %d",point.x, point.y,(int)lineIndex, (int)pointIndex);
-}
-
--(void)userClickedOnLinePoint:(CGPoint)point lineIndex:(NSInteger)lineIndex{
-    NSLog(@"Click on line %f, %f, line index is %d",point.x, point.y, (int)lineIndex);
-}
-
-- (void)userClickedOnBarCharIndex:(NSInteger)barIndex
-{
+- (void)updateButtom {
+    float sumAddedMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeYes
+                                                   withDateMode:[PubicVariable dateMode]
+                                                       withDate:self.chartDate.referenceDate
+                                         inManagedObjectContext:self.managedObjectContext];
     
-    NSLog(@"Click on bar %@", @(barIndex));
+    float sumReduceMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNo
+                                                    withDateMode:[PubicVariable dateMode]
+                                                        withDate:self.chartDate.referenceDate
+                                          inManagedObjectContext:self.managedObjectContext];
+    
+    float sumMoney = [PubicVariable sumMoneyWithIncomeMode:isIncomeNil
+                                              withDateMode:[PubicVariable dateMode]
+                                                  withDate:self.chartDate.referenceDate
+                                    inManagedObjectContext:self.managedObjectContext];
+    
+    //    [self.chartDate.referenceDate showDetail];
+    [self.sumAddedMoneyButton setTitle:[NSString stringWithFormat:@"%.0f ",sumAddedMoney] forState:UIControlStateNormal];
+    [self.sumReduceMoneyButton setTitle:[NSString stringWithFormat:@"%.0f ",fabs(sumReduceMoney)] forState:UIControlStateNormal];
+    [self.sumMoneyButton setTitle:[NSString stringWithFormat:@"%.0f ",sumMoney] forState:UIControlStateNormal];
     
 }
+
+- (void)configureButton {
+    NSArray *buttons = @[self.sumAddedMoneyButton,
+                         self.sumReduceMoneyButton,
+                         self.sumMoneyButton];
+    [buttons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
+        button.layer.cornerRadius = button.bounds.size.height * 0.5;
+        button.layer.borderWidth = button.bounds.size.height * 3.5/64.0;
+        button.layer.borderColor = [UIColor globalTintColor].CGColor;
+    }];
+    
+}
+
+- (void)refreshChartView {
+    UIViewAnimationOptions options = UIViewAnimationOptionTransitionCrossDissolve;
+    [self refreshChartViewUseAnimationOptions:options];
+}
+- (IBAction)previousPage:(UISwipeGestureRecognizer *)sender {
+    self.chartDate.pageIndex++;
+    [self updateButtom];
+    UIViewAnimationOptions options = UIViewAnimationOptionTransitionCurlUp;
+    [self refreshChartViewUseAnimationOptions:options];
+}
+
+- (IBAction)nextPage:(UISwipeGestureRecognizer *)sender {
+    self.chartDate.pageIndex--;
+    [self updateButtom];
+    UIViewAnimationOptions options = UIViewAnimationOptionTransitionCurlDown;
+    [self refreshChartViewUseAnimationOptions:options];
+}
+
+- (IBAction)changePage:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        // handling code
+        UIView *view = sender.view;
+        CGPoint touchPoint =
+        [sender locationOfTouch:0
+                         inView:view];
+        CGFloat persentWidthForTouch = 0.2;
+        if (touchPoint.x < view.bounds.size.width * persentWidthForTouch ) {
+            [self previousPage:nil];
+        } else if (touchPoint.x > view.bounds.size.width * (1 - persentWidthForTouch) ) {
+            [self nextPage:nil];
+        }
+        NSLog(@"Touch : %@",
+              NSStringFromCGPoint(touchPoint));
+        
+    }
+}
+
+
+- (void)refreshChartViewUseAnimationOptions:(UIViewAnimationOptions)options {
+    __weak HomeViewController *weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [weakSelf.chartDate refreshData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView transitionWithView:self.chartView
+                              duration:0.5
+                               options:options
+                            animations:^{
+                                self.chartView.attributedTitle = self.chartDate.attributedTitle;
+                                self.chartView.attributedSubTitle = self.chartDate.attributedSubTitle;
+                                [self.chartView setNeedsDisplay];
+                            } completion:nil];
+        });
+    });
+}
+
+//-(void)userClickedOnLineKeyPoint:(CGPoint)point lineIndex:(NSInteger)lineIndex andPointIndex:(NSInteger)pointIndex{
+//    NSLog(@"Click Key on line %f, %f line index is %d and point index is %d",point.x, point.y,(int)lineIndex, (int)pointIndex);
+//}
+//
+//-(void)userClickedOnLinePoint:(CGPoint)point lineIndex:(NSInteger)lineIndex{
+//    NSLog(@"Click on line %f, %f, line index is %d",point.x, point.y, (int)lineIndex);
+//}
+//
+//- (void)userClickedOnBarCharIndex:(NSInteger)barIndex
+//{
+//    
+//    NSLog(@"Click on bar %@", @(barIndex));
+//    
+//}
 
 #pragma mark - Navigation Method
 
@@ -372,7 +367,25 @@
     if ([segue.destinationViewController isKindOfClass:[BillCDTVC class]]) {
         BillCDTVC *billCoreDataTableViewController = segue.destinationViewController;
         [self setFetchedResultsControllerWithbillCoreDataTableViewController:billCoreDataTableViewController  withIncomeMode:incomeMode];
-        billCoreDataTableViewController.title = [self.segmentedControl titleForSegmentAtIndex: self.segmentedControl.selectedSegmentIndex];
+        NSString *incomeString;
+        switch (incomeMode) {
+            case isIncomeYes:{
+                incomeString = @"-收入";
+                break;
+            }
+            case isIncomeNo:{
+                incomeString = @"-支出";
+                break;
+            }
+            default:{
+                incomeString = @"";
+                break;
+            }
+        }
+        billCoreDataTableViewController.title = [NSString
+                                                 stringWithFormat:@"%@%@",
+                                                 self.chartDate.attributedTitle.string,
+                                                 incomeString];
     }
 }
 
@@ -391,26 +404,14 @@
 -(void)setFetchedResultsControllerWithbillCoreDataTableViewController:(BillCDTVC *)billCoreDataTableViewController
                                                        withIncomeMode:(NSInteger)incomeMode
 {
-    NSString *sectionNameKeyPath;
-    switch ([PubicVariable dateMode]) {
-        case week:
-            sectionNameKeyPath = @"weekday";
-            break;
-        case month:
-            sectionNameKeyPath = @"weekOfMonth";
-            break;
-        default:
-            sectionNameKeyPath = @"monthID";
-            break;
-    }
+
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
     
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:sectionNameKeyPath ascending:NO],
-                                [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     
     NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
-    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:[PubicVariable dateMode]];
-    request.predicate = [incomePredicate predicateCombineWithPredicate:datePredicate];
+    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:[PubicVariable dateMode] withDate:self.chartDate.referenceDate];
+    request.predicate = [NSPredicate predicateByCombinePredicate:incomePredicate withPredicate:datePredicate];
     billCoreDataTableViewController.isIncomeMode = incomeMode;
     billCoreDataTableViewController.fetchedResultsController = [[NSFetchedResultsController alloc]
                                                                 initWithFetchRequest:request
@@ -446,7 +447,72 @@
     }
     return _customDismissAnimationController;
 }
+//
+//- (UISwipeGestureRecognizer *)nextPageSwipeGestureRecognizer {
+//    if (!_nextPageSwipeGestureRecognizer) {
+//        _nextPageSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc]
+//                                           initWithTarget:self
+//                                           action:@selector(nextPage)];
+//        _nextPageSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+//    }
+//    return _nextPageSwipeGestureRecognizer;
+//}
+
+//- (TextProgressMRPOV *)progressView {
+//    if (!_progressView) {
+//        _progressView = [TextProgressMRPOV defaultTextProgressMRPOV];
+//        [self.chartView addSubview:_progressView];
+//    }
+//    return _progressView;
+//}
 
 
+#pragma mark - LJChart View Data Source
+
+
+
+- (void)setChartView:(LJChartView *)chartView
+{
+    _chartView = chartView;
+    _chartView.backgroundImage = [UIImage imageNamed:@"BackGround"];
+    _chartView.dataSource = self;
+}
+
+- (NSInteger)numberOfLinesInChartView:(LJChartView *)chartView{
+    
+    return 2;
+}
+
+- (NSInteger)numberOfPointsOnLineInChartView:(LJChartView *)chartView{
+    
+    return self.chartDate.expenseDataArray.count;
+}
+
+- (float)chartView:(LJChartView *)chartView valueForPointAtIndexPath:(NSIndexPath *)indexPath{
+    
+    float reslut = 0;
+    NSArray *lineValues = (indexPath.section == 0) ? self.chartDate.incomeDataArray : self.chartDate.expenseDataArray;
+    NSNumber *number = (NSNumber *)[lineValues objectAtIndex:indexPath.item];
+    reslut = number.floatValue;
+    
+    return reslut;
+}
+
+- (UIColor *)chartView:(LJChartView *)chartView colorOfLine:(NSInteger)line{
+    if (line == 0) {
+        return EBBlue;
+    }else{
+        return [UIColor redColor];
+    }
+}
+
+
+
+//- (NSArray *)data{
+//    return @[
+//             @[@300.6,@1000,@760,@500,@1300,@200],
+//             @[@200,@1300,@500,@550.33,@800,@300]
+//             ];
+//}
 
 @end
