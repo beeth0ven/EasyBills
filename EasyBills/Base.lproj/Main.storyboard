@@ -51,7 +51,7 @@
                                 <rect key="frame" x="0.0" y="214" width="600" height="322"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4M-Ex-ITn">
-                                        <rect key="frame" x="30" y="148" width="155" height="53"/>
+                                        <rect key="frame" x="40" y="148" width="53" height="53"/>
                                         <state key="normal" image="ReduceIcon">
                                             <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -65,29 +65,13 @@
                                             <segue destination="YWe-7I-IZY" kind="presentation" identifier="expenseSegue" id="4xq-Wo-5WR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-rY-ePP">
-                                        <rect key="frame" x="215" y="148" width="355" height="53"/>
-                                        <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="24"/>
-                                        <state key="normal" title="$ 2000.00">
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="TxR-LA-GbL" kind="show" identifier="sumExpenseSegue" id="xMn-lC-zYw"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiT-E6-BOM">
-                                        <rect key="frame" x="30" y="73" width="155" height="53"/>
+                                        <rect key="frame" x="40" y="73" width="53" height="53"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" secondItem="DiT-E6-BOM" secondAttribute="height" id="2qC-e5-kNq"/>
                                             <constraint firstAttribute="height" constant="60" id="Ktc-ge-hz4"/>
                                         </constraints>
-                                        <color key="tintColor" red="0.37268213480000001" green="0.78510918669999996" blue="0.86354009789999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="PlusIcon">
-                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -105,7 +89,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-7v-rY4">
-                                        <rect key="frame" x="215" y="246" width="355" height="53"/>
+                                        <rect key="frame" x="133" y="246" width="427" height="53"/>
                                         <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="24"/>
                                         <state key="normal" title="$ 8000.00">
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -127,7 +111,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HnL-Vh-Xmf">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="322"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="322"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ZFl-Kl-6Aj"/>
@@ -139,7 +123,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qU-Mp-UjQ">
-                                        <rect key="frame" x="185" y="0.0" width="30" height="322"/>
+                                        <rect key="frame" x="93" y="0.0" width="40" height="322"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="SCY-Nf-fZU"/>
@@ -151,7 +135,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8I-sB-im6">
-                                        <rect key="frame" x="570" y="0.0" width="30" height="322"/>
+                                        <rect key="frame" x="560" y="0.0" width="40" height="322"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="bh0-YH-eqa"/>
@@ -223,7 +207,7 @@
                                         </variation>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-Kl-SVa">
-                                        <rect key="frame" x="215" y="73" width="355" height="53"/>
+                                        <rect key="frame" x="133" y="73" width="427" height="53"/>
                                         <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="24"/>
                                         <state key="normal" title="$ 10000.00">
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -238,7 +222,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BM4-5f-wqs">
-                                        <rect key="frame" x="30" y="246" width="155" height="53"/>
+                                        <rect key="frame" x="40" y="246" width="53" height="53"/>
                                         <state key="normal" image="EqualIcon">
                                             <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -250,6 +234,21 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="gBb-Dz-vtr" kind="show" id="SMj-HZ-dBB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-rY-ePP">
+                                        <rect key="frame" x="133" y="148" width="427" height="53"/>
+                                        <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="24"/>
+                                        <state key="normal" title="$ 2000.00">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="TxR-LA-GbL" kind="show" identifier="sumExpenseSegue" id="xMn-lC-zYw"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -308,7 +307,7 @@
                                     <constraint firstItem="tlo-Z5-e85" firstAttribute="top" secondItem="A4M-Ex-ITn" secondAttribute="bottom" id="v5z-Y5-HQ9"/>
                                     <constraint firstItem="ge2-5I-B4R" firstAttribute="leading" secondItem="nWU-X9-Isj" secondAttribute="leading" id="vCh-Tb-Yay"/>
                                     <constraint firstItem="GTo-sz-iBf" firstAttribute="top" secondItem="ge2-5I-B4R" secondAttribute="bottom" id="vKq-fH-Zm9"/>
-                                    <constraint firstItem="HnL-Vh-Xmf" firstAttribute="width" secondItem="nWU-X9-Isj" secondAttribute="width" multiplier="1:20" id="vPP-vM-Qw8"/>
+                                    <constraint firstItem="HnL-Vh-Xmf" firstAttribute="width" secondItem="nWU-X9-Isj" secondAttribute="width" multiplier="1:15" id="vPP-vM-Qw8"/>
                                     <constraint firstItem="A4M-Ex-ITn" firstAttribute="width" secondItem="DiT-E6-BOM" secondAttribute="width" id="wTl-ay-QqD"/>
                                     <constraint firstAttribute="trailing" secondItem="tlo-Z5-e85" secondAttribute="trailing" id="wx3-f8-YQ6"/>
                                     <constraint firstItem="A4M-Ex-ITn" firstAttribute="centerX" secondItem="DiT-E6-BOM" secondAttribute="centerX" id="x7W-6Q-Dgh"/>
@@ -321,6 +320,7 @@
                                         <exclude reference="cBl-gb-jQS"/>
                                         <exclude reference="pIe-MX-7Tz"/>
                                         <exclude reference="NqT-1j-kJx"/>
+                                        <exclude reference="boq-JK-rnB"/>
                                         <exclude reference="RmR-mg-5cG"/>
                                         <exclude reference="qgz-vC-kL2"/>
                                     </mask>
@@ -416,7 +416,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1035" y="-654"/>
+            <point key="canvasLocation" x="1027" y="-1158"/>
         </scene>
         <!--地图-->
         <scene sceneID="na8-OX-jLr">
@@ -488,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0s0-IS-sQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035" y="802"/>
+            <point key="canvasLocation" x="1027" y="814"/>
         </scene>
         <!--管理分类-->
         <scene sceneID="slF-KG-odb">
@@ -781,14 +781,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Yt-jc-cU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2051" y="-1339"/>
+            <point key="canvasLocation" x="2043" y="-1843"/>
         </scene>
         <!--BillCDTVC-->
         <scene sceneID="EAd-sG-7V6">
             <objects>
                 <tableViewController id="TxR-LA-GbL" customClass="BillCDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pgZ-8e-80Z">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="310" maxY="0.0"/>
@@ -1101,14 +1101,14 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2051" y="-654"/>
+            <point key="canvasLocation" x="2043" y="-1158"/>
         </scene>
-        <!--分类-->
+        <!--KindCDTVC-->
         <scene sceneID="FUz-rF-k25">
             <objects>
                 <tableViewController id="eTI-PZ-J2z" customClass="KindCDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0hq-2k-vSd">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="292"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1251,16 +1251,6 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="分类" id="LHt-1N-9DZ">
-                        <barButtonItem key="backBarButtonItem" title=" " id="jA2-Ck-77i"/>
-                        <barButtonItem key="rightBarButtonItem" image="EqualizerToolBarIcon" id="6Mo-bj-if1">
-                            <connections>
-                                <segue destination="aFi-mI-T32" kind="popoverPresentation" identifier="filter" popoverAnchorBarButtonItem="6Mo-bj-if1" id="Otr-oK-uC8">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="yW5-j8-LXl">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1268,13 +1258,71 @@
                             <action selector="refresh:" destination="eTI-PZ-J2z" eventType="valueChanged" id="8pi-fC-xvb"/>
                         </connections>
                     </refreshControl>
-                    <connections>
-                        <segue destination="TxR-LA-GbL" kind="show" identifier="showBillByKind" id="lPD-6K-1iA"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irt-Zp-vkD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035" y="42"/>
+            <point key="canvasLocation" x="1027" y="259"/>
+        </scene>
+        <!--分类-->
+        <scene sceneID="I5P-zs-NAg">
+            <objects>
+                <viewController id="u1T-cF-nNb" customClass="KindViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e5D-tg-MNT"/>
+                        <viewControllerLayoutGuide type="bottom" id="nXN-1E-IRk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YqK-Lc-Bu1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0G-7i-b2l">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="244"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="244" id="7vH-1z-4uK"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gA9-ax-5xf">
+                                <rect key="frame" x="0.0" y="244" width="600" height="292"/>
+                                <connections>
+                                    <segue destination="eTI-PZ-J2z" kind="embed" identifier="embeddedTableView" id="IWb-jb-kbi"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y0G-7i-b2l" firstAttribute="leading" secondItem="YqK-Lc-Bu1" secondAttribute="leading" id="2cd-7I-Jvx"/>
+                            <constraint firstItem="gA9-ax-5xf" firstAttribute="top" secondItem="y0G-7i-b2l" secondAttribute="bottom" id="8w4-9L-css"/>
+                            <constraint firstItem="gA9-ax-5xf" firstAttribute="bottom" secondItem="nXN-1E-IRk" secondAttribute="top" id="Gog-qq-iIB"/>
+                            <constraint firstItem="nXN-1E-IRk" firstAttribute="top" secondItem="y0G-7i-b2l" secondAttribute="bottom" constant="356" id="RBO-Bk-M7b"/>
+                            <constraint firstItem="gA9-ax-5xf" firstAttribute="leading" secondItem="y0G-7i-b2l" secondAttribute="leading" id="YHv-Xw-vef"/>
+                            <constraint firstItem="y0G-7i-b2l" firstAttribute="top" secondItem="YqK-Lc-Bu1" secondAttribute="top" id="ebp-91-eWk"/>
+                            <constraint firstAttribute="trailing" secondItem="y0G-7i-b2l" secondAttribute="trailing" id="idV-cb-ulH"/>
+                            <constraint firstItem="gA9-ax-5xf" firstAttribute="trailing" secondItem="y0G-7i-b2l" secondAttribute="trailing" id="sA5-ha-Ou5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RBO-Bk-M7b"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="分类" id="kPV-ho-m0g">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Cfj-f4-GSD"/>
+                        <barButtonItem key="rightBarButtonItem" image="EqualizerToolBarIcon" id="V7A-3K-bYY">
+                            <connections>
+                                <segue destination="aFi-mI-T32" kind="popoverPresentation" identifier="filter" popoverAnchorBarButtonItem="V7A-3K-bYY" id="BCQ-dQ-UI5">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="TxR-LA-GbL" kind="show" identifier="showBillByKind" id="XOf-ql-dsr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NUK-5N-ebd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1027" y="-286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p0J-lo-emh">
@@ -1297,7 +1345,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFf-ID-Dit" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.375" y="-653.87323943661966"/>
+            <point key="canvasLocation" x="136" y="-1158"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fOk-PE-CWt">
@@ -1314,12 +1362,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="eTI-PZ-J2z" kind="relationship" relationship="rootViewController" id="F5E-nF-ByS"/>
+                        <segue destination="u1T-cF-nNb" kind="relationship" relationship="rootViewController" id="6lI-YP-cCq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWw-BY-1vH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.375" y="42.25352112676056"/>
+            <point key="canvasLocation" x="136" y="-286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="V7Z-Go-byr">
@@ -1361,7 +1409,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBZ-i9-C2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2901" y="-660"/>
+            <point key="canvasLocation" x="2893" y="-1164"/>
         </scene>
         <!--设置-->
         <scene sceneID="3Cu-UR-qPs">
@@ -2052,7 +2100,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xf1-MQ-GBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3698" y="-660"/>
+            <point key="canvasLocation" x="3690" y="-1164"/>
         </scene>
         <!--支出-->
         <scene sceneID="Lx9-TA-WOC">
@@ -2542,7 +2590,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0IA-mF-Aez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3698" y="-1339"/>
+            <point key="canvasLocation" x="3690" y="-1843"/>
         </scene>
         <!--PlacemarkCDTVC-->
         <scene sceneID="pfb-lG-PCK">
@@ -2596,7 +2644,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pxA-hj-QVQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2051" y="802"/>
+            <point key="canvasLocation" x="2043" y="814"/>
         </scene>
         <!--Sidebar View Controller-->
         <scene sceneID="fc2-LD-osh">
@@ -2808,7 +2856,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJc-9T-ZCS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-912" y="42"/>
+            <point key="canvasLocation" x="-1192" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mmW-v5-i9o">
@@ -2826,7 +2874,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gn-su-TAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.375" y="802.81690140845069"/>
+            <point key="canvasLocation" x="144" y="814"/>
         </scene>
         <!--Filter Table View Controller-->
         <scene sceneID="CXP-f8-oc3">
@@ -2896,7 +2944,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Krg-0z-y7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2051" y="42"/>
+            <point key="canvasLocation" x="2043" y="-294"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ggk-jJ-gpc">
@@ -2914,7 +2962,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dM9-L8-oBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2901" y="-1339"/>
+            <point key="canvasLocation" x="2893" y="-1843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YLK-Mh-0S4">
@@ -3193,8 +3241,8 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <image name="WalletIcon" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4xq-Wo-5WR"/>
-        <segue reference="xMn-lC-zYw"/>
+        <segue reference="1iF-0M-vvk"/>
+        <segue reference="XOf-ql-dsr"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.31372549020000001" green="0.74117647060000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

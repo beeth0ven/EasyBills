@@ -67,6 +67,8 @@
 - (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
     self.showsUserLocation = NO;
     self.cursorBarButtonItem.customView = self.cursorButton;
+    [UIAlertView displayAlertWithTitle:@"定位失败"
+                               message:[error localizedDescription]];
 
 }
 

@@ -48,6 +48,7 @@
 		459A8FB71AD7943D00685124 /* PlacemarkCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A8FB61AD7943D00685124 /* PlacemarkCDTVC.m */; };
 		459CDE231ACE5E6900A6B0E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */; };
 		45C076FB1AE3DEC9001F9B44 /* ManageKindCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C076FA1AE3DEC9001F9B44 /* ManageKindCDTVC.m */; };
+		45C96EED1B05A32200D28839 /* KindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C96EEC1B05A32200D28839 /* KindViewController.m */; };
 		45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */; };
 		45ECF3981AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3971AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m */; };
 		45ECF3A11AC5358400D0CACB /* BillDetailCVC+UITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */; };
@@ -188,6 +189,8 @@
 		459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		45C076F91AE3DEC9001F9B44 /* ManageKindCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageKindCDTVC.h; sourceTree = "<group>"; };
 		45C076FA1AE3DEC9001F9B44 /* ManageKindCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageKindCDTVC.m; sourceTree = "<group>"; };
+		45C96EEB1B05A32200D28839 /* KindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindViewController.h; sourceTree = "<group>"; };
+		45C96EEC1B05A32200D28839 /* KindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindViewController.m; sourceTree = "<group>"; };
 		45ECF3931AC5227500D0CACB /* BillDetailCVC+UIDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIDatePicker.h"; sourceTree = "<group>"; };
 		45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UIDatePicker.m"; sourceTree = "<group>"; };
 		45ECF3961AC52FD200D0CACB /* BillDetailCVC+UIPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIPickerView.h"; sourceTree = "<group>"; };
@@ -692,6 +695,8 @@
 		BD81A3D31A99CFE100C2CBE6 /* KindCDTVC */ = {
 			isa = PBXGroup;
 			children = (
+				45C96EEB1B05A32200D28839 /* KindViewController.h */,
+				45C96EEC1B05A32200D28839 /* KindViewController.m */,
 				BDB39FD719E814BF0022E5C4 /* KindCDTVC.h */,
 				BDB39FD819E814BF0022E5C4 /* KindCDTVC.m */,
 				458517A41AC95C7B003149C3 /* PopverSegue */,
@@ -946,6 +951,7 @@
 				458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */,
 				4561ECEC1AEE0F990079D6A9 /* ColorCVCell.m in Sources */,
 				BDB32C9C1A22421C00EA822E /* SidebarViewController.m in Sources */,
+				45C96EED1B05A32200D28839 /* KindViewController.m in Sources */,
 				4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */,
 				BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */,
 				BD6FC8501AA0B7730059AC20 /* KindDetailCVC.m in Sources */,

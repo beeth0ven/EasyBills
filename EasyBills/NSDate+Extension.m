@@ -86,10 +86,10 @@
                                     NSCalendarUnitDay
                                                 fromDate:self];
         
-    NSLog(@"year:%i month:%i day:%i",
-          [components year],
-          [components month],
-          [components day]
+    NSLog(@"year:%li month:%li day:%li",
+          (long)[components year],
+          (long)[components month],
+          (long)[components day]
           );
 }
 

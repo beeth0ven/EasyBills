@@ -98,7 +98,7 @@
         
         if (count < SeparaterCount) {
             
-            NSString *string = [NSString stringWithFormat:@"%i",
+            NSString *string = [NSString stringWithFormat:@"%li",
                                 self.maxCoordinateVerticalValue * count / SeparaterCount];
             
             CGPoint point = CGPointMake(self.bounds.origin.x + 10,

@@ -286,7 +286,7 @@
                         fabs([PubicVariable sumMoneyWithKind:kind
                                                     dateMode:[self dateMode]
                                       inManagedObjectContext:self.managedObjectContext])];
-    indexLabel.text = [NSString stringWithFormat:@"%i.",indexPath.row + 1];
+    indexLabel.text = [NSString stringWithFormat:@"%li.",indexPath.row + 1];
     label.text = [NSString stringWithFormat:@"  %@  ",[kind.name description]];
     circleView.backgroundColor = kind.color;
     detailLabel.text = [NSString stringWithFormat:@"¥  %.0f",current.floatValue];
