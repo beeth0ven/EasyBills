@@ -20,11 +20,15 @@
     CLLocationCoordinate2D coordinate;
     coordinate.latitude = [self.latitude doubleValue];
     coordinate.longitude = [self.longitude doubleValue];
-
+//    if ([self isInChinaAtCoordinate:coordinate]) {
+//        coordinate.latitude += [self chinaOffestCoordinate].latitude;
+//        coordinate.longitude += [self chinaOffestCoordinate].longitude;
+//    }
     return coordinate;
 }
 
 - (void)setCoordinate:(CLLocationCoordinate2D)coordinate {
+    
     self.latitude = [NSString stringWithFormat:@"%.8f",coordinate.latitude];
     self.longitude = [NSString stringWithFormat:@"%.8f",coordinate.longitude];
 }
@@ -34,7 +38,10 @@
     CLLocationCoordinate2D coordinate;
     coordinate.latitude = [self.clusterAnnotationLatitude doubleValue];
     coordinate.longitude = [self.clusterAnnotationLongitude  doubleValue];
-    
+//    if ([self isInChinaAtCoordinate:coordinate]) {
+//        coordinate.latitude += [self chinaOffestCoordinate].latitude;
+//        coordinate.longitude += [self chinaOffestCoordinate].longitude;
+//    }
     return coordinate;
 }
 
@@ -43,8 +50,23 @@
     self.clusterAnnotationLongitude = [NSString stringWithFormat:@"%.8f",coordinate.longitude];
 }
 
-
-
+//
+//- (BOOL)isInChinaAtCoordinate:(CLLocationCoordinate2D)coordinate {
+//    BOOL inChina =  (3.3 < coordinate.latitude &&
+//                     coordinate.latitude < 53.4 &&
+//                     73.2 < coordinate.longitude &&
+//                     coordinate.longitude < 135.3);
+//    
+//    NSLog(@"In China: %i",inChina);
+//    return inChina;
+//}
+//
+//- (CLLocationCoordinate2D)chinaOffestCoordinate {
+//    CLLocationCoordinate2D coordinate;
+//    coordinate.latitude = -0.0022;
+//    coordinate.longitude = 0.0056;
+//    return coordinate;
+//}
 
 -(NSString *)title
 {
@@ -56,12 +78,12 @@
     return self.kind.name;
 }
 
--(NSString *)subtitle
-{
-    NSString *reslut = nil;
-    if (self.plackmark.name.length) {
-        reslut = self.plackmark.name;
-    }
+//-(NSString *)subtitle
+//{
+//    NSString *reslut = nil;
+//    if (self.plackmark.name.length) {
+//        reslut = self.plackmark.name;
+//    }
 //    if (self.containedAnnotations.count > 0) {
 //        // This is the father bill.
 //        CLLocation *location = [[CLLocation alloc]
@@ -82,8 +104,8 @@
 //        
 ////        reslut = [NSString stringWithFormat:@"￥  %.2f",fabs(self.money.floatValue)];
 //    }
-    return reslut;
-}
+//    return reslut;
+//}
 
 
 - (void)upadatePlacemark{

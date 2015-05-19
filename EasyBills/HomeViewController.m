@@ -33,14 +33,17 @@
 #import "UIView+Extension.h"
 #import "NSDate+Extension.h"
 #import "UIColor+Extension.h"
+#import "RoundedButton.h"
+#import "HighlightImageButton.h"
+
 
 @interface HomeViewController () <DZNSegmentedControlDelegate,LJChartViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UIButton *addButton;
-@property (weak, nonatomic) IBOutlet UIButton *reduceButton;
-@property (weak, nonatomic) IBOutlet UIButton *sumAddedMoneyButton;
-@property (weak, nonatomic) IBOutlet UIButton *sumReduceMoneyButton;
-@property (weak, nonatomic) IBOutlet UIButton *sumMoneyButton;
+@property (weak, nonatomic) IBOutlet HighlightImageButton *addButton;
+@property (weak, nonatomic) IBOutlet HighlightImageButton *reduceButton;
+@property (weak, nonatomic) IBOutlet RoundedButton *sumAddedMoneyButton;
+@property (weak, nonatomic) IBOutlet RoundedButton *sumReduceMoneyButton;
+@property (weak, nonatomic) IBOutlet RoundedButton *sumMoneyButton;
 
 
 @property (strong, nonatomic) UILabel *lineChartLabel;
@@ -75,11 +78,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self showPasscodeIfNeeded];
+
 	// Do any additional setup after loading the view, typically from a nib.
     [self setupSegmentedControl];
     [self updateUI];
     [self setupMenuButton];
-    [self configureButton];
+//    [self configureButton];
 //    [self setupBackgroundImage];
     [self registerNotifications];
 
@@ -87,7 +92,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self refreshChartView];
+//    [self refreshChartView];
     [self.navigationController applyDefualtStyle:YES];
 }
 
@@ -101,7 +106,7 @@
 
 
 - (void)dealloc {
-    [self removeObserver:self.managedObjectContext forKeyPath:@"hasChanges"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -111,23 +116,38 @@
 
 - (void)registerNotifications {
     //    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [self.managedObjectContext addObserver:self
-                                forKeyPath:@"hasChanges"
-                                   options:NSKeyValueObservingOptionNew
-                                   context:NULL];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleManagedObjectContextObjectsDidChangeNotification)
+                                                 name:NSManagedObjectContextObjectsDidChangeNotification
+                                               object:self.managedObjectContext];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handlePersistentStoreCoordinatorStoresDidChangeNotification)
+                                                 name:NSPersistentStoreCoordinatorStoresDidChangeNotification
+                                               object:self.managedObjectContext.persistentStoreCoordinator];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context {
-    if ([keyPath isEqualToString:@"hasChanges"]) {
+
+- (void)handleManagedObjectContextObjectsDidChangeNotification {
+    [self.managedObjectContext performBlock:^{
         if (self.view.window) {
             [self updateUI];
         } else {
-            self.shouldUpdateUI = YES; 
+            self.shouldUpdateUI = YES;
         }
-    }
+    }];
+
+}
+
+- (void)handlePersistentStoreCoordinatorStoresDidChangeNotification {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.view.window) {
+            [self updateUI];
+        } else {
+            self.shouldUpdateUI = YES;
+        }
+    });
     
 }
 
@@ -217,17 +237,18 @@
     
 }
 
-- (void)configureButton {
-    NSArray *buttons = @[self.sumAddedMoneyButton,
-                         self.sumReduceMoneyButton,
-                         self.sumMoneyButton];
-    [buttons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
-        button.layer.cornerRadius = button.bounds.size.height * 0.5;
-        button.layer.borderWidth = button.bounds.size.height * 3.5/64.0;
-        button.layer.borderColor = [UIColor globalTintColor].CGColor;
-    }];
-    
-}
+//
+//- (void)configureButton {
+//    NSArray *buttons = @[self.sumAddedMoneyButton,
+//                         self.sumReduceMoneyButton,
+//                         self.sumMoneyButton];
+//    [buttons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
+//        button.layer.cornerRadius = button.bounds.size.height * 0.5 - 2;
+//        button.layer.borderWidth = button.bounds.size.height * 3.5/64.0;
+//        button.layer.borderColor = [UIColor globalTintColor].CGColor;
+//    }];
+//    
+//}
 
 - (void)refreshChartView {
     UIViewAnimationOptions options = UIViewAnimationOptionTransitionCrossDissolve;
@@ -285,6 +306,30 @@
     });
 }
 
+
+- (void)showPasscodeIfNeeded {
+    LTHPasscodeViewController *sharedLTHPasscodeViewController = [LTHPasscodeViewController sharedUser];
+    sharedLTHPasscodeViewController.navigationBarTintColor = EBBlue;
+    sharedLTHPasscodeViewController.navigationTintColor = [UIColor whiteColor];
+    sharedLTHPasscodeViewController.labelFont = [UIFont wawaFontForLabel];
+    sharedLTHPasscodeViewController.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                             NSFontAttributeName : [UIFont wawaFontForNavigationTitle]};
+    sharedLTHPasscodeViewController.title = @"简单记账";
+    sharedLTHPasscodeViewController.enterPasscodeString = @"请输入密码";
+    sharedLTHPasscodeViewController.enterNewPasscodeString = @"请输入新密码";
+    sharedLTHPasscodeViewController.enablePasscodeString = @"设置密码";
+    sharedLTHPasscodeViewController.changePasscodeString = @"修改密码";
+    sharedLTHPasscodeViewController.turnOffPasscodeString = @"关闭密码";
+    sharedLTHPasscodeViewController.reenterPasscodeString = @"请再次输入密码";
+    sharedLTHPasscodeViewController.reenterNewPasscodeString = @"请再次输入新密码";
+    
+    if ([LTHPasscodeViewController doesPasscodeExist] &&
+        [LTHPasscodeViewController didPasscodeTimerEnd]) {
+        [sharedLTHPasscodeViewController showLockScreenWithAnimation:NO
+                                                          withLogout:YES
+                                                      andLogoutTitle:nil];
+    }
+}
 //-(void)userClickedOnLineKeyPoint:(CGPoint)point lineIndex:(NSInteger)lineIndex andPointIndex:(NSInteger)pointIndex{
 //    NSLog(@"Click Key on line %f, %f line index is %d and point index is %d",point.x, point.y,(int)lineIndex, (int)pointIndex);
 //}

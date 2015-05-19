@@ -52,7 +52,5 @@ enum :NSInteger{
 + (void)setNextAssignExpenseColorIndex:(NSInteger)nextAssignExpenseColorIndex;
 + (NSInteger)nextAssignExpenseColorIndex;
 
-+ (void)setiCloudEnable:(BOOL)enable;
-+ (BOOL)iCloudEnable;
 
 @end

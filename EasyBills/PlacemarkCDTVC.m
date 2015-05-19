@@ -22,21 +22,67 @@
     [self setupFetchedResultsController];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if ([self isDataSourceEmpty]) {
+        NSLog(@"isDataSourceEmpty");
+
+        return 1;
+
+        
+
+        
+    } else {
+        NSLog(@"isNotDataSourceEmpty");
+
+        return [super numberOfSectionsInTableView:tableView];
+        
+        
+
+
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([self isDataSourceEmpty]) {
+        return 1;
+        
+        
+        
+        
+    } else {
+        return [super tableView:tableView numberOfRowsInSection:section];
+        
+        
+        
+        
+    }
+}
+
+
 -(UITableViewCell *)        tableView:(UITableView *)tableView
                 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"placemarkCell"];
-    Plackmark *placemark = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    UILabel *placeLabel = (UILabel *)[cell viewWithTag:1];
-    UILabel *countLabel = (UILabel *)[cell viewWithTag:2];
-    
-    placeLabel.text = placemark.name;
-    countLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)placemark.bills.count];
-    
-//    cell.textLabel.text = placemark.name;
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i",placemark.bills.count];
+    UITableViewCell *cell = nil;
+    if ([self isDataSourceEmpty]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"emptyCell"];
+        return cell;
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"placemarkCell"];
+        Plackmark *placemark = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        UILabel *placeLabel = (UILabel *)[cell viewWithTag:1];
+        UILabel *countLabel = (UILabel *)[cell viewWithTag:2];
+        
+        placeLabel.text = placemark.name;
+        countLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)placemark.bills.count];
+        
+        //    cell.textLabel.text = placemark.name;
+        //    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i",placemark.bills.count];
+
+    }
     return cell;
+
 }
 
 
@@ -58,6 +104,7 @@
         
     }
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"didSelectRowAtIndexPath");
@@ -82,14 +129,11 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (BOOL)isDataSourceEmpty {
+    NSLog(@"%lu",(unsigned long)self.fetchedResultsController.fetchedObjects.count);
+    return (!self.fetchedResultsController
+            || self.fetchedResultsController.fetchedObjects.count == 0);
 }
-*/
+
 
 @end

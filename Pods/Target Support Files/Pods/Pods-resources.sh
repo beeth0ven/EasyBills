@@ -63,6 +63,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "LTHPasscodeViewController/Localizations/ro.lproj"
   install_resource "LTHPasscodeViewController/Localizations/ru.lproj"
   install_resource "LTHPasscodeViewController/Localizations/zh-Hans-CN.lproj"
+  install_resource "MHPrettyDate/MHPrettyDate/en.lproj"
+  install_resource "MHPrettyDate/MHPrettyDate/nl.lproj"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "LTHPasscodeViewController/Localizations/cs.lproj"
@@ -77,6 +79,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "LTHPasscodeViewController/Localizations/ro.lproj"
   install_resource "LTHPasscodeViewController/Localizations/ru.lproj"
   install_resource "LTHPasscodeViewController/Localizations/zh-Hans-CN.lproj"
+  install_resource "MHPrettyDate/MHPrettyDate/en.lproj"
+  install_resource "MHPrettyDate/MHPrettyDate/nl.lproj"
 fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

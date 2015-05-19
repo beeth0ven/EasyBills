@@ -74,7 +74,7 @@
                                                                                        cacheName:nil];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.fetchedResultsController = fetchedResultsController;
-                [self mapViewReloadData];
+//                [self mapViewReloadData];
                 [self.progressView dismiss:YES];
             });
         });
@@ -102,6 +102,7 @@
         if ([annotation isKindOfClass:[Bill class]]) {
             Bill *bill = annotation;
             [self configAnnotationView:view useBill:bill];
+            NSLog(@"武汉 longitude 经度: %.2f ，latitude 纬度: %.2f",bill.coordinate.longitude, bill.coordinate.latitude);
         }
     }
     

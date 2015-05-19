@@ -17,13 +17,15 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, readonly) NSPersistentStore *persistentStore;
 
 - (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+- (void)clearContext;
+- (NSString *)applicationDocumentsDirectory;
+- (NSURL *)applicationStoresDirectory;
+- (NSURL *)storeURL;
+- (BOOL)reloadStore;
 
-- (void)setiCloudEnable:(BOOL)enable;
-
-    
 @property (strong, nonatomic) NSMutableArray *viewControllers;
 @property (weak, nonatomic, readonly) NSString *appVersion;
 

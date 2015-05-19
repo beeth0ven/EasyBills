@@ -31,7 +31,7 @@
     
     switch (type) {
         case LJFilterTime:{
-            result = @[@"全部",
+            result = @[@"总体",
                        @"本周",
                        @"本月"];
             break;

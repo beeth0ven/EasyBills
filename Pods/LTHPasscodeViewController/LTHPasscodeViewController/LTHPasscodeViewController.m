@@ -1039,7 +1039,7 @@ options:NSNumericSearch] != NSOrderedAscending)
     
 	[self _resetUI];
     #if !(TARGET_IPHONE_SIMULATOR)
-    [self _setupFingerPrint];
+        [self _setupFingerPrint];
     #endif
 }
 
@@ -1424,6 +1424,7 @@ options:NSNumericSearch] != NSOrderedAscending)
 				[[UIApplication sharedApplication].keyWindow addSubview: _coverView];
 		}
 	}
+
 }
 
 
@@ -1431,33 +1432,35 @@ options:NSNumericSearch] != NSOrderedAscending)
     if(_isUsingTouchID && !_useFallbackPasscode) {
         _animatingView.hidden = YES;
         [_passcodeTextField resignFirstResponder];
+        
     }
 	_coverView.hidden = YES;
 }
 
 
-//- (void)_applicationWillEnterForeground {
-//	if ([self _doesPasscodeExist] &&
-//		[self _didPasscodeTimerEnd]) {
-//        _useFallbackPasscode = NO;
-//        // This is here instead of didEnterBackground because when self is pushed
-//        // instead of presented as a modal,
-//        // the app would be visible from the multitasking view.
-//        if (!_displayedAsModal && !_displayedAsLockScreen && _isCurrentlyOnScreen) {
-//            [_passcodeTextField resignFirstResponder];
-//            [self.navigationController popViewControllerAnimated:NO];
-//            // This is like this because it screws up the navigation stack otherwise
-//            [self performSelector:@selector(showLockscreenWithoutAnimation)
-//                       withObject:nil
-//                       afterDelay:0.0];
-//        }
-//        else {
-//            [self showLockScreenWithAnimation:NO
-//                                   withLogout:YES
-//                               andLogoutTitle:nil];
-//        }
-//	}
-//}
+- (void)_applicationWillEnterForeground {
+	if ([self _doesPasscodeExist] &&
+		[self _didPasscodeTimerEnd]) {
+        _useFallbackPasscode = NO;
+        // This is here instead of didEnterBackground because when self is pushed
+        // instead of presented as a modal,
+        // the app would be visible from the multitasking view.
+        if (!_displayedAsModal && !_displayedAsLockScreen && _isCurrentlyOnScreen) {
+            [_passcodeTextField resignFirstResponder];
+            [self.navigationController popViewControllerAnimated:NO];
+            // This is like this because it screws up the navigation stack otherwise
+            [self performSelector:@selector(showLockscreenWithoutAnimation)
+                       withObject:nil
+                       afterDelay:0.0];
+        }
+        else {
+            [self showLockScreenWithAnimation:NO
+                                   withLogout:YES
+                               andLogoutTitle:nil];
+        }
+	}
+
+}
 
 
 - (void)_applicationWillResignActive {
@@ -1613,11 +1616,11 @@ options:NSNumericSearch] != NSOrderedAscending)
      selector: @selector(_applicationDidBecomeActive)
      name: UIApplicationDidBecomeActiveNotification
      object: nil];
-//    [[NSNotificationCenter defaultCenter]
-//     addObserver: self
-//     selector: @selector(_applicationWillEnterForeground)
-//     name: UIApplicationWillEnterForegroundNotification
-//     object: nil];
+    [[NSNotificationCenter defaultCenter]
+     addObserver: self
+     selector: @selector(_applicationWillEnterForeground)
+     name: UIApplicationWillEnterForegroundNotification
+     object: nil];
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(statusBarFrameOrOrientationChanged:)

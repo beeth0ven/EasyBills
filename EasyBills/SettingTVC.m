@@ -41,27 +41,6 @@
     self.passcodeSwitch.on = [LTHPasscodeViewController doesPasscodeExist];
 }
 
-
-- (IBAction)changeiCloudEnableState:(UISwitch *)sender {
-    NSLog(@"UISwitch changeiCloudEnableState.");
-//    sender.hidden = YES;
-//    UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc]
-//                                                      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//    activityIndicatorView.center = sender.center;
-//    [sender.superview addSubview:activityIndicatorView];
-//    [activityIndicatorView startAnimating];
-//    
-    [PubicVariable setiCloudEnable:sender.isOn];
-//    
-//    [activityIndicatorView stopAnimating];
-//    [activityIndicatorView removeFromSuperview];
-//    sender.hidden = NO;
-//
-//    NSLog(@"UISwitch changeiCloudEnableState.");
-    
-}
-
-
 - (IBAction)changePasscodeState:(UISwitch *)sender {
     if (sender.isOn) {
         [self showLockViewForEnablingPasscode];
@@ -111,10 +90,7 @@
 {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     // Configure the cell...
-    if (cell.tag == 4) {
-        UISwitch *switchControl = (UISwitch *)[cell viewWithTag:3];
-        [switchControl setOn:[PubicVariable iCloudEnable]];
-    }
+
     return cell;
 }
 

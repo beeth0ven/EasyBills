@@ -216,6 +216,14 @@
 //    [self populateWorldWithAllBillAnnotations];
 }
 
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    if (self.shouldUpdateVisibleAnnotations) {
+////        [self updateVisibleAnnotations];
+//        self.shouldUpdateVisibleAnnotations = NO;
+//    }
+//}
+
 #pragma mark - NSFetched Results Controller Delegate
 //
 //- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
@@ -336,7 +344,8 @@
             if ([viewController isKindOfClass:[BillCDTVC class]]) {
                 BillCDTVC *billCoreDataTableViewController = (BillCDTVC *)viewController;
                 billCoreDataTableViewController.fetchedResultsController = [self fetchedResultsControlleWithBill:bill];
-                billCoreDataTableViewController.title = bill.subtitle;
+                NSString *title = (bill.plackmark.name.length) ? bill.plackmark.name : @"地点";
+                billCoreDataTableViewController.title = title;
             }
         }
         
@@ -461,7 +470,7 @@
         forChangeType:type
          newIndexPath:newIndexPath];
     
-    id<MKAnnotation> object = [self.fetchedResultsController objectAtIndexPath:newIndexPath];
+    id<MKAnnotation> object = anObject;
     
     
     switch(type)
@@ -472,6 +481,10 @@
             
         case NSFetchedResultsChangeDelete:
             [self.allAnnotationsMapView removeAnnotation:object];
+            if ([self.mapView.annotations containsObject:object]) {
+                [self.mapView removeAnnotation:object];
+            }
+
             break;
             
         case NSFetchedResultsChangeUpdate:

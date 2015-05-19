@@ -22,6 +22,8 @@
 		450DEFB01AFF20F800B08978 /* Licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 450DEFAF1AFF20F800B08978 /* Licenses.plist */; };
 		4539A7B51B01C095006B3BCC /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4539A7B41B01C095006B3BCC /* UIView+Extension.m */; };
 		4539A7B81B01D5AE006B3BCC /* Kind.m in Sources */ = {isa = PBXBuildFile; fileRef = 4539A7B71B01D5AE006B3BCC /* Kind.m */; };
+		455511641B09D4D40007E6F6 /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 455511631B09D4D40007E6F6 /* RoundedButton.m */; };
+		455511671B09D72D0007E6F6 /* HighlightImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 455511661B09D72D0007E6F6 /* HighlightImageButton.m */; };
 		455C0DA31AD650150060C4DF /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA21AD650150060C4DF /* NSString+Extension.m */; };
 		455C0DA91AD65BB00060C4DF /* Plackmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DA81AD65BB00060C4DF /* Plackmark.m */; };
 		455C0DAC1AD65BE20060C4DF /* Plackmark+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C0DAB1AD65BE20060C4DF /* Plackmark+Create.m */; };
@@ -49,6 +51,11 @@
 		459CDE231ACE5E6900A6B0E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */; };
 		45C076FB1AE3DEC9001F9B44 /* ManageKindCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C076FA1AE3DEC9001F9B44 /* ManageKindCDTVC.m */; };
 		45C96EED1B05A32200D28839 /* KindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C96EEC1B05A32200D28839 /* KindViewController.m */; };
+		45C96EF51B05CF4000D28839 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C96EF01B05CF4000D28839 /* ListViewController.m */; };
+		45C96EF71B05CF4000D28839 /* ConflictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C96EF41B05CF4000D28839 /* ConflictViewController.m */; };
+		45C96EFD1B05CF7800D28839 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C96EFA1B05CF7800D28839 /* WelcomeViewController.m */; };
+		45EC15B51B0854AE00D11511 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EC15B41B0854AE00D11511 /* CloudKit.framework */; };
+		45EC15B91B086F6F00D11511 /* NSURL+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EC15B81B086F6F00D11511 /* NSURL+Extension.m */; };
 		45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */; };
 		45ECF3981AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3971AC52FD200D0CACB /* BillDetailCVC+UIPickerView.m */; };
 		45ECF3A11AC5358400D0CACB /* BillDetailCVC+UITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3A01AC5358400D0CACB /* BillDetailCVC+UITextField.m */; };
@@ -137,6 +144,10 @@
 		4539A7B41B01C095006B3BCC /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		4539A7B61B01D5AE006B3BCC /* Kind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kind.h; sourceTree = "<group>"; };
 		4539A7B71B01D5AE006B3BCC /* Kind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kind.m; sourceTree = "<group>"; };
+		455511621B09D4D40007E6F6 /* RoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedButton.h; sourceTree = "<group>"; };
+		455511631B09D4D40007E6F6 /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedButton.m; sourceTree = "<group>"; };
+		455511651B09D72D0007E6F6 /* HighlightImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightImageButton.h; sourceTree = "<group>"; };
+		455511661B09D72D0007E6F6 /* HighlightImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighlightImageButton.m; sourceTree = "<group>"; };
 		455C0DA11AD650150060C4DF /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		455C0DA21AD650150060C4DF /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		455C0DA71AD65BB00060C4DF /* Plackmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plackmark.h; path = ../Plackmark.h; sourceTree = "<group>"; };
@@ -149,9 +160,6 @@
 		456664AF1ADA604A00808312 /* WawaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WawaSC-Regular.otf"; sourceTree = "<group>"; };
 		456664B11ADCD12600808312 /* UIFont+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extension.h"; sourceTree = "<group>"; };
 		456664B21ADCD12600808312 /* UIFont+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extension.m"; sourceTree = "<group>"; };
-		456675A51B0306C9002C1542 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		456675A61B0306C9002C1542 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		456675A71B0306C9002C1542 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		45668A131B007C52008E3A5B /* TextProgressMRPOV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextProgressMRPOV.h; sourceTree = "<group>"; };
 		45668A141B007C52008E3A5B /* TextProgressMRPOV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextProgressMRPOV.m; sourceTree = "<group>"; };
 		45668A191B0088B4008E3A5B /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
@@ -191,6 +199,17 @@
 		45C076FA1AE3DEC9001F9B44 /* ManageKindCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageKindCDTVC.m; sourceTree = "<group>"; };
 		45C96EEB1B05A32200D28839 /* KindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindViewController.h; sourceTree = "<group>"; };
 		45C96EEC1B05A32200D28839 /* KindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindViewController.m; sourceTree = "<group>"; };
+		45C96EEF1B05CF4000D28839 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		45C96EF01B05CF4000D28839 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		45C96EF31B05CF4000D28839 /* ConflictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConflictViewController.h; sourceTree = "<group>"; };
+		45C96EF41B05CF4000D28839 /* ConflictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConflictViewController.m; sourceTree = "<group>"; };
+		45C96EF81B05CF7800D28839 /* iCloud App-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iCloud App-Prefix.pch"; sourceTree = "<group>"; };
+		45C96EF91B05CF7800D28839 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		45C96EFA1B05CF7800D28839 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		45EC15B41B0854AE00D11511 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		45EC15B61B085EAB00D11511 /* Objective-Zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Objective-Zip.h"; sourceTree = "<group>"; };
+		45EC15B71B086F6F00D11511 /* NSURL+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Extension.h"; sourceTree = "<group>"; };
+		45EC15B81B086F6F00D11511 /* NSURL+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Extension.m"; sourceTree = "<group>"; };
 		45ECF3931AC5227500D0CACB /* BillDetailCVC+UIDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIDatePicker.h"; sourceTree = "<group>"; };
 		45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillDetailCVC+UIDatePicker.m"; sourceTree = "<group>"; };
 		45ECF3961AC52FD200D0CACB /* BillDetailCVC+UIPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillDetailCVC+UIPickerView.h"; sourceTree = "<group>"; };
@@ -277,6 +296,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45EC15B51B0854AE00D11511 /* CloudKit.framework in Frameworks */,
 				BDB073DE19FBDFA60062462F /* CoreLocation.framework in Frameworks */,
 				BD1BF84519DB961800B1379A /* CoreData.framework in Frameworks */,
 				BD1BF7DB19DB901E00B1379A /* CoreGraphics.framework in Frameworks */,
@@ -408,6 +428,29 @@
 			name = TextProgressMRPOV;
 			sourceTree = "<group>";
 		};
+		45C96F051B05D7DB00D28839 /* iCloud */ = {
+			isa = PBXGroup;
+			children = (
+				45C96EEF1B05CF4000D28839 /* ListViewController.h */,
+				45C96EF01B05CF4000D28839 /* ListViewController.m */,
+				45C96EF31B05CF4000D28839 /* ConflictViewController.h */,
+				45C96EF41B05CF4000D28839 /* ConflictViewController.m */,
+				45C96EF81B05CF7800D28839 /* iCloud App-Prefix.pch */,
+				45C96EF91B05CF7800D28839 /* WelcomeViewController.h */,
+				45C96EFA1B05CF7800D28839 /* WelcomeViewController.m */,
+			);
+			name = iCloud;
+			sourceTree = "<group>";
+		};
+		45EC15BA1B086F8600D11511 /* DefaultStyleController */ = {
+			isa = PBXGroup;
+			children = (
+				BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */,
+				BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */,
+			);
+			name = DefaultStyleController;
+			sourceTree = "<group>";
+		};
 		BD1BF7CC19DB901E00B1379A = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +476,7 @@
 		BD1BF7D719DB901E00B1379A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45EC15B41B0854AE00D11511 /* CloudKit.framework */,
 				BDB073DD19FBDFA60062462F /* CoreLocation.framework */,
 				BD1BF84419DB961800B1379A /* CoreData.framework */,
 				BD1BF7D819DB901E00B1379A /* Foundation.framework */,
@@ -459,11 +503,14 @@
 			isa = PBXGroup;
 			children = (
 				BD81A3CE1A99CEB800C2CBE6 /* Extension */,
+				45EC15BA1B086F8600D11511 /* DefaultStyleController */,
+				455C0DA01AD64E660060C4DF /* CustomAnimationController.h */,
 				4566649E1ADA439D00808312 /* CustomFonts */,
 				BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */,
 				450DEFAF1AFF20F800B08978 /* Licenses.plist */,
 				BD1BF7E719DB901E00B1379A /* AppDelegate.h */,
 				BD1BF7E819DB901E00B1379A /* AppDelegate.m */,
+				45EC15B61B085EAB00D11511 /* Objective-Zip.h */,
 				459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */,
 				BD1BF7E019DB901E00B1379A /* EasyBills-Info.plist */,
 				BD1BF7E119DB901E00B1379A /* InfoPlist.strings */,
@@ -549,6 +596,7 @@
 		BD1BF84B19DB9CB000B1379A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				45C96F051B05D7DB00D28839 /* iCloud */,
 				BD81A3CF1A99CF9600C2CBE6 /* SidebarViewController */,
 				BD81A3D01A99CF9F00C2CBE6 /* MainViewController */,
 			);
@@ -607,9 +655,8 @@
 		BD81A3CE1A99CEB800C2CBE6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BDA397821A3BE9E400E1D9F7 /* DefaultStyleController.h */,
-				BDA397831A3BE9E400E1D9F7 /* DefaultStyleController.m */,
-				455C0DA01AD64E660060C4DF /* CustomAnimationController.h */,
+				45EC15B71B086F6F00D11511 /* NSURL+Extension.h */,
+				45EC15B81B086F6F00D11511 /* NSURL+Extension.m */,
 				45668A191B0088B4008E3A5B /* UIColor+Extension.h */,
 				45668A1A1B0088B4008E3A5B /* UIColor+Extension.m */,
 				45F9FB0D1AE8CC3D00C8112C /* UIToolbar+Extension.h */,
@@ -672,6 +719,10 @@
 			children = (
 				BD1BF7ED19DB901E00B1379A /* HomeViewController.h */,
 				BD1BF7EE19DB901E00B1379A /* HomeViewController.m */,
+				455511621B09D4D40007E6F6 /* RoundedButton.h */,
+				455511631B09D4D40007E6F6 /* RoundedButton.m */,
+				455511651B09D72D0007E6F6 /* HighlightImageButton.h */,
+				455511661B09D72D0007E6F6 /* HighlightImageButton.m */,
 				BD81A3D51A99D02A00C2CBE6 /* PushSegue */,
 			);
 			name = HomeViewController;
@@ -867,7 +918,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"zh-Hans",
 			);
 			mainGroup = BD1BF7CC19DB901E00B1379A;
 			productRefGroup = BD1BF7D619DB901E00B1379A /* Products */;
@@ -946,6 +996,7 @@
 				4539A7B81B01D5AE006B3BCC /* Kind.m in Sources */,
 				BDA956391A10F13F00E55A9D /* BillDetailCVC.m in Sources */,
 				4508D65E1AC41327007CA44A /* BillDetailCVC+MKMapView.m in Sources */,
+				455511671B09D72D0007E6F6 /* HighlightImageButton.m in Sources */,
 				4594DAF81AF367B200C4BFBB /* NSManagedObjectContext+Extension.m in Sources */,
 				4508D6511AC3EDF5007CA44A /* Paths.m in Sources */,
 				458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */,
@@ -972,13 +1023,16 @@
 				455C0DA31AD650150060C4DF /* NSString+Extension.m in Sources */,
 				BD1BF83D19DB927300B1379A /* Model.xcdatamodeld in Sources */,
 				4539A7B51B01C095006B3BCC /* UIView+Extension.m in Sources */,
+				455511641B09D4D40007E6F6 /* RoundedButton.m in Sources */,
 				45C076FB1AE3DEC9001F9B44 /* ManageKindCDTVC.m in Sources */,
+				45C96EF51B05CF4000D28839 /* ListViewController.m in Sources */,
 				45668A151B007C52008E3A5B /* TextProgressMRPOV.m in Sources */,
 				458517A21AC95778003149C3 /* Filter.m in Sources */,
 				BD0749671A86660300467648 /* UIButton+Extension.m in Sources */,
 				BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */,
 				456664B31ADCD12600808312 /* UIFont+Extension.m in Sources */,
 				4594DB041AF76B2800C4BFBB /* NSManagedObject+Extension.m in Sources */,
+				45EC15B91B086F6F00D11511 /* NSURL+Extension.m in Sources */,
 				4508D6551AC3EE10007CA44A /* CGPath+Extension.m in Sources */,
 				4597D9461B04610D0054AB9D /* Bill.m in Sources */,
 				4508D66D1AC41E60007CA44A /* BillDetailCVC+Observer.m in Sources */,
@@ -999,6 +1053,7 @@
 				458C77541AD4E1670088BA86 /* CustomPresentAnimationController.m in Sources */,
 				45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */,
 				BDABBCC91A03C4EE0029D7D1 /* CoreDataMapViewController.m in Sources */,
+				45C96EFD1B05CF7800D28839 /* WelcomeViewController.m in Sources */,
 				45F9FB091AE778E600C8112C /* UIAlertView+Extension.m in Sources */,
 				BDB39FD919E814BF0022E5C4 /* KindCDTVC.m in Sources */,
 				4508D6581AC3F283007CA44A /* EasyBillsCursorButton.m in Sources */,
@@ -1009,6 +1064,7 @@
 				BD1BF83419DB927300B1379A /* ChartDate.m in Sources */,
 				45668A1B1B0088B4008E3A5B /* UIColor+Extension.m in Sources */,
 				BD1BF7E519DB901E00B1379A /* main.m in Sources */,
+				45C96EF71B05CF4000D28839 /* ConflictViewController.m in Sources */,
 				BDB073DC19FBD9780062462F /* Bill+MKAnnotation.m in Sources */,
 				455C0DA91AD65BB00060C4DF /* Plackmark.m in Sources */,
 				45ECF3A11AC5358400D0CACB /* BillDetailCVC+UITextField.m in Sources */,
@@ -1038,7 +1094,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				BD1BF7E219DB901E00B1379A /* en */,
-				456675A61B0306C9002C1542 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1047,7 +1102,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				BD1BF7EB19DB901E00B1379A /* Base */,
-				456675A51B0306C9002C1542 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1056,7 +1110,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				BD1BF80119DB901E00B1379A /* en */,
-				456675A71B0306C9002C1542 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
