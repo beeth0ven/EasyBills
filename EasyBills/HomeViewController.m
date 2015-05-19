@@ -314,15 +314,15 @@
     sharedLTHPasscodeViewController.labelFont = [UIFont wawaFontForLabel];
     sharedLTHPasscodeViewController.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor],
                                                              NSFontAttributeName : [UIFont wawaFontForNavigationTitle]};
-    sharedLTHPasscodeViewController.title = @"简单记账";
-    sharedLTHPasscodeViewController.enterPasscodeString = @"请输入密码";
-    sharedLTHPasscodeViewController.enterNewPasscodeString = @"请输入新密码";
-    sharedLTHPasscodeViewController.enablePasscodeString = @"设置密码";
-    sharedLTHPasscodeViewController.changePasscodeString = @"修改密码";
-    sharedLTHPasscodeViewController.turnOffPasscodeString = @"关闭密码";
-    sharedLTHPasscodeViewController.reenterPasscodeString = @"请再次输入密码";
-    sharedLTHPasscodeViewController.reenterNewPasscodeString = @"请再次输入新密码";
-    
+//    sharedLTHPasscodeViewController.title = @"简单记账";
+//    sharedLTHPasscodeViewController.enterPasscodeString = @"请输入密码";
+//    sharedLTHPasscodeViewController.enterNewPasscodeString = @"请输入新密码";
+//    sharedLTHPasscodeViewController.enablePasscodeString = @"设置密码";
+//    sharedLTHPasscodeViewController.changePasscodeString = @"修改密码";
+//    sharedLTHPasscodeViewController.turnOffPasscodeString = @"关闭密码";
+//    sharedLTHPasscodeViewController.reenterPasscodeString = @"请再次输入密码";
+//    sharedLTHPasscodeViewController.reenterNewPasscodeString = @"请再次输入新密码";
+//    
     if ([LTHPasscodeViewController doesPasscodeExist] &&
         [LTHPasscodeViewController didPasscodeTimerEnd]) {
         [sharedLTHPasscodeViewController showLockScreenWithAnimation:NO

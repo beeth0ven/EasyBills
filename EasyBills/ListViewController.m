@@ -18,6 +18,9 @@
     UIRefreshControl *refreshControl;
     NSString *fileText;
     NSString *fileTitle;
+    BOOL isSeguePerforming;
+    BOOL shouldPopViewControllerAnimated;
+    NSDate *alertCreatedDate;
 } @end
 
 @implementation ListViewController
@@ -60,16 +63,26 @@
     // Call Super
     [super viewWillAppear:YES];
     [self.navigationController applyDefualtStyle:NO];
-
+    if (shouldPopViewControllerAnimated) {
+        return;
+    }
     // Present Welcome Screen
     if ([self appIsRunningForFirstTime] == YES || [[iCloud sharedCloud] checkCloudAvailability] == NO || [[NSUserDefaults standardUserDefaults] boolForKey:@"userCloudPref"] == NO) {
-        [self performSegueWithIdentifier:@"showWelcome" sender:self];
+        if (!isSeguePerforming) {
+            [self performSegueWithIdentifier:@"showWelcome" sender:self];
+            isSeguePerforming = YES;
+        }
         return;
     }
     
     /* --- Force iCloud Update ---
      This is done automatically when changes are made, but we want to make sure the view is always updated when presented */
     [[iCloud sharedCloud] updateFiles];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    isSeguePerforming = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,6 +106,17 @@
     }
 }
 
+#pragma mark - IBAction Method
+
+- (IBAction)cancel:(UIStoryboardSegue *)segue
+{
+    shouldPopViewControllerAnimated = YES;
+    [self dismissViewControllerAnimated:YES completion:^(){
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    
+}
 #pragma mark - iCloud Methods
 
 - (void)iCloudDidFinishInitializingWitUbiquityToken:(id)cloudToken withUbiquityContainer:(NSURL *)ubiquityContainer {
@@ -101,9 +125,17 @@
 
 - (void)iCloudAvailabilityDidChangeToState:(BOOL)cloudIsAvailable withUbiquityToken:(id)ubiquityToken withUbiquityContainer:(NSURL *)ubiquityContainer {
     if (!cloudIsAvailable) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"iCloud Unavailable" message:@"iCloud is no longer available. Make sure that you are signed into a valid iCloud account." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-        [alert show];
-        [self performSegueWithIdentifier:@"showWelcome" sender:self];
+//        NSTimeInterval timeInterval = -[alertCreatedDate timeIntervalSinceNow];
+//        if (!alertCreatedDate || timeInterval > 1) {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"iCloud Unavailable" message:@"iCloud is no longer available. Make sure that you are signed into a valid iCloud account." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+//            [alert show];
+//            alertCreatedDate = [NSDate date];
+//        }
+        
+        if (!isSeguePerforming) {
+            isSeguePerforming = YES;
+            [self performSegueWithIdentifier:@"showWelcome" sender:self];
+        }
     }
 }
 

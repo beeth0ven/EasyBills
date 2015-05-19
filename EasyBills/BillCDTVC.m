@@ -191,11 +191,10 @@
 - (void)        tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    self.shouldRelaodData = YES;
+//    self.shouldRelaodData = YES;
 
-    [self.tableView
-     reloadRowsAtIndexPaths:@[indexPath]
-     withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 

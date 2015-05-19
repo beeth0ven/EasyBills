@@ -96,11 +96,14 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"showKindDetail" sender:cell];
 
-    self.shouldRelaodData = YES;
+//    self.shouldRelaodData = YES;
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    [self.tableView
 //     reloadRowsAtIndexPaths:@[indexPath]
 //     withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+
+
 
 #pragma mark - NSFetchedResultsControllerDelegate
 

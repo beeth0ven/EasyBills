@@ -353,6 +353,34 @@
 			name = AboutTVC;
 			sourceTree = "<group>";
 		};
+		4538D84C1B0B0D7200771419 /* PushSegue */ = {
+			isa = PBXGroup;
+			children = (
+				45C96F051B05D7DB00D28839 /* iCloud */,
+			);
+			name = PushSegue;
+			sourceTree = "<group>";
+		};
+		45390A301B0AF65E00D6DA59 /* LJChartView */ = {
+			isa = PBXGroup;
+			children = (
+				4597D9411B0338FF0054AB9D /* LJChartView.h */,
+				4597D9421B0338FF0054AB9D /* LJChartView.m */,
+			);
+			name = LJChartView;
+			sourceTree = "<group>";
+		};
+		45390A311B0AF67A00D6DA59 /* RoundedButton */ = {
+			isa = PBXGroup;
+			children = (
+				455511621B09D4D40007E6F6 /* RoundedButton.h */,
+				455511631B09D4D40007E6F6 /* RoundedButton.m */,
+				455511651B09D72D0007E6F6 /* HighlightImageButton.h */,
+				455511661B09D72D0007E6F6 /* HighlightImageButton.m */,
+			);
+			name = RoundedButton;
+			sourceTree = "<group>";
+		};
 		455C0DA01AD64E660060C4DF /* CustomAnimationController.h */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,7 +624,6 @@
 		BD1BF84B19DB9CB000B1379A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				45C96F051B05D7DB00D28839 /* iCloud */,
 				BD81A3CF1A99CF9600C2CBE6 /* SidebarViewController */,
 				BD81A3D01A99CF9F00C2CBE6 /* MainViewController */,
 			);
@@ -607,8 +634,8 @@
 			isa = PBXGroup;
 			children = (
 				BD1BF7EA19DB901E00B1379A /* Main.storyboard */,
-				4597D9411B0338FF0054AB9D /* LJChartView.h */,
-				4597D9421B0338FF0054AB9D /* LJChartView.m */,
+				45390A311B0AF67A00D6DA59 /* RoundedButton */,
+				45390A301B0AF65E00D6DA59 /* LJChartView */,
 				45C96EEA1B04AF5100D28839 /* TextProgressMRPOV */,
 				4508D6521AC3EE05007CA44A /* CursorButton */,
 				BD81A3E91A99D6C900C2CBE6 /* ColorCVCell */,
@@ -719,10 +746,6 @@
 			children = (
 				BD1BF7ED19DB901E00B1379A /* HomeViewController.h */,
 				BD1BF7EE19DB901E00B1379A /* HomeViewController.m */,
-				455511621B09D4D40007E6F6 /* RoundedButton.h */,
-				455511631B09D4D40007E6F6 /* RoundedButton.m */,
-				455511651B09D72D0007E6F6 /* HighlightImageButton.h */,
-				455511661B09D72D0007E6F6 /* HighlightImageButton.m */,
 				BD81A3D51A99D02A00C2CBE6 /* PushSegue */,
 			);
 			name = HomeViewController;
@@ -760,6 +783,7 @@
 			children = (
 				BDB056B819E3A1D000494080 /* SettingTVC.h */,
 				BDB056B919E3A1D000494080 /* SettingTVC.m */,
+				4538D84C1B0B0D7200771419 /* PushSegue */,
 			);
 			name = SettingTVC;
 			sourceTree = "<group>";
@@ -911,7 +935,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD1BF7D019DB901E00B1379A /* Build configuration list for PBXProject "EasyBills" */;
+			buildConfigurationList = BD1BF7D019DB901E00B1379A /* Build configuration list for PBXProject "SimpleBilling" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1277,7 +1301,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD1BF7D019DB901E00B1379A /* Build configuration list for PBXProject "EasyBills" */ = {
+		BD1BF7D019DB901E00B1379A /* Build configuration list for PBXProject "SimpleBilling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD1BF80519DB901E00B1379A /* Debug */,

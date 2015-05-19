@@ -1509,8 +1509,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud 保存&amp;读取" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phu-bZ-XHu">
-                                                    <rect key="frame" x="37" y="8" width="127" height="27"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud 保存 &amp; 读取" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phu-bZ-XHu">
+                                                    <rect key="frame" x="37" y="8" width="136" height="27"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.53725490200000003" green="0.5568627451" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -3144,14 +3144,14 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                             <rect key="frame" x="15" y="9" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wv3-3M-CjG">
                                             <rect key="frame" x="15" y="31" width="43" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -3178,7 +3178,7 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             </objects>
             <point key="canvasLocation" x="2798" y="814"/>
         </scene>
-        <!--iCloud 保存&读取-->
+        <!--iCloud 保存 & 读取-->
         <scene sceneID="Ijd-yr-DbZ">
             <objects>
                 <tableViewController id="XG4-4e-nLw" customClass="ListViewController" sceneMemberID="viewController">
@@ -3198,7 +3198,7 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                             <rect key="frame" x="15" y="9" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="DownloadNavigationBarIcon" id="cWn-jG-vU8">
@@ -3213,7 +3213,7 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                             <outlet property="delegate" destination="XG4-4e-nLw" id="Hdp-zY-6a0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="iCloud 保存&amp;读取" id="kn6-so-1zO">
+                    <navigationItem key="navigationItem" title="iCloud 保存 &amp; 读取" id="kn6-so-1zO">
                         <barButtonItem key="rightBarButtonItem" image="PlusNavigationBarIcon" id="koL-vM-Gqv">
                             <color key="tintColor" red="0.46274510025978088" green="0.48235294222831726" blue="0.49411764740943909" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -3243,28 +3243,20 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHy-Wf-cZe">
+                                <rect key="frame" x="291" y="391" width="20" height="156"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="9zH-BA-kJD"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to iCloud" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJI-Sq-XfY">
                                 <rect key="frame" x="239" y="238" width="122" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="vJ0-2E-A41"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qhv-Mv-uuZ">
-                                <rect key="frame" x="16" y="273" width="568" height="110"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="aRh-O1-5pd"/>
-                                </constraints>
-                                <string key="text">This iCloud demo app demonstrates how to use many features of iCloud with the iCloud Document Sync project available on GitHub. 
-
-To properly use this project please do the following:
-• Make sure this demo app's entitlements are valid
-• Sign into an iCloud account on the current device
-• Turn ON iCloud in the Settings app</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banner" translatesAutoresizingMaskIntoConstraints="NO" id="y6F-eC-XsW">
@@ -3300,6 +3292,31 @@ To properly use this project please do the following:
                                     <action selector="setupCloud:" destination="xK3-Lb-2nC" eventType="touchUpInside" id="nZ6-VR-sC8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW4-ZF-pWA">
+                                <rect key="frame" x="151" y="447" width="300" height="45"/>
+                                <color key="backgroundColor" red="0.46274510025978088" green="0.48235294222831726" blue="0.49411764740943909" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="b6P-Ut-GlS" kind="unwind" unwindAction="cancel:" id="ekF-me-d50"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qhv-Mv-uuZ">
+                                <rect key="frame" x="16" y="273" width="568" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="aRh-O1-5pd"/>
+                                </constraints>
+                                <string key="text">This  app  can backup data to the iCloud.And then restore data from it. 
+
+To properly use this feature please do the following:
+• Sign into an iCloud account on the current device
+• Turn ON iCloud in the Settings app</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -3307,16 +3324,23 @@ To properly use this project please do the following:
                             <constraint firstItem="f55-Yj-hqP" firstAttribute="bottom" secondItem="r6I-U0-6Fc" secondAttribute="bottom" id="5Dz-Iv-Rn9"/>
                             <constraint firstItem="Pa0-kl-QpI" firstAttribute="top" secondItem="r6I-U0-6Fc" secondAttribute="bottom" id="5Oh-rh-dBU"/>
                             <constraint firstItem="qhv-Mv-uuZ" firstAttribute="top" secondItem="WJI-Sq-XfY" secondAttribute="bottom" constant="8" id="69f-bC-Lwb"/>
+                            <constraint firstItem="f55-Yj-hqP" firstAttribute="height" secondItem="zW4-ZF-pWA" secondAttribute="height" id="6GI-nG-3CH"/>
                             <constraint firstItem="f55-Yj-hqP" firstAttribute="top" secondItem="r6I-U0-6Fc" secondAttribute="top" id="DlG-rC-Fz9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="r6I-U0-6Fc" secondAttribute="trailing" constant="-16" id="Dz5-cg-E63"/>
                             <constraint firstItem="qhv-Mv-uuZ" firstAttribute="leading" secondItem="9Eu-3G-l4O" secondAttribute="leadingMargin" id="FZR-az-36N"/>
                             <constraint firstItem="y6F-eC-XsW" firstAttribute="trailing" secondItem="9Eu-3G-l4O" secondAttribute="trailingMargin" id="Geb-Qx-SMe"/>
                             <constraint firstItem="y6F-eC-XsW" firstAttribute="top" secondItem="lat-1H-Gnz" secondAttribute="bottom" constant="8" symbolic="YES" id="HBC-zC-DIU"/>
                             <constraint firstItem="f55-Yj-hqP" firstAttribute="leading" secondItem="r6I-U0-6Fc" secondAttribute="leading" id="Hnx-oc-jYF"/>
+                            <constraint firstItem="KHy-Wf-cZe" firstAttribute="centerY" secondItem="zW4-ZF-pWA" secondAttribute="centerY" id="I3J-c8-0Xg"/>
                             <constraint firstItem="WJI-Sq-XfY" firstAttribute="top" secondItem="y6F-eC-XsW" secondAttribute="bottom" constant="10" id="V9B-Pf-JJT"/>
                             <constraint firstItem="r6I-U0-6Fc" firstAttribute="leading" secondItem="9Eu-3G-l4O" secondAttribute="leadingMargin" constant="-16" id="aDF-VB-Ue2"/>
+                            <constraint firstItem="f55-Yj-hqP" firstAttribute="top" secondItem="KHy-Wf-cZe" secondAttribute="bottom" constant="8" symbolic="YES" id="d73-9M-rsP"/>
+                            <constraint firstItem="KHy-Wf-cZe" firstAttribute="centerX" secondItem="zW4-ZF-pWA" secondAttribute="centerX" id="dKC-fd-f5q"/>
                             <constraint firstItem="qhv-Mv-uuZ" firstAttribute="trailing" secondItem="9Eu-3G-l4O" secondAttribute="trailingMargin" id="fa7-1e-UfB"/>
+                            <constraint firstItem="f55-Yj-hqP" firstAttribute="width" secondItem="zW4-ZF-pWA" secondAttribute="width" multiplier="2:1" id="gxh-C3-IXv"/>
+                            <constraint firstItem="KHy-Wf-cZe" firstAttribute="top" secondItem="qhv-Mv-uuZ" secondAttribute="bottom" constant="8" symbolic="YES" id="hRP-8G-0iK"/>
                             <constraint firstItem="WJI-Sq-XfY" firstAttribute="centerX" secondItem="y6F-eC-XsW" secondAttribute="centerX" id="jzl-1e-eGZ"/>
+                            <constraint firstItem="KHy-Wf-cZe" firstAttribute="centerX" secondItem="f55-Yj-hqP" secondAttribute="centerX" constant="0.5" id="xLB-DP-kcB"/>
                             <constraint firstItem="f55-Yj-hqP" firstAttribute="trailing" secondItem="r6I-U0-6Fc" secondAttribute="trailing" id="xmR-B9-6J3"/>
                         </constraints>
                     </view>
@@ -3327,6 +3351,7 @@ To properly use this project please do the following:
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brj-p1-uj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="b6P-Ut-GlS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2798" y="1567"/>
         </scene>

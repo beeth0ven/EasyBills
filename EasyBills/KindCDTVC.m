@@ -118,13 +118,14 @@
 - (void)            tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    [self.tableView
-     reloadRowsAtIndexPaths:@[indexPath]
-     withRowAnimation:UITableViewRowAnimationAutomatic];
+//    [self.tableView
+//     reloadRowsAtIndexPaths:@[indexPath]
+//     withRowAnimation:UITableViewRowAnimationAutomatic];
     Kind *kind = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSString *segueIdentifier = @"showBillByKind";
     [self.kindViewController performSegueWithIdentifier:segueIdentifier sender:kind];
-    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 #pragma mark - NSFetched Results Controller Delegate

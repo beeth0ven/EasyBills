@@ -58,7 +58,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"iCloud Disabled" message:@"You have disabled iCloud for this app. Would you like to turn it on again?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Turn On iCloud", nil];
         [alert show];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Setup iCloud" message:@"iCloud is not available. Sign into an iCloud account on this device and check that this app has valid entitlements." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Setup iCloud" message:@"iCloud is not available. Sign into an iCloud account on this device and check that this app has authority to use the iCloud." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         [alert show];
     }
 }
