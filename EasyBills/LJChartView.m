@@ -98,8 +98,8 @@
         
         if (count < SeparaterCount) {
             
-            NSString *string = [NSString stringWithFormat:@"%i",
-                                self.maxCoordinateVerticalValue * count / SeparaterCount];
+            NSString *string = [NSString stringForNumber:
+                                @(self.maxCoordinateVerticalValue * count / SeparaterCount)];
             
             CGPoint point = CGPointMake(self.bounds.origin.x + 10,
                                         y - 5);
@@ -383,14 +383,14 @@
 
 - (NSInteger)maxCoordinateVerticalValue{
     
-    float maxPointValue = [self maxPointValue];
-    NSInteger intValueLength = [self lengthOfIntValue:(int)maxPointValue];
+    float attamtMaxPointValue = [self maxPointValue] * 1.2;
+    NSInteger intValueLength = [self lengthOfIntValue:(int)attamtMaxPointValue];
     // unitValue = 10^n for exmple : 100 or 1000 or 10000
     NSInteger unitValue = powf(10, intValueLength-1);
-    NSInteger n = 1 + (int)(maxPointValue / unitValue);
+    NSInteger n = 1 + (int)(attamtMaxPointValue / unitValue);
     _maxCoordinateVerticalValue = n * unitValue;
     
-    if (maxPointValue == 0) _maxCoordinateVerticalValue = 100;
+    if (attamtMaxPointValue == 0) _maxCoordinateVerticalValue = 100;
     return _maxCoordinateVerticalValue;
 }
 

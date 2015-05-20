@@ -17,7 +17,7 @@
     [super layoutSubviews];
     [self layoutIfNeeded];
     self.layer.cornerRadius = self.frame.size.height / 2;
-    self.layer.borderWidth = self.bounds.size.height * 3.5/64.0 * 1.2;
+    self.layer.borderWidth = self.bounds.size.height * 4.0/64.0 * 1;
     self.layer.borderColor = [UIColor globalTintColor].CGColor;
 }
 

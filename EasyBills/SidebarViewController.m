@@ -12,6 +12,8 @@
 #import "Chameleon.h"
 #import "UIViewController+Extension.h"
 #import "UINavigationController+Style.h"
+#import "HomeViewController.h"
+
 
 @interface SidebarViewController ()
 
@@ -161,22 +163,25 @@
     UINavigationController *frontViewController = (UINavigationController *)revealController.frontViewController;
     switch (position) {
         case FrontViewPositionLeft:{
-            
+            //May be diffrent VC,So move visualEffectView from old VC to new VC.
             if (self.visualEffectView.superview) {
                 [self.visualEffectView removeFromSuperview];
                 [frontViewController.view addSubview:self.visualEffectView];
             }
             
-            [frontViewController.view addGestureRecognizer:revealController.panGestureRecognizer];
-            [frontViewController.view addGestureRecognizer:revealController.tapGestureRecognizer];
             
             [UIView animateWithDuration:0.3 animations:^{
                 self.visualEffectView.alpha = 0.0;
             } completion:^(BOOL finished) {
                 if (self.visualEffectView.superview) {
                     [self.visualEffectView removeFromSuperview];
+                   
+//                    [self.visualEffectView addGestureRecognizer:revealController.panGestureRecognizer];
+//                    [self.visualEffectView addGestureRecognizer:revealController.tapGestureRecognizer];
+                    
                 }
             }];
+            
             
             
 //            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
@@ -186,6 +191,8 @@
         }
         case FrontViewPositionRight:{
             [frontViewController.view addSubview:self.visualEffectView];
+            [self.visualEffectView addGestureRecognizer:revealController.panGestureRecognizer];
+            [self.visualEffectView addGestureRecognizer:revealController.tapGestureRecognizer];
             [UIView animateWithDuration:0.3 animations:^{
                 self.visualEffectView.alpha = 1.0;
             }];
@@ -203,28 +210,44 @@
 - (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
 {
     NSLog( @"%@: %@", NSStringFromSelector(_cmd), [self stringFromFrontViewPosition:position]);
-
     
-}
+    UINavigationController *frontViewController = (UINavigationController *)revealController.frontViewController;
 
-- (BOOL)revealControllerPanGestureShouldBegin:(SWRevealViewController *)revealController {
-    FrontViewPosition position = self.revealViewController.frontViewPosition;
-    BOOL result = NO;
     switch (position) {
         case FrontViewPositionLeft:{
-            result = NO;
+            
+            UIViewController *topViewController = frontViewController.topViewController;
+            [topViewController enableRevealPanGesture];
             break;
         }
         case FrontViewPositionRight:{
-            result = YES;
             break;
         }
         default: {
             break;
         }
     }
-    return result;
+    
 }
+
+//- (BOOL)revealControllerPanGestureShouldBegin:(SWRevealViewController *)revealController {
+//    FrontViewPosition position = self.revealViewController.frontViewPosition;
+//    BOOL result = NO;
+//    switch (position) {
+//        case FrontViewPositionLeft:{
+//            result = YES;
+//            break;
+//        }
+//        case FrontViewPositionRight:{
+//            result = YES;
+//            break;
+//        }
+//        default: {
+//            break;
+//        }
+//    }
+//    return result;
+//}
 
 
 - (NSString*)stringFromFrontViewPosition:(FrontViewPosition)position

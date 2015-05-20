@@ -26,6 +26,7 @@
 #import "UIStoryboardSegue+Extension.h"
 #import "NSPredicate+PrivateExtension.h"
 #import "UIView+Extension.h"
+#import "NSString+Extension.h"
 
 @interface KindCDTVC ()
 
@@ -91,11 +92,11 @@
                         fabs([PubicVariable sumMoneyWithKind:kind
                                                     dateMode:self.kindViewController.dateMode
                                       inManagedObjectContext:self.kindViewController.managedObjectContext])];
-    indexLabel.text = [NSString stringWithFormat:@"%i.",indexPath.row + 1];
+    indexLabel.text = [NSString stringWithFormat:@"%@.",@(indexPath.row + 1)];
     label.text = [NSString stringWithFormat:@"  %@  ",[kind.name description]];
     circleView.backgroundColor = kind.color;
     
-    detailLabel.text = [NSString stringWithFormat:@"¥  %.0f",current.floatValue];
+    detailLabel.text = [NSString stringWithCurrencyStyleForFloat:current.floatValue];
 
 }
 

@@ -8,7 +8,7 @@
 
 #import "UIViewController+Extension.h"
 #import "SWRevealViewController.h"
-
+#import "HomeViewController.h"
 
 @implementation UIViewController (Extension)
 
@@ -37,6 +37,19 @@
 
 - (void)setupBackgroundImage {
     [self.view setupBackgroundImage];
+}
+
+- (void)enableRevealPanGesture {
+    //    UIViewController *topViewController = frontViewController.topViewController;
+    if ([self respondsToSelector:@selector(viewForHoldingRevealPanGesture)]) {
+        id obj = [self performSelector:@selector(viewForHoldingRevealPanGesture)];
+        if ([obj isKindOfClass:[UIView class]]) {
+            UIView *view = (UIView *)obj;
+            [view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        }
+        
+    }
+
 }
 
 

@@ -41,6 +41,12 @@
     self.passcodeSwitch.on = [LTHPasscodeViewController doesPasscodeExist];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self enableRevealPanGesture];
+}
+
 - (IBAction)changePasscodeState:(UISwitch *)sender {
     if (sender.isOn) {
         [self showLockViewForEnablingPasscode];
@@ -236,6 +242,10 @@
         }
     }
     
+}
+
+- (UIView *)viewForHoldingRevealPanGesture {
+    return self.view;
 }
 
 @end

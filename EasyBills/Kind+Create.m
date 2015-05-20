@@ -268,12 +268,12 @@ NSString *const kKindDefaultName  = @"其他";
 
 + (NSArray *)incomeKinds
 {
-    return @[@"工资",@"人情",@"其他"];
+    return @[@"工资",@"礼金",@"其他"];
 }
 
 + (NSArray *)expenseKinds
 {
-    return @[@"衣服",@"餐饮",@"住宿",@"交通",@"人情",@"其他"];
+    return @[@"娱乐",@"衣服",@"餐饮",@"人情",@"其他"];
 }
 
 

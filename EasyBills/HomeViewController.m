@@ -35,7 +35,8 @@
 #import "UIColor+Extension.h"
 #import "RoundedButton.h"
 #import "HighlightImageButton.h"
-
+#import "UIViewController+Extension.h"
+#import "NSString+Extension.h"
 
 @interface HomeViewController () <DZNSegmentedControlDelegate,LJChartViewDataSource>
 
@@ -102,7 +103,9 @@
     if (self.shouldUpdateUI){
         [self updateUI];
     }
+    [self enableRevealPanGesture];
 }
+
 
 
 - (void)dealloc {
@@ -231,9 +234,12 @@
                                     inManagedObjectContext:self.managedObjectContext];
     
     //    [self.chartDate.referenceDate showDetail];
-    [self.sumAddedMoneyButton setTitle:[NSString stringWithFormat:@"%.0f ",sumAddedMoney] forState:UIControlStateNormal];
-    [self.sumReduceMoneyButton setTitle:[NSString stringWithFormat:@"%.0f ",fabs(sumReduceMoney)] forState:UIControlStateNormal];
-    [self.sumMoneyButton setTitle:[NSString stringWithFormat:@"%.0f ",sumMoney] forState:UIControlStateNormal];
+    [self.sumAddedMoneyButton setTitle:[NSString stringForFloat:sumAddedMoney] forState:UIControlStateNormal];
+    [self.sumReduceMoneyButton setTitle:[NSString stringForFloat:fabs(sumReduceMoney)] forState:UIControlStateNormal];
+    [self.sumMoneyButton setTitle:[NSString stringForFloat:sumMoney] forState:UIControlStateNormal];
+
+    
+//    [self.sumMoneyButton setTitle:[NSString stringWithFormat:@"%.0f ",sumMoney] forState:UIControlStateNormal];
     
 }
 
@@ -276,11 +282,11 @@
         CGPoint touchPoint =
         [sender locationOfTouch:0
                          inView:view];
-        CGFloat persentWidthForTouch = 0.2;
+        CGFloat persentWidthForTouch = 0.5;
         if (touchPoint.x < view.bounds.size.width * persentWidthForTouch ) {
-            [self previousPage:nil];
-        } else if (touchPoint.x > view.bounds.size.width * (1 - persentWidthForTouch) ) {
             [self nextPage:nil];
+        } else if (touchPoint.x > view.bounds.size.width * (1 - persentWidthForTouch) ) {
+            [self previousPage:nil];
         }
         NSLog(@"Touch : %@",
               NSStringFromCGPoint(touchPoint));
@@ -314,7 +320,7 @@
     sharedLTHPasscodeViewController.labelFont = [UIFont wawaFontForLabel];
     sharedLTHPasscodeViewController.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor],
                                                              NSFontAttributeName : [UIFont wawaFontForNavigationTitle]};
-//    sharedLTHPasscodeViewController.title = @"简单记账";
+    sharedLTHPasscodeViewController.title = @"简单记账";
 //    sharedLTHPasscodeViewController.enterPasscodeString = @"请输入密码";
 //    sharedLTHPasscodeViewController.enterNewPasscodeString = @"请输入新密码";
 //    sharedLTHPasscodeViewController.enablePasscodeString = @"设置密码";
@@ -444,73 +450,6 @@
     return self.customDismissAnimationController;
 }
 
-#pragma mark - NSFetched Results Controller Delegate Method
-
--(void)setFetchedResultsControllerWithbillCoreDataTableViewController:(BillCDTVC *)billCoreDataTableViewController
-                                                       withIncomeMode:(NSInteger)incomeMode
-{
-
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
-    
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
-    
-    NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
-    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:[PubicVariable dateMode] withDate:self.chartDate.referenceDate];
-    request.predicate = [NSPredicate predicateByCombinePredicate:incomePredicate withPredicate:datePredicate];
-    billCoreDataTableViewController.isIncomeMode = incomeMode;
-    billCoreDataTableViewController.fetchedResultsController = [[NSFetchedResultsController alloc]
-                                                                initWithFetchRequest:request
-                                                                managedObjectContext:self.managedObjectContext
-                                                                sectionNameKeyPath:nil
-                                                                cacheName:nil];
-}
-
-
-
-
-#pragma mark - Property Setter And Getter Method
-
-
--(ChartDate *)chartDate
-{
-    if (!_chartDate) {
-        _chartDate = [[ChartDate alloc] initWithManagedObjectContext:self.managedObjectContext];
-    }
-    return _chartDate;
-}
-
-- (CustomPresentAnimationController *)customPresentAnimationController {
-    if (!_customPresentAnimationController) {
-        _customPresentAnimationController = [[CustomPresentAnimationController alloc]init];
-    }
-    return _customPresentAnimationController;
-}
-
-- (CustomDismissAnimationController *)customDismissAnimationController {
-    if (!_customDismissAnimationController) {
-        _customDismissAnimationController = [[CustomDismissAnimationController alloc]init];
-    }
-    return _customDismissAnimationController;
-}
-//
-//- (UISwipeGestureRecognizer *)nextPageSwipeGestureRecognizer {
-//    if (!_nextPageSwipeGestureRecognizer) {
-//        _nextPageSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc]
-//                                           initWithTarget:self
-//                                           action:@selector(nextPage)];
-//        _nextPageSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-//    }
-//    return _nextPageSwipeGestureRecognizer;
-//}
-
-//- (TextProgressMRPOV *)progressView {
-//    if (!_progressView) {
-//        _progressView = [TextProgressMRPOV defaultTextProgressMRPOV];
-//        [self.chartView addSubview:_progressView];
-//    }
-//    return _progressView;
-//}
-
 
 #pragma mark - LJChart View Data Source
 
@@ -559,5 +498,78 @@
 //             @[@200,@1300,@500,@550.33,@800,@300]
 //             ];
 //}
+
+
+#pragma mark - NSFetched Results Controller Delegate Method
+
+-(void)setFetchedResultsControllerWithbillCoreDataTableViewController:(BillCDTVC *)billCoreDataTableViewController
+                                                       withIncomeMode:(NSInteger)incomeMode
+{
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bill"];
+    
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
+    
+    NSPredicate *incomePredicate = [NSPredicate predicateWithIncomeMode:incomeMode];
+    NSPredicate *datePredicate = [NSPredicate predicateWithbDateMode:[PubicVariable dateMode] withDate:self.chartDate.referenceDate];
+    request.predicate = [NSPredicate predicateByCombinePredicate:incomePredicate withPredicate:datePredicate];
+    billCoreDataTableViewController.isIncomeMode = incomeMode;
+    billCoreDataTableViewController.fetchedResultsController = [[NSFetchedResultsController alloc]
+                                                                initWithFetchRequest:request
+                                                                managedObjectContext:self.managedObjectContext
+                                                                sectionNameKeyPath:nil
+                                                                cacheName:nil];
+}
+
+
+
+
+#pragma mark - Property Setter And Getter Method
+
+
+-(ChartDate *)chartDate
+{
+    if (!_chartDate) {
+        _chartDate = [[ChartDate alloc] initWithManagedObjectContext:self.managedObjectContext];
+    }
+    return _chartDate;
+}
+
+- (CustomPresentAnimationController *)customPresentAnimationController {
+    if (!_customPresentAnimationController) {
+        _customPresentAnimationController = [[CustomPresentAnimationController alloc]init];
+    }
+    return _customPresentAnimationController;
+}
+
+- (CustomDismissAnimationController *)customDismissAnimationController {
+    if (!_customDismissAnimationController) {
+        _customDismissAnimationController = [[CustomDismissAnimationController alloc]init];
+    }
+    return _customDismissAnimationController;
+}
+
+- (UIView *)viewForHoldingRevealPanGesture {
+    return self.bottomView;
+}
+//
+//- (UISwipeGestureRecognizer *)nextPageSwipeGestureRecognizer {
+//    if (!_nextPageSwipeGestureRecognizer) {
+//        _nextPageSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc]
+//                                           initWithTarget:self
+//                                           action:@selector(nextPage)];
+//        _nextPageSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+//    }
+//    return _nextPageSwipeGestureRecognizer;
+//}
+
+//- (TextProgressMRPOV *)progressView {
+//    if (!_progressView) {
+//        _progressView = [TextProgressMRPOV defaultTextProgressMRPOV];
+//        [self.chartView addSubview:_progressView];
+//    }
+//    return _progressView;
+//}
+
 
 @end

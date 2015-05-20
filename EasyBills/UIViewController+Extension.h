@@ -13,6 +13,6 @@
 
 - (void)setupMenuButton;
 - (void)setupBackgroundImage;
-
+- (void)enableRevealPanGesture;
 
 @end

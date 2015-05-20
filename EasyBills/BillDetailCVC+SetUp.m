@@ -32,9 +32,10 @@
             [self requestGetCurentLocation];
         }
     }
-    self.isIncome = self.bill.isIncome.boolValue;
     [self registerNotifications];
-    [self setUpBackgroundView];
+    self.isIncome = self.bill.isIncome.boolValue;
+    self.title = self.isIncome ? @"收入": @"支出";
+//    [self setUpBackgroundView];
 }
 
 - (BOOL)isBillCreateUnique{
@@ -48,10 +49,9 @@
 }
 
 - (void)setUpBackgroundView {
-    UIImage *image = [UIImage imageNamed:@"Account details BG"];
+    UIImage *image = [UIImage imageNamed:@"BackGround"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     self.collectionView.backgroundView = imageView;
-    self.title = self.isIncome ? @"收入": @"支出";
 }
 
 - (void)configTitleColor {
@@ -97,7 +97,7 @@
         AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
         [appDelegate saveContext];
         
-        [self dismissViewControllerAnimated:YES completion:^(){
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){
 
         }];
     }else{
@@ -111,7 +111,7 @@
 - (IBAction)cancel:(UIBarButtonItem *)sender
 {
     [self.view endEditing:YES];
-    [self dismissViewControllerAnimated:YES completion:^(){
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){
         [self setIsUndo:YES];
     }];
     

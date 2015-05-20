@@ -21,6 +21,7 @@
 @property (strong ,nonatomic) NSMutableArray *cellIdentifiers;
 
 @property (strong ,nonatomic) UITextField *activeField;
+@property (strong, nonatomic) UITextField *nameTextField;
 
 
 @end
@@ -62,15 +63,14 @@
     
 }
 
+
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    if (self.kind.name.length == 0) {
-//        NSInteger index = [self.cellIdentifiers indexOfObject:@"nameCell"];
-//        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-//        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
-//    }
+    if (self.kind.name.length == 0) {
+        [self.nameTextField becomeFirstResponder];
+    }
 }
-
 
 - (UICollectionView *)colorPickerCollectionView{
     
@@ -306,6 +306,7 @@
                 textField.text = nil;
             }
             textField.enabled = !self.kind.isDefault.boolValue;
+            self.nameTextField = textField;
         }
         
         
@@ -621,5 +622,17 @@
     }
     return _cellIdentifiers;
 }
+
+//- (UITextField *)nameTextField {
+//    
+//    if (_nameTextField == nil) {
+//        UICollectionViewCell *cell = [self cellWithIdentifier:@"nameCell"];
+//        UIView *view = [cell viewWithTag:1];
+//        if ([view isKindOfClass:[UITextField class]]) {
+//            _nameTextField = (UITextField *)view;
+//        }
+//    }
+//    return _nameTextField;
+//}
 
 @end

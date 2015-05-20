@@ -66,7 +66,12 @@
 //    [PubicVariable saveContext];
 }
 
-
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.bill.money.floatValue == 0) {
+        [self.moneyTextField becomeFirstResponder];
+    }
+}
 
 
 #pragma mark - UICollection View Data Source Method
@@ -113,8 +118,9 @@
             
             textField.text =
             self.bill.money.floatValue != 0 ?
-            [NSString stringWithFormat:@"%.0f",fabsf(self.bill.money.floatValue)]:
+            [NSString stringForFloat:fabsf(self.bill.money.floatValue)]:
             nil;
+            self.moneyTextField = textField;
         }
         
         
@@ -188,6 +194,7 @@
                                             doneAction:@selector(endEditing)];
             
             textField.text = self.bill.note;
+            self.noteTextField = textField;
         }
         
         
@@ -479,29 +486,29 @@
 }
 
 
-- (UITextField *)moneyTextField {
-    
-    if (_moneyTextField == nil) {
-        UICollectionViewCell *cell = [self cellWithIdentifier:@"moneyCell"];
-        UIView *view = [cell viewWithTag:1];
-        if ([view isKindOfClass:[UITextField class]]) {
-            _moneyTextField = (UITextField *)view;
-        }
-    }
-    return _moneyTextField;
-}
-
-- (UITextField *)noteTextField {
-    
-    if (_noteTextField == nil) {
-        UICollectionViewCell *cell = [self cellWithIdentifier:@"notebodyCell"];
-        UIView *view = [cell viewWithTag:1];
-        if ([view isKindOfClass:[UITextField class]]) {
-            _noteTextField = (UITextField *)view;
-        }
-    }
-    return _noteTextField;
-}
+//- (UITextField *)moneyTextField {
+//    
+//    if (_moneyTextField == nil) {
+//        UICollectionViewCell *cell = [self cellWithIdentifier:@"moneyCell"];
+//        UIView *view = [cell viewWithTag:1];
+//        if ([view isKindOfClass:[UITextField class]]) {
+//            _moneyTextField = (UITextField *)view;
+//        }
+//    }
+//    return _moneyTextField;
+//}
+//
+//- (UITextField *)noteTextField {
+//    
+//    if (_noteTextField == nil) {
+//        UICollectionViewCell *cell = [self cellWithIdentifier:@"notebodyCell"];
+//        UIView *view = [cell viewWithTag:1];
+//        if ([view isKindOfClass:[UITextField class]]) {
+//            _noteTextField = (UITextField *)view;
+//        }
+//    }
+//    return _noteTextField;
+//}
 
 
 @end

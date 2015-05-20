@@ -15,5 +15,11 @@
 
 //@property (nonatomic) PNBarChart * barChart;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic, readonly) UIView *viewForHoldingRevealPanGesture;
 
 @end
+
+
+
+
+

@@ -52,8 +52,8 @@
                                 <rect key="frame" x="0.0" y="214" width="600" height="322"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4M-Ex-ITn" customClass="HighlightImageButton">
-                                        <rect key="frame" x="40" y="146" width="65" height="65"/>
-                                        <state key="normal" image="ReduceIcon">
+                                        <rect key="frame" x="40" y="146" width="62" height="63"/>
+                                        <state key="normal" backgroundImage="ReduceIcon">
                                             <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
@@ -67,12 +67,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiT-E6-BOM" customClass="HighlightImageButton">
-                                        <rect key="frame" x="40" y="65" width="65" height="66"/>
+                                        <rect key="frame" x="40" y="67" width="62" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="DiT-E6-BOM" secondAttribute="height" id="2qC-e5-kNq"/>
                                             <constraint firstAttribute="height" constant="60" id="Ktc-ge-hz4"/>
                                         </constraints>
-                                        <state key="normal" image="PlusIcon">
+                                        <state key="normal" backgroundImage="PlusIcon">
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -90,7 +90,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-7v-rY4" customClass="RoundedButton">
-                                        <rect key="frame" x="145" y="248" width="415" height="53"/>
+                                        <rect key="frame" x="142" y="243" width="418" height="63"/>
                                         <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="24"/>
                                         <state key="normal" title="$ 8000.00">
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -122,7 +122,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qU-Mp-UjQ">
-                                        <rect key="frame" x="105" y="0.0" width="40" height="322"/>
+                                        <rect key="frame" x="102" y="0.0" width="40" height="322"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="SCY-Nf-fZU"/>
@@ -146,7 +146,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTo-sz-iBf">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="15"/>
+                                        <rect key="frame" x="0.0" y="50" width="600" height="17"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="tvw-Xu-lol"/>
@@ -158,7 +158,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1K9-Xc-53B">
-                                        <rect key="frame" x="0.0" y="131" width="600" height="15"/>
+                                        <rect key="frame" x="0.0" y="129" width="600" height="17"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="q7Q-Ee-hOg"/>
@@ -170,10 +170,10 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlo-Z5-e85">
-                                        <rect key="frame" x="0.0" y="211" width="600" height="30"/>
+                                        <rect key="frame" x="0.0" y="209" width="600" height="34"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bgu-v1-vwT">
-                                                <rect key="frame" x="8" y="14" width="584" height="3"/>
+                                                <rect key="frame" x="8" y="16" width="584" height="3"/>
                                                 <color key="backgroundColor" red="0.31372550129890442" green="0.74117648601531982" blue="0.83137255907058716" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="3" id="Xl5-dD-mMu"/>
@@ -194,7 +194,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Fp-uq-NPY">
-                                        <rect key="frame" x="0.0" y="307" width="600" height="15"/>
+                                        <rect key="frame" x="0.0" y="305" width="600" height="17"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="UwO-ju-UmF"/>
@@ -206,7 +206,7 @@
                                         </variation>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-Kl-SVa" customClass="RoundedButton">
-                                        <rect key="frame" x="145" y="71" width="415" height="53"/>
+                                        <rect key="frame" x="142" y="67" width="418" height="62"/>
                                         <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="24"/>
                                         <state key="normal" title="$ 10000.00">
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -219,8 +219,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BM4-5f-wqs" customClass="HighlightImageButton">
-                                        <rect key="frame" x="40" y="241" width="65" height="66"/>
-                                        <state key="normal" image="EqualIcon">
+                                        <rect key="frame" x="40" y="243" width="62" height="62"/>
+                                        <state key="normal" backgroundImage="EqualIcon">
                                             <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
@@ -234,7 +234,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-rY-ePP" customClass="RoundedButton">
-                                        <rect key="frame" x="145" y="152" width="415" height="53"/>
+                                        <rect key="frame" x="142" y="146" width="418" height="63"/>
                                         <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="24"/>
                                         <state key="normal" title="$ 2000.00">
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -255,6 +255,7 @@
                                     <constraint firstItem="JUH-7v-rY4" firstAttribute="height" secondItem="bpT-rY-ePP" secondAttribute="height" id="3vS-L6-aTn"/>
                                     <constraint firstItem="HnL-Vh-Xmf" firstAttribute="leading" secondItem="nWU-X9-Isj" secondAttribute="leading" id="60r-gW-ieU"/>
                                     <constraint firstItem="tlo-Z5-e85" firstAttribute="height" secondItem="GTo-sz-iBf" secondAttribute="height" multiplier="2:1" id="62Q-i0-eXY"/>
+                                    <constraint firstItem="dVB-Kl-SVa" firstAttribute="top" secondItem="GTo-sz-iBf" secondAttribute="bottom" id="6pz-2L-umA"/>
                                     <constraint firstItem="H8I-sB-im6" firstAttribute="leading" secondItem="dVB-Kl-SVa" secondAttribute="trailing" id="89z-Uc-JKv"/>
                                     <constraint firstItem="BM4-5f-wqs" firstAttribute="centerY" secondItem="JUH-7v-rY4" secondAttribute="centerY" id="8VT-nY-te8"/>
                                     <constraint firstAttribute="bottom" secondItem="3Fp-uq-NPY" secondAttribute="bottom" id="8eY-zw-m3X"/>
@@ -274,7 +275,7 @@
                                     <constraint firstAttribute="bottom" secondItem="BM4-5f-wqs" secondAttribute="bottom" constant="20" symbolic="YES" id="RmR-mg-5cG"/>
                                     <constraint firstItem="1K9-Xc-53B" firstAttribute="height" secondItem="GTo-sz-iBf" secondAttribute="height" id="S8d-OD-RXJ"/>
                                     <constraint firstItem="JUH-7v-rY4" firstAttribute="width" secondItem="dVB-Kl-SVa" secondAttribute="width" id="TX6-My-Qwp"/>
-                                    <constraint firstAttribute="height" secondItem="GTo-sz-iBf" secondAttribute="height" multiplier="18:1" constant="50" id="U30-l0-uNV"/>
+                                    <constraint firstAttribute="height" secondItem="GTo-sz-iBf" secondAttribute="height" multiplier="16:1" constant="50" id="U30-l0-uNV"/>
                                     <constraint firstItem="bpT-rY-ePP" firstAttribute="centerX" secondItem="dVB-Kl-SVa" secondAttribute="centerX" id="WE0-3Q-a0K"/>
                                     <constraint firstItem="BM4-5f-wqs" firstAttribute="top" secondItem="tlo-Z5-e85" secondAttribute="bottom" id="WlZ-e4-eK0"/>
                                     <constraint firstItem="BM4-5f-wqs" firstAttribute="centerX" secondItem="DiT-E6-BOM" secondAttribute="centerX" id="X8W-aN-fXn"/>
@@ -292,13 +293,14 @@
                                     <constraint firstItem="DiT-E6-BOM" firstAttribute="leading" secondItem="HnL-Vh-Xmf" secondAttribute="trailing" id="cnc-ru-Jv2"/>
                                     <constraint firstItem="JUH-7v-rY4" firstAttribute="centerX" secondItem="dVB-Kl-SVa" secondAttribute="centerX" id="deG-a5-jD9"/>
                                     <constraint firstItem="1K9-Xc-53B" firstAttribute="leading" secondItem="nWU-X9-Isj" secondAttribute="leading" id="iFl-rx-fjo"/>
-                                    <constraint firstItem="dVB-Kl-SVa" firstAttribute="height" secondItem="DiT-E6-BOM" secondAttribute="height" multiplier="4:5" id="jfJ-n2-Hkj"/>
+                                    <constraint firstItem="dVB-Kl-SVa" firstAttribute="height" secondItem="DiT-E6-BOM" secondAttribute="height" id="jfJ-n2-Hkj"/>
                                     <constraint firstItem="dVB-Kl-SVa" firstAttribute="centerY" secondItem="DiT-E6-BOM" secondAttribute="centerY" id="kRt-R7-YGo"/>
                                     <constraint firstItem="1K9-Xc-53B" firstAttribute="width" secondItem="GTo-sz-iBf" secondAttribute="width" id="pIe-MX-7Tz"/>
                                     <constraint firstItem="BM4-5f-wqs" firstAttribute="top" secondItem="A4M-Ex-ITn" secondAttribute="bottom" constant="8" symbolic="YES" id="qgz-vC-kL2"/>
                                     <constraint firstItem="1K9-Xc-53B" firstAttribute="top" secondItem="dVB-Kl-SVa" secondAttribute="bottom" id="ri7-kW-fzP"/>
                                     <constraint firstItem="A4M-Ex-ITn" firstAttribute="height" secondItem="DiT-E6-BOM" secondAttribute="height" id="sbl-PP-eyF"/>
                                     <constraint firstAttribute="trailing" secondItem="ge2-5I-B4R" secondAttribute="trailing" id="tA1-uW-Rqu"/>
+                                    <constraint firstItem="1K9-Xc-53B" firstAttribute="top" secondItem="dVB-Kl-SVa" secondAttribute="bottom" id="u1V-Am-bMD"/>
                                     <constraint firstItem="3Fp-uq-NPY" firstAttribute="leading" secondItem="nWU-X9-Isj" secondAttribute="leading" id="uXt-3w-nrx"/>
                                     <constraint firstItem="JUH-7v-rY4" firstAttribute="width" secondItem="bpT-rY-ePP" secondAttribute="width" id="ueZ-Od-CoG"/>
                                     <constraint firstItem="tlo-Z5-e85" firstAttribute="top" secondItem="A4M-Ex-ITn" secondAttribute="bottom" id="v5z-Y5-HQ9"/>
@@ -320,6 +322,7 @@
                                         <exclude reference="ri7-kW-fzP"/>
                                         <exclude reference="NqT-1j-kJx"/>
                                         <exclude reference="Zzp-ru-OoT"/>
+                                        <exclude reference="jfJ-n2-Hkj"/>
                                         <exclude reference="RmR-mg-5cG"/>
                                         <exclude reference="qgz-vC-kL2"/>
                                     </mask>
@@ -1509,7 +1512,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud 保存 &amp; 读取" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phu-bZ-XHu">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="iCloud 保存&amp;读取" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phu-bZ-XHu">
                                                     <rect key="frame" x="37" y="8" width="136" height="27"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.53725490200000003" green="0.5568627451" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1566,7 +1569,7 @@
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="f6V-z9-Yek">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="lcG-br-GZY">
                             <size key="itemSize" width="297" height="64"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -3178,7 +3181,7 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             </objects>
             <point key="canvasLocation" x="2798" y="814"/>
         </scene>
-        <!--iCloud 保存 & 读取-->
+        <!--iCloud 保存&读取-->
         <scene sceneID="Ijd-yr-DbZ">
             <objects>
                 <tableViewController id="XG4-4e-nLw" customClass="ListViewController" sceneMemberID="viewController">
@@ -3213,7 +3216,7 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                             <outlet property="delegate" destination="XG4-4e-nLw" id="Hdp-zY-6a0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="iCloud 保存 &amp; 读取" id="kn6-so-1zO">
+                    <navigationItem key="navigationItem" title="iCloud 保存&amp;读取" id="kn6-so-1zO">
                         <barButtonItem key="rightBarButtonItem" image="PlusNavigationBarIcon" id="koL-vM-Gqv">
                             <color key="tintColor" red="0.46274510025978088" green="0.48235294222831726" blue="0.49411764740943909" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -3387,8 +3390,8 @@ To properly use this feature please do the following:
         <image name="WalletIcon" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1Rh-w9-bKj"/>
         <segue reference="xMn-lC-zYw"/>
-        <segue reference="4xq-Wo-5WR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.31372549020000001" green="0.74117647060000003" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -249,7 +249,7 @@
 - (CGSize)preferredContentSize {
     if (self.presentingViewController) {
         CGSize size = [self.tableView sizeThatFits:self.presentingViewController.view.bounds.size];
-        return CGSizeMake(size.width / 2,
+        return CGSizeMake( 160.0,
                           size.height + 44 * 4);
     }else{
         return [super preferredContentSize];

@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
+#import "UIViewController+Extension.h"
 
 @interface SettingTVC : UITableViewController <UIActionSheetDelegate,MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic, readonly) UIView *viewForHoldingRevealPanGesture;
 
 @end
+
+
+
+
+

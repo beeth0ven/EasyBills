@@ -25,7 +25,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Simple Billing can record position information for you.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Naughty Cartoons</string>

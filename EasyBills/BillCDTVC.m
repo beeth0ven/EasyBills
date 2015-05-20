@@ -15,6 +15,7 @@
 #import "DefaultStyleController.h"
 #import "UINavigationController+Style.h"
 #import "UIStoryboardSegue+Extension.h"
+#import "NSString+Extension.h"
 
 @interface BillCDTVC ()
 
@@ -78,8 +79,9 @@
     NSNumber *sum = [self.fetchedResultsController.fetchedObjects
                      valueForKeyPath:@"@sum.money"];
     
-    self.sumLabel.text = [NSString stringWithFormat:@" ¥ %.0f  ",
-                          fabs(sum.floatValue)];
+    self.sumLabel.text = [NSString
+                          stringWithFormat:@" %@  ", [NSString stringWithCurrencyStyleForFloat:fabs(sum.floatValue)]];
+
     
     self.countLabel.text = [NSString stringWithFormat:@" 共%lu笔   ",
                             (unsigned long)self.fetchedResultsController.fetchedObjects.count];
@@ -167,7 +169,9 @@
     UILabel *dateLabel =  (UILabel *)[cell viewWithTag:3];
     
     kindLabel.text = [NSString stringWithFormat:@"%@  ",[bill.kind.name description]];
-    moneyLabel.text = [NSString stringWithFormat:@" ¥ %.0f  ",fabs(bill.money.floatValue)];
+    moneyLabel.text = [NSString
+                       stringWithFormat:@" %@  ", [NSString stringWithCurrencyStyleForFloat:fabs(bill.money.floatValue)]];
+//                       [NSString stringForFloat:fabs(bill.money.floatValue)]];
     dateLabel.text = [NSString stringWithFormat:@"%@  ", [PubicVariable stringFromDate:bill.date]];
     
     kindLabel.backgroundColor = bill.kind.color;

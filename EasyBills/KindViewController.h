@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "PNChart.h"
 #import <CoreData/CoreData.h>
+#import "UIViewController+Extension.h"
+
+
+
+
 
 @interface KindViewController : UIViewController
 <UIPopoverPresentationControllerDelegate,
@@ -21,5 +26,7 @@ PNChartDelegate>
 
 @property (nonatomic) BOOL shouldRelaodData;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
+@property (strong, nonatomic, readonly) UIView *viewForHoldingRevealPanGesture;
 
 @end

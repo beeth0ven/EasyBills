@@ -65,6 +65,14 @@
     }
     
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self enableRevealPanGesture];
+}
+
+
 - (void)dealloc {
     [self.filters enumerateObjectsUsingBlock:^(Filter *obj, NSUInteger idx, BOOL *stop) {
         [obj removeObserver:self forKeyPath:@"selectIndex"];
@@ -372,5 +380,8 @@
     return _filters;
 }
 
+- (UIView *)viewForHoldingRevealPanGesture {
+    return self.view;
+}
 
 @end

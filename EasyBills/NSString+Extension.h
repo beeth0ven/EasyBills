@@ -11,6 +11,9 @@
 
 @interface NSString (Extension)
 
++ (NSString *)stringWithCurrencyStyleForFloat:(float)floatValue;
++ (NSString *)stringForFloat:(float)floatValue;
++ (NSString *)stringForNumber:(NSNumber *)number;
 + (NSString *)stringForPlacemark:(CLPlacemark *)placemark;
 - (NSString *)trimmedString;
 

@@ -7,8 +7,14 @@
 //
 
 #import "ClusterMapCDTVC.h"
+#import "UIViewController+Extension.h"
 
 @interface ToolBarCMCDTVC : ClusterMapCDTVC <CLLocationManagerDelegate>
 
+@property (strong, nonatomic, readonly) UIView *viewForHoldingRevealPanGesture;
 
 @end
+
+
+
+

@@ -47,6 +47,12 @@
     [self.navigationController applyDefualtStyle:YES];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self enableRevealPanGesture];
+}
+
 - (void)resizeTableFooterViewHeightToFitTableview {
     UIView *tableHeaderView = self.tableView.tableHeaderView;
     UIView *tableFooterView = self.tableView.tableFooterView;
@@ -116,7 +122,9 @@ NSInteger const kFeedbackCellTag = 4;
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = NO;
     if (cell.tag == kGetRateCellTag) {
-        #warning Incomplete method implementation.
+        NSString *appStoreLink = @"https://itunes.apple.com/us/app/simple-billing-easiest/id996352544?ls=1&mt=8";
+        NSURL *url = [NSURL URLWithString:appStoreLink];
+        [[UIApplication sharedApplication] openURL:url];
         NSLog(@"去 App Store 打分");
     } else if (cell.tag == kFeedbackCellTag) {
         [self showFeedback];
@@ -155,6 +163,10 @@ NSInteger const kFeedbackCellTag = 4;
 - (NSString *)appVersion {
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     return appDelegate.appVersion;
+}
+
+- (UIView *)viewForHoldingRevealPanGesture {
+    return self.view;
 }
 
 @end

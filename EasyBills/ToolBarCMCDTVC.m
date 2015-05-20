@@ -51,7 +51,11 @@
 ////    [self.mapTypeSegmented setNeedsDisplay];
 //    
 //}
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self enableRevealPanGesture];
+}
 
 #pragma mark - MKMapView Delegate
 
@@ -242,4 +246,7 @@
     return _activityIndicatorView;
 }
 
+- (UIView *)viewForHoldingRevealPanGesture {
+    return self.view;
+}
 @end
