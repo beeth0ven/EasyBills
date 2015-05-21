@@ -224,6 +224,10 @@
  */
 @property (nonatomic, strong) NSString *reenterNewPasscodeString;
 /**
+ @brief The string displayed when passcode failed attempt.
+ */
+@property (nonatomic, strong) NSString *passcodeFailedAttemptFormatString;
+/**
  @brief The string displayed while user unlocks with Touch ID.
  */
 @property (nonatomic, strong) NSString *touchIDString;

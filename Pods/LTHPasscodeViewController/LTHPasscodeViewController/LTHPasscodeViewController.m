@@ -530,7 +530,7 @@ options:NSNumericSearch] != NSOrderedAscending)
 	// It is also used to display the "Passcodes did not match" error message
     // if the user fails to confirm the passcode.
 	_failedAttemptLabel = [[UILabel alloc] initWithFrame: CGRectZero];
-	_failedAttemptLabel.text = @"1 Passcode Failed Attempt";
+	_failedAttemptLabel.text = [NSString stringWithFormat:self.passcodeFailedAttemptFormatString , 1];
     _failedAttemptLabel.numberOfLines = 0;
 	_failedAttemptLabel.backgroundColor	= _failedAttemptLabelBackgroundColor;
 	_failedAttemptLabel.hidden = YES;
@@ -1281,11 +1281,13 @@ options:NSNumericSearch] != NSOrderedAscending)
 //													  userInfo: nil];
 	
 	if (_failedAttempts == 1) {
-        _failedAttemptLabel.text =
-        NSLocalizedStringFromTable(@"1 Passcode Failed Attempt", _localizationTableName, @"");
+        _failedAttemptLabel.text = [NSString stringWithFormat:self.passcodeFailedAttemptFormatString , 1];
     }
 	else {
-		_failedAttemptLabel.text = [NSString stringWithFormat: NSLocalizedStringFromTable(@"%i Passcode Failed Attempts", _localizationTableName, @""), _failedAttempts];
+		_failedAttemptLabel.text = [NSString stringWithFormat:
+                                    self.passcodeFailedAttemptFormatString,
+//                                    NSLocalizedStringFromTable(@"%i Passcode Failed Attempts", _localizationTableName, @""),
+                                    _failedAttempts];
 	}
 	_failedAttemptLabel.layer.cornerRadius = kFailedAttemptLabelHeight * 0.65f;
 	_failedAttemptLabel.clipsToBounds = true;
@@ -1542,15 +1544,16 @@ options:NSNumericSearch] != NSOrderedAscending)
 
 
 - (void)_loadStringDefaults {
-    self.enterOldPasscodeString = @"Enter your old passcode";
-    self.enterPasscodeString = @"Enter your passcode";
-    self.enablePasscodeString = @"Enable Passcode";
-    self.changePasscodeString = @"Change Passcode";
-    self.turnOffPasscodeString = @"Turn Off Passcode";
-    self.reenterPasscodeString = @"Re-enter your passcode";
-    self.reenterNewPasscodeString = @"Re-enter your new passcode";
-    self.enterNewPasscodeString = @"Enter your new passcode";
-    self.touchIDString = @"Unlock using Touch ID";
+    self.enterOldPasscodeString = NSLocalizedString( @"Enter your old passcode", "");
+    self.enterPasscodeString = NSLocalizedString( @"Enter your passcode", "");
+    self.enablePasscodeString = NSLocalizedString( @"Enable Passcode", "");
+    self.changePasscodeString = NSLocalizedString( @"Change Passcode", "");
+    self.turnOffPasscodeString = NSLocalizedString( @"Turn Off Passcode", "");
+    self.reenterPasscodeString = NSLocalizedString( @"Re-enter your passcode", "");
+    self.reenterNewPasscodeString = NSLocalizedString( @"Re-enter your new passcode", "");
+    self.enterNewPasscodeString = NSLocalizedString( @"Enter your new passcode", "");
+    self.touchIDString = NSLocalizedString( @"Unlock using Touch ID", "");
+    self.passcodeFailedAttemptFormatString = NSLocalizedString(@"%i Passcode Failed Attempts", @"");
 }
 
 

@@ -35,7 +35,7 @@
 "Aev-sU-UUw.text" = " ¥ 800 ";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "Aqp-sz-fbV"; */
-"Aqp-sz-fbV.title" = " ";
+"Aqp-sz-fbV.title" = "";
 
 /* Class = "UITextField"; placeholder = "name"; ObjectID = "BHZ-Z7-nPF"; */
 "BHZ-Z7-nPF.placeholder" = "名字";
@@ -44,7 +44,7 @@
 "BJw-rB-34W.text" = "总体";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "Cfj-f4-GSD"; */
-"Cfj-f4-GSD.title" = " ";
+"Cfj-f4-GSD.title" = "";
 
 /* Class = "UILabel"; text = " ¥ 800   "; ObjectID = "F9G-c4-JJv"; */
 "F9G-c4-JJv.text" = " ¥ 800   ";
@@ -59,7 +59,7 @@
 "GTS-ae-aKa.placeholder" = "0";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "HOX-MK-e3X"; */
-"HOX-MK-e3X.title" = " ";
+"HOX-MK-e3X.title" = "";
 
 /* Class = "UINavigationItem"; title = "Home"; ObjectID = "HWn-ku-kRe"; */
 "HWn-ku-kRe.title" = "主页";
@@ -80,7 +80,7 @@
 "Lo6-dw-t35.text" = "关于";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "MX7-jQ-Db0"; */
-"MX7-jQ-Db0.title" = " ";
+"MX7-jQ-Db0.title" = "";
 
 /* Class = "UILabel"; text = "DZNSegmentedControl"; ObjectID = "MXt-3q-EVz"; */
 "MXt-3q-EVz.text" = "DZNSegmentedControl";
@@ -98,7 +98,7 @@
 "NKA-9K-91z.placeholder" = "简单描述...";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "NY6-Sn-kzN"; */
-"NY6-Sn-kzN.title" = " ";
+"NY6-Sn-kzN.title" = "";
 
 /* Class = "UILabel"; text = " 工资 "; ObjectID = "Nde-NU-Wm7"; */
 "Nde-NU-Wm7.text" = "工资";
@@ -146,7 +146,7 @@
 "d2M-Ew-hfQ.text" = " 4月15日 ";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "dNa-Fj-hSt"; */
-"dNa-Fj-hSt.title" = " ";
+"dNa-Fj-hSt.title" = "";
 
 /* Class = "UIButton"; normalTitle = "$ 10000.00"; ObjectID = "dVB-Kl-SVa"; */
 "dVB-Kl-SVa.normalTitle" = "$ 10000.00";
@@ -209,7 +209,11 @@
 "pol-va-xNO.text" = "总体";
 
 /* Class = "UILabel"; text = "This  app  can backup data to the iCloud.And then restore data from it. \n\nTo properly use this feature please do the following:\n• Sign into an iCloud account on the current device\n• Turn ON iCloud in the Settings app"; ObjectID = "qhv-Mv-uuZ"; */
-"qhv-Mv-uuZ.text" = "应用程序可以将备份储存在 iCloud 上。并且可以将数据从中恢复。 \\n使用该功能您需要做如下配置：\\n• 在设备上登录一个 iCloud 账号\\n• 在《设置》将 iCloud 打开";
+"qhv-Mv-uuZ.text" = "应用程序可以将备份储存在 iCloud 上。并且可以将数据从中恢复。 
+
+使用该功能您需要做如下配置：
+• 在设备上登录一个 iCloud 账号
+• 在《设置》将 iCloud 打开";
 
 /* Class = "UINavigationItem"; title = "Open Source License"; ObjectID = "qjh-jn-B1v"; */
 "qjh-jn-B1v.title" = "开源许可证";

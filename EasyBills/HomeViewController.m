@@ -324,14 +324,16 @@
     sharedLTHPasscodeViewController.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor],
                                                              NSFontAttributeName : [UIFont wawaFontForNavigationTitle]};
     sharedLTHPasscodeViewController.title = NSLocalizedString( @"Simple Billing", "");
-//    sharedLTHPasscodeViewController.enterPasscodeString = @"请输入密码";
-//    sharedLTHPasscodeViewController.enterNewPasscodeString = @"请输入新密码";
-//    sharedLTHPasscodeViewController.enablePasscodeString = @"设置密码";
-//    sharedLTHPasscodeViewController.changePasscodeString = @"修改密码";
-//    sharedLTHPasscodeViewController.turnOffPasscodeString = @"关闭密码";
-//    sharedLTHPasscodeViewController.reenterPasscodeString = @"请再次输入密码";
-//    sharedLTHPasscodeViewController.reenterNewPasscodeString = @"请再次输入新密码";
-//    
+    sharedLTHPasscodeViewController.enterOldPasscodeString = NSLocalizedString( @"Enter your old passcode", "");
+    sharedLTHPasscodeViewController.enterPasscodeString = NSLocalizedString( @"Enter your passcode", "");
+    sharedLTHPasscodeViewController.enablePasscodeString = NSLocalizedString( @"Enable Passcode", "");
+    sharedLTHPasscodeViewController.changePasscodeString = NSLocalizedString( @"Change Passcode", "");
+    sharedLTHPasscodeViewController.turnOffPasscodeString = NSLocalizedString( @"Turn Off Passcode", "");
+    sharedLTHPasscodeViewController.reenterPasscodeString = NSLocalizedString( @"Re-enter your passcode", "");
+    sharedLTHPasscodeViewController.reenterNewPasscodeString = NSLocalizedString( @"Re-enter your new passcode", "");
+    sharedLTHPasscodeViewController.enterNewPasscodeString = NSLocalizedString( @"Enter your new passcode", "");
+    sharedLTHPasscodeViewController.touchIDString = NSLocalizedString( @"Unlock using Touch ID", "");
+    sharedLTHPasscodeViewController.passcodeFailedAttemptFormatString = NSLocalizedString(@"%i Passcode Failed Attempts", @"");
     if ([LTHPasscodeViewController doesPasscodeExist] &&
         [LTHPasscodeViewController didPasscodeTimerEnd]) {
         [sharedLTHPasscodeViewController showLockScreenWithAnimation:NO

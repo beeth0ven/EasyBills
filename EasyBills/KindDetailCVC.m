@@ -537,9 +537,9 @@
         self.kind.isIncome = [NSNumber numberWithBool:sender.isOn];
     }  else {
         NSLog(@"This kind has bills.");
-        
+        Kind *defaultKind =[Kind defaultKindIsIncome:YES inManagedObjectContext:self.kind.managedObjectContext];
         NSString *message = [NSString stringWithFormat:NSLocalizedString( @"There are %lu bills in the category <%@>.Move them to <%@>？", ""),
-                             (unsigned long)self.kind.bills.count,self.kind.name,kKindDefaultName];
+                             (unsigned long)self.kind.bills.count,self.kind.name,defaultKind.name];
         UIAlertView *alert =
         [[UIAlertView alloc]
          initWithTitle:NSLocalizedString( @"Alert", "")

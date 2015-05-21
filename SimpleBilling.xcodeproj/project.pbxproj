@@ -35,6 +35,7 @@
 		45668A1B1B0088B4008E3A5B /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45668A1A1B0088B4008E3A5B /* UIColor+Extension.m */; };
 		4568DB861ABFFA3D0064BBE2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */; };
 		456F70081ADE4687000E2B04 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 456F70071ADE4687000E2B04 /* NSDate+Extension.m */; };
+		45807ACB1B0DE3650091842D /* NSBundle+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45807ACA1B0DE3650091842D /* NSBundle+Extension.m */; };
 		458517A21AC95778003149C3 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4585179F1AC95778003149C3 /* Filter.m */; };
 		458517A31AC95778003149C3 /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458517A11AC95778003149C3 /* FilterTableViewController.m */; };
 		45895D821AC1217C0009E749 /* ClusterMapCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45895D811AC1217C0009E749 /* ClusterMapCDTVC.m */; };
@@ -168,6 +169,8 @@
 		4568DB851ABFFA3D0064BBE2 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		456F70061ADE4687000E2B04 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		456F70071ADE4687000E2B04 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		45807AC91B0DE3650091842D /* NSBundle+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Extension.h"; sourceTree = "<group>"; };
+		45807ACA1B0DE3650091842D /* NSBundle+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Extension.m"; sourceTree = "<group>"; };
 		4585179E1AC95778003149C3 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = ../Filter.h; sourceTree = "<group>"; };
 		4585179F1AC95778003149C3 /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filter.m; path = ../Filter.m; sourceTree = "<group>"; };
 		458517A01AC95778003149C3 /* FilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilterTableViewController.h; path = ../FilterTableViewController.h; sourceTree = "<group>"; };
@@ -690,6 +693,8 @@
 		BD81A3CE1A99CEB800C2CBE6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				45807AC91B0DE3650091842D /* NSBundle+Extension.h */,
+				45807ACA1B0DE3650091842D /* NSBundle+Extension.m */,
 				45EC15B71B086F6F00D11511 /* NSURL+Extension.h */,
 				45EC15B81B086F6F00D11511 /* NSURL+Extension.m */,
 				45668A191B0088B4008E3A5B /* UIColor+Extension.h */,
@@ -1027,6 +1032,7 @@
 				4561ECEC1AEE0F990079D6A9 /* ColorCVCell.m in Sources */,
 				BDB32C9C1A22421C00EA822E /* SidebarViewController.m in Sources */,
 				45C96EED1B05A32200D28839 /* KindViewController.m in Sources */,
+				45807ACB1B0DE3650091842D /* NSBundle+Extension.m in Sources */,
 				4508D6011AC2961F007CA44A /* ToolBarCMCDTVC.m in Sources */,
 				BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */,
 				BD6FC8501AA0B7730059AC20 /* KindDetailCVC.m in Sources */,

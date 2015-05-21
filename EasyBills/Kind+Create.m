@@ -43,7 +43,7 @@
         kind.visiteTime = kind.createDate;
         kind.isIncome = [NSNumber numberWithBool: isIncome];
         kind.colorID = [ColorCenter assingColorIDIsIncome:isIncome];
-        BOOL isDefault = [name isEqualToString:kKindDefaultName] ? YES : NO;
+        BOOL isDefault = [name isEqualToString:[self kKindDefaultName]] ? YES : NO;
         kind.isDefault = [NSNumber numberWithBool:isDefault];
         [kind updateUniqueIDIfNeeded];
         
@@ -189,10 +189,32 @@
 
 
 
-NSString *const kKindDefaultName  = @"Others";
++ (NSString *)kKindDefaultName {
+    return NSLocalizedString( @"Others", "");
+}
 
 + (Kind *)defaultKindIsIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context {
-    return [self kindWithName:kKindDefaultName isIncome:isIncome inManagedObjectContext:context];
+    Kind *kind;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Kind"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"isDefault = %@ AND isIncome = %@",[NSNumber numberWithBool:YES],[NSNumber numberWithBool:isIncome]];
+    
+    NSError *error = nil;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    
+    if ([matches count] > 1) {
+        //error
+        NSLog(@"error: kind match > 1");
+        kind = [matches lastObject];
+    }else if ([matches count] == 1){
+        kind = [matches lastObject];
+    }else if ([matches count] == 0){
+        kind = [self kindWithName:[self kKindDefaultName] isIncome:isIncome inManagedObjectContext:context];
+    }
+    
+    return kind;
+
 }
 
 

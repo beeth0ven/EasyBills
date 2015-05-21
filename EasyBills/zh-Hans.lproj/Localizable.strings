@@ -13,8 +13,11 @@
 /* should change for chinese */
 "%@ %@ Pie Chart" = "%1$@%2$@饼图";
 
-/* (No Commment) */
-"%@ bytes, updated %@. Version %@" = "%1$@ bytes，更新于 %2$@。版本 %3$@";
+/* No comment provided by engineer. */
+"%i Passcode Failed Attempts" = "%i 次密码尝试失败";
+
+/* No comment provided by engineer. */
+"%lu bills" = "共%lu笔";
 
 /* No comment provided by engineer. */
 "<%@> already contains <%@>" = " <%1$@> 内已存在 <%2$@>";
@@ -49,8 +52,8 @@
 /* No comment provided by engineer. */
 "Category" = "分类";
 
-/* (No Commment) */
-"Category,Money,Date,Descreption " = "分类,金额,日期,描述";
+/* No comment provided by engineer. */
+"Change Passcode" = "修改密码";
 
 /* No comment provided by engineer. */
 "Close" = "关闭";
@@ -75,6 +78,18 @@
 
 /* No comment provided by engineer. */
 "Empty" = "空";
+
+/* No comment provided by engineer. */
+"Enable Passcode" = "启用密码";
+
+/* No comment provided by engineer. */
+"Enter your new passcode" = "输入新密码";
+
+/* No comment provided by engineer. */
+"Enter your old passcode" = "输入老的密码";
+
+/* No comment provided by engineer. */
+"Enter your passcode" = "输入密码";
 
 /* No comment provided by engineer. */
 "Entertainment" = "娱乐";
@@ -152,6 +167,12 @@
 "Please try to restore from another backup" = "请尝试从其他备份恢复";
 
 /* No comment provided by engineer. */
+"Re-enter your new passcode" = "重新输入新密码";
+
+/* No comment provided by engineer. */
+"Re-enter your passcode" = "重新输入密码";
+
+/* No comment provided by engineer. */
 "Restore Complete!" = "恢复成功！";
 
 /* No comment provided by engineer. */
@@ -213,6 +234,9 @@
 
 /* No comment provided by engineer. */
 "Tuesday" = "周二";
+
+/* No comment provided by engineer. */
+"Turn Off Passcode" = "关闭密码锁";
 
 /* No comment provided by engineer. */
 "Turn On iCloud" = "启用 iCloud";
