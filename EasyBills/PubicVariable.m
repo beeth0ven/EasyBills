@@ -83,13 +83,13 @@
 //    NSInteger weekdayOfToday = [todayComponents weekday];
     
     if ([NSDate isSameDay:date andDate:[NSDate date]]) {
-        return @"今天";
+        return NSLocalizedString(@"Today", "") ;
 
     }else if([NSDate isSameDay:date andDate:[NSDate yesterday]]){
-        return @"昨天";
+        return NSLocalizedString(@"Yesterday", "") ;
 
     }else if([NSDate isSameDay:date andDate:[NSDate dayBeforeYesterday]]){
-        return @"前天";
+        return NSLocalizedString(@"The day before yesterday", "") ;
 
     }
 //    
@@ -120,31 +120,35 @@
     
     if (yearOfDate == yearOfToday &&
         weekOfYearOfDate == weekOfYearOfToday) {
-        return [NSString stringWithFormat:@"本周%@", [self weekDayStrings] [weekdayOfDate]];
+        NSString *formatLocalizedString = NSLocalizedString(@"This %@", "This week/month/year");
+        return [NSString stringWithFormat:formatLocalizedString, [self weekDayStrings] [weekdayOfDate]];
     }else if (yearOfDate == yearOfToday &&
               weekOfYearOfDate == weekOfYearOfToday - 1){
-        return [NSString stringWithFormat:@"上周%@",[self weekDayStrings] [weekdayOfDate]];
+        NSString *formatLocalizedString = NSLocalizedString(@"Last %@", "Last week/month/year");
+        return [NSString stringWithFormat:formatLocalizedString,[self weekDayStrings] [weekdayOfDate]];
     }
     
     NSDateFormatter *dateFormtter=[[NSDateFormatter alloc] init];
-    if (yearOfDate == yearOfToday) {
-        [dateFormtter setDateFormat:@"M月d日"];
-    }else {
-        [dateFormtter setDateFormat:@"Y年M月d日"];
-
-    }
+    [dateFormtter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormtter setTimeStyle:NSDateFormatterNoStyle];
+//    if (yearOfDate == yearOfToday) {
+//        [dateFormtter setDateFormat:@"M月d日"];
+//    }else {
+//        [dateFormtter setDateFormat:@"Y年M月d日"];
+//
+//    }
     return [dateFormtter stringFromDate:date];
 }
 
 + (NSArray *)weekDayStrings {
     return @[@"?",
-             @"日",
-             @"一",
-             @"二",
-             @"三",
-             @"四",
-             @"五",
-             @"六",
+              NSLocalizedString(@"Sunday", ""),
+              NSLocalizedString(@"Monday", ""),
+              NSLocalizedString(@"Tuesday", ""),
+              NSLocalizedString(@"Wednesday", ""),
+              NSLocalizedString(@"Thursday", ""),
+              NSLocalizedString(@"Friday", ""),
+              NSLocalizedString(@"Saturday", ""),
              ];
 }
 
@@ -233,6 +237,46 @@
     }
     return  number.integerValue;
 }
+
++ (NSString *)kDeletBillActionSheetTitle {
+    return NSLocalizedString(@"Are you sure you want to delete this bill?", "");
+    
+}
++ (NSString *)kDeletBillImageActionSheetTitle {
+    return  NSLocalizedString(@"Are you sure you want to delete this photo?", "");
+    
+}
+
++ (NSString *)kCLAuthorizationStatusDeniedTitle {
+    return   NSLocalizedString( @"You need to turn on Location Services", "");
+    
+}
++ (NSString *)kCLAuthorizationStatusDeniedMessage {
+    return   NSLocalizedString( @"You can go to < Setting -> Privacy -> Location Services > to turn it on!", "");
+    
+}
+
++ (NSString *)kCLAuthorizationStatusRestrictedTitle {
+    return   NSLocalizedString( @"You need to turn on Location Services", "");
+    
+}
++ (NSString *)kCLAuthorizationStatusRestrictedMessage {
+    return   NSLocalizedString( @"You can go to < Setting -> Privacy -> Location Services > to turn it on!", "");
+    
+}
+
++ (NSString *)kPromptTitle {
+    return   NSLocalizedString( @"Alert", "");
+    
+}
++ (NSString *)kMailNotConfiguredMessage {
+    return   NSLocalizedString( @"E-mail has not been configured.", "");
+    
+}
+
+
+
+
 
 
 

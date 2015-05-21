@@ -18,7 +18,7 @@
    clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
-    if ([title isEqualToString:@"删除" ]) {
+    if ([title isEqualToString:NSLocalizedString( @"Delete", "") ]) {
         [self deleteBill];
     }
 }

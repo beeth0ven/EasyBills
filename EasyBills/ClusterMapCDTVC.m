@@ -343,7 +343,7 @@
             if ([viewController isKindOfClass:[BillCDTVC class]]) {
                 BillCDTVC *billCoreDataTableViewController = (BillCDTVC *)viewController;
                 billCoreDataTableViewController.fetchedResultsController = [self fetchedResultsControlleWithBill:bill];
-                NSString *title = (bill.plackmark.name.length) ? bill.plackmark.name : @"地点";
+                NSString *title = (bill.plackmark.name.length) ? bill.plackmark.name : NSLocalizedString( @"Place", "");
                 billCoreDataTableViewController.title = title;
             }
         }

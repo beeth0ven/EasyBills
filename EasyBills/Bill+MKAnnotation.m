@@ -71,7 +71,7 @@
 -(NSString *)title
 {
     if (self.containedAnnotations.count > 0) {
-        return [NSString stringWithFormat:@"%zd 笔账单"
+        return [NSString stringWithFormat:@"%zd bills"
                 , self.containedAnnotations.count + 1];
         
     }
@@ -127,7 +127,7 @@
                          NSString *name = [NSString stringForPlacemark:placemark];
                          self.plackmark = [Plackmark plackmarkWithName:name inManagedObjectContext:self.managedObjectContext];
                      }else{
-                         self.plackmark = [Plackmark plackmarkWithName:@"未知地点" inManagedObjectContext:self.managedObjectContext];
+                         self.plackmark = [Plackmark plackmarkWithName:@"Unknown place." inManagedObjectContext:self.managedObjectContext];
                          
                      }
                      

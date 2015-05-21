@@ -8,15 +8,6 @@
 
 #import "UIAlertView+Extension.h"
 
-NSString *const kCLAuthorizationStatusDeniedTitle = @"您需要打开定位服务";
-NSString *const kCLAuthorizationStatusDeniedMessage = @"您可以前往 《 设置 -> 隐私 -> 定位服务 》 打开它！";
-
-NSString *const kCLAuthorizationStatusRestrictedTitle = @"您需要解除定位限制";
-NSString *const kCLAuthorizationStatusRestrictedMessage = @"您可以前往 《 设置 -> 通用 -> 访问限制 -> 定位服务 》 解除限制！";
-
-NSString *const kPromptTitle = @"提示";
-NSString *const kMailNotConfiguredMessage = @"邮箱尚未配置。";
-
 
 
 @implementation UIAlertView (Extension)
@@ -29,7 +20,7 @@ NSString *const kMailNotConfiguredMessage = @"邮箱尚未配置。";
      initWithTitle:title
      message:message
      delegate:nil
-     cancelButtonTitle:@"好"
+     cancelButtonTitle:NSLocalizedString( @"Ok", "")
      otherButtonTitles: nil];
     
     [alertView show];

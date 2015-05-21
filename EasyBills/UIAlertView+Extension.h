@@ -8,15 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *const kCLAuthorizationStatusDeniedTitle;
-
-extern NSString *const kCLAuthorizationStatusDeniedMessage;
-
-extern NSString *const kCLAuthorizationStatusRestrictedTitle;
-extern NSString *const kCLAuthorizationStatusRestrictedMessage;
-
-extern NSString *const kPromptTitle;
-extern NSString *const kMailNotConfiguredMessage;
 
 
 @interface UIAlertView (Extension)

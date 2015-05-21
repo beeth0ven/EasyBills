@@ -9,6 +9,8 @@
 #import "Kind.h"
 #import "PubicVariable.h"
 
+extern NSString *const kKindDefaultName;
+
 @interface Kind (Create)
 
 + (Kind *)kindWithName:(NSString *)name isIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context;

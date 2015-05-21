@@ -1,0 +1,243 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "1fh-Tz-E3G"; */
+"1fh-Tz-E3G.text" = "Title";
+
+/* Class = "UILabel"; text = "Simple Billing"; ObjectID = "3xU-i4-rVO"; */
+"3xU-i4-rVO.text" = "Simple Billing";
+
+/* Class = "UILabel"; text = "Delete"; ObjectID = "53A-Yd-I23"; */
+"53A-Yd-I23.text" = "Delete";
+
+/* Class = "UILabel"; text = " =    "; ObjectID = "5VQ-Hp-XIM"; */
+"5VQ-Hp-XIM.text" = " =    ";
+
+/* Class = "UILabel"; text = "  共3笔  "; ObjectID = "5xe-Mv-gOq"; */
+"5xe-Mv-gOq.text" = "  共3笔  ";
+
+/* Class = "UILabel"; text = "Passcode"; ObjectID = "83F-5g-R1c"; */
+"83F-5g-R1c.text" = "Passcode";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "973-rx-Kko"; */
+"973-rx-Kko.title" = "Settings";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "97c-dd-ARE"; */
+"97c-dd-ARE.text" = "12";
+
+/* Class = "UILabel"; text = " =    "; ObjectID = "9sq-ts-b6J"; */
+"9sq-ts-b6J.text" = " =    ";
+
+/* Class = "UILabel"; text = "Open Source License"; ObjectID = "A1Z-fI-bmW"; */
+"A1Z-fI-bmW.text" = "Open Source License";
+
+/* Class = "UILabel"; text = "Date："; ObjectID = "AFe-76-dQq"; */
+"AFe-76-dQq.text" = "Date：";
+
+/* Class = "UILabel"; text = " ¥ 800 "; ObjectID = "Aev-sU-UUw"; */
+"Aev-sU-UUw.text" = " ¥ 800 ";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Aqp-sz-fbV"; */
+"Aqp-sz-fbV.title" = " ";
+
+/* Class = "UITextField"; placeholder = "name"; ObjectID = "BHZ-Z7-nPF"; */
+"BHZ-Z7-nPF.placeholder" = "name";
+
+/* Class = "UILabel"; text = "All"; ObjectID = "BJw-rB-34W"; */
+"BJw-rB-34W.text" = "All";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Cfj-f4-GSD"; */
+"Cfj-f4-GSD.title" = " ";
+
+/* Class = "UILabel"; text = " ¥ 800   "; ObjectID = "F9G-c4-JJv"; */
+"F9G-c4-JJv.text" = " ¥ 800   ";
+
+/* Class = "UISegmentedControl"; FHV-yT-NDE.segmentTitles[0] = "Standard"; ObjectID = "FHV-yT-NDE"; */
+"FHV-yT-NDE.segmentTitles[0]" = "Standard";
+
+/* Class = "UISegmentedControl"; FHV-yT-NDE.segmentTitles[1] = "Satellite"; ObjectID = "FHV-yT-NDE"; */
+"FHV-yT-NDE.segmentTitles[1]" = "Satellite";
+
+/* Class = "UITextField"; placeholder = "0"; ObjectID = "GTS-ae-aKa"; */
+"GTS-ae-aKa.placeholder" = "0";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "HOX-MK-e3X"; */
+"HOX-MK-e3X.title" = " ";
+
+/* Class = "UINavigationItem"; title = "Home"; ObjectID = "HWn-ku-kRe"; */
+"HWn-ku-kRe.title" = "Home";
+
+/* Class = "UIButton"; normalTitle = "$ 8000.00"; ObjectID = "JUH-7v-rY4"; */
+"JUH-7v-rY4.normalTitle" = "$ 8000.00";
+
+/* Class = "UILabel"; text = "Copyright (c) 2015 LuoJie. All rights reserved."; ObjectID = "JZ4-eH-nTo"; */
+"JZ4-eH-nTo.text" = "Copyright (c) 2015 LuoJie. All rights reserved.";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "Kf0-LZ-dfS"; */
+"Kf0-LZ-dfS.text" = "Category";
+
+/* Class = "UINavigationItem"; title = "Manage Category"; ObjectID = "L7v-sE-qI8"; */
+"L7v-sE-qI8.title" = "Manage Category";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "Lo6-dw-t35"; */
+"Lo6-dw-t35.text" = "About";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "MX7-jQ-Db0"; */
+"MX7-jQ-Db0.title" = " ";
+
+/* Class = "UILabel"; text = "DZNSegmentedControl"; ObjectID = "MXt-3q-EVz"; */
+"MXt-3q-EVz.text" = "DZNSegmentedControl";
+
+/* Class = "UILabel"; text = "0.0"; ObjectID = "Mlx-4w-iX7"; */
+"Mlx-4w-iX7.text" = "0.0";
+
+/* Class = "UILabel"; text = "Home"; ObjectID = "N9h-If-YCk"; */
+"N9h-If-YCk.text" = "Home";
+
+/* Class = "UILabel"; text = " 工资 "; ObjectID = "NCN-3J-xTV"; */
+"NCN-3J-xTV.text" = " 工资 ";
+
+/* Class = "UITextField"; placeholder = "Descrption..."; ObjectID = "NKA-9K-91z"; */
+"NKA-9K-91z.placeholder" = "Descrption...";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "NY6-Sn-kzN"; */
+"NY6-Sn-kzN.title" = " ";
+
+/* Class = "UILabel"; text = " 工资 "; ObjectID = "Nde-NU-Wm7"; */
+"Nde-NU-Wm7.text" = " 工资 ";
+
+/* Class = "UILabel"; text = "武汉市，湖北"; ObjectID = "PoW-kb-a5i"; */
+"PoW-kb-a5i.text" = "武汉市，湖北";
+
+/* Class = "UILabel"; text = "Empty"; ObjectID = "TJn-ci-NfA"; */
+"TJn-ci-NfA.text" = "Empty";
+
+/* Class = "UILabel"; text = "Export"; ObjectID = "TLU-bn-tWX"; */
+"TLU-bn-tWX.text" = "Export";
+
+/* Class = "UINavigationItem"; title = "Conflict Resolver"; ObjectID = "TRW-8a-idN"; */
+"TRW-8a-idN.title" = "Conflict Resolver";
+
+/* Class = "UILabel"; text = " 共53笔   "; ObjectID = "VH3-O4-2H8"; */
+"VH3-O4-2H8.text" = " 共53笔   ";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "Vjq-jk-OgA"; */
+"Vjq-jk-OgA.title" = "About";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "WFa-Tu-eZE"; */
+"WFa-Tu-eZE.text" = "Title";
+
+/* Class = "UILabel"; text = "Welcome to iCloud"; ObjectID = "WJI-Sq-XfY"; */
+"WJI-Sq-XfY.text" = "Welcome to iCloud";
+
+/* Class = "UILabel"; text = "2014年11月10日"; ObjectID = "Xql-x8-Owq"; */
+"Xql-x8-Owq.text" = "2014年11月10日";
+
+/* Class = "UITableViewController"; title = "Conflict Resolver"; ObjectID = "agE-Au-In7"; */
+"agE-Au-In7.title" = "Conflict Resolver";
+
+/* Class = "UIButton"; normalTitle = "$ 2000.00"; ObjectID = "bpT-rY-ePP"; */
+"bpT-rY-ePP.normalTitle" = "$ 2000.00";
+
+/* Class = "UILabel"; text = "Version"; ObjectID = "cWm-7m-HLY"; */
+"cWm-7m-HLY.text" = "Version";
+
+/* Class = "UINavigationItem"; title = "Map"; ObjectID = "cmd-uU-B5x"; */
+"cmd-uU-B5x.title" = "Map";
+
+/* Class = "UILabel"; text = " 4月15日 "; ObjectID = "d2M-Ew-hfQ"; */
+"d2M-Ew-hfQ.text" = " 4月15日 ";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "dNa-Fj-hSt"; */
+"dNa-Fj-hSt.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "$ 10000.00"; ObjectID = "dVB-Kl-SVa"; */
+"dVB-Kl-SVa.normalTitle" = "$ 10000.00";
+
+/* Class = "UIButton"; normalTitle = "Follow @LuoJie6 "; ObjectID = "ddC-uH-Nyz"; */
+"ddC-uH-Nyz.normalTitle" = "Follow @LuoJie6 ";
+
+/* Class = "UILabel"; text = "人情"; ObjectID = "djD-di-XlQ"; */
+"djD-di-XlQ.text" = "人情";
+
+/* Class = "UINavigationItem"; title = "Expenses"; ObjectID = "eEc-6c-KEx"; */
+"eEc-6c-KEx.title" = "Expenses";
+
+/* Class = "UILabel"; text = "Map"; ObjectID = "er2-ns-YgM"; */
+"er2-ns-YgM.text" = "Map";
+
+/* Class = "UIButton"; normalTitle = "Setup iCloud Before Continuing"; ObjectID = "f55-Yj-hqP"; */
+"f55-Yj-hqP.normalTitle" = "Setup iCloud Before Continuing";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "frp-vK-yih"; */
+"frp-vK-yih.text" = "Settings";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gPx-hs-vWC"; */
+"gPx-hs-vWC.text" = "Label";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "jTZ-Pc-OQV"; */
+"jTZ-Pc-OQV.text" = "1";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "jdv-3F-cC5"; */
+"jdv-3F-cC5.text" = "Label";
+
+/* Class = "UILabel"; text = "Color"; ObjectID = "jgz-nM-VYQ"; */
+"jgz-nM-VYQ.text" = "Color";
+
+/* Class = "UINavigationItem"; title = "Category"; ObjectID = "kPV-ho-m0g"; */
+"kPV-ho-m0g.title" = "Category";
+
+/* Class = "UINavigationItem"; title = "iCloud Save & Load"; ObjectID = "kn6-so-1zO"; */
+"kn6-so-1zO.title" = "iCloud Save & Load";
+
+/* Class = "UILabel"; text = "  支出  "; ObjectID = "lTY-pj-ecS"; */
+"lTY-pj-ecS.text" = "  支出  ";
+
+/* Class = "UILabel"; text = "Rate On App Store"; ObjectID = "lkI-lE-SPk"; */
+"lkI-lE-SPk.text" = "Rate On App Store";
+
+/* Class = "UILabel"; text = "Feedback"; ObjectID = "mUa-zx-10k"; */
+"mUa-zx-10k.text" = "Feedback";
+
+/* Class = "UILabel"; text = "共3笔"; ObjectID = "oCi-Zs-NEV"; */
+"oCi-Zs-NEV.text" = "共3笔";
+
+/* Class = "UILabel"; text = "(The MIT License)\n\n\n"; ObjectID = "oGt-XR-WRX"; */
+"oGt-XR-WRX.text" = "(The MIT License)\n\n\n";
+
+/* Class = "UILabel"; text = "iCloud Save & Load"; ObjectID = "phu-bZ-XHu"; */
+"phu-bZ-XHu.text" = "iCloud Save & Load";
+
+/* Class = "UILabel"; text = "All"; ObjectID = "pol-va-xNO"; */
+"pol-va-xNO.text" = "All";
+
+/* Class = "UILabel"; text = "This  app  can backup data to the iCloud.And then restore data from it. \n\nTo properly use this feature please do the following:\n• Sign into an iCloud account on the current device\n• Turn ON iCloud in the Settings app"; ObjectID = "qhv-Mv-uuZ"; */
+"qhv-Mv-uuZ.text" = "This  app  can backup data to the iCloud.And then restore data from it. \n\nTo properly use this feature please do the following:\n• Sign into an iCloud account on the current device\n• Turn ON iCloud in the Settings app";
+
+/* Class = "UINavigationItem"; title = "Open Source License"; ObjectID = "qjh-jn-B1v"; */
+"qjh-jn-B1v.title" = "Open Source License";
+
+/* Class = "UIButton"; normalTitle = "Start Using iCloud"; ObjectID = "r6I-U0-6Fc"; */
+"r6I-U0-6Fc.normalTitle" = "Start Using iCloud";
+
+/* Class = "UILabel"; text = "Filter："; ObjectID = "rnD-9V-mzH"; */
+"rnD-9V-mzH.text" = "Filter：";
+
+/* Class = "UILabel"; text = "Use for income"; ObjectID = "sVG-Ib-sKg"; */
+"sVG-Ib-sKg.text" = "Use for income";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "tew-qI-FYR"; */
+"tew-qI-FYR.text" = "Name";
+
+/* Class = "UILabel"; text = "共9种"; ObjectID = "ubn-X5-xU2"; */
+"ubn-X5-xU2.text" = "共9种";
+
+/* Class = "UILabel"; text = "Weekly Income Pie Chart"; ObjectID = "umo-Na-HRN"; */
+"umo-Na-HRN.text" = "Weekly Income Pie Chart";
+
+/* Class = "UILabel"; text = "Delete"; ObjectID = "vSA-bY-CN6"; */
+"vSA-bY-CN6.text" = "Delete";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "wv3-3M-CjG"; */
+"wv3-3M-CjG.text" = "Subtitle";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "zW4-ZF-pWA"; */
+"zW4-ZF-pWA.normalTitle" = "Cancel";

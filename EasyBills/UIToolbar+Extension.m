@@ -31,7 +31,7 @@
                              action:nil];
     
     UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]
-                                      initWithTitle:@"完成"
+                                      initWithTitle:NSLocalizedString( @"Done", "")
                                       style:UIBarButtonItemStylePlain
                                       target:VC
                                       action:doneAction];

@@ -53,4 +53,16 @@ enum :NSInteger{
 + (NSInteger)nextAssignExpenseColorIndex;
 
 
++ (NSString *)kDeletBillActionSheetTitle;
++ (NSString *)kDeletBillImageActionSheetTitle;
+
++ (NSString *)kCLAuthorizationStatusDeniedTitle;
++ (NSString *)kCLAuthorizationStatusDeniedMessage;
+
++ (NSString *)kCLAuthorizationStatusRestrictedTitle;
++ (NSString *)kCLAuthorizationStatusRestrictedMessage;
+
++ (NSString *)kPromptTitle;
++ (NSString *)kMailNotConfiguredMessage;
+
 @end

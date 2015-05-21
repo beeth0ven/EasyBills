@@ -166,7 +166,10 @@
     
     //"本周", "本月", "总体"
     self.segmentedControl = [[DZNSegmentedControl alloc]
-                             initWithItems:@[@"周", @"月", @"年"]];
+                             initWithItems:@[
+                                             NSLocalizedString( @"Week", ""),
+                                             NSLocalizedString( @"Month", ""),
+                                             NSLocalizedString( @"Year", "")]];
     
     self.segmentedControl.frame = CGRectMake(0,
                                              0,
@@ -320,7 +323,7 @@
     sharedLTHPasscodeViewController.labelFont = [UIFont wawaFontForLabel];
     sharedLTHPasscodeViewController.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor],
                                                              NSFontAttributeName : [UIFont wawaFontForNavigationTitle]};
-    sharedLTHPasscodeViewController.title = @"简单记账";
+    sharedLTHPasscodeViewController.title = NSLocalizedString( @"Simple Billing", "");
 //    sharedLTHPasscodeViewController.enterPasscodeString = @"请输入密码";
 //    sharedLTHPasscodeViewController.enterNewPasscodeString = @"请输入新密码";
 //    sharedLTHPasscodeViewController.enablePasscodeString = @"设置密码";
@@ -421,11 +424,11 @@
         NSString *incomeString;
         switch (incomeMode) {
             case isIncomeYes:{
-                incomeString = @"-收入";
+                incomeString = NSLocalizedString( @" - Income", "");
                 break;
             }
             case isIncomeNo:{
-                incomeString = @"-支出";
+                incomeString = NSLocalizedString( @" - Expenses", "");
                 break;
             }
             default:{

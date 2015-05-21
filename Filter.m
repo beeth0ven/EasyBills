@@ -31,16 +31,16 @@
     
     switch (type) {
         case LJFilterTime:{
-            result = @[@"总体",
-                       @"本周",
-                       @"本月"];
+            result = @[ NSLocalizedString(@"All", ""),
+                        NSLocalizedString(@"This week", ""),
+                        NSLocalizedString(@"This month", "")];
             break;
         }
         default:{
             result = @[
 //                       @"全部",
-                       @"支出",
-                       @"收入" ];
+                      NSLocalizedString(@"Expenses", ""),
+                      NSLocalizedString(@"Income", "") ];
             break;
         }
     }
@@ -51,8 +51,8 @@
 
 
 + (NSArray *)names {
-    return @[@"时间",
-             @"分类"];
+    return @[NSLocalizedString( @"Date", ""),
+             NSLocalizedString( @"Category", "")];
 }
 
 

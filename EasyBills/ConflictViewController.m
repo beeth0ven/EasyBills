@@ -46,7 +46,7 @@
     NSNumber *filesize = [[iCloud sharedCloud] fileSize:documentName];
     NSDate *updated = [[iCloud sharedCloud] fileModifiedDate:documentName];
     
-    NSString *fileDetail = [NSString stringWithFormat:@"%@ bytes, updated %@.\nVersion %@", filesize, [MHPrettyDate prettyDateFromDate:updated withFormat:MHPrettyDateFormatWithTime], fileVersion];
+    NSString *fileDetail = [NSString stringWithFormat:NSLocalizedString( @"%@ bytes, updated %@.\nVersion %@", ""), filesize, [MHPrettyDate prettyDateFromDate:updated withFormat:MHPrettyDateFormatWithTime], fileVersion];
     
     // Configure the cell...
     cell.textLabel.text = documentName;

@@ -55,10 +55,18 @@
 
 - (IBAction)setupCloud:(id)sender {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"userCloudPref"] == NO) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"iCloud Disabled" message:@"You have disabled iCloud for this app. Would you like to turn it on again?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Turn On iCloud", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"iCloud Disabled", "")
+                                                        message:NSLocalizedString( @"You have disabled iCloud for this app. Would you like to turn it on again?", "")
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString( @"Cancel", "")
+                                              otherButtonTitles:NSLocalizedString( @"Turn On iCloud", ""), nil];
         [alert show];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Setup iCloud" message:@"iCloud is not available. Sign into an iCloud account on this device and check that this app has authority to use the iCloud." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Setup iCloud", "")
+                                                        message:NSLocalizedString( @"iCloud is not available. Sign into an iCloud account on this device and check that this app has authority to use the iCloud.", "")
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString( @"Ok", "")
+                                              otherButtonTitles:nil];
         [alert show];
     }
 }
@@ -81,7 +89,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
-    if ([buttonTitle isEqualToString:@"Turn On iCloud"]) {
+    if ([buttonTitle isEqualToString:NSLocalizedString( @"Turn On iCloud", "")]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"userCloudPref"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Kind+Create.h"
 
-#define DELETE_KIND_ACTIONSHEET_TITLE @"您确定要删除账此类别吗?"
+#define DELETE_KIND_ACTIONSHEET_TITLE @"Are you sure you want to delete this category?"
 
 @interface KindDetailCVC : UICollectionViewController
 <UITextFieldDelegate,

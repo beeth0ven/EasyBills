@@ -1,0 +1,258 @@
+/* No comment provided by engineer. */
+" %lu bills   " = " 共%lu笔  ";
+
+/* No comment provided by engineer. */
+" %lu categories   " = " 共%lu种  ";
+
+/* No comment provided by engineer. */
+" - Expenses" = " - 支出";
+
+/* No comment provided by engineer. */
+" - Income" = " - 收入";
+
+/* should change for chinese */
+"%@ %@ Pie Chart" = "%1$@%2$@饼图";
+
+/* (No Commment) */
+"%@ bytes, updated %@. Version %@" = "%1$@ bytes，更新于 %2$@。版本 %3$@";
+
+/* No comment provided by engineer. */
+"<%@> already contains <%@>" = " <%1$@> 内已存在 <%2$@>";
+
+/* No comment provided by engineer. */
+"<%@> already exists" = "<%@> 已存在";
+
+/* No comment provided by engineer. */
+"A backup file alredy exist." = "备份已存在";
+
+/* No comment provided by engineer. */
+"A backup has been created." = "备份已被创建";
+
+/* No comment provided by engineer. */
+"Alert" = "提示";
+
+/* No comment provided by engineer. */
+"All" = "总体";
+
+/* No comment provided by engineer. */
+"All data has been restored from the selected backup" = "所有数据已经从备份中恢复";
+
+/* No comment provided by engineer. */
+"Are you sure you want to delete this bill?" = "你确定要删除这个记录吗？";
+
+/* No comment provided by engineer. */
+"Are you sure you want to delete this photo?" = "你确定要删除这个照片吗？";
+
+/* No comment provided by engineer. */
+"Cancel" = "取消";
+
+/* No comment provided by engineer. */
+"Category" = "分类";
+
+/* (No Commment) */
+"Category,Money,Date,Descreption " = "分类,金额,日期,描述";
+
+/* No comment provided by engineer. */
+"Close" = "关闭";
+
+/* No comment provided by engineer. */
+"Clothes" = "衣服";
+
+/* No comment provided by engineer. */
+"Data missing" = "数据丢失";
+
+/* No comment provided by engineer. */
+"Date" = "日期";
+
+/* No comment provided by engineer. */
+"Delete" = "删除";
+
+/* No comment provided by engineer. */
+"Done" = "完成";
+
+/* No comment provided by engineer. */
+"E-mail has not been configured." = "邮箱尚未配置。";
+
+/* No comment provided by engineer. */
+"Empty" = "空";
+
+/* No comment provided by engineer. */
+"Entertainment" = "娱乐";
+
+/* No comment provided by engineer. */
+"Expenses" = "支出";
+
+/* No comment provided by engineer. */
+"Export Data:" = "导出数据：";
+
+/* No comment provided by engineer. */
+"Fail" = "失败";
+
+/* No comment provided by engineer. */
+"Failed to Restore" = "恢复失败";
+
+/* No comment provided by engineer. */
+"Failed to locate" = "定位失败";
+
+/* No comment provided by engineer. */
+"Feedback - Simple Billing - %@" = "反馈 － 简单记账 － %@";
+
+/* No comment provided by engineer. */
+"Filter:" = "筛选：";
+
+/* No comment provided by engineer. */
+"Food" = "餐饮";
+
+/* No comment provided by engineer. */
+"Friday" = "周五";
+
+/* No comment provided by engineer. */
+"Gift" = "礼金";
+
+/* No comment provided by engineer. */
+"Income" = "收入";
+
+/* No comment provided by engineer. */
+"It is Simple Billing Data!" = "这是简单记账的数据！";
+
+/* Last week/month/year */
+"Last %@" = "上%@";
+
+/* No comment provided by engineer. */
+"Loading..." = "读取中...";
+
+/* No comment provided by engineer. */
+"Monday" = "周一";
+
+/* No comment provided by engineer. */
+"Month" = "月";
+
+/* No comment provided by engineer. */
+"Month %li" = "%li 月";
+
+/* No comment provided by engineer. */
+"Move" = "移动";
+
+/* No comment provided by engineer. */
+"Ok" = "好";
+
+/* No comment provided by engineer. */
+"Others" = "其他";
+
+/* No comment provided by engineer. */
+"Overwrite" = "覆盖";
+
+/* No comment provided by engineer. */
+"Place" = "地点";
+
+/* No comment provided by engineer. */
+"Please enter a name" = "请输入一个名字";
+
+/* No comment provided by engineer. */
+"Please try to restore from another backup" = "请尝试从其他备份恢复";
+
+/* No comment provided by engineer. */
+"Restore Complete!" = "恢复成功！";
+
+/* No comment provided by engineer. */
+"Restored file will overwrite local file.All your local data will lose." = "本地数据将被覆盖，所有本地数据将会丢失。";
+
+/* No comment provided by engineer. */
+"Saturday" = "周六";
+
+/* No comment provided by engineer. */
+"Setup iCloud" = "启用 iCloud";
+
+/* No comment provided by engineer. */
+"Simple Billing" = "简单记账";
+
+/* No comment provided by engineer. */
+"Simple Billing All Data" = "简单记账所有的数据";
+
+/* No comment provided by engineer. */
+"Simple Billing This Month Data" = "简单记账本月的数据";
+
+/* No comment provided by engineer. */
+"Simple Billing This Week Data" = "简单记账本周的数据";
+
+/* No comment provided by engineer. */
+"Something went wrong when create backups." = "创建备份失败。";
+
+/* No comment provided by engineer. */
+"Success" = "成功";
+
+/* No comment provided by engineer. */
+"Sunday" = "周日";
+
+/* No comment provided by engineer. */
+"The amount can not be zero" = "金额不能为零";
+
+/* No comment provided by engineer. */
+"The day before yesterday" = "前天";
+
+/* No comment provided by engineer. */
+"The name is too short" = "名字太短";
+
+/* No comment provided by engineer. */
+"There are %lu bills in the category <%@>.Move them to <%@>？" = "<%2$@>下存在%1$lu笔记录，需要将它们移到 <%3$@>吗？";
+
+/* This week/month/year */
+"This %@" = "本%@";
+
+/* No comment provided by engineer. */
+"This month" = "本月";
+
+/* No comment provided by engineer. */
+"This week" = "本周";
+
+/* No comment provided by engineer. */
+"Thursday" = "周四";
+
+/* No comment provided by engineer. */
+"Today" = "今天";
+
+/* No comment provided by engineer. */
+"Tuesday" = "周二";
+
+/* No comment provided by engineer. */
+"Turn On iCloud" = "启用 iCloud";
+
+/* No comment provided by engineer. */
+"Unnamed" = "未命名";
+
+/* No comment provided by engineer. */
+"Wage" = "工资";
+
+/* No comment provided by engineer. */
+"Wednesday" = "周三";
+
+/* No comment provided by engineer. */
+"Week" = "周";
+
+/* Week 22 */
+"Week %li" = "%li 周";
+
+/* No comment provided by engineer. */
+"Year" = "年";
+
+/* No comment provided by engineer. */
+"Year %li" = "%li 年";
+
+/* No comment provided by engineer. */
+"Yesterday" = "昨天";
+
+/* No comment provided by engineer. */
+"You can go to < Setting -> Privacy -> Location Services > to turn it on!" = "你可以前往  < 设置 -> 隐私 -> 定位服务 > 来启用它！";
+
+/* No comment provided by engineer. */
+"You have disabled iCloud for this app. Would you like to turn it on again?" = "你为该应用关闭了 iCloud 功能，你愿意将它打开吗？";
+
+/* No comment provided by engineer. */
+"You need to turn on Location Services" = "你需要启用定位服务";
+
+/* No comment provided by engineer. */
+"iCloud Disabled" = "iCloud 不可用";
+
+/* No comment provided by engineer. */
+"iCloud is not available. Sign into an iCloud account on this device and check that this app has authority to use the iCloud." = "iCloud 不可用。请登录一个 iCloud 账号，并且检查该程序是否有权力使用 iCloud。";
+

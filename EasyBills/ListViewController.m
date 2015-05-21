@@ -258,13 +258,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *title =  [NSString stringWithFormat:@"Data missing"];;
-    NSString *message = [NSString stringWithFormat:@"Restored file will overwrite local file.All your local data will lose."];
+    NSString *title =  [NSString stringWithFormat:NSLocalizedString( @"Data missing", "")];;
+    NSString *message = [NSString stringWithFormat:NSLocalizedString( @"Restored file will overwrite local file.All your local data will lose.", "")];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                    delegate:nil
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"Overwrite", nil];
+                                          cancelButtonTitle:NSLocalizedString( @"Cancel", "")
+                                          otherButtonTitles:NSLocalizedString( @"Overwrite", ""), nil];
     alert.delegate = self;
     [alert show];
     
@@ -276,7 +276,7 @@
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
     
     if (indexPath) {
-        if ([buttonTitle isEqualToString:@"Overwrite"]) {
+        if ([buttonTitle isEqualToString:NSLocalizedString( @"Overwrite", "")]) {
             NSString *fileName = [fileNameList objectAtIndex:indexPath.row];
             [self restoreBackupWithName:fileName];
         }
@@ -338,13 +338,13 @@
         NSData *fileData = [NSData dataWithContentsOfURL:zipFile];
         
         if ([[iCloud sharedCloud] doesFileExistInCloud:zipFileName]) {
-            NSString *title =  [NSString stringWithFormat:@"Success"];;
-            NSString *message = [NSString stringWithFormat:@"A backup file alredy exist."];
+            NSString *title =  [NSString stringWithFormat:NSLocalizedString( @"Success", "")];;
+            NSString *message = [NSString stringWithFormat:NSLocalizedString( @"A backup file alredy exist.", "")];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                             message:message
                                                            delegate:nil
                                                   cancelButtonTitle:nil
-                                                  otherButtonTitles:@"Ok", nil];
+                                                  otherButtonTitles:NSLocalizedString( @"Ok", ""), nil];
             [alert show];
         } else {
             [[iCloud sharedCloud] saveAndCloseDocumentWithName:zipFileName withContent:fileData completion:^(UIDocument *cloudDocument, NSData *documentData, NSError *error) {
@@ -389,17 +389,17 @@
     NSString *title;
     NSString *message;
     if (success) {
-        title = [NSString stringWithFormat:@"Success"];
-        message = [NSString stringWithFormat:@"A backup has been created. It will appear in the Apps/Grocery Dude directory of your Dropbox. Consider removing old backups when you no longer require them"];
+        title = [NSString stringWithFormat:NSLocalizedString( @"Success", "")];
+        message = [NSString stringWithFormat:NSLocalizedString( @"A backup has been created.", "")];
     } else {
-        title = [NSString stringWithFormat:@"Fail"];
-        message = @"You must be logged in to Dropbox to create backups";
+        title = [NSString stringWithFormat:NSLocalizedString( @"Fail", "")];
+        message = NSLocalizedString( @"Something went wrong when create backups.", "");
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                    delegate:nil
                                           cancelButtonTitle:nil
-                                          otherButtonTitles:@"Ok", nil];
+                                          otherButtonTitles:NSLocalizedString( @"Ok", ""), nil];
     [alert show];
 }
 
@@ -439,11 +439,11 @@
                         if ([appDelegate reloadStore]) {
                             [NSURL deleteFileAtURL:oldBackupURL];
                             UIAlertView *failAlert = [[UIAlertView alloc]
-                                                      initWithTitle:@"Restore Complete!"
-                                                      message:@"All data has been restored from the selected backup"
+                                                      initWithTitle:NSLocalizedString( @"Restore Complete!", "")
+                                                      message:NSLocalizedString( @"All data has been restored from the selected backup", "")
                                                       delegate:nil
                                                       cancelButtonTitle:nil
-                                                      otherButtonTitles:@"Ok", nil];
+                                                      otherButtonTitles:NSLocalizedString( @"Ok", ""), nil];
                             [failAlert show];
                             
                         } else { // Attempt Recovery
@@ -454,11 +454,11 @@
                             [NSURL deleteFileAtURL:oldBackupURL];
                             //                            if (![appDelegate reloadStore]) {
                             UIAlertView *failAlert = [[UIAlertView alloc]
-                                                      initWithTitle:@"Failed to Restore"
-                                                      message:@"Please try to restore from another backup"
+                                                      initWithTitle:NSLocalizedString( @"Failed to Restore", "")
+                                                      message:NSLocalizedString( @"Please try to restore from another backup" , "")
                                                       delegate:nil
                                                       cancelButtonTitle:nil
-                                                      otherButtonTitles:@"Close", nil];
+                                                      otherButtonTitles:NSLocalizedString( @"Close", ""), nil];
                             [failAlert show];
                             //                            }
                         }
@@ -499,7 +499,7 @@
     UIView *result = [[UIView alloc] initWithFrame:self.tableView.bounds];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-    label.text = @"没有备份";
+    label.text = NSLocalizedString( @"Empty", "");
     label.font = [UIFont boldSystemFontOfSize:18];
     label.textColor = EBBackGround;
     [label sizeToFit];

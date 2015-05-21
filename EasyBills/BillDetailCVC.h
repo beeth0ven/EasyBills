@@ -21,9 +21,6 @@
 #import "DefaultStyleController.h"
 #import "UIImage+Extension.h"
 
-#define DELETE_BILL_ACTIONSHEET_TITLE @"您确定要删除账此单吗?"
-#define DELETE_BILL_IMAGE_ACTIONSHEET_TITLE @"您确定要删除此照片吗?"
-
 
 @interface BillDetailCVC : UICollectionViewController
 

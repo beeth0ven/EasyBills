@@ -137,7 +137,7 @@ NSInteger const kFeedbackCellTag = 4;
         MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
         picker.mailComposeDelegate = self;
         
-        NSString *subject = [NSString stringWithFormat:@"问题反馈 - 简单记账 - %@",self.appVersion];
+        NSString *subject = [NSString stringWithFormat:NSLocalizedString( @"Feedback - Simple Billing - %@", ""),self.appVersion];
         NSArray *toRecipients = @[@"beeth0vendev@163.com"];
         
         [picker setSubject:subject];
@@ -145,8 +145,8 @@ NSInteger const kFeedbackCellTag = 4;
         
         [self presentViewController:picker animated:YES completion:^(){}];
     } else {
-        [UIAlertView displayAlertWithTitle:kPromptTitle
-                                   message:kMailNotConfiguredMessage];
+        [UIAlertView displayAlertWithTitle:[PubicVariable kPromptTitle]
+                                   message:[PubicVariable kMailNotConfiguredMessage]];
     }
     
 }
@@ -155,7 +155,7 @@ NSInteger const kFeedbackCellTag = 4;
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     if (result == MFMailComposeResultSent) {
-        NSLog(@"Mail susess!");
+        NSLog(@"Mail success!");
     }
     [self dismissViewControllerAnimated:YES completion:^(){}];
 }

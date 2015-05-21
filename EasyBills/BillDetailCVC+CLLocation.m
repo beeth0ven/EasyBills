@@ -21,8 +21,8 @@
         
         switch ([CLLocationManager authorizationStatus]) {
             case kCLAuthorizationStatusDenied:{
-                [UIAlertView displayAlertWithTitle:kCLAuthorizationStatusDeniedTitle
-                                    message:kCLAuthorizationStatusDeniedMessage];
+                [UIAlertView displayAlertWithTitle:[PubicVariable kCLAuthorizationStatusDeniedTitle]
+                                    message:[PubicVariable kCLAuthorizationStatusDeniedMessage]];
                 self.bill.locationIsOn = [NSNumber numberWithBool:NO];
 
                 break;
@@ -32,8 +32,8 @@
                 break;
             }
             case kCLAuthorizationStatusRestricted:{
-                [UIAlertView displayAlertWithTitle:kCLAuthorizationStatusRestrictedTitle
-                                           message:kCLAuthorizationStatusRestrictedMessage];
+                [UIAlertView displayAlertWithTitle:[PubicVariable kCLAuthorizationStatusRestrictedTitle]
+                                           message:[PubicVariable kCLAuthorizationStatusRestrictedMessage]];
                 self.bill.locationIsOn = [NSNumber numberWithBool:NO];
 
                 break;

@@ -300,10 +300,10 @@
 
 - (void)didSelectDeleteCell{
     UIActionSheet *actionSheet =
-    [[UIActionSheet alloc] initWithTitle:DELETE_BILL_ACTIONSHEET_TITLE
+    [[UIActionSheet alloc] initWithTitle:[PubicVariable kDeletBillActionSheetTitle]
                                 delegate:self
-                       cancelButtonTitle:@"取消"
-                  destructiveButtonTitle:@"删除"
+                       cancelButtonTitle:NSLocalizedString( @"Cancel", "")
+                  destructiveButtonTitle:NSLocalizedString( @"Delete", "")
                        otherButtonTitles: nil];
     [actionSheet showInView:self.view];
 }

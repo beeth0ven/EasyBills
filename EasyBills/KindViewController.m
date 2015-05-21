@@ -153,7 +153,7 @@
                                                                          self.pieChartContainerView.frame.size.height)];
         emptyView.tag = 12;
         [self.pieChartContainerView addSubview:emptyView];
-        self.chartTitleLabel.text = @"没有数据";
+        self.chartTitleLabel.text = NSLocalizedString( @"Empty", "");
         
     }
     
@@ -346,28 +346,29 @@
 
 
 - (NSString *)chartTitle {
-    NSMutableString *mutableString = [@"" mutableCopy];
+    NSString *dateString;
+    NSString *isIncomeModeString;
     switch ([self dateMode]) {
         case all:
-            [mutableString appendString:@"总体"];
+            dateString = NSLocalizedString( @"All" , "");
             break;
         case week:
-            [mutableString appendString:@"本周"];
+            dateString = NSLocalizedString( @"This week", "");
             break;
         default:
-            [mutableString appendString:@"本月"];
+            dateString = NSLocalizedString( @"This month", "");
             break;
     }
     switch ([self isIncomeMode]) {
         case isIncomeNo:
-            [mutableString appendString:@"支出"];
+           isIncomeModeString = NSLocalizedString( @"Expenses", "");
             break;
         default:
-            [mutableString appendString:@"收入"];
+            isIncomeModeString = NSLocalizedString( @"Income", "");
             break;
     }
-    [mutableString appendString:@"饼图"];
-    return mutableString;
+    NSString *title = [NSString stringWithFormat:NSLocalizedString( @"%@ %@ Pie Chart", "should change for chinese"), dateString, isIncomeModeString];
+    return title;
 }
 
 

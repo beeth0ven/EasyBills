@@ -166,7 +166,7 @@
     
     NSInteger weekOfYear = [components weekOfYear];
     
-    NSString *title = [NSString stringWithFormat:@"%li周",(long)weekOfYear];
+    NSString *title = [NSString stringWithFormat:NSLocalizedString( @"Week %li", "Week 22"),(long)weekOfYear];
     BOOL highlight = (self.pageIndex == 0);
     [self setTitle:title highlight:highlight];
     
@@ -218,7 +218,7 @@
     NSDate *toDate = [self.referenceDate lastDayOfMonth];
     [self setSubTitle:[self stringFromDate:fromDate toDate:toDate]];
 
-    NSString *title = [NSString stringWithFormat:@"%li月",(long)month];
+    NSString *title = [NSString stringWithFormat:NSLocalizedString( @"Month %li", ""),(long)month];
     BOOL highlight = (self.pageIndex == 0);
     [self setTitle:title highlight:highlight];
     
@@ -270,7 +270,7 @@
     
     NSInteger year = [components year];
     
-    NSString *title = [NSString stringWithFormat:@"%li年",(long)year];
+    NSString *title = [NSString stringWithFormat:NSLocalizedString( @"Year %li", ""),(long)year];
     BOOL highlight = (self.pageIndex == 0);
     [self setTitle:title highlight:highlight];
     

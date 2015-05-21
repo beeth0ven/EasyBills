@@ -182,7 +182,7 @@
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"筛选：";
+    return NSLocalizedString( @"Filter:", "");
 }
 
 //
@@ -249,7 +249,7 @@
 - (CGSize)preferredContentSize {
     if (self.presentingViewController) {
         CGSize size = [self.tableView sizeThatFits:self.presentingViewController.view.bounds.size];
-        return CGSizeMake( 160.0,
+        return CGSizeMake( 200.0,
                           size.height + 44 * 4);
     }else{
         return [super preferredContentSize];

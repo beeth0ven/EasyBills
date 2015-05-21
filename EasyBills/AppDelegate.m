@@ -30,7 +30,7 @@
 
 @end
 
-NSString *storeFilename = @"Grocery-Dude.sqlite";
+NSString *storeFilename = @"SimpleBilling.sqlite";
 
 @implementation AppDelegate
 
@@ -282,7 +282,7 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
         
         _revealViewController.delegate = rearViewController;
         _revealViewController.toggleAnimationType = SWRevealToggleAnimationTypeEaseOut;
-        _revealViewController.rearViewRevealWidth = 213.0f;
+        _revealViewController.rearViewRevealWidth = 240.0f;
 
     }
     return _revealViewController;

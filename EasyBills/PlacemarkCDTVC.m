@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"地点";
+    self.title = @"Place";
     [self setupFetchedResultsController];
 }
 

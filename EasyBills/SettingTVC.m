@@ -106,16 +106,19 @@
     if ([cell.reuseIdentifier isEqualToString:@"exportData"]) {
         if ([MFMailComposeViewController canSendMail]) {
             
-            UIActionSheet *actionSheet =[[UIActionSheet alloc]initWithTitle:@"导出数据:"
+            UIActionSheet *actionSheet =[[UIActionSheet alloc]initWithTitle:NSLocalizedString( @"Export Data:", "")
                                                                    delegate:self
-                                                          cancelButtonTitle:@"取消"
+                                                          cancelButtonTitle:NSLocalizedString( @"Cancel", "")
                                                      destructiveButtonTitle:nil
-                                                          otherButtonTitles:@"本周", @"本月",@"总体",nil];
+                                                          otherButtonTitles:
+                                         NSLocalizedString( @"This week", ""),
+                                         NSLocalizedString( @"This month", ""),
+                                         NSLocalizedString( @"All", ""),nil];
             [actionSheet showInView:self.view];
             
         } else {
-            [UIAlertView displayAlertWithTitle:kPromptTitle
-                                       message:kMailNotConfiguredMessage];
+            [UIAlertView displayAlertWithTitle:[PubicVariable kPromptTitle]
+                                       message:[PubicVariable kMailNotConfiguredMessage]];
         }
        
     }
@@ -130,11 +133,11 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
-    if ([buttonTitle isEqualToString:@"本周"]) {
+    if ([buttonTitle isEqualToString:NSLocalizedString( @"This week", "")]) {
         [self exportCSVWithDateMode:week];
-    }else if ([buttonTitle isEqualToString:@"本月"]) {
+    }else if ([buttonTitle isEqualToString:NSLocalizedString( @"This month", "")]) {
         [self exportCSVWithDateMode:month];
-    }else if ([buttonTitle isEqualToString:@"总体"]) {
+    }else if ([buttonTitle isEqualToString:NSLocalizedString( @"All", "")]) {
         [self exportCSVWithDateMode:all];
     }
 }
@@ -153,7 +156,7 @@
     NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"Bills.csv"];
     
     NSArray *bills = [Bill billsWithDateMode:dateMode inManagedObjectContext:self.managedObjectContext];
-    NSString *CSV = @"类型,金额,日期,备注\n";
+    NSString *CSV = NSLocalizedString( @"Category,Money,Date,Descreption\n", "");
     for (Bill *bill in bills) {
         CSV = [CSV stringByAppendingFormat:@"%@,%@,%@,%@\n",bill.kind.name,bill.money,[PubicVariable stringFromDate:bill.date],bill.note];
     }
@@ -181,13 +184,13 @@
         NSString *subject;
         switch (dateMode) {
             case week:
-                subject = @"EasyBills This Week's Data";
+                subject = NSLocalizedString( @"Simple Billing This Week Data", "");
                 break;
             case month:
-                subject = @"EasyBills This Month's Data";
+                subject = NSLocalizedString( @"Simple Billing This Month Data", "");
                 break;
             default:
-                subject = @"EasyBills All Data";
+                subject = NSLocalizedString( @"Simple Billing All Data", "");
                 break;
         }
         
@@ -196,14 +199,14 @@
         NSData *myData = [NSData dataWithContentsOfFile:filePath];
         [picker addAttachmentData:myData mimeType:@"text/csv" fileName:@"Bills.csv"];
         
-        NSString *emailBody = @"It is EasyBills's Data!";
+        NSString *emailBody = NSLocalizedString( @"It is Simple Billing Data!", "");
         [picker setMessageBody:emailBody isHTML:NO];
         
         picker.navigationController.navigationBar.barTintColor = PNRed;
         [self presentViewController:picker animated:YES completion:^(){}];
     } else {
-        [UIAlertView displayAlertWithTitle:kPromptTitle
-                                   message:kMailNotConfiguredMessage];
+        [UIAlertView displayAlertWithTitle:[PubicVariable kPromptTitle]
+                                   message:[PubicVariable kMailNotConfiguredMessage]];
     }
     
 }

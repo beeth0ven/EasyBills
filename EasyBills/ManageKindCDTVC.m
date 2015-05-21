@@ -67,8 +67,8 @@
     UILabel *countLabel =  (UILabel *)[cell viewWithTag:2];
     UILabel *isIncomeLabel =  (UILabel *)[cell viewWithTag:3];
     
-    nameLabel.text = [NSString stringWithFormat:@"%@  ",(kind.name.length > 0) ? kind.name : @"未命名"];
-    countLabel.text = [NSString stringWithFormat:@" 共%lu笔   ",
+    nameLabel.text = [NSString stringWithFormat:@"%@  ",(kind.name.length > 0) ? kind.name : NSLocalizedString( @"Unnamed", "")];
+    countLabel.text = [NSString stringWithFormat:NSLocalizedString( @" %lu bills   ", ""),
                        (unsigned long)kind.bills.count];
     isIncomeLabel.text = [NSString stringWithFormat:@" %@ ",kind.isIncomeDescription];
     
@@ -131,10 +131,10 @@
     NSNumber *count = [self.fetchedResultsController.fetchedObjects
                      valueForKeyPath:@"@sum.bills.@count"];
     
-    self.billCountLabel.text = [NSString stringWithFormat:@" 共%lu笔   ",
+    self.billCountLabel.text = [NSString stringWithFormat:NSLocalizedString( @" %lu bills   ", ""),
                           (long)count.integerValue];
     
-    self.kindCountLabel.text = [NSString stringWithFormat:@" 共%lu种   ",
+    self.kindCountLabel.text = [NSString stringWithFormat:NSLocalizedString( @" %lu categories   ", ""),
                             (unsigned long)self.fetchedResultsController.fetchedObjects.count];
     
     self.equalLabel.font = [self.equalLabel.font fontWithSize:25];

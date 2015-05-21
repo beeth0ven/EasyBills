@@ -9,6 +9,8 @@
 #import "ToolBarCMCDTVC.h"
 #import "EasyBillsCursorButton.h"
 #import "UIAlertView+Extension.h"
+#import "PubicVariable.h"
+
 
 @interface ToolBarCMCDTVC ()
 
@@ -31,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpCursorBarButtonItem];
-    [self configMapTypeSegmented];
+//    [self configMapTypeSegmented];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -71,7 +73,7 @@
 - (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
     self.showsUserLocation = NO;
     self.cursorBarButtonItem.customView = self.cursorButton;
-    [UIAlertView displayAlertWithTitle:@"定位失败"
+    [UIAlertView displayAlertWithTitle:NSLocalizedString( @"Failed to locate", "")
                                message:[error localizedDescription]];
 
 }
@@ -85,8 +87,8 @@
         
         switch ([CLLocationManager authorizationStatus]) {
             case kCLAuthorizationStatusDenied:{
-                [UIAlertView displayAlertWithTitle:kCLAuthorizationStatusDeniedTitle
-                                           message:kCLAuthorizationStatusDeniedMessage];
+                                [UIAlertView displayAlertWithTitle:[PubicVariable kCLAuthorizationStatusDeniedTitle]
+                                                           message:[PubicVariable kCLAuthorizationStatusDeniedMessage]];
                 self.showsUserLocation = NO;
                 
                 break;
@@ -96,8 +98,8 @@
                 break;
             }
             case kCLAuthorizationStatusRestricted:{
-                [UIAlertView displayAlertWithTitle:kCLAuthorizationStatusRestrictedTitle
-                                           message:kCLAuthorizationStatusRestrictedMessage];
+                [UIAlertView displayAlertWithTitle:[PubicVariable kCLAuthorizationStatusRestrictedTitle]
+                                           message:[PubicVariable kCLAuthorizationStatusRestrictedMessage]];
                 self.showsUserLocation = NO;
                 
                 break;
@@ -160,11 +162,11 @@
     self.cursorBarButtonItem.customView = self.cursorButton;
 }
 
-- (void)configMapTypeSegmented {
-    [self.mapTypeSegmented setTitle:@"标准" forSegmentAtIndex:0];
-    [self.mapTypeSegmented setTitle:@"卫星" forSegmentAtIndex:1];
-    
-}
+//- (void)configMapTypeSegmented {
+//    [self.mapTypeSegmented setTitle:@"Standard" forSegmentAtIndex:0];
+//    [self.mapTypeSegmented setTitle:@"Satellite" forSegmentAtIndex:1];
+//    
+//}
 
 - (IBAction)changeShowLocationStates:(EasyBillsCursorButton *)sender {
     

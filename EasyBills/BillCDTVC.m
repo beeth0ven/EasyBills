@@ -83,8 +83,9 @@
                           stringWithFormat:@" %@  ", [NSString stringWithCurrencyStyleForFloat:fabs(sum.floatValue)]];
 
     
-    self.countLabel.text = [NSString stringWithFormat:@" 共%lu笔   ",
-                            (unsigned long)self.fetchedResultsController.fetchedObjects.count];
+    self.countLabel.text = [NSString stringWithFormat:@" %@   ",
+                            [NSString stringWithFormat:NSLocalizedString( @"%lu bills", ""),
+                             (unsigned long)self.fetchedResultsController.fetchedObjects.count]];
     
     self.equalLabel.font = [self.equalLabel.font fontWithSize:25];
     self.sumLabel.textColor = sum.floatValue >= 0 ? EBBlue : PNRed;
@@ -104,7 +105,7 @@
     UIView *result = [[UIView alloc] initWithFrame:self.tableView.bounds];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-    label.text = @"没有账单";
+    label.text = NSLocalizedString( @"Empty", "");
     label.font = [UIFont boldSystemFontOfSize:18];
     label.textColor = EBBackGround;
     [label sizeToFit];

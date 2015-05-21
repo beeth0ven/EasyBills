@@ -95,7 +95,7 @@
 }
 
 - (NSString *)isIncomeDescription {
-    return self.isIncome.boolValue ? @"收入": @"支出";
+    return self.isIncome.boolValue ? NSLocalizedString( @"Income", ""): NSLocalizedString( @"Expenses", "");
     
 }
 
@@ -189,7 +189,7 @@
 
 
 
-NSString *const kKindDefaultName  = @"其他";
+NSString *const kKindDefaultName  = @"Others";
 
 + (Kind *)defaultKindIsIncome:(BOOL) isIncome inManagedObjectContext:(NSManagedObjectContext *)context {
     return [self kindWithName:kKindDefaultName isIncome:isIncome inManagedObjectContext:context];
@@ -268,12 +268,20 @@ NSString *const kKindDefaultName  = @"其他";
 
 + (NSArray *)incomeKinds
 {
-    return @[@"工资",@"礼金",@"其他"];
+    return @[
+             NSLocalizedString( @"Wage", ""),
+             NSLocalizedString( @"Gift", ""),
+             NSLocalizedString( @"Others", "")];
 }
 
 + (NSArray *)expenseKinds
 {
-    return @[@"娱乐",@"衣服",@"餐饮",@"人情",@"其他"];
+    return @[
+             NSLocalizedString( @"Entertainment", ""),
+             NSLocalizedString( @"Clothes", ""),
+             NSLocalizedString( @"Food", ""),
+             NSLocalizedString( @"Gift", ""),
+             NSLocalizedString( @"Others", "")];
 }
 
 

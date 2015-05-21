@@ -34,7 +34,7 @@
     }
     [self registerNotifications];
     self.isIncome = self.bill.isIncome.boolValue;
-    self.title = self.isIncome ? @"收入": @"支出";
+    self.title = self.isIncome ? NSLocalizedString( @"Income", ""):NSLocalizedString( @"Expenses", "");
 //    [self setUpBackgroundView];
 }
 
@@ -102,7 +102,8 @@
         }];
     }else{
         // Money = 0
-        self.navigationItem.prompt = @"金额不能为零";
+        self.navigationItem.prompt = NSLocalizedString( @"The amount can not be zero", "");
+        [self.moneyTextField becomeFirstResponder];
     }
     
     

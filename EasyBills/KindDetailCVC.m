@@ -15,6 +15,7 @@
 #import "ColorCVCell.h"
 #import "AppDelegate.h"
 #import "NSString+Extension.h"
+#import "Kind+Create.h"
 
 @interface KindDetailCVC ()
 
@@ -119,7 +120,7 @@
 }
 
 - (void)setUpBackgroundView {
-    UIImage *image = [UIImage imageNamed:@"Account details BG"];
+    UIImage *image = [UIImage imageNamed:@"BackGround"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     self.collectionView.backgroundView = imageView;
     
@@ -129,7 +130,7 @@
     if (self.kind.name.length > 0) {
         self.title = self.kind.name;
     }else{
-        self.title = @"未命名";
+        self.title = NSLocalizedString( @"Unnamed", "");
     }
 }
 
@@ -461,8 +462,8 @@
     UIActionSheet *actionSheet =
     [[UIActionSheet alloc] initWithTitle:DELETE_KIND_ACTIONSHEET_TITLE
                                 delegate:self
-                       cancelButtonTitle:@"取消"
-                  destructiveButtonTitle:@"删除"
+                       cancelButtonTitle:NSLocalizedString( @"Cancel", "")
+                  destructiveButtonTitle:NSLocalizedString( @"Delete", "")
                        otherButtonTitles: nil];
     [actionSheet showInView:self.view];
 }
@@ -474,13 +475,19 @@
     [self.view endEditing:YES];
 
     if (self.kind.name.length == 0) {
-        self.navigationItem.prompt = @"请输入一个名字";
+        self.navigationItem.prompt = NSLocalizedString( @"Please enter a name", "");
+        [self.nameTextField becomeFirstResponder];
+        return;
+    }
+    if (self.kind.name.length < 2) {
+        self.navigationItem.prompt = NSLocalizedString( @"The name is too short", "");
+        [self.nameTextField becomeFirstResponder];
         return;
     }
     
     if (![self.kind isUnique]) {
         self.navigationItem.prompt = [NSString stringWithFormat:
-                                      @"’%@‘已存在",
+                                      NSLocalizedString( @"<%@> already exists", ""),
                                       self.kind.name];
         return;
     }
@@ -512,15 +519,15 @@
                                         isIncome:self.kind.isIncome.boolValue
                           inManagedObjectContext:self.kind.managedObjectContext];
     if (isExisted){
-        NSString *isIncomeString = self.kind.isIncome.boolValue ? @"支出" : @"收入";
-        NSString *message = [NSString stringWithFormat:@"‘%@’下已经存在‘%@’",
+        NSString *isIncomeString = self.kind.isIncome.boolValue ? NSLocalizedString( @"Expenses" , ""):NSLocalizedString( @"Income", "");
+        NSString *message = [NSString stringWithFormat:NSLocalizedString( @"<%@> already contains <%@>", ""),
                              isIncomeString,self.kind.name];
         UIAlertView *alert =
         [[UIAlertView alloc]
-         initWithTitle:@"提示"
+         initWithTitle:NSLocalizedString( @"Alert", "")
          message:message
          delegate:nil
-         cancelButtonTitle:@"好"
+         cancelButtonTitle:NSLocalizedString( @"Ok", "")
          otherButtonTitles:nil];
         
         [alert show];
@@ -531,15 +538,15 @@
     }  else {
         NSLog(@"This kind has bills.");
         
-        NSString *message = [NSString stringWithFormat:@"‘%@’下存在%lu比笔记录。需要将它们移动到‘其他’吗？",
-                             self.kind.name,(unsigned long)self.kind.bills.count];
+        NSString *message = [NSString stringWithFormat:NSLocalizedString( @"There are %lu bills in the category <%@>.Move them to <%@>？", ""),
+                             (unsigned long)self.kind.bills.count,self.kind.name,kKindDefaultName];
         UIAlertView *alert =
         [[UIAlertView alloc]
-         initWithTitle:@"提示"
+         initWithTitle:NSLocalizedString( @"Alert", "")
          message:message
          delegate:self
-         cancelButtonTitle:@"取消"
-         otherButtonTitles:@"移动",nil];
+         cancelButtonTitle:NSLocalizedString( @"Cancel", "")
+         otherButtonTitles:NSLocalizedString( @"Move", ""),nil];
         
         [alert show];
         
@@ -565,10 +572,10 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
-    if ([buttonTitle isEqualToString:@"移动"]) {
+    if ([buttonTitle isEqualToString:NSLocalizedString( @"Move", "")]) {
         [self.kind removeAllBills];
         self.kind.isIncome = [NSNumber numberWithBool:!self.kind.isIncome.boolValue];
-    }else if([buttonTitle isEqualToString:@"取消"]){
+    }else if([buttonTitle isEqualToString:NSLocalizedString( @"Cancel", "")]){
         NSInteger item = [self.cellIdentifiers indexOfObject:@"isIncomeCell"];
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
         [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
@@ -582,7 +589,7 @@
    clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
-    if ([title isEqualToString:@"删除" ]) {
+    if ([title isEqualToString:NSLocalizedString( @"Delete", "") ]) {
         [self deleteKind];
     }
 }

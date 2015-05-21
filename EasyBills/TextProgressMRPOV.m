@@ -23,7 +23,7 @@
     TextProgressMRPOV* textProgressMRPOV = [[self alloc] init];
     textProgressMRPOV.mode = MRProgressOverlayViewModeIndeterminateSmall;
     textProgressMRPOV.tintColor = [UIColor globalTintColor];
-    textProgressMRPOV.titleLabelText = @"读取中...";
+    textProgressMRPOV.titleLabelText = NSLocalizedString( @"Loading...", "");
     return textProgressMRPOV;
 }
 

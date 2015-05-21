@@ -54,6 +54,9 @@
 		45C96EF51B05CF4000D28839 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C96EF01B05CF4000D28839 /* ListViewController.m */; };
 		45C96EF71B05CF4000D28839 /* ConflictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C96EF41B05CF4000D28839 /* ConflictViewController.m */; };
 		45C96EFD1B05CF7800D28839 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C96EFA1B05CF7800D28839 /* WelcomeViewController.m */; };
+		45D1F2591B0DA5B100730D19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45D1F25B1B0DA5B200730D19 /* Localizable.strings */; };
+		45D1F25E1B0DA5B200730D19 /* SimpleBillingTests-InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45D1F2601B0DA5B200730D19 /* SimpleBillingTests-InfoPlist.strings */; };
+		45D1F2631B0DA5B300730D19 /* SimpleBilling-InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45D1F2651B0DA5B300730D19 /* SimpleBilling-InfoPlist.strings */; };
 		45EC15B51B0854AE00D11511 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EC15B41B0854AE00D11511 /* CloudKit.framework */; };
 		45EC15B91B086F6F00D11511 /* NSURL+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EC15B81B086F6F00D11511 /* NSURL+Extension.m */; };
 		45ECF3951AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ECF3941AC5227500D0CACB /* BillDetailCVC+UIDatePicker.m */; };
@@ -67,7 +70,6 @@
 		BD1BF7D919DB901E00B1379A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF7D819DB901E00B1379A /* Foundation.framework */; };
 		BD1BF7DB19DB901E00B1379A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF7DA19DB901E00B1379A /* CoreGraphics.framework */; };
 		BD1BF7DD19DB901E00B1379A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF7DC19DB901E00B1379A /* UIKit.framework */; };
-		BD1BF7E319DB901E00B1379A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD1BF7E119DB901E00B1379A /* InfoPlist.strings */; };
 		BD1BF7E519DB901E00B1379A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF7E419DB901E00B1379A /* main.m */; };
 		BD1BF7E919DB901E00B1379A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF7E819DB901E00B1379A /* AppDelegate.m */; };
 		BD1BF7EC19DB901E00B1379A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1BF7EA19DB901E00B1379A /* Main.storyboard */; };
@@ -75,7 +77,6 @@
 		BD1BF7F819DB901E00B1379A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF7F719DB901E00B1379A /* XCTest.framework */; };
 		BD1BF7F919DB901E00B1379A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF7D819DB901E00B1379A /* Foundation.framework */; };
 		BD1BF7FA19DB901E00B1379A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF7DC19DB901E00B1379A /* UIKit.framework */; };
-		BD1BF80219DB901E00B1379A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD1BF80019DB901E00B1379A /* InfoPlist.strings */; };
 		BD1BF80419DB901E00B1379A /* EasyBillsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF80319DB901E00B1379A /* EasyBillsTests.m */; };
 		BD1BF83119DB927300B1379A /* Bill+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF81119DB927300B1379A /* Bill+Create.m */; };
 		BD1BF83219DB927300B1379A /* BillCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF81319DB927300B1379A /* BillCDTVC.m */; };
@@ -86,7 +87,6 @@
 		BD1BF83F19DB927300B1379A /* PubicVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82D19DB927300B1379A /* PubicVariable.m */; };
 		BD1BF84019DB927300B1379A /* PubicVariable+FetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BF82F19DB927300B1379A /* PubicVariable+FetchRequest.m */; };
 		BD1BF84519DB961800B1379A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BF84419DB961800B1379A /* CoreData.framework */; };
-		BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3342A11A4DB07F00BC163C /* ColorPickerCollectionViewController.m */; };
 		BD58BDA01AA8984300CE2D08 /* ColorTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD58BD9F1AA8984300CE2D08 /* ColorTransformer.m */; };
 		BD58BDB71AA8A5B000CE2D08 /* ColorCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BD58BDB61AA8A5B000CE2D08 /* ColorCenter.m */; };
 		BD6FC8501AA0B7730059AC20 /* KindDetailCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6FC84F1AA0B7730059AC20 /* KindDetailCVC.m */; };
@@ -206,6 +206,10 @@
 		45C96EF81B05CF7800D28839 /* iCloud App-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iCloud App-Prefix.pch"; sourceTree = "<group>"; };
 		45C96EF91B05CF7800D28839 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		45C96EFA1B05CF7800D28839 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		45D1F2561B0D9EE600730D19 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		45D1F25A1B0DA5B200730D19 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		45D1F25F1B0DA5B200730D19 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SimpleBillingTests-InfoPlist.strings"; sourceTree = "<group>"; };
+		45D1F2641B0DA5B300730D19 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SimpleBilling-InfoPlist.strings"; sourceTree = "<group>"; };
 		45EC15B41B0854AE00D11511 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		45EC15B61B085EAB00D11511 /* Objective-Zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Objective-Zip.h"; sourceTree = "<group>"; };
 		45EC15B71B086F6F00D11511 /* NSURL+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Extension.h"; sourceTree = "<group>"; };
@@ -229,7 +233,6 @@
 		BD1BF7DA19DB901E00B1379A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BD1BF7DC19DB901E00B1379A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BD1BF7E019DB901E00B1379A /* SimpleBilling-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleBilling-Info.plist"; sourceTree = "<group>"; };
-		BD1BF7E219DB901E00B1379A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD1BF7E419DB901E00B1379A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BD1BF7E619DB901E00B1379A /* SimpleBilling-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleBilling-Prefix.pch"; sourceTree = "<group>"; };
 		BD1BF7E719DB901E00B1379A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -240,7 +243,6 @@
 		BD1BF7F619DB901E00B1379A /* SimpleBillingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleBillingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1BF7F719DB901E00B1379A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BD1BF7FF19DB901E00B1379A /* SimpleBillingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleBillingTests-Info.plist"; sourceTree = "<group>"; };
-		BD1BF80119DB901E00B1379A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD1BF80319DB901E00B1379A /* EasyBillsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyBillsTests.m; sourceTree = "<group>"; };
 		BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EasyBills.entitlements; sourceTree = "<group>"; };
 		BD1BF81019DB927300B1379A /* Bill+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bill+Create.h"; sourceTree = "<group>"; };
@@ -259,8 +261,6 @@
 		BD1BF82E19DB927300B1379A /* PubicVariable+FetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PubicVariable+FetchRequest.h"; sourceTree = "<group>"; };
 		BD1BF82F19DB927300B1379A /* PubicVariable+FetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PubicVariable+FetchRequest.m"; sourceTree = "<group>"; };
 		BD1BF84419DB961800B1379A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		BD3342A01A4DB07F00BC163C /* ColorPickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewController.h; sourceTree = "<group>"; };
-		BD3342A11A4DB07F00BC163C /* ColorPickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewController.m; sourceTree = "<group>"; };
 		BD58BD9E1AA8984300CE2D08 /* ColorTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTransformer.h; sourceTree = "<group>"; };
 		BD58BD9F1AA8984300CE2D08 /* ColorTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTransformer.m; sourceTree = "<group>"; };
 		BD58BDB51AA8A5B000CE2D08 /* ColorCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCenter.h; sourceTree = "<group>"; };
@@ -470,6 +470,17 @@
 			name = iCloud;
 			sourceTree = "<group>";
 		};
+		45D1F2501B0D949400730D19 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				45D1F2651B0DA5B300730D19 /* SimpleBilling-InfoPlist.strings */,
+				45D1F25B1B0DA5B200730D19 /* Localizable.strings */,
+				450DEFAF1AFF20F800B08978 /* Licenses.plist */,
+				BD1BF7E019DB901E00B1379A /* SimpleBilling-Info.plist */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
 		45EC15BA1B086F8600D11511 /* DefaultStyleController */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,15 +545,12 @@
 				45EC15BA1B086F8600D11511 /* DefaultStyleController */,
 				455C0DA01AD64E660060C4DF /* CustomAnimationController.h */,
 				4566649E1ADA439D00808312 /* CustomFonts */,
-				BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */,
-				450DEFAF1AFF20F800B08978 /* Licenses.plist */,
+				45D1F2501B0D949400730D19 /* Info */,
 				BD1BF7E719DB901E00B1379A /* AppDelegate.h */,
 				BD1BF7E819DB901E00B1379A /* AppDelegate.m */,
-				45EC15B61B085EAB00D11511 /* Objective-Zip.h */,
-				459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */,
-				BD1BF7E019DB901E00B1379A /* SimpleBilling-Info.plist */,
-				BD1BF7E119DB901E00B1379A /* InfoPlist.strings */,
 				BD1BF7E419DB901E00B1379A /* main.m */,
+				BD1BF80D19DB91B100B1379A /* EasyBills.entitlements */,
+				45EC15B61B085EAB00D11511 /* Objective-Zip.h */,
 				BD1BF7E619DB901E00B1379A /* SimpleBilling-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -560,8 +568,8 @@
 		BD1BF7FE19DB901E00B1379A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				45D1F2601B0DA5B200730D19 /* SimpleBillingTests-InfoPlist.strings */,
 				BD1BF7FF19DB901E00B1379A /* SimpleBillingTests-Info.plist */,
-				BD1BF80019DB901E00B1379A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -604,7 +612,6 @@
 				4508D65D1AC41327007CA44A /* BillDetailCVC+MKMapView.m */,
 				4508D6591AC40CF8007CA44A /* BillDetailCVC+CLLocation.h */,
 				4508D65A1AC40CF8007CA44A /* BillDetailCVC+CLLocation.m */,
-				BD81A3E81A99D69200C2CBE6 /* ColorPickerCollectionViewController */,
 			);
 			name = PushSegue;
 			sourceTree = "<group>";
@@ -634,6 +641,7 @@
 			isa = PBXGroup;
 			children = (
 				BD1BF7EA19DB901E00B1379A /* Main.storyboard */,
+				459CDE221ACE5E6900A6B0E2 /* LaunchScreen.xib */,
 				45390A311B0AF67A00D6DA59 /* RoundedButton */,
 				45390A301B0AF65E00D6DA59 /* LJChartView */,
 				45C96EEA1B04AF5100D28839 /* TextProgressMRPOV */,
@@ -852,15 +860,6 @@
 			name = "Kind+";
 			sourceTree = "<group>";
 		};
-		BD81A3E81A99D69200C2CBE6 /* ColorPickerCollectionViewController */ = {
-			isa = PBXGroup;
-			children = (
-				BD3342A01A4DB07F00BC163C /* ColorPickerCollectionViewController.h */,
-				BD3342A11A4DB07F00BC163C /* ColorPickerCollectionViewController.m */,
-			);
-			name = ColorPickerCollectionViewController;
-			sourceTree = "<group>";
-		};
 		BD81A3E91A99D6C900C2CBE6 /* ColorCVCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -961,11 +960,12 @@
 			files = (
 				459CDE231ACE5E6900A6B0E2 /* LaunchScreen.xib in Resources */,
 				456664A81ADA48F500808312 /* Naughty Cartoons.ttf in Resources */,
-				BD1BF7E319DB901E00B1379A /* InfoPlist.strings in Resources */,
 				450DEFB01AFF20F800B08978 /* Licenses.plist in Resources */,
+				45D1F2591B0DA5B100730D19 /* Localizable.strings in Resources */,
 				BD1BF7EC19DB901E00B1379A /* Main.storyboard in Resources */,
 				456664B01ADA604A00808312 /* WawaSC-Regular.otf in Resources */,
 				BD0FDC781A90DFF200679961 /* Media.xcassets in Resources */,
+				45D1F2631B0DA5B300730D19 /* SimpleBilling-InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,7 +973,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD1BF80219DB901E00B1379A /* InfoPlist.strings in Resources */,
+				45D1F25E1B0DA5B200730D19 /* SimpleBillingTests-InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,7 +1071,6 @@
 				BD7348951A9995B700692EE4 /* UIViewController+Extension.m in Sources */,
 				458C77571AD4FD2B0088BA86 /* CustomDismissAnimationController.m in Sources */,
 				4594DAFE1AF5BE5A00C4BFBB /* NSNumber+PrivateExtension.m in Sources */,
-				BD3342A21A4DB07F00BC163C /* ColorPickerCollectionViewController.m in Sources */,
 				BD1BF83B19DB927300B1379A /* Kind+Create.m in Sources */,
 				BD58BDA01AA8984300CE2D08 /* ColorTransformer.m in Sources */,
 				458C77541AD4E1670088BA86 /* CustomPresentAnimationController.m in Sources */,
@@ -1114,28 +1113,37 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BD1BF7E119DB901E00B1379A /* InfoPlist.strings */ = {
+		45D1F25B1B0DA5B200730D19 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BD1BF7E219DB901E00B1379A /* en */,
+				45D1F25A1B0DA5B200730D19 /* zh-Hans */,
 			);
-			name = InfoPlist.strings;
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		45D1F2601B0DA5B200730D19 /* SimpleBillingTests-InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45D1F25F1B0DA5B200730D19 /* zh-Hans */,
+			);
+			name = "SimpleBillingTests-InfoPlist.strings";
+			sourceTree = "<group>";
+		};
+		45D1F2651B0DA5B300730D19 /* SimpleBilling-InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45D1F2641B0DA5B300730D19 /* zh-Hans */,
+			);
+			name = "SimpleBilling-InfoPlist.strings";
 			sourceTree = "<group>";
 		};
 		BD1BF7EA19DB901E00B1379A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BD1BF7EB19DB901E00B1379A /* Base */,
+				45D1F2561B0D9EE600730D19 /* zh-Hans */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BD1BF80019DB901E00B1379A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BD1BF80119DB901E00B1379A /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
