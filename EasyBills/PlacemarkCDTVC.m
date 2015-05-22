@@ -108,8 +108,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self dismissViewControllerAnimated:YES completion:^{
-        self.selectedPlacemark = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
+        if (![self isDataSourceEmpty]) {
+            self.selectedPlacemark = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        }
     }];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 

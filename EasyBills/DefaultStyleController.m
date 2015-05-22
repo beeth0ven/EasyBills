@@ -48,8 +48,7 @@
     [barButtonItemAppearance setBackButtonBackgroundImage:backButtonImage
                                                  forState:UIControlStateNormal
                                                barMetrics:UIBarMetricsDefault];
-    
-    
+//    [barButtonItemAppearance setBack
 }
 
 + (void)configSwichAppearance{

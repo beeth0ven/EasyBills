@@ -499,7 +499,7 @@
     UIView *result = [[UIView alloc] initWithFrame:self.tableView.bounds];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-    label.text = NSLocalizedString( @"Empty", "");
+    label.text = @"";//NSLocalizedString( @"Empty", "");
     label.font = [UIFont boldSystemFontOfSize:18];
     label.textColor = EBBackGround;
     [label sizeToFit];

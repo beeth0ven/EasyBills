@@ -192,6 +192,10 @@
  */
 @property (nonatomic, assign) NSInteger coverViewTag;
 /**
+ @brief The string displayed as title.
+ */
+@property (nonatomic, strong) NSString *titleString;
+/**
  @brief The string displayed when entering your old passcode (while changing).
  */
 @property (nonatomic, strong) NSString *enterOldPasscodeString;

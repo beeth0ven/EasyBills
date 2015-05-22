@@ -153,7 +153,7 @@
                                                                          self.pieChartContainerView.frame.size.height)];
         emptyView.tag = 12;
         [self.pieChartContainerView addSubview:emptyView];
-        self.chartTitleLabel.text = NSLocalizedString( @"Empty", "");
+        self.chartTitleLabel.text = @"";// NSLocalizedString( @"Empty", "");
         
     }
     

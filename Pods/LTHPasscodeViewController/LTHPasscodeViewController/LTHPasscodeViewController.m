@@ -327,6 +327,12 @@ options:NSNumericSearch] != NSOrderedAscending)
 }
 #endif
 
+
+- (void)setTitleString:(NSString *)titleString {
+    _titleString = titleString;
+    self.title = titleString;
+}
+
 #pragma mark - View life
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -1404,6 +1410,7 @@ options:NSNumericSearch] != NSOrderedAscending)
 #pragma mark - Notification Observers
 - (void)_applicationDidEnterBackground {
 	if ([self _doesPasscodeExist]) {
+        self.title = self.titleString;
         if ([_passcodeTextField isFirstResponder]) {
             _useFallbackPasscode = NO;
 			[_passcodeTextField resignFirstResponder];
@@ -1415,7 +1422,7 @@ options:NSNumericSearch] != NSOrderedAscending)
             // instead of presented as a modal,
             // the app would be visible from the multitasking view.
             if (_isCurrentlyOnScreen && !_displayedAsModal) return;
-            self.title = @"简单记账";
+//            self.title = @"简单记账";
             [self showLockScreenWithAnimation:NO
                                    withLogout:YES
                                andLogoutTitle:nil];
@@ -1425,6 +1432,7 @@ options:NSNumericSearch] != NSOrderedAscending)
 			if (![[UIApplication sharedApplication].keyWindow viewWithTag: _coverViewTag])
 				[[UIApplication sharedApplication].keyWindow addSubview: _coverView];
 		}
+        
 	}
 
 }

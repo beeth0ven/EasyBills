@@ -479,7 +479,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Map" id="cmd-uU-B5x">
-                        <barButtonItem key="backBarButtonItem" id="4Z1-cb-4lP"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="4Z1-cb-4lP"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1514,8 +1514,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Save &amp; Load" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phu-bZ-XHu">
-                                                    <rect key="frame" x="37" y="8" width="146" height="27"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Save&amp;Load" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phu-bZ-XHu">
+                                                    <rect key="frame" x="37" y="8" width="137" height="27"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.53725490200000003" green="0.5568627451" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -3182,7 +3182,7 @@
             </objects>
             <point key="canvasLocation" x="2798" y="814"/>
         </scene>
-        <!--iCloud Save & Load-->
+        <!--iCloud Save&Load-->
         <scene sceneID="Ijd-yr-DbZ">
             <objects>
                 <tableViewController id="XG4-4e-nLw" customClass="ListViewController" sceneMemberID="viewController">
@@ -3217,7 +3217,7 @@
                             <outlet property="delegate" destination="XG4-4e-nLw" id="Hdp-zY-6a0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="iCloud Save &amp; Load" id="kn6-so-1zO">
+                    <navigationItem key="navigationItem" title="iCloud Save&amp;Load" id="kn6-so-1zO">
                         <barButtonItem key="rightBarButtonItem" image="PlusNavigationBarIcon" id="koL-vM-Gqv">
                             <color key="tintColor" red="0.46274510025978088" green="0.48235294222831726" blue="0.49411764740943909" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -3338,15 +3338,23 @@ To properly use this feature please do the following:
                             <constraint firstItem="KHy-Wf-cZe" firstAttribute="centerY" secondItem="zW4-ZF-pWA" secondAttribute="centerY" id="I3J-c8-0Xg"/>
                             <constraint firstItem="WJI-Sq-XfY" firstAttribute="top" secondItem="y6F-eC-XsW" secondAttribute="bottom" constant="10" id="V9B-Pf-JJT"/>
                             <constraint firstItem="r6I-U0-6Fc" firstAttribute="leading" secondItem="9Eu-3G-l4O" secondAttribute="leadingMargin" constant="-16" id="aDF-VB-Ue2"/>
+                            <constraint firstAttribute="centerX" secondItem="f55-Yj-hqP" secondAttribute="centerX" id="d2S-nL-9gE"/>
                             <constraint firstItem="f55-Yj-hqP" firstAttribute="top" secondItem="KHy-Wf-cZe" secondAttribute="bottom" constant="8" symbolic="YES" id="d73-9M-rsP"/>
                             <constraint firstItem="KHy-Wf-cZe" firstAttribute="centerX" secondItem="zW4-ZF-pWA" secondAttribute="centerX" id="dKC-fd-f5q"/>
                             <constraint firstItem="qhv-Mv-uuZ" firstAttribute="trailing" secondItem="9Eu-3G-l4O" secondAttribute="trailingMargin" id="fa7-1e-UfB"/>
                             <constraint firstItem="f55-Yj-hqP" firstAttribute="width" secondItem="zW4-ZF-pWA" secondAttribute="width" multiplier="2:1" id="gxh-C3-IXv"/>
                             <constraint firstItem="KHy-Wf-cZe" firstAttribute="top" secondItem="qhv-Mv-uuZ" secondAttribute="bottom" constant="8" symbolic="YES" id="hRP-8G-0iK"/>
                             <constraint firstItem="WJI-Sq-XfY" firstAttribute="centerX" secondItem="y6F-eC-XsW" secondAttribute="centerX" id="jzl-1e-eGZ"/>
+                            <constraint firstItem="f55-Yj-hqP" firstAttribute="width" secondItem="9Eu-3G-l4O" secondAttribute="width" id="q2f-m8-h67"/>
                             <constraint firstItem="KHy-Wf-cZe" firstAttribute="centerX" secondItem="f55-Yj-hqP" secondAttribute="centerX" constant="0.5" id="xLB-DP-kcB"/>
                             <constraint firstItem="f55-Yj-hqP" firstAttribute="trailing" secondItem="r6I-U0-6Fc" secondAttribute="trailing" id="xmR-B9-6J3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hnx-oc-jYF"/>
+                                <exclude reference="xmR-B9-6J3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>

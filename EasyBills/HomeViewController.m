@@ -323,7 +323,7 @@
     sharedLTHPasscodeViewController.labelFont = [UIFont wawaFontForLabel];
     sharedLTHPasscodeViewController.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor],
                                                              NSFontAttributeName : [UIFont wawaFontForNavigationTitle]};
-    sharedLTHPasscodeViewController.title = NSLocalizedString( @"Simple Billing", "");
+    sharedLTHPasscodeViewController.titleString = NSLocalizedString( @"Simple Billing", "");
     sharedLTHPasscodeViewController.enterOldPasscodeString = NSLocalizedString( @"Enter your old passcode", "");
     sharedLTHPasscodeViewController.enterPasscodeString = NSLocalizedString( @"Enter your passcode", "");
     sharedLTHPasscodeViewController.enablePasscodeString = NSLocalizedString( @"Enable Passcode", "");

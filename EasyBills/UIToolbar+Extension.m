@@ -21,7 +21,7 @@
                          initWithFrame:CGRectMake(0,
                                                   0,
                                                   VC.view.bounds.size.width,
-                                                  35)];
+                                                  44)];
     
     result.barStyle = UIBarStyleDefault;
     
