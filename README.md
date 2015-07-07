@@ -5,7 +5,7 @@ Simple Billing will keep track of your expenses and stay productive anytime – 
 Available on App Store
 
 App URL:  https://itunes.apple.com/us/app/simple-billing-easiest/id996352544?ls=1&mt=8
-# Description:
+# Description
 Are you spending more each month than you are getting as income? If so, you should look more closely at where your money is going and where you can cut back.
 
 The easy to navigate user interface will always keep you in the know about the whereabout of your money . so everyday you know where you money is and where it’s going - all at your fingertips.
